@@ -10,6 +10,8 @@
   "display": "standalone",
   "display_override": [
     "standalone",
+    "window-controls-overlay",
+    "tabbed",
     "minimal-ui"
   ],
   "orientation": "portrait",
@@ -57,6 +59,93 @@
       "type": "image/png",
       "form_factor": "narrow",
       "label": "CUFLB : Coupe d'Unité Flambeaux-Lumières de Bouaflé"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "CUFLB",
+      "short_name": "CUFLB",
+      "description": "Coupe d'Unité Flambeaux-Lumières de Bouaflé",
+      "url": "./index.html?page=cuflb",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mon ticket",
+      "short_name": "Ticket",
+      "description": "Ouvrir mon ticket du Camp",
+      "url": "./index.html?page=ticket",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "./index.html",
+      "accept": {
+        "image/*": [
+          ".png",
+          ".jpg",
+          ".jpeg",
+          ".webp"
+        ]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+campdistrict",
+      "url": "./index.html?lien=%s"
+    }
+  ],
+  "share_target": {
+    "action": "./index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "widgets": [
+    {
+      "name": "Compte à rebours du Camp",
+      "short_name": "Camp",
+      "description": "Camp de District 3 en 1 — Garango 2026",
+      "tag": "camp-countdown",
+      "ms_ac_template": "widget-template.json",
+      "data": "widget-data.json",
+      "type": "application/json",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "auto_update": false
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "note_taking": {
+    "new_note_url": "./index.html?page=note"
+  },
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "app.vercel.camp_district_3_en_1_2026.twa"
     }
   ]
 }
