@@ -1,7 +1,7 @@
 {
   "name": "Mon CAMP",
   "short_name": "Mon CAMP",
- "id": "/",
+  "id": "/",
   "description": "Application du Camp de District 3 en 1 — Garango 2026",
   "lang": "fr",
   "start_url": "./index.html",
