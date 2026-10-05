@@ -42,5 +42,21 @@
   "prefer_related_applications": false,
   "launch_handler": {
     "client_mode": "navigate-existing"
-  }
+  },
+  "screenshots": [
+    {
+      "src": "screenshot-1.png",
+      "sizes": "720x1576",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Accueil du Camp de District 3 en 1"
+    },
+    {
+      "src": "screenshot-2.png",
+      "sizes": "720x1576",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "CUFLB : Coupe d'Unité Flambeaux-Lumières de Bouaflé"
+    }
+  ]
 }
