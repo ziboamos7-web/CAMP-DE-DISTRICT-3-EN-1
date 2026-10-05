@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mon CAMP · Admin</title>
+<style>
+:root{--bg:#f4f1f8;--card:#fff;--tx:#1d1530;--mu:#6d6482;--pr:#5b2a9e;--ok:#1a8f4d;--bd:#e3dcee}
+@media(prefers-color-scheme:dark){:root{--bg:#150f22;--card:#211833;--tx:#f1ecf9;--mu:#a99fc0;--pr:#a77bf0;--bd:#33284a}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.4 system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+.w{max-width:720px;margin:0 auto;padding:14px}
+h1{font-size:19px;margin:0}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+input{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:inherit;margin:6px 0}
+button{padding:11px 14px;border:0;border-radius:10px;background:var(--pr);color:#fff;font:inherit;font-weight:600}
+button.g{background:transparent;color:var(--pr);border:1px solid var(--pr)}
+.tabs{display:flex;gap:8px;margin:10px 0}.tabs button{flex:1;background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+.tabs button.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.chip{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:8px 0}
+.card b{display:block}.mu{color:var(--mu);font-size:13px}
+.det{display:none;margin-top:8px;font-size:13px;border-top:1px solid var(--bd);padding-top:8px}
+.card.open .det{display:block}
+.det div{display:flex;justify-content:space-between;gap:10px;padding:2px 0}.det span:first-child{color:var(--mu)}
+.err{color:#c0392b;font-size:14px;min-height:20px}
+</style>
+</head>
+<body>
+<div class="w" id="login">
+  <h1>Mon CAMP · Admin</h1>
+  <p class="mu">Accès réservé à l'administrateur.</p>
+  <input id="em" type="email" placeholder="E-mail" autocomplete="username">
+  <input id="pw" type="password" placeholder="Mot de passe" autocomplete="current-password">
+  <div class="err" id="lerr"></div>
+  <button id="go" style="width:100%">Se connecter</button>
+</div>
+
+<div class="w" id="app" hidden>
+  <div class="top"><h1>Mon CAMP · Admin</h1><button class="g" id="out">Déconnexion</button></div>
+  <div class="chips" id="stats"></div>
+  <div class="tabs"><button id="t1" class="on">Inscrits</button><button id="t2">Sans inscription</button></div>
+  <input id="q" type="search" placeholder="Rechercher (nom, téléphone, groupe, ticket)">
+  <div style="display:flex;gap:8px"><button class="g" id="re" style="flex:1">Actualiser</button><button class="g" id="csv" style="flex:1">Exporter CSV</button></div>
+  <div class="err" id="aerr"></div>
+  <div id="list"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const sb=supabase.createClient('https://pzxpjavylrsmptwjeupi.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6eHBqYXZ5bHJzbXB0d2pldXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5MTU1ODMsImV4cCI6MjEwNjQ5MTU4M30.DeuASRJAaTuMhrSaF5N0SHfo-4E5r_c_wiugheIFiN0');
+const $=id=>document.getElementById(id);
+let reg=[],orph=[],tab=1;
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LBL={ticket_id:'Ticket',name:'Nom',phone:'Téléphone',birth:'Naissance',sex:'Sexe',branch:'Branche',grade:'Grade',region:'Région',group_name:'Groupe',troop:'Troupe',patrol:'Patrouille',title:'Titre',sector:'Secteur',price:'Prix',pass:'Pass',church:'Église',address:'Adresse',contact_email:'E-mail',birth_place:'Lieu de naissance',nationality:'Nationalité',created_at:'Créé le'};
+
+async function enter(){
+  const {data:ok,error}=await sb.rpc('camp_admin');
+  if(error||!ok){await sb.auth.signOut();$('lerr').textContent="Ce compte n'est pas administrateur.";return}
+  $('login').hidden=true;$('app').hidden=false;load();
+}
+$('go').onclick=async()=>{
+  $('lerr').textContent='';
+  const {error}=await sb.auth.signInWithPassword({email:$('em').value.trim(),password:$('pw').value});
+  if(error){$('lerr').textContent='Connexion refusée : '+error.message;return}
+  enter();
+};
+$('out').onclick=async()=>{await sb.auth.signOut();location.reload()};
+sb.auth.getSession().then(({data})=>{if(data.session)enter()});
+
+async function load(){
+  $('aerr').textContent='';
+  const [r,p]=await Promise.all([
+    sb.from('registrations').select('*').order('created_at',{ascending:false}),
+    sb.from('profiles').select('*').order('created_at',{ascending:false})]);
+  if(r.error||p.error){$('aerr').textContent='Erreur : '+(r.error||p.error).message;return}
+  reg=r.data;const ids=new Set(reg.map(x=>x.user_id));
+  orph=p.data.filter(x=>!ids.has(x.id));
+  const g={};reg.forEach(x=>{const k=x.group_name||'—';g[k]=(g[k]||0)+1});
+  $('stats').innerHTML='<span class="chip"><b style="display:inline">'+reg.length+'</b> inscrits</span><span class="chip">'+orph.length+' sans inscription</span>'+
+    Object.entries(g).sort((a,b)=>b[1]-a[1]).map(([k,v])=>'<span class="chip">'+esc(k)+' : '+v+'</span>').join('');
+  draw();
+}
+function draw(){
+  const q=$('q').value.toLowerCase().trim();
+  const src=tab===1?reg:orph;
+  const rows=src.filter(x=>!q||Object.values(x).join(' ').toLowerCase().includes(q));
+  $('list').innerHTML=rows.length?rows.map((x,i)=>{
+    const t=tab===1?esc(x.ticket_id||x.ticket_code||'—'):'';
+    const sub=tab===1?[x.phone,x.group_name,x.price!=null?x.price+' F':''].filter(Boolean).join(' · '):[x.phone,x.group_name].filter(Boolean).join(' · ');
+    const det=Object.keys(LBL).filter(k=>x[k]!=null&&x[k]!=='').map(k=>'<div><span>'+LBL[k]+'</span><span>'+esc(x[k])+'</span></div>').join('');
+    return '<div class="card" onclick="this.classList.toggle(\'open\')"><b>'+esc(x.name||'(sans nom)')+'</b><span class="mu">'+(t?t+' · ':'')+esc(sub)+'</span><div class="det">'+(det||'<span class="mu">Aucun détail</span>')+'</div></div>';
+  }).join(''):'<p class="mu">Aucun résultat.</p>';
+}
+$('t1').onclick=()=>{tab=1;$('t1').className='on';$('t2').className='';draw()};
+$('t2').onclick=()=>{tab=2;$('t2').className='on';$('t1').className='';draw()};
+$('q').oninput=draw;$('re').onclick=load;
+$('csv').onclick=()=>{
+  const cols=['ticket_id','name','phone','birth','sex','branch','grade','region','group_name','troop','patrol','title','sector','price','church','contact_email','created_at'];
+  const line=a=>a.map(v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"').join(';');
+  const csv='\ufeff'+[line(cols)].concat(reg.map(x=>line(cols.map(c=>x[c])))).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='inscrits-mon-camp.csv';a.click();
+};
+</script>
+</body>
+</html>
