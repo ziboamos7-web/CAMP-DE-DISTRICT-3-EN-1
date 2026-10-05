@@ -133,7 +133,15 @@
           "type": "image/png"
         }
       ],
-      "auto_update": false
+      "auto_update": false,
+      "screenshots": [
+        {
+          "src": "screenshot-1.png",
+          "sizes": "720x1576",
+          "type": "image/png",
+          "label": "Compte à rebours du Camp"
+        }
+      ]
     }
   ],
   "edge_side_panel": {
@@ -147,5 +155,16 @@
       "platform": "play",
       "id": "app.vercel.camp_district_3_en_1_2026.twa"
     }
-  ]
+  ],
+  "scope_extensions": [
+    {
+      "origin": "https://camp-district-3-en-1-2026.vercel.app"
+    }
+  ],
+  "tab_strip": {
+    "home_tab": "auto",
+    "new_tab_button": {
+      "url": "./index.html"
+    }
+  }
 }
