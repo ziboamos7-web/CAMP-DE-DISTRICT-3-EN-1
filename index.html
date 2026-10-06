@@ -15773,7 +15773,9 @@ hook();
 .ga-sp{position:absolute;font-size:20px;opacity:0;animation:gaSp 2.2s ease-in-out infinite}
 @keyframes gaSp{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(25deg)}}
 html.cg-new .p-row[data-a="gal"] .t b::after{content:'NOUVEAU';margin-left:8px;vertical-align:2px;font-size:10px;font-weight:900;letter-spacing:.08em;color:#fff;background:linear-gradient(135deg,#ff7a0a,#e0ad20);padding:3px 7px;border-radius:99px;animation:gaPulse 1.6s ease-in-out infinite}
-@media(prefers-reduced-motion:reduce){.ga *,html.cg-new .p-row b::after{animation:none!important}.ga-p{opacity:1;transform:translate(var(--x),0) rotate(var(--r))}.ga-cf{display:none}}
+html.cg-new .p-it[data-k="gal"]{background:linear-gradient(135deg,#f4ebff,#fff3df)!important;border:1.5px solid #c9a4ff!important;animation:gaGlow 2.4s ease-in-out infinite}
+@keyframes gaGlow{50%{box-shadow:0 0 0 4px rgba(162,89,230,.22),0 14px 28px -14px #a259e6}}
+@media(prefers-reduced-motion:reduce){html.cg-new .p-it[data-k="gal"]{animation:none}.ga *,html.cg-new .p-row b::after{animation:none!important}.ga-p{opacity:1;transform:translate(var(--x),0) rotate(var(--r))}.ga-cf{display:none}}
 </style>
 <script id="gal-announce">
 /* Annonce « Galerie débloquée » : animation à l'entrée dans l'application (une fois par appareil) + pastille NOUVEAU dans Plus */
@@ -15782,8 +15784,8 @@ html.cg-new .p-row[data-a="gal"] .t b::after{content:'NOUVEAU';margin-left:8px;v
 var FLAG='camp_gal_announce_v1',de=document.documentElement,t0=Date.now(),shown=false;
 var rd=function(k){try{return localStorage.getItem(k)}catch(e){return null}},wr=function(k,v){try{localStorage.setItem(k,v)}catch(e){}};
 function sess(){try{return JSON.parse(rd('camp_session_2026'))}catch(e){return null}}
-if(!rd(FLAG))de.classList.add('cg-new');
-function seen(){wr(FLAG,'1');de.classList.remove('cg-new')}
+de.classList.add('cg-new');
+function seen(){wr(FLAG,'1')}
 var og=window.openCampGallery;
 if(typeof og==='function')window.openCampGallery=function(){seen();return og.apply(this,arguments)};
 function show(){
