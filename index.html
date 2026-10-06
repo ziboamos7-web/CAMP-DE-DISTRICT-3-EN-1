@@ -4903,21 +4903,14 @@ function openPresenter(type){
     visual.innerHTML = `
       <section class="rescom-hero rx-hero">
         <span class="rx-aurora" aria-hidden="true"></span>
-        <span class="rescom-hero-kicker rx-k">ATELIER RESCOM · DEUX DISTRICTS</span>
+        <span class="rescom-hero-kicker rx-k">ATELIER RESCOM</span>
         <div class="rx-frame">
           <span class="rx-c a"></span><span class="rx-c b"></span><span class="rx-c c"></span><span class="rx-c d"></span>
           <div class="rx-photo">${src ? `<img src="${src}" alt="CP ZIBO AMOS — Atelier Rescom">` : ''}</div>
-          <span class="rx-rec"><i></i>REC</span>
-          <span class="rx-tag">FORMATEUR</span>
+            <span class="rx-tag">FORMATEUR</span>
         </div>
         <div class="rx-who"><b>CP ZIBO AMOS</b><small>Équipe de communication</small></div>
-        <h1>Faire des deux districts<br>une référence</h1>
-        <span class="rescom-hero-pill">ATELIER · COMMUNICATION</span>
-        <div class="rx-stats">
-          <div><b>2</b><small>jours pleins</small></div>
-          <div><b>6</b><small>axes de formation</small></div>
-          <div><b>22h</b><small>départ jeudi</small></div>
-        </div>
+        <h1>Faire des deux districts une référence</h1>
       </section>
 
       <section class="rescom-info-card rc-joincard">
@@ -4933,7 +4926,7 @@ function openPresenter(type){
         <div class="rescom-accent-title">POURQUOI CET ATELIER</div>
         <h2>Un même standard pour une image forte</h2>
         <p>Aujourd’hui, chaque troupe communique à sa façon. L’atelier réunit les responsables communication autour d’un même standard, pour que les deux districts soient reconnaissables d’un coup d’œil et respectés pour la qualité de leur image.</p>
-        <div class="rescom-chips"><span>Jeudi 22h → Vendredi 22h</span><span>2 jours pleins</span><span>Formateur · CP ZIBO AMOS</span></div>
+        <div class="rescom-chips"><span>Jeudi 22h → Vendredi 22h</span><span>2 jours pleins</span></div>
       </section>
 
       <section class="rescom-info-card">
@@ -4943,7 +4936,7 @@ function openPresenter(type){
 
       <section class="rescom-info-card">
         <div class="rescom-accent-title">À PRÉPARER AVANT L’ATELIER</div>
-        <a class="rc-dl" href="https://play.google.com/store/search?q=pixellab&c=apps" target="_blank" rel="noopener"><i>⬇</i><span><strong>Télécharge Pixellab à l’avance</strong><small>L’application servira à la partie pratique : logo, affiche et filigrane.</small></span></a>
+        <a class="rc-dl" href="https://play.google.com/store/search?q=pixellab&c=apps" target="_blank" rel="noopener"><i class="rc-logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2fb7ff"/><stop offset="1" stop-color="#0a4fd6"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#pxg)"/><path d="M15 36V12h10.5a7.5 7.5 0 0 1 0 15H21" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="31" y="31" width="6" height="6" rx="1.4" fill="#ffd23f"/></svg></i><span><strong>Télécharge Pixellab</strong><small>Google Play · pour le logo, l’affiche et le filigrane</small></span><em aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></em></a>
         <ul class="rescom-check-list" style="margin-top:12px">
           <li><b>Installe et ouvre Pixellab</b> avant l’atelier pour gagner du temps le jour J.</li>
           <li><b>Charge ton téléphone</b> et prévois de quoi le recharger.</li>
@@ -4986,9 +4979,6 @@ function openPresenter(type){
         <p>Une image unifiée des deux districts, des rescoms formés et reconnus dans leur rôle, des contenus mieux protégés et mieux conservés, et une référence que d’autres districts peuvent suivre.</p>
       </section>
 
-      <section class="rescom-formateur-card">
-        <span>FORMATEUR</span><b>L’équipe de communication</b><strong>Représentée par CP ZIBO AMOS</strong>
-      </section>
     `;
     document.querySelector('.presenter-detail').after(visual);
     if(window.rescomPaint)rescomPaint();
@@ -10776,6 +10766,7 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
   rows+=row('Camp',e('28 oct. → 1er nov. 2026'));
   var acts='<div class="v70-acts"><button type="button" class="v63-btn" id="cd3Sh">Partager</button><button type="button" class="v63-btn alt" id="cd3Cl">Fermer</button></div>';
   S.open(S.sheetP(e(kick),'',src,name,pill,rows,acts));
+  var pp=document.querySelector('#v63Body .v71-p');if(pp)pp.classList.add('cd-iv');
   var im=document.querySelector('#v63Body .v71-hero img');if(im&&pos)im.style.objectPosition=pos;
   var cl=document.getElementById('cd3Cl');if(cl)cl.onclick=S.close;
   var sh=document.getElementById('cd3Sh');if(sh)sh.onclick=function(){
@@ -10794,6 +10785,48 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
 })();
 </script>
 
+<style id="cd-iv-frame">
+/* Intervenants — fiche : grande photo + cadre soigné */
+.v63-sh .v71-p.cd-iv{text-align:center}
+.v63-sh .v71-p.cd-iv .v63-kick{margin-bottom:16px;padding:7px 16px;font-size:11.5px;letter-spacing:.1em;box-shadow:0 10px 20px -10px rgba(168,0,28,.7)}
+.v63-sh .v71-p.cd-iv .v71-hero{width:100%;max-width:100%;aspect-ratio:4/5;max-height:64vh;margin:0 auto 22px;border-radius:30px;
+ box-shadow:0 0 0 3px #fff,0 0 0 6px #ff8a1f,0 0 0 11px rgba(255,138,31,.2),0 30px 50px -22px rgba(40,10,90,.85)}
+.v63-sh .v71-p.cd-iv .v71-hero img{object-fit:cover}
+.v63-sh .v71-p.cd-iv .v71-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+ background:linear-gradient(to top,rgba(20,5,55,.55),rgba(20,5,55,0) 32%),linear-gradient(to bottom,rgba(20,5,55,.18),rgba(20,5,55,0) 18%)}
+.v63-sh .v71-p.cd-iv .v70-band{position:absolute;left:0;right:0;bottom:0;z-index:2;height:9px}
+.v63-sh .v71-p.cd-iv .v71-nm{margin:4px 0 10px!important;font-size:27px!important;line-height:1.1;letter-spacing:-.3px}
+.v63-sh .v71-p.cd-iv .v70-role{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:.02em;box-shadow:0 10px 18px -12px rgba(255,170,0,.9)}
+.v63-sh .v71-p.cd-iv .v63-row{margin-top:10px;padding:13px 15px;border-radius:16px;background:linear-gradient(#fff,#faf8ff);border:1px solid #ece6fb;box-shadow:0 8px 16px -14px rgba(67,17,138,.5)}
+.v63-sh .v71-p.cd-iv .v63-row:first-of-type{margin-top:22px}
+.v63-sh:has(.v71-p.cd-iv){max-width:480px}
+/* Intervenants — cartes de l'accueil : photos plus grandes */
+.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex:0 0 90%!important;max-width:380px!important;aspect-ratio:4/5!important}
+.ref-speakers .speaker-extra-photo img{object-position:50% 8%}
+@media(min-width:700px){.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex-basis:380px!important}}
+</style>
+<style id="cd-rx-v2">
+/* Atelier Rescom — bandeau formateur épuré + bouton Pixellab */
+html body #presenter.rescom-detail-mode .rx-hero{padding:calc(env(safe-area-inset-top,0px) + 66px) 22px 44px}
+html body #presenter.rescom-detail-mode .rx-k{margin-bottom:20px}
+html body #presenter.rescom-detail-mode .rx-frame{width:min(84%,330px);aspect-ratio:4/5;transform:none;animation:none}
+html body #presenter.rescom-detail-mode .rx-c{display:none}
+html body #presenter.rescom-detail-mode .rx-photo{inset:0;border-radius:28px;box-shadow:0 0 0 3px #fff,0 0 0 6px #ff8a1f,0 0 0 12px rgba(255,138,31,.22),0 30px 50px -20px rgba(0,0,0,.8)}
+html body #presenter.rescom-detail-mode .rx-photo img{object-position:center 12%}
+html body #presenter.rescom-detail-mode .rx-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,5,43,.5),rgba(18,5,43,0) 34%)}
+html body #presenter.rescom-detail-mode .rx-tag{bottom:-16px;padding:8px 20px;font-size:11.5px}
+html body #presenter.rescom-detail-mode .rx-who{margin-top:32px}
+html body #presenter.rescom-detail-mode .rx-who b{font-size:24px;line-height:1.1}
+html body #presenter.rescom-detail-mode .rx-who small{margin-top:5px;font-size:13px}
+html body #presenter.rescom-detail-mode .rx-hero h1{margin:16px auto 0;max-width:320px;font-size:clamp(18px,5vw,22px);line-height:1.25;font-weight:800;letter-spacing:-.01em;color:#e9defc}
+.rc-dl{gap:12px;padding:11px 14px 11px 11px;border-radius:18px;box-shadow:0 14px 26px -16px rgba(67,17,138,.8)}
+.rc-dl i.rc-logo{width:46px;height:46px;border-radius:12px;padding:0;background:none;overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+.rc-dl i.rc-logo svg{width:100%;height:100%;display:block}
+.rc-dl strong{font-size:15px}
+.rc-dl small{font-size:11.5px}
+.rc-dl em{flex:none;margin-left:auto;width:34px;height:34px;border-radius:50%;background:#ffffff26;display:grid;place-items:center}
+.rc-dl em svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+</style>
 <style id="rs-fx-css">
 .fx{z-index:2147483200!important}
 .rs-fx{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 74px);z-index:2147483200;width:min(320px,88vw);box-sizing:border-box;transform:translateX(-50%);pointer-events:none;padding:12px 14px 13px 12px;border-radius:20px;background:#fff;color:#12235a;box-shadow:0 18px 44px -14px rgba(12,14,44,.55),0 0 0 1px rgba(20,22,60,.06);animation:rsIn .45s cubic-bezier(.2,.9,.25,1) both,rsOut .3s 1.35s ease forwards}
