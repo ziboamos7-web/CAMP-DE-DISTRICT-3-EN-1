@@ -4439,7 +4439,7 @@ render()})();
   <section class="app-screen" id="screenPlus" aria-hidden="true">
     <div class="screen-head no-back">
       <div>
-        <span>PLUS</span>
+        <span>MON PROFIL</span>
         <h2>Tout le Camp au même endroit</h2>
       </div>
       <span class="settings-gear"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sliders"/></svg></span>
@@ -4491,8 +4491,8 @@ render()})();
   </button>
   <button class="nav-item" data-tab="plus" onclick="showAppTab('plus')">
     <span class="nav-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="18" cy="6" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/><circle cx="6" cy="18" r="1.5"/><circle cx="12" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg>
-    </span><b>PLUS</b>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1-4 4-5.5 7-5.5s6 1.5 7 5.5"/></svg>
+    </span><b>MON PROFIL</b>
   </button>
 </nav>
 
@@ -4534,7 +4534,7 @@ render()})();
     <div id="regProgress" style="display:flex;gap:6px;margin:0 0 16px"><span class="reg-dot active"></span><span class="reg-dot"></span><span class="reg-dot"></span><span class="reg-dot"></span></div>
     <form class="registration-form" id="registrationForm" onsubmit="saveRegistration(event)">
       <section class="reg-step active" data-step="0"><h3>01 · Qui es-tu ?</h3>
-        <div class="registration-field photo-field"><label>PHOTO DU PARTICIPANT</label><input id="regPhoto" type="file" accept="image/*,.jpg,.jpeg,.png,.webp" aria-label="Choisir une photo dans la galerie" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;opacity:0"><div class="reg-photo-card"><span class="reg-photo-frame"><img id="regPhotoPreview" alt="Aperçu de ta photo" hidden><span id="regPhotoPlaceholder">＋</span></span><span class="reg-photo-copy"><b id="regPhotoLabel">Ajouter ma photo</b><small>Facultative, elle apparaîtra sur ton ticket · JPG, PNG ou WebP</small><button type="button" id="regPhotoChoose" class="reg-photo-choose">📷 Importer une image</button><small id="regPhotoStatus" aria-live="polite">Aucune photo sélectionnée</small></span></div></div>
+        <div class="registration-field photo-field"><label>PHOTO DU PARTICIPANT</label><input id="regPhoto" type="file" accept="image/*,.jpg,.jpeg,.png,.webp" aria-label="Choisir une photo dans la galerie" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;opacity:0"><input id="regPhotoCam" type="file" accept="image/*" capture="environment" tabindex="-1" aria-label="Prendre une photo avec la caméra" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;opacity:0"><div class="reg-photo-card"><span class="reg-photo-frame"><img id="regPhotoPreview" alt="Aperçu de ta photo" hidden><span id="regPhotoPlaceholder">＋</span></span><span class="reg-photo-copy"><b id="regPhotoLabel">Ajouter ma photo</b><small>Facultative, elle apparaîtra sur ton ticket · JPG, PNG ou WebP</small><span class="reg-photo-actions"><button type="button" id="regPhotoTake" class="reg-photo-btn take"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Prendre une photo</span></button><button type="button" id="regPhotoChoose" class="reg-photo-btn pick"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Importer une photo</span></button></span><small id="regPhotoStatus" aria-live="polite">Aucune photo sélectionnée</small></span></div></div>
         <div class="registration-field"><label for="regName">NOM ET PRÉNOMS *</label><input id="regName" required autocomplete="name" placeholder="Nom et prénoms"></div>
         <div class="registration-field"><label for="regPhone">CONTACT *</label><input id="regPhone" required inputmode="tel" autocomplete="tel" placeholder="Numéro de téléphone"></div>
         <div class="registration-field"><label for="regEmail">E-MAIL (FACULTATIF)</label><input id="regEmail" type="email" inputmode="email" autocomplete="email" autocapitalize="none" placeholder="exemple@mail.com"></div>
@@ -4583,6 +4583,15 @@ render()})();
 .reg-photo-frame img{width:100%;height:100%;object-fit:cover}.reg-photo-frame img[hidden],.reg-photo-copy em[hidden]{display:none}
 .reg-photo-copy{display:grid;gap:5px}.reg-photo-copy b{font-size:14px;color:#fff}.reg-photo-copy small,.reg-help{font-size:11px;color:#cfc5d8}.reg-photo-copy em{font-style:normal;font-size:11px;font-weight:800;color:#ff9a38}
 .reg-photo-choose{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;border:0;border-radius:11px;background:linear-gradient(135deg,#ff8a22,#ef5a00);color:#fff;font:inherit;font-size:12px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #ff790033}.reg-photo-choose:focus-visible{outline:3px solid #fff;outline-offset:3px}
+/* Photo : « Prendre une photo » et « Importer une photo » sur une seule ligne */
+.reg-photo-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:380px;margin:2px auto 0}
+.reg-photo-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:48px;padding:8px 10px;border:0;border-radius:14px;font:inherit;font-size:13px;font-weight:800;line-height:1.15;text-align:center;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.reg-photo-btn svg{width:18px;height:18px;flex:none}
+.reg-photo-btn:active{transform:scale(.97)}
+.reg-photo-btn:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+.reg-photo-btn.take{background:linear-gradient(135deg,#ff8a22,#ef5a00);box-shadow:0 6px 16px #ff790040}
+.reg-photo-btn.pick{background:#fff;color:#18205d;box-shadow:inset 0 0 0 2px #18205d33}
+@media(max-width:340px){.reg-photo-btn svg{display:none}}
 .reg-date-wrap{display:flex;align-items:center;gap:10px;padding:0 12px;border:1px solid #ffffff25;border-radius:13px;background:#ffffff0d}.reg-date-wrap span{font-size:20px;color:#ff9a38}.reg-date-wrap input{border:0!important;background:transparent!important;flex:1;min-width:0;padding:13px 2px!important;color:#fff!important;color-scheme:dark}.reg-help{display:block;margin-top:6px}.reg-other{margin-top:8px}.reg-other[hidden]{display:none}
 </style>
 <script id="v27-registration-js">
@@ -4656,7 +4665,7 @@ render()})();
  window.regMove=function(dir){const n=cur();if(dir>0){const bad=validateStep(n);if(bad){focusField(bad);return}}go(n+dir)};
 
  /* ---------- tarif suggéré + récapitulatif ---------- */
- function suggestPrice(){const t=$('regTitle').value,rec=CHEF.includes(t)?'8000':'7000';
+ function suggestPrice(){const t=$('regTitle').value,rec=t==='Élément'?'7000':'8000';
   document.querySelectorAll('.reg-price').forEach(l=>{const r=l.querySelector('input'),sp=l.querySelector('span');let b=l.querySelector('.reg-reco');if(!b){b=document.createElement('em');b.className='reg-reco';sp.append(b)}
    const on=t&&r.value===rec;b.textContent=on?'Suggéré pour ton titre ('+t+')':'';b.hidden=!on})}
  function fmtDate(v){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return m?m[3]+'/'+m[2]+'/'+m[1]:v}
@@ -4673,11 +4682,12 @@ render()})();
    sec('Mission',2,row('Région',region)+row('District',$('regGroup').value)+row('Troupe',g('regTroop'))+row('Église',church)+row('Patrouille',patrol)+row('Titre',$('regTitle').value))+sec('Ticket',3,row('Numéro du ticket',String($('regTicketNumber')?.value||'').padStart(4,'0')))}
 
  /* ---------- photo ---------- */
- const photoInput=$('regPhoto'),photoBtn=$('regPhotoChoose');
- function setPhoto(src){photoData=src;$('regPhotoPreview').src=src;$('regPhotoPreview').hidden=false;$('regPhotoPlaceholder').hidden=true;$('regPhotoLabel').textContent='Photo ajoutée';if(photoBtn)photoBtn.textContent='Changer la photo';$('regPhotoStatus').textContent='Photo prête pour le ticket.'}
- function clearPhoto(){photoData='';$('regPhotoPreview').hidden=true;$('regPhotoPreview').removeAttribute('src');$('regPhotoPlaceholder').hidden=false;$('regPhotoLabel').textContent='Ajouter ma photo';if(photoBtn)photoBtn.textContent='📷 Importer une image';$('regPhotoStatus').textContent='Aucune photo sélectionnée';if(photoInput)photoInput.value=''}
+ const photoInput=$('regPhoto'),photoBtn=$('regPhotoChoose'),photoCam=$('regPhotoCam'),photoTake=$('regPhotoTake');
+ function setPhoto(src){photoData=src;$('regPhotoPreview').src=src;$('regPhotoPreview').hidden=false;$('regPhotoPlaceholder').hidden=true;$('regPhotoLabel').textContent='Photo ajoutée';$('regPhotoStatus').textContent='Photo prête pour le ticket.'}
+ function clearPhoto(){photoData='';$('regPhotoPreview').hidden=true;$('regPhotoPreview').removeAttribute('src');$('regPhotoPlaceholder').hidden=false;$('regPhotoLabel').textContent='Ajouter ma photo';$('regPhotoStatus').textContent='Aucune photo sélectionnée';if(photoInput)photoInput.value='';if(photoCam)photoCam.value=''}
  if(photoBtn&&photoInput)photoBtn.addEventListener('click',ev=>{ev.preventDefault();photoInput.click()});
- if(photoInput)photoInput.addEventListener('change',function(){
+ if(photoTake&&photoCam)photoTake.addEventListener('click',ev=>{ev.preventDefault();photoCam.setAttribute('capture',document.body.classList.contains('px-mode')?'environment':'user');photoCam.click()});
+ const onPhotoChange=function(){
   const f=this.files&&this.files[0];if(!f)return;const status=$('regPhotoStatus');
   if(!f.type||!f.type.startsWith('image/')){status.textContent='Format non pris en charge. Choisis une image.';this.value='';return}
   if(f.size>12*1024*1024){status.textContent='Image trop lourde (maximum 12 Mo).';this.value='';return}
@@ -4686,7 +4696,8 @@ render()})();
   reader.onload=()=>{const img=new Image();img.onerror=()=>{status.textContent='Image illisible. Essaie un autre fichier.'};
    img.onload=()=>{let out;try{const max=800,s=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);out=c.toDataURL('image/jpeg',.76)}catch(e){out=reader.result}
     setPhoto(out);saveDraft()};img.src=reader.result};
-  reader.readAsDataURL(f)});
+  reader.readAsDataURL(f)};
+ [photoInput,photoCam].forEach(el=>{if(el)el.addEventListener('change',onPhotoChange)});
 
  /* ---------- champs « Autre » ---------- */
  function toggleOther(id){const sel=$(id),o=$(id+'Other');if(!o)return;const on=sel.value==='Autre';o.hidden=!on;o.required=on;if(!on){o.value='';setErr(id+'Other','')}}
@@ -4892,21 +4903,14 @@ function openPresenter(type){
     visual.innerHTML = `
       <section class="rescom-hero rx-hero">
         <span class="rx-aurora" aria-hidden="true"></span>
-        <span class="rescom-hero-kicker rx-k">ATELIER RESCOM · DEUX DISTRICTS</span>
+        <span class="rescom-hero-kicker rx-k">ATELIER RESCOM</span>
         <div class="rx-frame">
           <span class="rx-c a"></span><span class="rx-c b"></span><span class="rx-c c"></span><span class="rx-c d"></span>
           <div class="rx-photo">${src ? `<img src="${src}" alt="CP ZIBO AMOS — Atelier Rescom">` : ''}</div>
-          <span class="rx-rec"><i></i>REC</span>
-          <span class="rx-tag">FORMATEUR</span>
+            <span class="rx-tag">FORMATEUR</span>
         </div>
         <div class="rx-who"><b>CP ZIBO AMOS</b><small>Équipe de communication</small></div>
-        <h1>Faire des deux districts<br>une référence</h1>
-        <span class="rescom-hero-pill">ATELIER · COMMUNICATION</span>
-        <div class="rx-stats">
-          <div><b>2</b><small>jours pleins</small></div>
-          <div><b>6</b><small>axes de formation</small></div>
-          <div><b>22h</b><small>départ jeudi</small></div>
-        </div>
+        <h1>Faire des deux districts une référence</h1>
       </section>
 
       <section class="rescom-info-card rc-joincard">
@@ -4922,7 +4926,7 @@ function openPresenter(type){
         <div class="rescom-accent-title">POURQUOI CET ATELIER</div>
         <h2>Un même standard pour une image forte</h2>
         <p>Aujourd’hui, chaque troupe communique à sa façon. L’atelier réunit les responsables communication autour d’un même standard, pour que les deux districts soient reconnaissables d’un coup d’œil et respectés pour la qualité de leur image.</p>
-        <div class="rescom-chips"><span>Jeudi 22h → Vendredi 22h</span><span>2 jours pleins</span><span>Formateur · CP ZIBO AMOS</span></div>
+        <div class="rescom-chips"><span>Jeudi 22h → Vendredi 22h</span><span>2 jours pleins</span></div>
       </section>
 
       <section class="rescom-info-card">
@@ -4932,7 +4936,7 @@ function openPresenter(type){
 
       <section class="rescom-info-card">
         <div class="rescom-accent-title">À PRÉPARER AVANT L’ATELIER</div>
-        <a class="rc-dl" href="https://play.google.com/store/search?q=pixellab&c=apps" target="_blank" rel="noopener"><i>⬇</i><span><strong>Télécharge Pixellab à l’avance</strong><small>L’application servira à la partie pratique : logo, affiche et filigrane.</small></span></a>
+        <a class="rc-dl" href="https://play.google.com/store/search?q=pixellab&c=apps" target="_blank" rel="noopener"><i class="rc-logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="pxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2fb7ff"/><stop offset="1" stop-color="#0a4fd6"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="url(#pxg)"/><path d="M15 36V12h10.5a7.5 7.5 0 0 1 0 15H21" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="31" y="31" width="6" height="6" rx="1.4" fill="#ffd23f"/></svg></i><span><strong>Télécharge Pixellab</strong><small>Google Play · pour le logo, l’affiche et le filigrane</small></span><em aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></em></a>
         <ul class="rescom-check-list" style="margin-top:12px">
           <li><b>Installe et ouvre Pixellab</b> avant l’atelier pour gagner du temps le jour J.</li>
           <li><b>Charge ton téléphone</b> et prévois de quoi le recharger.</li>
@@ -4975,9 +4979,6 @@ function openPresenter(type){
         <p>Une image unifiée des deux districts, des rescoms formés et reconnus dans leur rôle, des contenus mieux protégés et mieux conservés, et une référence que d’autres districts peuvent suivre.</p>
       </section>
 
-      <section class="rescom-formateur-card">
-        <span>FORMATEUR</span><b>L’équipe de communication</b><strong>Représentée par CP ZIBO AMOS</strong>
-      </section>
     `;
     document.querySelector('.presenter-detail').after(visual);
     if(window.rescomPaint)rescomPaint();
@@ -10011,6 +10012,7 @@ html body #screenMatchs .cu-cta{margin-top:0!important}
       return false;
     }
     try{if(typeof window.v63AddMember==='function')window.v63AddMember(d)}catch(_){ }
+    try{if(!(old&&old.Pass)&&window.cdFx)setTimeout(function(){window.cdFx('created',{t:['','Inscription réussie !',(d.Name||'Bienvenue')+', tu es pré-inscrit(e)']})},250)}catch(_){ }
     const ov=$('registrationOverlay');
     if(ov){ov.classList.remove('open');ov.setAttribute('aria-hidden','true')}
     const nav=$('floatingAppNav');if(nav)nav.style.display='grid';
@@ -10764,6 +10766,7 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
   rows+=row('Camp',e('28 oct. → 1er nov. 2026'));
   var acts='<div class="v70-acts"><button type="button" class="v63-btn" id="cd3Sh">Partager</button><button type="button" class="v63-btn alt" id="cd3Cl">Fermer</button></div>';
   S.open(S.sheetP(e(kick),'',src,name,pill,rows,acts));
+  var pp=document.querySelector('#v63Body .v71-p');if(pp)pp.classList.add('cd-iv');
   var im=document.querySelector('#v63Body .v71-hero img');if(im&&pos)im.style.objectPosition=pos;
   var cl=document.getElementById('cd3Cl');if(cl)cl.onclick=S.close;
   var sh=document.getElementById('cd3Sh');if(sh)sh.onclick=function(){
@@ -10779,6 +10782,84 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
   if(!window.v63Sheet)return;
   ev.preventDefault();ev.stopPropagation();ev.stopImmediatePropagation();
   openSheet(c)},true);
+})();
+</script>
+
+<style id="cd-iv-frame">
+/* Intervenants — fiche : grande photo + cadre soigné */
+.v63-sh .v71-p.cd-iv{text-align:center}
+.v63-sh .v71-p.cd-iv .v63-kick{margin-bottom:16px;padding:7px 16px;font-size:11.5px;letter-spacing:.1em;box-shadow:0 10px 20px -10px rgba(168,0,28,.7)}
+.v63-sh .v71-p.cd-iv .v71-hero{width:100%;max-width:100%;aspect-ratio:4/5;max-height:64vh;margin:0 auto 22px;border-radius:30px;
+ box-shadow:0 0 0 3px #fff,0 0 0 6px #ff8a1f,0 0 0 11px rgba(255,138,31,.2),0 30px 50px -22px rgba(40,10,90,.85)}
+.v63-sh .v71-p.cd-iv .v71-hero img{object-fit:cover}
+.v63-sh .v71-p.cd-iv .v71-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+ background:linear-gradient(to top,rgba(20,5,55,.55),rgba(20,5,55,0) 32%),linear-gradient(to bottom,rgba(20,5,55,.18),rgba(20,5,55,0) 18%)}
+.v63-sh .v71-p.cd-iv .v70-band{position:absolute;left:0;right:0;bottom:0;z-index:2;height:9px}
+.v63-sh .v71-p.cd-iv .v71-nm{margin:4px 0 10px!important;font-size:27px!important;line-height:1.1;letter-spacing:-.3px}
+.v63-sh .v71-p.cd-iv .v70-role{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:.02em;box-shadow:0 10px 18px -12px rgba(255,170,0,.9)}
+.v63-sh .v71-p.cd-iv .v63-row{margin-top:10px;padding:13px 15px;border-radius:16px;background:linear-gradient(#fff,#faf8ff);border:1px solid #ece6fb;box-shadow:0 8px 16px -14px rgba(67,17,138,.5)}
+.v63-sh .v71-p.cd-iv .v63-row:first-of-type{margin-top:22px}
+/* Intervenants — cartes de l'accueil : photos plus grandes */
+.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex:0 0 90%!important;max-width:380px!important;aspect-ratio:4/5!important}
+.ref-speakers .speaker-extra-photo img{object-position:50% 8%}
+@media(min-width:700px){.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex-basis:380px!important}}
+</style>
+<style id="cd-rx-v2">
+/* Atelier Rescom — bandeau formateur épuré + bouton Pixellab */
+html body #presenter.rescom-detail-mode .rx-hero{padding:calc(env(safe-area-inset-top,0px) + 66px) 22px 44px}
+html body #presenter.rescom-detail-mode .rx-k{margin-bottom:20px}
+html body #presenter.rescom-detail-mode .rx-frame{width:min(84%,330px);aspect-ratio:4/5;transform:none;animation:none}
+html body #presenter.rescom-detail-mode .rx-c{display:none}
+html body #presenter.rescom-detail-mode .rx-photo{inset:0;border-radius:28px;box-shadow:0 0 0 3px #fff,0 0 0 6px #ff8a1f,0 0 0 12px rgba(255,138,31,.22),0 30px 50px -20px rgba(0,0,0,.8)}
+html body #presenter.rescom-detail-mode .rx-photo img{object-position:center 12%}
+html body #presenter.rescom-detail-mode .rx-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,5,43,.5),rgba(18,5,43,0) 34%)}
+html body #presenter.rescom-detail-mode .rx-tag{bottom:-16px;padding:8px 20px;font-size:11.5px}
+html body #presenter.rescom-detail-mode .rx-who{margin-top:32px}
+html body #presenter.rescom-detail-mode .rx-who b{font-size:24px;line-height:1.1}
+html body #presenter.rescom-detail-mode .rx-who small{margin-top:5px;font-size:13px}
+html body #presenter.rescom-detail-mode .rx-hero h1{margin:16px auto 0;max-width:320px;font-size:clamp(18px,5vw,22px);line-height:1.25;font-weight:800;letter-spacing:-.01em;color:#e9defc}
+.rc-dl{gap:12px;padding:11px 14px 11px 11px;border-radius:18px;box-shadow:0 14px 26px -16px rgba(67,17,138,.8)}
+.rc-dl i.rc-logo{width:46px;height:46px;border-radius:12px;padding:0;background:none;overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+.rc-dl i.rc-logo svg{width:100%;height:100%;display:block}
+.rc-dl strong{font-size:15px}
+.rc-dl small{font-size:11.5px}
+.rc-dl em{flex:none;margin-left:auto;width:34px;height:34px;border-radius:50%;background:#ffffff26;display:grid;place-items:center}
+.rc-dl em svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<style id="rs-fx-css">
+.fx{z-index:2147483200!important}
+.rs-fx{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 74px);z-index:2147483200;width:min(320px,88vw);box-sizing:border-box;transform:translateX(-50%);pointer-events:none;padding:12px 14px 13px 12px;border-radius:20px;background:#fff;color:#12235a;box-shadow:0 18px 44px -14px rgba(12,14,44,.55),0 0 0 1px rgba(20,22,60,.06);animation:rsIn .45s cubic-bezier(.2,.9,.25,1) both,rsOut .3s 1.35s ease forwards}
+.rs-fx .rs-r{display:flex;align-items:center;gap:12px}
+.rs-fx .rs-c{position:relative;flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1fb86b,#0f9d6b);display:grid;place-items:center;animation:rsPop .5s .05s cubic-bezier(.2,1.3,.3,1) both}
+.rs-fx .rs-c::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #1fb86b;animation:rsRing .8s .15s ease-out both}
+.rs-fx svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.rs-fx svg path{stroke-dasharray:1;stroke-dashoffset:1;animation:rsDraw .4s .22s ease-out forwards}
+.rs-fx b{display:block;font-size:15px;font-weight:800;line-height:1.2}
+.rs-fx small{display:block;margin-top:2px;font-size:12.5px;line-height:1.3;color:#6b7391}
+.rs-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:11px}
+.rs-bar i{position:relative;height:5px;border-radius:9px;background:#e6e9f4;overflow:hidden}
+.rs-bar i.d{background:#1fb86b}
+.rs-bar i.n::after{content:"";position:absolute;inset:0;background:#ff8a22;transform-origin:left;animation:rsFill .6s .3s ease-out both}
+@keyframes rsIn{from{opacity:0;transform:translate(-50%,-14px) scale(.94)}}
+@keyframes rsOut{to{opacity:0;transform:translate(-50%,-8px) scale(.97)}}
+@keyframes rsPop{0%{transform:scale(.4)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes rsRing{from{transform:scale(1);opacity:.7}to{transform:scale(1.9);opacity:0}}
+@keyframes rsDraw{to{stroke-dashoffset:0}}
+@keyframes rsFill{from{transform:scaleX(0)}}
+@media(prefers-reduced-motion:reduce){.rs-fx .rs-c,.rs-fx .rs-c::after,.rs-fx svg path,.rs-bar i.n::after{animation-duration:.01s!important}.rs-fx{animation:rsOut .2s 1.4s ease forwards}}
+</style>
+<script id="rs-fx-js">
+/* Fin d'étape de la pré-inscription : pastille verte qui se trace, barre de progression qui avance (1,7 s, non bloquant) */
+(function(){'use strict';
+ var L=['Identité validée','Parcours validé','Mission validée'],N=['Parcours','Mission','Ticket'];
+ function step(){var a=document.querySelector('.reg-step.active');return a?+a.dataset.step:0}
+ function show(i){var o=document.getElementById('rsFx');if(o)o.remove();
+  var e=document.createElement('div');e.id='rsFx';e.className='rs-fx';e.setAttribute('role','status');
+  e.innerHTML='<div class="rs-r"><span class="rs-c"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4.2 4.2L18.5 7.5"/></svg></span><div><b>'+L[i]+'</b><small>Étape '+(i+2)+' sur 4 · '+N[i]+'</small></div></div><div class="rs-bar">'+[0,1,2,3].map(function(k){return '<i class="'+(k<=i?'d':(k===i+1?'n':''))+'"></i>'}).join('')+'</div>';
+  document.body.appendChild(e);try{navigator.vibrate&&navigator.vibrate(12)}catch(x){}setTimeout(function(){e.remove()},1700)}
+ function wrap(){var o=window.regMove;if(typeof o!=='function'||o.__rs)return;
+  var w=function(dir){var b=step(),r=o.apply(this,arguments);try{var a=step();if(dir>0&&a>b&&b<3)show(b)}catch(e){}return r};w.__rs=1;window.regMove=w}
+ wrap();setTimeout(wrap,500);setTimeout(wrap,2000)
 })();
 </script>
 </body>
@@ -12566,18 +12647,63 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
 .p-sc .p-btn{display:flex;width:100%;margin:8px 0 0;min-height:48px;font-size:15px}.p-btn.dg2{background:#d62f3a;color:#fff}.p-btn.gh{background:#f0f0f5;color:#14141f}
 .p-code{margin:10px 0 12px;padding:14px;border-radius:16px;background:#eef3ff;border:2px dashed #7da3f5;text-align:center;font-size:28px;font-weight:900;letter-spacing:.14em;color:#2457d6}
 </style>
+<style id="hx-css">
+.hx-it{margin:0 0 12px;padding:12px 12px 6px;border:1px solid #ececf4;border-radius:16px;background:#fff}
+.hx-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hx-top b{font-size:15px;font-weight:800;color:#14141f;min-width:0;overflow-wrap:anywhere}
+.hx-st{flex:none;padding:4px 9px;border-radius:99px;background:#fff1e0;color:#b45309;font-size:11px;font-weight:800}.hx-st.ok{background:#e4f7ea;color:#1c7a3a}
+.hx-code{margin:10px 0 6px;padding:10px;border-radius:12px;background:#eef3ff;border:2px dashed #7da3f5;text-align:center;font-size:26px;font-weight:900;letter-spacing:.3em;color:#2457d6;text-indent:.3em}
+.qk-row{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:6px;margin:16px 0 4px;padding:10px 6px 8px;border-radius:20px;background:#fff;box-shadow:0 8px 22px -16px rgba(30,20,90,.45)}
+.qk{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;padding:2px 0;border:0;background:none;font:inherit;color:#14141f;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.qk i{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;box-shadow:0 8px 16px -10px rgba(30,20,90,.7);transition:transform .15s}
+.qk:active i{transform:scale(.93)}
+.qk i svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.qk span{max-width:100%;font-size:11px;font-weight:700;line-height:1.1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qk:focus-visible{outline:3px solid #2563eb;outline-offset:2px;border-radius:12px}
+</style>
 <script id="v193-js">
 (function(){
  var scr=document.getElementById('screenPlus');if(!scr)return;
  var root=document.createElement('div');root.id='v193Plus';scr.appendChild(root);
  var LS=function(k){try{return localStorage.getItem(k)}catch(e){return null}},SS=function(k,v){try{localStorage.setItem(k,v)}catch(e){}};
  var P={user:'<circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1-4 4-5.5 7-5.5s6 1.5 7 5.5"/>',tk:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 6v12"/>',list:'<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',news:'<path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2zM18 9h2v9a2 2 0 0 1-2 2M8 8h7M8 12h7M8 16h4"/>',img:'<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/>',gal:'<rect x="6" y="3" width="15" height="15" rx="3"/><path d="M3 7v11a3 3 0 0 0 3 3h11M9 13l3-3 3 3 2-2 2 2"/>',head:'<path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H5a1 1 0 0 1-1-1zM20 14h-3v5h2a1 1 0 0 0 1-1z"/>',set:'<path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/>',cam:'<path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',pin:'<path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.3"/>',share:'<circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8.1 11 15.9 7M8.1 13l7.8 4"/>',cal:'<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/>',bag:'<path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2M9.5 13.5l2 2 3.5-3.5"/>',chev:'<path d="M6 9l6 6 6-6"/>',lock:'<rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',out:'<path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4M15 8l4 4-4 4M19 12H9"/>',arr:'<path d="M9 5l7 7-7 7"/>'};
+ P.bell='<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/>';P.dl='<path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/>';P.addu='<circle cx="10" cy="8.5" r="3.4"/><path d="M3.5 20c.8-3.8 3.4-5.5 6.5-5.5M18 9v6M15 12h6"/>';
  var sv=function(n){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+P[n]+'</svg>'};
  var esc=function(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
  var H=function(){return window.__v188||{}};
  var CK=['Tenue de troupe','Tee-shirt du Camp','Bible et cahier','Gourde et couverts','Lampe torche','Drap et matelas','Produits de toilette','Médicaments personnels'];
  var n0=new Date(),pd=(n0.getFullYear()===2026&&n0.getMonth()===9&&n0.getDate()>=28)?n0.getDate()-28:(n0.getFullYear()===2026&&n0.getMonth()===10&&n0.getDate()===1?4:0);
  var first=true,hero=null,M={},pageK='',pgEl=null;
+var inst=null;
+ window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();inst=e});
+ window.addEventListener('appinstalled',function(){inst=null;toast('Appli installée');try{refresh()}catch(e){}});
+ function isApp(){try{return !!((window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone)}catch(e){return false}}
+ function shortcuts(){M.install=['dl','#2563eb','Installer l’appli','Sur l’écran d’accueil'];
+  var a=[['qpx','addu','#6a0dad','Sans tél.'],['qtk','tk','#7c4dff','Mon ticket'],['qsh','share','#25a244','Partager'],['qin','dl','#2563eb','Installer'],['qnf','bell','#f08a1c','Notifs']];
+  if(isApp())a=a.filter(function(x){return x[0]!=='qin'});
+  return '<div class="qk-row" style="--n:'+a.length+'">'+a.map(function(x){return '<button type="button" class="qk" data-c="'+x[0]+'"><i style="background:'+x[2]+'">'+sv(x[1])+'</i><span>'+x[3]+'</span></button>'}).join('')+'</div>'}
+ function instHelp(){var ios=/iphone|ipad|ipod/i.test(navigator.userAgent||'');
+  var st=ios?['Touche le bouton Partager de Safari.','Choisis « Sur l’écran d’accueil ».','Touche Ajouter : l’appli apparaît sur ton écran.']:['Ouvre le menu ⋮ de ton navigateur.','Touche « Installer l’application » ou « Ajouter à l’écran d’accueil ».','Confirme : l’appli apparaît sur ton écran.'];
+  return '<p class="p-p">Installe l’appli pour l’ouvrir comme une application, en plein écran.</p>'+st.map(function(t,i){return '<div class="p-pg"><time>'+(i+1)+'</time><span>'+t+'</span></div>'}).join('')}
+ var pxR=[],pxJs='',pxT=0;
+ function pxPull(force){var b=window.CampBackend&&window.CampBackend.sb;if(!b||!b.rpc)return;if(!force&&Date.now()-pxT<15000)return;pxT=Date.now();
+  Promise.resolve(b.rpc('camp_proxy_history')).then(function(r){if(r&&!r.error&&Array.isArray(r.data)){var j=JSON.stringify(r.data);if(j!==pxJs){pxJs=j;pxR=r.data;if(pageK==='hist')paint();else{try{refresh()}catch(e){}}}}},function(){})}
+ function pxList(){var loc=[];try{loc=JSON.parse(LS('camp_proxy_regs_2026')||'[]');if(!Array.isArray(loc))loc=[]}catch(e){loc=[]}
+  var map={};loc.forEach(function(x){if(x&&x.code)map[x.code]=x});
+  pxR.forEach(function(r){var m=map[r.code];if(m){if(r.claimed)m.claimed=true;return}
+   var t=String(r.ticket||'');map[r.code]={code:r.code,ts:+r.ts||0,claimed:!!r.claimed,d:{Name:r.name,TicketCode:/^CAM-/.test(t)?t:'',TicketNumber:/^CAM-/.test(t)?'':t,Troop:r.troop,Pass:r.pass,Group:r.grp}}});
+  return Object.keys(map).map(function(k){return map[k]}).sort(function(a,b){return (b.ts||0)-(a.ts||0)})}
+ function pxHist(){var l=pxList();
+  if(!l.length)return '<p class="p-p">Aucune inscription effectuée pour le moment. Les campeurs pré-inscrits sans téléphone (bouton « Sans tél. » de l’accueil) apparaîtront ici avec leur code, leur numéro de ticket, la date et l’heure.</p>';
+  var h='<p class="p-p"><b>'+l.length+'</b> inscription'+(l.length>1?'s':'')+' effectuée'+(l.length>1?'s':'')+'</p>';
+  l.forEach(function(x){var d=x.d||{},dt=x.ts?new Date(x.ts):null,
+   dd=dt?dt.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric'}):'—',tt=dt?dt.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}):'—',
+   tk=d.TicketCode||(d.TicketNumber?'N° '+d.TicketNumber:'');
+   h+='<div class="hx-it"><div class="hx-top"><b>'+esc(d.Name||'Sans nom')+'</b><span class="hx-st'+(x.claimed?' ok':'')+'">'+(x.claimed?'Dossier récupéré':'Code à remettre')+'</span></div>'
+    +'<div class="hx-code" aria-label="Code '+esc(String(x.code||'').split('').join(' '))+'">'+esc(x.code||'—')+'</div>'
+    +kv('Numéro du ticket',tk||'Aucun ticket')+kv('Date',dd)+kv('Heure',tt)+kv('Troupe',d.Troop)+kv('Formule',d.Pass)
+    +'<button type="button" class="p-btn" data-c="hcopy" data-v="'+esc(x.code||'')+'">Copier le code</button></div>'});
+  return h}
  function ck(){try{return JSON.parse(LS('camp_checklist_2026')||'[]')}catch(e){return[]}}
  function toast(m){var t=document.createElement('div');t.className='p-toast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2200)}
  function kv(a,b){return (typeof b==='string'||typeof b==='number')&&b!==''?'<div class="p-kv"><span>'+a+'</span><b>'+esc(b)+'</b></div>':''}
@@ -12590,6 +12716,8 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
   if(k==='reg')return d?kv('Nom',d.Name)+kv('Téléphone',d.Phone)+kv('Troupe',d.Group)+kv('Église',d.Church)+'<button type="button" class="p-btn pr" data-c="reg">Modifier</button>':'<p class="p-p">Tu n’es pas encore pré-inscrit(e).</p><button type="button" class="p-btn pr" data-c="reg">Me pré-inscrire</button>';
   if(k==='tk')return kv('Titulaire',d&&d.Name)+kv('Formule',d&&d.Pass)+'<button type="button" class="p-btn pr" data-c="tk">Afficher mon QR code</button>';
   if(k==='lieu')return kv('Lieu','Collège FOHOUNDI, Garango')+kv('Dates','28 oct. → 1er nov. 2026')+'<a class="p-btn pr" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Coll%C3%A8ge%20FOHOUNDI%20Garango">Itinéraire</a><button type="button" class="p-btn" data-c="copy">Copier l’adresse</button>';
+  if(k==='install')return instHelp();
+  if(k==='hist')return pxHist();
   if(k==='prog')return prog();
   if(k==='gal')return gal();
   if(k==='frame')return '<p class="p-p">Choisis ta photo : elle s’insère dans le cadre du Camp, prête à partager.</p><button type="button" class="p-btn pr" data-c="frame">Choisir ma photo</button><button type="button" class="p-btn" data-c="frameGo">Voir le cadre</button>';
@@ -12605,12 +12733,13 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
   var nm=d?d.Name:'Mon profil',ini=(String(nm).trim().charAt(0)||'S').toUpperCase();
   var sub=d?([d.Phone?'+225 '+String(d.Phone).replace(/^\+?225/,'').trim():'',d.Group||''].filter(Boolean).join(' • ')):'Touche pour te pré-inscrire';
   var dl=Math.ceil((new Date(2026,9,28)-new Date())/864e5),cd=dl>0?'J-'+dl+' · 28 oct. → 1er nov.':(new Date()<new Date(2026,10,2)?'Camp en cours':'Camp terminé');
-  var nck=ck().length;
+  var nck=ck().length;pxPull();
   function it(k,ic,col,t,s,go){M[k]=[ic,col,t,s];return '<div class="p-it" data-k="'+k+'"><button type="button" class="p-row'+(k==='logout'?' p-logout-row':'')+'" data-a="'+k+'"><i style="background:'+col+'">'+sv(ic)+'</i><span class="t"><b>'+t+'</b><small>'+s+'</small></span><em class="p-ch">'+sv('arr')+'</em></button></div>'}
-  function sec(l,a,dl){return '<div class="p-lb">'+l+'</div><div class="p-card'+(l==='MON CAMP'?' p-tiles':'')+'" style="animation-delay:'+dl+'ms">'+a.join('')+'</div>'}
+  function sec(l,a,dl){return '<div class="p-lb">'+l+'</div><div class="p-card'+''+'" style="animation-delay:'+dl+'ms">'+a.join('')+'</div>'}
   root.className=first?'pfx':'';first=false;
   root.innerHTML='<div class="p-hero" id="pHero"><div class="p-cv" style="'+(cv?'background-image:url('+cv+')':'')+'"></div><div class="p-ov" data-c="viewcv"></div><div class="p-av" data-c="viewav" style="'+(av?'background-image:url('+av+');font-size:0':'')+'">'+esc(ini)+'<button type="button" class="p-cam" data-c="avadd" aria-label="Changer ma photo de profil">'+sv('cam')+'</button></div><h2 class="p-nm" data-c="reg">'+esc(nm)+'</h2><p class="p-sb">'+esc(sub)+'</p><p class="p-tag">Ensemble<br>pour un meilleur camp !</p></div>'
-  +'<div class="p-body">'
+  +'<div class="p-body">'+shortcuts()
+  +sec('SANS TÉLÉPHONE',[it('hist','list','#6a0dad','Historique des inscriptions effectuées',pxList().length?pxList().length+' campeur'+(pxList().length>1?'s':'')+' pré-inscrit'+(pxList().length>1?'s':''):'Codes, tickets, dates et heures')],0)
   +sec('MON CAMP',[it('reg','user','#2b8cf0','Ma pré-inscription',d?'Voir mes informations':'Pas encore pré-inscrit(e)'),d?it('tk','tk','#7c4dff','Mon ticket',d.TicketNumber?'Titulaire et QR code':'Ajoute ton numéro de ticket'):'',it('agenda','cal','#5b6ee1','Mon agenda','Mes rendez-vous du Camp',1),it('lieu','pin','#e5484d','Lieu & dates',cd)],0)
   +sec('DÉCOUVRIR',[it('prog','list','#3a56d4','Programme du Camp','Activités et horaires'),it('news','news','#f08a1c','Actualités','Les dernières informations',1),it('gal',galOn()?'gal':'lock',galOn()?'#a259e6':'#a9a9bb','Galerie','Mes photos & mon album'),it('frame','img','#e8a317','Ma photo du Camp','Cadre photo à partager')],70)
   +sec('PRATIQUE',[it('chk','bag','#34a853','À emporter',nck+' / '+CK.length+' prêts'),it('share','share','#0ea5a4','Inviter un ami','Code promo · avantages dès 10 inscrits'),it('help','head','#1fb5a8','Contact & Assistance','Appeler ou écrire'),it('set','set','#8e5be8','Paramètres','Réglages et couverture')],140)
@@ -12663,7 +12792,7 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
  function pbody(k){var h=H(),d=h.reg?h.reg():null,cv=h.cover?h.cover():'',x='';if(k==='chk'){var n=ck().length;x='<div class="pp-bar"><i style="width:'+Math.round(n/CK.length*100)+'%"></i></div><p class="p-p">'+n+' / '+CK.length+' éléments prêts</p>'}return x+body(k,d,cv)}
  function paint(){if(!pageK||!pgEl)return;var c=pgEl.querySelector('.pp-in'),y=pgEl.scrollTop;c.innerHTML=pbody(pageK);pgEl.scrollTop=y}
  function closePage(){if(!pgEl)return;var e=pgEl;pgEl=null;pageK='';e.classList.remove('open');setTimeout(function(){e.remove()},300)}
- function openPage(k){var m=M[k];if(!m)return;closePage();pageK=k;var e=document.createElement('div');e.className='pp';
+ function openPage(k){var m=M[k];if(!m)return;closePage();pageK=k;if(k==='hist')pxPull(true);var e=document.createElement('div');e.className='pp';
   e.innerHTML='<div class="pp-hd" style="background:linear-gradient(135deg,'+m[1]+','+m[1]+'cc)"><button type="button" class="pp-bk" aria-label="Retour">'+sv('arr')+'</button><span class="pp-ic">'+sv(m[0])+'</span><h3>'+m[2]+'</h3><p>'+m[3]+'</p></div><div class="pp-bd"><div class="p-card"><div class="pp-in"></div></div></div>';
   document.body.appendChild(e);pgEl=e;paint();e.querySelector('.pp-bk').onclick=closePage;
   e.addEventListener('click',function(ev){var c=ev.target.closest('[data-c]');if(c&&e.contains(c)){var f=C[c.dataset.c];if(f)f(c);if(/^(reg|tk|gal|frame|frameGo)$/.test(c.dataset.c))closePage()}});
@@ -12681,6 +12810,12 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
   gal:function(){window.openCampGallery&&openCampGallery()},
   frame:function(){var f=document.getElementById('cfF');if(!f){window.goCampFrame&&goCampFrame();return}f.addEventListener('change',function(){setTimeout(function(){window.goCampFrame&&goCampFrame()},300)},{once:true});f.click()},
   frameGo:function(){window.goCampFrame&&goCampFrame()},
+  qpx:function(){if(window.openProxyReg)window.openProxyReg();else toast('Indisponible pour le moment')},
+  qtk:function(){var d=H().reg?H().reg():null;if(!d){toast('Pré-inscris-toi d’abord pour avoir ton ticket.');window.openRegistration&&openRegistration();return}window.openTicket&&openTicket()},
+  qsh:function(){var u=location.protocol==='file:'?location.href:location.origin+location.pathname,t='Camp de District 3 en 1 · du 28 oct. au 1er nov. 2026 · Collège FOHOUNDI, Garango. Pré-inscris-toi sur l’appli : '+u;window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank')},
+  qin:function(){if(isApp()){toast('L’appli est déjà installée.');return}if(inst){var e=inst;inst=null;try{e.prompt();Promise.resolve(e.userChoice).then(function(ch){if(ch&&ch.outcome==='accepted')toast('Installation en cours…')},function(){})}catch(x){openPage('install')}return}openPage('install')},
+  qnf:function(){var b=document.querySelector('.ref-header .ref-circle[aria-label="Notifications"]');if(b)b.click();else toast('Notifications indisponibles')},
+  hcopy:function(b){var c=b.dataset.v||'';try{navigator.clipboard.writeText(c)}catch(e){}toast('Code copié : '+c)},
   copy:function(){try{navigator.clipboard.writeText('Collège FOHOUNDI, Garango')}catch(e){}toast('Adresse copiée')},
   sharecode:function(){var c=myCode();if(!c)return;var t='Rejoins le Camp de District 3 en 1 (28 oct. → 1er nov. 2026, Garango) ! Utilise mon code promo '+c+' à ton inscription.';if(window.cdShare)cdShare('Camp de District 3 en 1',t);else if(navigator.share)navigator.share({title:'Camp de District 3 en 1',text:t}).catch(function(){})},
   copycode:function(){var c=myCode();try{navigator.clipboard.writeText(c)}catch(e){}toast('Code copié : '+c)},
@@ -12700,16 +12835,30 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
 })();
 </script>
 <style id="v197-css">
-.fx{position:fixed;inset:0;z-index:100020;pointer-events:none;display:flex;align-items:center;justify-content:center}
-.fx:not(.big){align-items:flex-start;padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
-.fx-c{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px 26px;border-radius:24px;background:rgba(20,16,56,.94);color:#fff;text-align:center;box-shadow:0 20px 50px -10px #0008;animation:fxIn .5s cubic-bezier(.2,1.5,.4,1) both}
+.fx{position:fixed;inset:0;z-index:100020;pointer-events:none}
+.fx.big{display:flex;align-items:center;justify-content:center}
+.fx-bd{position:absolute;inset:0;background:rgba(20,16,56,.24);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;animation:fxBd .3s ease forwards}
+.fx.out .fx-bd{animation:fxBdO .35s ease forwards}
+.fx-c{display:flex;align-items:center;background:#fff;color:#14141f;box-shadow:0 22px 48px -14px rgba(20,16,56,.38),0 2px 8px rgba(20,16,56,.08);pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:fxIn .5s cubic-bezier(.2,1.25,.4,1) both}
 .fx.out .fx-c{animation:fxOut .35s ease forwards}
-.fx-e{font-size:50px;line-height:1.1;animation:fxB .8s .2s ease-in-out 2}.fx.big .fx-e{font-size:76px}
-.fx-c b{font-size:18px}.fx-c small{font-size:13px;opacity:.8}
-.fx-p{position:absolute;left:50%;top:50%;width:9px;height:14px;border-radius:2px;background:var(--c);opacity:0;animation:fxP 1.2s ease-out forwards}
-@keyframes fxIn{from{transform:scale(.3) rotate(-8deg);opacity:0}}@keyframes fxOut{to{transform:translateY(-30px) scale(.9);opacity:0}}
-@keyframes fxB{50%{transform:translateY(-14px) scale(1.12)}}
-@keyframes fxP{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),calc(var(--y) + 120px)) rotate(var(--r))}}
+.fx.big .fx-c{position:relative;flex-direction:column;text-align:center;width:min(80vw,290px);padding:30px 22px 24px;border-radius:28px}
+.fx.sm .fx-c{position:absolute;gap:11px;padding:9px 18px 9px 9px;border-radius:20px;max-width:min(88vw,330px);transform-origin:50% 100%}
+.fx-ic{position:relative;flex:none;display:grid;place-items:center;width:76px;height:76px;margin-bottom:16px;border-radius:50%;background:#eef0f4}
+.fx-ic::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid rgba(20,16,74,.18);opacity:0;animation:fxRing .9s .25s ease-out forwards}
+.k-created .fx-ic::after{border-color:rgba(18,140,74,.4)}
+.fx-ic svg{width:38px;height:38px;fill:none;stroke:#14104a;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.k-created .fx-ic svg{stroke:#128c4a;stroke-width:1.8}
+.fx-ic svg *{stroke-dasharray:1 3;stroke-dashoffset:1.1;animation:fxDraw .7s .18s cubic-bezier(.5,0,.2,1) both}
+.fx-c b{display:block;font-size:18px;font-weight:800;line-height:1.25}
+.fx-c small{display:block;margin-top:5px;font-size:13.5px;line-height:1.4;color:#7a819f}
+.fx.sm .fx-ic{width:36px;height:36px;margin:0}.fx.sm .fx-ic::after{display:none}.fx.sm .fx-ic svg{width:19px;height:19px}
+.fx.sm .fx-tx{text-align:left}.fx.sm .fx-c b{font-size:14px}.fx.sm .fx-c small{font-size:12px;margin-top:1px}
+@keyframes fxIn{from{opacity:0;transform:scale(.82) translateY(14px)}}
+@keyframes fxOut{to{opacity:0;transform:scale(.94) translateY(-8px)}}
+@keyframes fxBd{to{opacity:1}}@keyframes fxBdO{to{opacity:0}}
+@keyframes fxDraw{to{stroke-dashoffset:0}}
+@keyframes fxRing{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
+@media (prefers-reduced-motion:reduce){.fx *,.fx *::after{animation-duration:.01s!important;animation-delay:0s!important}}
 .mw{position:fixed;inset:0;z-index:100030;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at 50% 40%,rgba(43,30,110,.94),rgba(10,6,40,.97));opacity:0;transition:opacity .35s}.mw.on{opacity:1}
 .mw-b{position:relative;max-width:320px;background:#fff;color:#14141f;border-radius:22px;padding:14px 18px;font-size:18px;font-weight:800;text-align:center;line-height:1.3;animation:mwPop .5s .25s both cubic-bezier(.2,1.4,.4,1)}
 .mw-b::after{content:'';position:absolute;left:50%;bottom:-9px;width:18px;height:18px;background:#fff;transform:translateX(-50%) rotate(45deg)}
@@ -12743,17 +12892,40 @@ html.v187-calm *,html.v187-calm *::before,html.v187-calm *::after{animation:none
 (function(){
  var T={created:['🎉','Inscription réussie !','Bienvenue dans le Camp'],logout:['👋','À bientôt !','Tu es déconnecté(e)'],login:['🤗','Content de te revoir !','Reconnexion réussie'],comment:['💬','Commentaire publié','Merci pour ton message'],first:['🏆','Tu es le premier !','Premier à commenter cette publication'],share:['🚀','Partagé !','Merci de faire connaître le Camp'],repost:['🔁','Republié !','Publication republiée'],cover:['🌄','Couverture ajoutée !','Ça en jette'],avatar:['📸','Photo de profil ajoutée !','Joli sourire'],frame:['🖼️','Photo ajoutée au cadre !','Prête à partager'],read:['✅','Communiqué lu','Merci, tu es à jour'],licence:['🪪','Licence en route !','Carte officielle du Camp']};
  var COL=['#ff7410','#ffb300','#2b8cf0','#e0245c','#34c759','#a259e6'];
- window.cdFx=function(k,o){o=o||{};var t=T[k];if(!t)return;
+ var IC={
+ created:'<circle cx="12" cy="12" r="9.5"/><path d="M7.8 12.4l3 3 5.4-6.2"/>',
+ login:'<circle cx="10" cy="8" r="3.6"/><path d="M3.5 20v-1.2A4.8 4.8 0 0 1 8.3 14h3.4"/><path d="M14.5 18.2l2.3 2.3 4.2-4.6"/>',
+ logout:'<path d="M9 4.5H6.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2H9"/><path d="M15 8l4 4-4 4M19 12H9.5"/>',
+ comment:'<path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 20l1.5-4.5A8 8 0 1 1 20.5 11.5z"/>',
+ first:'<path d="M8 4.5h8v5a4 4 0 0 1-8 0z"/><path d="M8 6.5H5a3 3 0 0 0 3 4M16 6.5h3a3 3 0 0 1-3 4M12 13.5V17M8.5 20h7M10 17h4"/>',
+ share:'<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/>',
+ repost:'<path d="M17 3.5l3 3-3 3"/><path d="M4 11V9.5a3 3 0 0 1 3-3h13"/><path d="M7 20.5l-3-3 3-3"/><path d="M20 13v1.5a3 3 0 0 1-3 3H4"/>',
+ cover:'<rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="m4 17 5-4.5 3.5 3L16 12l4 4.5"/>',
+ avatar:'<path d="M4.5 8.5h3L9 6h6l1.5 2.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.4"/>',
+ frame:'<rect x="4" y="4" width="16" height="16" rx="2.5"/><rect x="8" y="8" width="8" height="8" rx="1.5"/>',
+ read:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+ licence:'<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M6 16c.6-1.6 1.7-2.3 3-2.3s2.4.7 3 2.3M14.5 10.5h4M14.5 13.5h3"/>'};
+ function fxEsc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ var LP={x:0,y:0,t:0};
+ document.addEventListener('pointerdown',function(e){LP={x:e.clientX,y:e.clientY,t:Date.now()}},true);
+ window.cdFx=function(k,o){o=o||{};var t=o.t||T[k];if(!t)return;
   if(o.once){var L;try{L=JSON.parse(localStorage.getItem('camp_fx_once')||'[]')}catch(e){L=[]}var key=k+':'+o.once;if(L.indexOf(key)>-1)return;L.push(key);try{localStorage.setItem('camp_fx_once',JSON.stringify(L))}catch(e){}}
-  var big=/^(first|created|licence|login)$/.test(k),e=document.createElement('div');e.className='fx'+(big?' big':'');
-  var h='<div class="fx-c"><span class="fx-e">'+t[0]+'</span><b>'+t[1]+'</b><small>'+t[2]+'</small></div>';
-  for(var i=0;i<(big?36:16);i++){var a=Math.random()*6.28,d=90+Math.random()*(big?200:120);h+='<i class="fx-p" style="--x:'+Math.cos(a)*d+'px;--y:'+(Math.sin(a)*d-40)+'px;--r:'+Math.round(Math.random()*720-360)+'deg;--c:'+COL[i%6]+';animation-delay:'+(Math.random()*.15)+'s"></i>'}
-  e.innerHTML=h;document.body.appendChild(e);if(navigator.vibrate)try{navigator.vibrate(big?[20,40,20]:15)}catch(x){}
-  setTimeout(function(){e.classList.add('out')},big?2300:1600);setTimeout(function(){e.remove()},big?2700:2000)};
+  var big=/^(first|created|licence|login)$/.test(k);
+  [].forEach.call(document.querySelectorAll('.fx'),function(n){n.remove()});
+  var ic=(IC[k]||IC.read).replace(/<(path|circle|rect)\s/g,'<$1 pathLength="1" ');
+  var e=document.createElement('div');e.className='fx '+(big?'big':'sm')+' k-'+k;
+  e.innerHTML=(big?'<i class="fx-bd"></i>':'')+'<div class="fx-c" role="status" aria-live="polite"><span class="fx-ic"><svg viewBox="0 0 24 24" aria-hidden="true">'+ic+'</svg></span><div class="fx-tx"><b>'+fxEsc(t[1])+'</b><small>'+fxEsc(t[2])+'</small></div></div>';
+  document.body.appendChild(e);
+  var c=e.querySelector('.fx-c');
+  if(!big){var w=c.offsetWidth,h=c.offsetHeight,vw=window.innerWidth,vh=window.innerHeight,fresh=LP.t&&Date.now()-LP.t<3000,x=fresh?LP.x:vw/2,y=fresh?LP.y-h-18:64;if(fresh&&y<56)y=LP.y+28;
+   c.style.left=Math.max(10,Math.min(vw-w-10,x-w/2))+'px';c.style.top=Math.max(54,Math.min(vh-h-90,y))+'px'}
+  if(navigator.vibrate)try{navigator.vibrate(big?[20,40,20]:15)}catch(x){}
+  var hide=function(){if(e.classList.contains('out'))return;e.classList.add('out');setTimeout(function(){e.remove()},380)};
+  c.onclick=hide;setTimeout(hide,big?2400:1800)};
  var si=Storage.prototype.setItem;
  Storage.prototype.setItem=function(k,v){var old=null;try{old=this.getItem(k)}catch(e){}var r=si.apply(this,arguments);
   try{if(this===localStorage){if(window.__campRestoringPh){}else if(k==='camp_cover')cdFx('cover');else if(k==='camp_avatar')cdFx('avatar');
-   else if(k==='camp_registration_2026'&&!old){if(localStorage.getItem('camp_was_out')==='1'){localStorage.removeItem('camp_was_out');cdFx('login')}else cdFx('created')}}}catch(e){}
+   else if(k==='camp_registration_2026'&&!old&&!document.body.classList.contains('px-mode')&&localStorage.getItem('camp_was_out')==='1'){localStorage.removeItem('camp_was_out');cdFx('login')}}}catch(e){}
   return r};
  document.addEventListener('change',function(e){var t=e.target;if(t&&(t.id==='cfF'||t.id==='cfF2')&&t.files&&t.files.length)cdFx('frame')},true);
  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(b&&/Pré-commander/i.test(b.textContent||''))cdFx('licence')},true);
@@ -14880,7 +15052,7 @@ html.cd-tm #cvBar{display:none!important}
  window.addEventListener('storage',refreshBtn);
  var DST=[];
  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
- function stats(){sb.rpc('camp_stats').then(function(r){if(r&&r.data){DST=r.data.par_district||[];window.__cvDst=DST;window.__cvTotal=r.data.inscrits;document.querySelectorAll('.cv-em').forEach(function(e){var z=DST.filter(function(x){return String(x.district).toLowerCase()===String(e.dataset.dn).toLowerCase()})[0],b=e.querySelector('.cv-n');if(z&&b){var n=Math.max(+b.textContent||0,+z.n||0);b.textContent=n;if(b.nextSibling)b.nextSibling.textContent='\u00a0pré-inscrit'+(n>1?'s':'')}});var js=JSON.stringify(DST);if(js!==window.__cvDstJs){window.__cvDstJs=js;try{document.dispatchEvent(new Event('campstats'))}catch(e){}}}})}
+ function stats(){Promise.all([Promise.resolve(sb.rpc('camp_stats')),Promise.resolve(sb.rpc('camp_proxy_stats')).then(function(x){return x},function(){return null})]).then(function(a){var r=a[0],q=a[1];if(r&&r.data){DST=(r.data.par_district||[]).map(function(x){return Object.assign({},x,{n:+x.n||0})});var tot=+r.data.inscrits||0,P=q&&!q.error?q.data:null;if(P&&P.par_district){P.par_district.forEach(function(pd){var k=String(pd.district).toLowerCase(),z=DST.filter(function(x){return String(x.district).toLowerCase()===k})[0];if(z)z.n+=+pd.n||0;else DST.push({district:pd.district,n:+pd.n||0})});tot+=+P.total||0}window.__cvDst=DST;window.__cvTotal=tot;document.querySelectorAll('.cv-em').forEach(function(e){var z=DST.filter(function(x){return String(x.district).toLowerCase()===String(e.dataset.dn).toLowerCase()})[0],b=e.querySelector('.cv-n');if(z&&b){var n=Math.max(+b.textContent||0,+z.n||0);b.textContent=n;if(b.nextSibling)b.nextSibling.textContent='\u00a0pré-inscrit'+(n>1?'s':'')}});var js=JSON.stringify(DST);if(js!==window.__cvDstJs){window.__cvDstJs=js;try{document.dispatchEvent(new Event('campstats'))}catch(e){}}}})}
  var pn=document.createElement('div');
  pn.style.cssText='position:fixed;top:calc(env(safe-area-inset-top,0px) + 44px);left:50%;transform:translateX(-50%);width:min(92vw,360px);max-height:60vh;overflow:auto;z-index:2147482001;background:#fff;color:#07144a;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:12px 14px;font:14px Arial;display:none';
  document.body.appendChild(pn);
@@ -14935,7 +15107,7 @@ html.cd-tm #cvBar{display:none!important}
    sb.from('fil_likes').select('post_id,reaction').eq('user_id',uid).then(function(r){var L=window.__filLikesObj;if(!r||!r.data||!L)return;
     Object.keys(L).forEach(function(k){delete L[k]});r.data.forEach(function(x){L[x.post_id]=x.reaction||'❤️'});
     if(window.__filRender&&!(window.__filSheetOpen&&window.__filSheetOpen()))try{window.__filRender()}catch(e){}})})}
- stats();pull();pullFil();migrate();setInterval(function(){stats();pull();pullFil();migrate()},45000);setTimeout(migrate,4000)
+ window.campRefreshStats=function(){stats()};stats();pull();pullFil();migrate();setInterval(function(){stats();pull();pullFil();migrate()},45000);setTimeout(migrate,4000)
 })();
 </script>
 
@@ -15959,9 +16131,15 @@ var iv=setInterval(function(){tick();if(shown||rd(FLAG))clearInterval(iv)},900);
 
 <!-- ===== V209 — Pré-inscription « campeur sans téléphone » + code à 4 chiffres ===== -->
 <style>
-.px-hbtn{flex:none;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 11px 0 9px;border:0;border-radius:12px;background:linear-gradient(135deg,#6a0dad,#2563eb);color:#fff;font:inherit;font-size:11px;font-weight:900;letter-spacing:.2px;white-space:nowrap;cursor:pointer;box-shadow:0 6px 14px -6px rgba(80,40,200,.75);-webkit-tap-highlight-color:transparent;transition:transform .15s}
-.px-hbtn svg{width:17px;height:17px;flex:none}.px-hbtn:active{transform:scale(.95)}
-@media(max-width:350px){.px-hbtn span{display:none}.px-hbtn{padding:0 9px}}
+.px-hbtn{--pxw:100px;flex:none;position:relative;z-index:5;display:block;width:36px;height:36px;padding:0;border:0;background:none;color:#fff;font:inherit;font-size:11px;font-weight:900;letter-spacing:.2px;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.px-hbtn::before{content:"";position:absolute;top:0;right:0;width:100%;height:100%;z-index:-1;border-radius:12px;background:linear-gradient(135deg,#6a0dad,#2563eb);box-shadow:0 6px 14px -6px rgba(80,40,200,.75);transition:width .5s cubic-bezier(.2,.9,.3,1),transform .15s}
+.px-hbtn svg{position:absolute;top:9.5px;right:9.5px;width:17px;height:17px;transition:transform .5s cubic-bezier(.2,.9,.3,1)}
+.px-hbtn span{position:absolute;top:50%;right:12px;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .2s}
+.px-hbtn.px-open::before{width:var(--pxw)}
+.px-hbtn.px-open svg{transform:translateX(calc(-1*(var(--pxw) - 35.5px)))}
+.px-hbtn.px-open span{opacity:1;transition:opacity .3s .22s}
+.px-hbtn:active::before{transform:scale(.95)}
+@media(prefers-reduced-motion:reduce){.px-hbtn::before,.px-hbtn svg,.px-hbtn span{transition-duration:.01s!important;transition-delay:0s!important}}
 .px-ov{position:fixed;inset:0;z-index:1300;display:none;align-items:flex-end;justify-content:center;background:rgba(5,2,20,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .px-ov.open{display:flex}
 .px-sh{width:min(100%,560px);max-height:94dvh;overflow:auto;background:linear-gradient(155deg,#21145b,#15103d 55%,#0b1535);border:1px solid rgba(255,255,255,.16);border-radius:28px 28px 0 0;color:#fff;padding:20px 18px calc(26px + env(safe-area-inset-bottom,0px));box-shadow:0 -20px 60px rgba(0,0,0,.45)}
@@ -15993,7 +16171,6 @@ var iv=setInterval(function(){tick();if(shown||rd(FLAG))clearInterval(iv)},900);
 .px-in4:focus{outline:0;border-color:#ff9b42}
 .px-hide{display:none}
 body.px-mode .px-hide{display:none!important}
-body.px-mode .reg-step[data-step="3"] label.reg-engage:has(#regHasTicket),body.px-mode .ticket-number-field{display:none!important}
 .px-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:1400;background:#18205d;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;font-weight:700;box-shadow:0 10px 30px #0006;max-width:86vw;text-align:center}
 </style>
 <div class="px-ov" id="pxOv" aria-hidden="true"><section class="px-sh" role="dialog" aria-modal="true" aria-labelledby="pxTitle" id="pxSh"></section></div>
@@ -16011,34 +16188,47 @@ var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 
 /* ---------- 1. bouton dans l'entête ---------- */
 function mountBtn(){var box=document.querySelector('.ref-head-actions');if(!box||$('pxBtn'))return;
- var b=document.createElement('button');b.type='button';b.id='pxBtn';b.className='px-hbtn';b.setAttribute('aria-label','Pré-inscrire un campeur sans téléphone');b.innerHTML=ICON+'<span>Sans tél.</span>';b.onclick=openProxy;box.insertBefore(b,box.firstChild)}
+ var b=document.createElement('button');b.type='button';b.id='pxBtn';b.className='px-hbtn';b.setAttribute('aria-label','Pré-inscrire un campeur sans téléphone');b.innerHTML=ICON+'<span>Sans tél.</span>';b.onclick=openProxy;box.insertBefore(b,box.firstChild);setTimeout(peek,900)}
+/* Comme « Meta AI » dans WhatsApp : à chaque entrée dans l'app, la pastille se déplie 5 s puis se referme sur l'icône */
+var peekT=null;
+function peek(){var b=$('pxBtn');if(!b)return;b.classList.add('px-open');clearTimeout(peekT);peekT=setTimeout(function(){b.classList.remove('px-open')},5000)}
+document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(peek,300)});
+window.addEventListener('pageshow',function(e){if(e.persisted)setTimeout(peek,300)});
 
 /* ---------- 2. le VRAI parcours de pré-inscription (4 étapes), en « mode sans téléphone » ---------- */
 var KEY='camp_registration_2026',DKEY='camp_registration_draft_2026',on=false,busy=false,stash=null,obs=null,typed={};
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
-function lsSet(k,v){try{if(v==null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
+function lsSet(k,v){var pf=window.__campRestoringPh;if(k===KEY||k===DKEY)window.__campRestoringPh=true;try{if(v==null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}window.__campRestoringPh=pf}
 function tx(sel,t){var e=document.querySelector(sel);if(!e)return null;if(t==null)return e.textContent;e.textContent=t;return t}
+var PXOFF=['E-mail','Adresse','Naissance','Lieu de naissance','Région'],PXFILL={regBirth:'2000-01-01',regAddress:'Bouaflé',regBirthPlace:'Bouaflé',regRegion:'Bouaflé 1'};
 function fixRecap(){var box=$('regRecap'),c=$('pxContact');if(!on||!box)return;
  [].forEach.call(box.querySelectorAll('.reg-rc'),function(sec){var h=sec.querySelector('.reg-rc-h span');if(!h)return;
-  if(h.textContent.trim()==='Ticket'){if(sec.style.display!=='none')sec.style.display='none';return}
   [].forEach.call(sec.querySelectorAll('.reg-rc-row'),function(r){var s=r.querySelector('span'),b=r.querySelector('b');
-   if(s&&b&&s.textContent.trim()==='Contact'){var v=(c&&c.value.trim())||'—';if(b.textContent!==v)b.textContent=v}})})}
+   var lb=s&&s.textContent.trim();
+   if(lb&&PXOFF.indexOf(lb)>-1){r.remove();return}
+   if(s&&b&&lb==='Contact'){var v=(c&&c.value.trim())||'—';if(b.textContent!==v)b.textContent=v}})})}
 function clearField(id){var e=$(id);if(!e||typed[id]||!e.value)return;e.value='';e.dispatchEvent(new Event('change',{bubbles:true}))}
 function prep(){if(!on)return;
  ['regName','regEmail','regGroup'].forEach(clearField);
  var ph=$('regPhone');if(ph)ph.value='00000000';
+ Object.keys(PXFILL).forEach(function(id){var e=$(id);if(e&&e.value!==PXFILL[id]){e.value=PXFILL[id];e.dispatchEvent(new Event('change',{bubbles:true}))}});
+ tx('.reg-photo-copy small','Facultative · elle apparaîtra sur le ticket du campeur · JPG, PNG ou WebP');
+ var hc=$('regHasTicket'),tn=$('regTicketNumber');
+ if(hc&&!typed.regHasTicket&&hc.checked){hc.checked=false;hc.dispatchEvent(new Event('change',{bubbles:true}))}
+ if(tn&&!typed.regTicketNumber&&tn.value){tn.value='';tn.dispatchEvent(new Event('input',{bubbles:true}))}
  tx('.registration-kicker','SANS TÉLÉPHONE · CAMP 2026');tx('#registrationTitle','Pré-inscrire un campeur');
  tx('.registration-note','Pour un campeur qui n’a pas de téléphone. Mêmes étapes que la pré-inscription ; à la fin, un code à 4 chiffres lui permettra de retrouver son dossier.');
  tx('#regSubmit','Valider la pré-inscription');
  var s=$('registrationSummary');if(s)s.classList.remove('show')}
 function openProxy(){
  if(!on){on=true;typed={};
-  stash={k:lsGet(KEY),d:lsGet(DKEY),kick:tx('.registration-kicker'),note:tx('.registration-note'),sub:tx('#regSubmit')};
+  stash={k:lsGet(KEY),d:lsGet(DKEY),phs:tx('.reg-photo-copy small'),kick:tx('.registration-kicker'),note:tx('.registration-note'),sub:tx('#regSubmit')};
   lsSet(DKEY,null);
   document.body.classList.add('px-mode');
   var ph=$('regPhone'),fld=ph&&ph.closest('.registration-field');
   if(fld&&!$('pxContact')){fld.classList.add('px-hide');var n=document.createElement('div');n.className='registration-field px-contact';
    n.innerHTML='<label for="pxContact">CONTACT D’UN RESPONSABLE (FACULTATIF)</label><input id="pxContact" type="tel" inputmode="tel" autocomplete="off" maxlength="20" placeholder="Numéro d’un parent ou du chef">';fld.after(n)}
+  ['regEmail','regAddress','regBirth','regBirthPlace','regRegion'].forEach(function(id){var e=$(id),w=e&&e.closest('.registration-field');if(w)w.classList.add('px-hide')});
   var f=$('registrationForm');
   f.addEventListener('input',markTyped,true);
   obs=new MutationObserver(fixRecap);obs.observe(f,{childList:true,subtree:true})}
@@ -16054,6 +16244,8 @@ function exit(){if(!on)return;on=false;
  [].forEach.call(document.querySelectorAll('.px-contact'),function(x){x.remove()});
  [].forEach.call(document.querySelectorAll('.px-hide'),function(x){x.classList.remove('px-hide')});
  var s=stash||{};
+ Object.keys(PXFILL).forEach(function(id){var e=$(id);if(e&&e.value===PXFILL[id]){e.value='';e.dispatchEvent(new Event('change',{bubbles:true}))}});
+ if(s.phs!=null)tx('.reg-photo-copy small',s.phs);
  if(s.kick!=null)tx('.registration-kicker',s.kick);if(s.note!=null)tx('.registration-note',s.note);if(s.sub!=null)tx('#regSubmit',s.sub);tx('#registrationTitle','Pré-inscription au Camp');
  var back=function(){lsSet(KEY,s.k==null?null:s.k);lsSet(DKEY,s.d==null?null:s.d)};
  back();setTimeout(back,800);
@@ -16061,15 +16253,28 @@ function exit(){if(!on)return;on=false;
 function closeProxy(){var ov=$('registrationOverlay');if(ov&&ov.classList.contains('open')&&window.closeRegistration)window.closeRegistration();exit()}
 function collect(){var v=function(id){var e=$(id);return e?String(e.value).trim():''},oth=function(id){return $(id).value==='Autre'?v(id+'Other'):$(id).value},
  pr=document.querySelector('input[name=regPrice]:checked'),p=pr?pr.value:'',im=$('regPhotoPreview'),ph=(im&&!im.hidden&&im.getAttribute('src'))||'';
- return{Name:v('regName').replace(/\s+/g,' '),Contact:v('pxContact'),Address:v('regAddress'),Birth:v('regBirth'),BirthPlace:v('regBirthPlace'),Nation:v('regNation'),Sex:v('regSex'),Branch:v('regBranch'),Grade:v('regGrade'),
-  Region:oth('regRegion'),RegionSel:$('regRegion').value,RegionOther:v('regRegionOther'),Group:v('regGroup'),Troop:v('regTroop'),Church:oth('regChurch'),ChurchSel:$('regChurch').value,ChurchOther:v('regChurchOther'),
+ return{Name:v('regName').replace(/\s+/g,' '),Contact:v('pxContact'),Address:'',Birth:'',BirthPlace:'',Nation:v('regNation'),Sex:v('regSex'),Branch:v('regBranch'),Grade:v('regGrade'),
+  Region:'Bouaflé 1',RegionSel:'Bouaflé 1',RegionOther:'',Group:v('regGroup'),Troop:v('regTroop'),Church:oth('regChurch'),ChurchSel:$('regChurch').value,ChurchOther:v('regChurchOther'),
   Patrol:oth('regPatrol'),PatrolSel:$('regPatrol').value,PatrolOther:v('regPatrolOther'),Title:v('regTitle'),Price:p,Pass:(p==='8000'?'Pass Chef':'Pass Élément')+' — '+(+p).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')+' F CFA',Sector:'Centre',Photo:ph}}
 function proxySave(){if(busy)return;
- var pr=document.querySelector('input[name=regPrice]:checked'),need=['regName','regAddress','regBirth','regBirthPlace','regNation','regSex','regBranch','regRegion','regGroup','regTroop','regChurch','regTitle'];
+ var pr=document.querySelector('input[name=regPrice]:checked'),need=['regName','regNation','regSex','regBranch','regGroup','regTroop','regChurch','regTitle'];
  var miss=need.filter(function(id){return !($(id)&&String($(id).value).trim())});
  if(miss.length){toast('Il manque des informations : reviens aux étapes précédentes.');return}
  if(!pr){toast('Choisis le tarif du ticket.');return}
- busy=true;save(collect())}
+ var rec=collect(),hc=$('regHasTicket'),tn=$('regTicketNumber');
+ if(hc&&hc.checked){var raw=String(tn&&tn.value||'').replace(/\D/g,''),n=parseInt(raw,10);
+  if(!n||n<1||n>1000){if(tn){tn.setAttribute('aria-invalid','true');tn.focus()}toast('Le numéro du ticket doit être compris entre 0001 et 1000.');return}
+  rec.TicketNumber=String(n).padStart(4,'0');
+  try{rec.DistrictCode=window.campDistrictCode?window.campDistrictCode(rec.Group):'';rec.TicketCode=window.campTicketCode?window.campTicketCode(rec):''}catch(e){}
+  if(!rec.DistrictCode){toast('Choisis d’abord le district pour valider le numéro du ticket.');return}
+  busy=true;
+  ticketTaken(rec.TicketCode).then(function(t){if(t){busy=false;toast('Ce ticket ('+rec.TicketCode+') a déjà été utilisé dans ce district.');return}save(rec)});return}
+ busy=true;save(rec)}
+function ticketTaken(code){if(!code)return Promise.resolve(false);
+ if(rd(PK,[]).some(function(x){return x.d&&x.d.TicketCode===code}))return Promise.resolve(true);
+ var s=sb();if(!s)return Promise.resolve(false);
+ function q(p){return Promise.race([Promise.resolve(p).then(function(r){return !!(r&&!r.error&&r.data&&r.data.length)},function(){return false}),new Promise(function(r){setTimeout(function(){r(false)},4000)})])}
+ return Promise.all([q(s.from('registrations').select('user_id').eq('ticket_code',code).limit(1)),q(s.from(TB).select('code').eq('data->>TicketCode',code).limit(1))]).then(function(a){return a[0]||a[1]})}
 
 /* ---------- 3. enregistrement + code à 4 chiffres ---------- */
 function genCode(){var used=rd(PK,[]).map(function(x){return x.code});
@@ -16077,17 +16282,17 @@ function genCode(){var used=rd(PK,[]).map(function(x){return x.code});
   return Promise.race([Promise.resolve(s.from(TB).select('code').eq('code',c).limit(1)).then(function(r){return r&&r.data&&r.data.length?one(n+1):c},function(){return c}),new Promise(function(r){setTimeout(function(){r(c)},2500)})])}
  return one(0)}
 function push(code){var s=sb();if(!s)return;var it=rd(PK,[]).filter(function(x){return x.code===code})[0];if(!it)return;
- Promise.resolve(s.from(TB).upsert({code:code,data:it.d,claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l)}},function(){})}
+ Promise.resolve(s.from(TB).upsert({code:code,data:Object.assign({},it.d,{TS:it.ts}),claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l);try{if(window.campRefreshStats)window.campRefreshStats()}catch(e){}}},function(){})}
 function save(rec){
  genCode().then(function(code){var l=rd(PK,[]),it={code:code,ts:Date.now(),claimed:false,synced:false,d:rec};l.push(it);
   if(!wr(PK,l)){rec.Photo='';it.d=rec;if(!wr(PK,l)){busy=false;toast('Mémoire de l’appareil pleine : impossible d’enregistrer.');return}}
   try{if(window.v63AddMember)window.v63AddMember({Name:rec.Name,Phone:'px'+code,Group:rec.Group,Pass:rec.Pass,Church:rec.Church})}catch(e){}
   window.__cvTotal=(+window.__cvTotal||0)+1;try{document.dispatchEvent(new Event('campstats'))}catch(e){}
-  push(code);busy=false;showTicket(code,rec)})}
+  push(code);busy=false;try{if(window.cdFx)window.cdFx('created',{t:['🎉','Inscription réussie !',(rec.Name||'Le campeur')+' est pré-inscrit(e)']})}catch(e){}showTicket(code,rec)})}
 function showTicket(code,rec){
  if(!(window.openTicket&&window.campQR&&window.campTicketNum)){done(code,rec);return}
  var msg='Camp de District 3 en 1 — code de pré-inscription de '+rec.Name+' : '+code+'. À saisir dans l’application quand on te demande « As-tu déjà ton code ? ».';
- var d={__px:1,code:code,Name:rec.Name,Contact:rec.Contact,Troop:rec.Troop,Group:rec.Group,Price:rec.Price,Pass:rec.Pass,Photo:rec.Photo,
+ var d={__px:1,code:code,Name:rec.Name,Contact:rec.Contact,Troop:rec.Troop,Group:rec.Group,Price:rec.Price,Pass:rec.Pass,Photo:rec.Photo,TicketNumber:rec.TicketNumber||'',TicketCode:rec.TicketCode||'',
   bind:function(box){
    box.querySelector('#v119Cp').onclick=function(){if(navigator.clipboard)navigator.clipboard.writeText(code).then(function(){toast('Code copié')},function(){toast('Code : '+code)});else toast('Code : '+code)};
    box.querySelector('#v119Sh').onclick=function(){if(navigator.share)navigator.share({title:'Code de pré-inscription',text:msg}).catch(function(){});else window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank')};
