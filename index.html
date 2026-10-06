@@ -15847,3 +15847,258 @@ function tick(){
 var iv=setInterval(function(){tick();if(shown||rd(FLAG))clearInterval(iv)},900);
 })();
 </script>
+
+<!-- ===== V209 — Pré-inscription « campeur sans téléphone » + code à 4 chiffres ===== -->
+<style>
+.px-hbtn{flex:none;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 11px 0 9px;border:0;border-radius:12px;background:linear-gradient(135deg,#6a0dad,#2563eb);color:#fff;font:inherit;font-size:11px;font-weight:900;letter-spacing:.2px;white-space:nowrap;cursor:pointer;box-shadow:0 6px 14px -6px rgba(80,40,200,.75);-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.px-hbtn svg{width:17px;height:17px;flex:none}.px-hbtn:active{transform:scale(.95)}
+@media(max-width:350px){.px-hbtn span{display:none}.px-hbtn{padding:0 9px}}
+.px-ov{position:fixed;inset:0;z-index:1300;display:none;align-items:flex-end;justify-content:center;background:rgba(5,2,20,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.px-ov.open{display:flex}
+.px-sh{width:min(100%,560px);max-height:94dvh;overflow:auto;background:linear-gradient(155deg,#21145b,#15103d 55%,#0b1535);border:1px solid rgba(255,255,255,.16);border-radius:28px 28px 0 0;color:#fff;padding:20px 18px calc(26px + env(safe-area-inset-bottom,0px));box-shadow:0 -20px 60px rgba(0,0,0,.45)}
+@media(min-width:700px){.px-ov{align-items:center;padding:20px}.px-sh{border-radius:28px}}
+.px-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.px-hd small{display:block;color:#ff8a22;font-size:9px;font-weight:900;letter-spacing:1.4px}.px-hd h2{margin:5px 0 0;font-size:22px;line-height:1.1}
+.px-x{flex:none;width:38px;height:38px;border:0;border-radius:50%;background:#ffffff18;color:#fff;font-size:22px;cursor:pointer}
+.px-note{font-size:12px;color:#cfc5d8;margin:0 0 12px;line-height:1.45}
+.px-dots{display:flex;gap:6px;margin:0 0 14px}.px-dots i{flex:1;height:5px;border-radius:9px;background:#ffffff22}.px-dots i.on{background:#ff8a22}
+.px-step{display:none}.px-step.on{display:block}.px-step h3{margin:0 0 12px;font-size:15px}
+.px-f{margin:0 0 11px}.px-f label{display:block;font-size:10px;font-weight:900;letter-spacing:.8px;color:#b9c0dc;margin:0 0 5px}
+.px-f input:not([type=radio]):not([type=file]),.px-f select{width:100%;box-sizing:border-box;min-height:49px;border-radius:15px;border:1px solid #ffffff25;background:rgba(5,10,35,.55);padding:12px 14px;font:inherit;font-size:14px;color:#fff}
+.px-f select option{color:#111}.px-f input:focus,.px-f select:focus{outline:0;border-color:#ff9b42;box-shadow:0 0 0 3px #ff9b4225}
+.px-f .px-o{margin-top:7px}
+.px-ph{display:flex;gap:14px;align-items:center;padding:12px;border-radius:18px;background:#ffffff0d;border:1px dashed #ffffff40}
+.px-fr{flex:none;width:92px;height:112px;border-radius:14px;background:#ffffff14;display:grid;place-items:center;overflow:hidden;font-size:30px;color:#ffffff80}.px-fr img{width:100%;height:100%;object-fit:cover}
+.px-pb{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1}
+.px-b{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:9px 12px;border:0;border-radius:13px;font:inherit;font-size:13px;font-weight:900;color:#fff;cursor:pointer;background:linear-gradient(135deg,#ff8a22,#ef5a00)}
+.px-b.g{background:#ffffff1c}.px-b.v{background:linear-gradient(135deg,#6a0dad,#2563eb)}
+.px-pr{display:flex;gap:10px;align-items:center;padding:13px;margin:0 0 9px;border-radius:15px;border:1px solid #ffffff25;background:rgba(5,10,35,.55);cursor:pointer}
+.px-pr input{accent-color:#ff8a22;width:19px;height:19px}.px-pr b{display:block;font-size:14px}.px-pr small{color:#b9c0dc}
+.px-err{min-height:18px;margin:2px 0 8px;font-size:12px;font-weight:700;color:#ff9aa8}
+.px-nav{display:flex;gap:9px;margin-top:6px}.px-nav .px-b{flex:1}
+.px-done{display:none;text-align:center}.px-done.on{display:block}
+.px-code{display:flex;justify-content:center;gap:9px;margin:16px 0 8px}.px-code b{width:58px;height:74px;display:grid;place-items:center;border-radius:16px;background:#fff;color:#2b1470;font-size:40px;font-weight:1000;box-shadow:0 10px 24px -10px #000}
+.px-cnt{display:inline-block;margin:8px 0 14px;padding:6px 12px;border-radius:99px;background:#ffffff1a;font-size:12px;font-weight:800}
+.px-done .px-b{margin-top:9px;width:100%}
+.px-in4{width:100%;box-sizing:border-box;text-align:center;font:inherit;font-size:34px;font-weight:1000;letter-spacing:14px;padding:12px 0 12px 14px;border-radius:16px;border:1px solid #ffffff30;background:rgba(5,10,35,.55);color:#fff}
+.px-in4:focus{outline:0;border-color:#ff9b42}
+.px-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:1400;background:#18205d;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;font-weight:700;box-shadow:0 10px 30px #0006;max-width:86vw;text-align:center}
+</style>
+<div class="px-ov" id="pxOv" aria-hidden="true"><section class="px-sh" role="dialog" aria-modal="true" aria-labelledby="pxTitle" id="pxSh"></section></div>
+<div class="px-ov" id="pxAsk" aria-hidden="true"><section class="px-sh" role="dialog" aria-modal="true" aria-labelledby="pxAskT" id="pxAskSh"></section></div>
+<script>
+(function(){'use strict';
+var PK='camp_proxy_regs_2026',MK='camp_members_2026',DK='camp_registration_draft_2026',RK='camp_registration_2026',CL='camp_px_claim',TB='proxy_registrations';
+var $=function(i){return document.getElementById(i)};
+function rd(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sb(){return window.CampBackend&&window.CampBackend.sb}
+function toast(m){var t=document.createElement('div');t.className='px-toast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},3200)}
+var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3.5"/><path d="M19 8v6M16 11h6"/></svg>';
+
+/* ---------- 1. bouton dans l'entête ---------- */
+function mountBtn(){var box=document.querySelector('.ref-head-actions');if(!box||$('pxBtn'))return;
+ var b=document.createElement('button');b.type='button';b.id='pxBtn';b.className='px-hbtn';b.setAttribute('aria-label','Pré-inscrire un campeur sans téléphone');b.innerHTML=ICON+'<span>Sans tél.</span>';b.onclick=openProxy;box.insertBefore(b,box.firstChild)}
+
+/* ---------- 2. formulaire (mêmes étapes que la pré-inscription) ---------- */
+var photo='',cur=0,troops=[];
+function F(id,l,h){return '<div class="px-f"><label for="'+id+'">'+l+'</label>'+h+'</div>'}
+function I(id,ph,t,x){return '<input id="'+id+'" type="'+(t||'text')+'" placeholder="'+ph+'" autocomplete="off" '+(x||'')+'>'}
+function S(id,src,skip){var s=$(src),h='';if(s)[].forEach.call(s.options,function(o){if(skip&&o.value==='Autre')return;h+=o.outerHTML});return '<select id="'+id+'">'+h+'</select>'}
+function SO(id,src,l){return F(id,l,S(id,src)+'<input id="'+id+'O" class="px-o" placeholder="Précise" hidden>')}
+function build(){
+ var sh=$('pxSh');
+ sh.innerHTML='<div id="pxForm"><div class="px-hd"><div><small>SANS TÉLÉPHONE · CAMP 2026</small><h2 id="pxTitle">Pré-inscrire un campeur</h2></div><button type="button" class="px-x" id="pxClose" aria-label="Fermer">×</button></div>'
+ +'<p class="px-note">Pour un campeur qui n’a pas de téléphone. Mêmes étapes que la pré-inscription ; à la fin, un code à 4 chiffres lui permettra de retrouver son dossier.</p>'
+ +'<div class="px-dots" id="pxDots"><i class="on"></i><i></i><i></i><i></i><i></i></div>'
+ +'<div class="px-step on"><h3>01 · Photo du campeur</h3><div class="px-ph"><span class="px-fr" id="pxFr">＋</span><span class="px-pb"><button type="button" class="px-b" id="pxCam">📷 Prendre la photo (en présentiel)</button><button type="button" class="px-b g" id="pxImp">🖼️ Importer une image</button></span></div><input type="file" id="pxFc" accept="image/*" capture="environment" hidden><input type="file" id="pxFi" accept="image/*,.jpg,.jpeg,.png,.webp" hidden></div>'
+ +'<div class="px-step"><h3>02 · Qui est-ce ?</h3>'+F('pxName','NOM ET PRÉNOMS *',I('pxName','Nom et prénoms'))+F('pxContact','CONTACT D’UN RESPONSABLE (FACULTATIF)',I('pxContact','Numéro d’un parent ou du chef','tel','inputmode="tel"'))+F('pxAddr','ADRESSE *',I('pxAddr','Quartier, ville'))+F('pxBirth','DATE DE NAISSANCE *',I('pxBirth','','date'))+F('pxBP','LIEU DE NAISSANCE *',I('pxBP','Ville ou village'))+F('pxNat','NATIONALITÉ *','<input id="pxNat" value="Ivoirienne" autocomplete="off">')+F('pxSex','SEXE *','<select id="pxSex"><option value="">Choisir</option><option>Masculin</option><option>Féminin</option></select>')+'</div>'
+ +'<div class="px-step"><h3>03 · Parcours d’aventurier</h3>'+F('pxBranch','BRANCHE *',S('pxBranch','regBranch'))+F('pxGrade','GRADE *',S('pxGrade','regGrade'))+'</div>'
+ +'<div class="px-step"><h3>04 · Place dans la mission</h3>'+SO('pxRegion','regRegion','RÉGION *')+F('pxDist','DISTRICT *',S('pxDist','regGroup'))+F('pxTroop','TROUPE *','<select id="pxTroop"></select>')+SO('pxChurch','regChurch','ÉGLISE *')+SO('pxPatrol','regPatrol','PATROUILLE (FACULTATIF)')+F('pxTitle2','TITRE *',S('pxTitle2','regTitle'))+'</div>'
+ +'<div class="px-step"><h3>05 · Ticket</h3><label class="px-pr"><input type="radio" name="pxPrice" value="7000"><span><b>Pass Élément · 7 000 F CFA</b><small>Tarif Élément</small></span></label><label class="px-pr"><input type="radio" name="pxPrice" value="8000"><span><b>Pass Chef · 8 000 F CFA</b><small>Tarif Chef</small></span></label></div>'
+ +'<div class="px-err" id="pxErr" role="alert"></div><div class="px-nav"><button type="button" class="px-b g" id="pxPrev" style="display:none">Retour</button><button type="button" class="px-b" id="pxNext">Continuer →</button><button type="button" class="px-b v" id="pxSave" style="display:none">Valider la pré-inscription</button></div></div>'
+ +'<div class="px-done" id="pxDone"></div>';
+ var tr=$('regTroop');troops=tr?[].map.call(tr.options,function(o){return{v:o.value||o.text,t:o.text,d:o.getAttribute('data-d')||''}}):[];
+ filterTroops();
+ $('pxClose').onclick=closeProxy;$('pxPrev').onclick=function(){go(cur-1)};$('pxNext').onclick=function(){if(check(cur))go(cur+1)};$('pxSave').onclick=function(){if(check(4))save()};
+ $('pxCam').onclick=function(){$('pxFc').click()};$('pxImp').onclick=function(){$('pxFi').click()};
+ ['pxFc','pxFi'].forEach(function(id){$(id).onchange=function(){var f=this.files&&this.files[0];this.value='';if(f)shrink(f,function(u){if(!u){$('pxErr').textContent='Image illisible, réessaie.';return}photo=u;$('pxFr').innerHTML='<img alt="Photo du campeur" src="'+u+'">';$('pxErr').textContent=''})}});
+ $('pxDist').onchange=filterTroops;
+ ['pxRegion','pxChurch','pxPatrol'].forEach(function(id){$(id).onchange=function(){var o=$(id+'O'),on=this.value==='Autre';o.hidden=!on;if(!on)o.value=''}});
+ $('pxOv').onclick=function(e){if(e.target===this)closeProxy()}}
+function filterTroops(){var d=$('pxDist').value,s=$('pxTroop'),h='';troops.forEach(function(t,i){if(i===0||!t.d||t.d===d)h+='<option value="'+esc(t.v)+'">'+esc(t.t)+'</option>'});s.innerHTML=h}
+function shrink(file,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,720/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s|0;c.height=im.height*s|0;c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.82))};im.onerror=function(){cb('')};im.src=r.result};r.onerror=function(){cb('')};r.readAsDataURL(file)}
+function go(n){cur=Math.max(0,Math.min(4,n));[].forEach.call(document.querySelectorAll('#pxSh .px-step'),function(s,i){s.classList.toggle('on',i===cur)});[].forEach.call($('pxDots').children,function(d,i){d.classList.toggle('on',i<=cur)});
+ $('pxPrev').style.display=cur?'':'none';$('pxNext').style.display=cur<4?'':'none';$('pxSave').style.display=cur===4?'':'none';$('pxErr').textContent='';$('pxSh').scrollTop=0}
+var REQ=[[],[['pxName','le nom'],['pxAddr','l’adresse'],['pxBirth','la date de naissance'],['pxBP','le lieu de naissance'],['pxNat','la nationalité'],['pxSex','le sexe']],[['pxBranch','la branche'],['pxGrade','le grade']],[['pxRegion','la région'],['pxDist','le district'],['pxTroop','la troupe'],['pxChurch','l’église'],['pxTitle2','le titre']],[]];
+function check(n){var e=$('pxErr');e.textContent='';
+ if(n===0&&!photo){e.textContent='Prends ou importe une photo du campeur.';return false}
+ for(var i=0;i<REQ[n].length;i++){var id=REQ[n][i][0],el=$(id);if(!el.value.trim()){e.textContent='Renseigne '+REQ[n][i][1]+'.';el.focus();return false}
+  var o=$(id+'O');if(o&&el.value==='Autre'&&!o.value.trim()){e.textContent='Précise '+REQ[n][i][1]+'.';o.focus();return false}}
+ if(n===4&&!document.querySelector('input[name=pxPrice]:checked')){e.textContent='Choisis le tarif du ticket.';return false}
+ return true}
+function collect(){var v=function(id){return $(id).value.trim()},oth=function(id){return $(id).value==='Autre'?v(id+'O'):$(id).value},p=document.querySelector('input[name=pxPrice]:checked').value;
+ return{Name:v('pxName').replace(/\s+/g,' '),Contact:v('pxContact'),Address:v('pxAddr'),Birth:$('pxBirth').value,BirthPlace:v('pxBP'),Nation:v('pxNat'),Sex:$('pxSex').value,Branch:$('pxBranch').value,Grade:$('pxGrade').value,
+  Region:oth('pxRegion'),RegionSel:$('pxRegion').value,RegionOther:v('pxRegionO'),Group:$('pxDist').value,Troop:$('pxTroop').value,Church:oth('pxChurch'),ChurchSel:$('pxChurch').value,ChurchOther:v('pxChurchO'),
+  Patrol:oth('pxPatrol'),PatrolSel:$('pxPatrol').value,PatrolOther:v('pxPatrolO'),Title:$('pxTitle2').value,Price:p,Pass:(p==='8000'?'Pass Chef':'Pass Élément')+' — '+(+p).toLocaleString('fr-FR').replace(/\u202f/g,' ')+' F CFA',Sector:'Centre',Photo:photo}}
+
+/* ---------- 3. enregistrement + code à 4 chiffres ---------- */
+function genCode(){var used=rd(PK,[]).map(function(x){return x.code});
+ function one(n){var c=String(1000+Math.floor(Math.random()*9000));if(used.indexOf(c)>-1)return one(n);var s=sb();if(!s||n>3)return Promise.resolve(c);
+  return Promise.race([Promise.resolve(s.from(TB).select('code').eq('code',c).limit(1)).then(function(r){return r&&r.data&&r.data.length?one(n+1):c},function(){return c}),new Promise(function(r){setTimeout(function(){r(c)},2500)})])}
+ return one(0)}
+function push(code){var s=sb();if(!s)return;var it=rd(PK,[]).filter(function(x){return x.code===code})[0];if(!it)return;
+ Promise.resolve(s.from(TB).upsert({code:code,data:it.d,claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l)}},function(){})}
+function save(){var b=$('pxSave');b.disabled=true;var rec=collect();
+ genCode().then(function(code){var l=rd(PK,[]),it={code:code,ts:Date.now(),claimed:false,synced:false,d:rec};l.push(it);
+  if(!wr(PK,l)){rec.Photo='';it.d=rec;if(!wr(PK,l)){b.disabled=false;$('pxErr').textContent='Mémoire de l’appareil pleine : impossible d’enregistrer.';return}}
+  try{if(window.v63AddMember)window.v63AddMember({Name:rec.Name,Phone:'px'+code,Group:rec.Group,Pass:rec.Pass,Church:rec.Church})}catch(e){}
+  window.__cvTotal=(+window.__cvTotal||0)+1;try{document.dispatchEvent(new Event('campstats'))}catch(e){}
+  push(code);done(code,rec);b.disabled=false})}
+function done(code,rec){$('pxForm').style.display='none';var d=$('pxDone');d.classList.add('on');
+ d.innerHTML='<div class="px-hd"><div><small>PRÉ-INSCRIPTION ENREGISTRÉE</small><h2>'+esc(rec.Name)+'</h2></div><button type="button" class="px-x" id="pxClose2" aria-label="Fermer">×</button></div>'
+ +'<p class="px-note">Remets ce code au campeur. S’il a un jour un téléphone, il le saisira à sa pré-inscription pour retrouver son dossier.</p><div class="px-code" aria-label="Code '+code.split('').join(' ')+'">'+code.split('').map(function(c){return '<b>'+c+'</b>'}).join('')+'</div>'
+ +'<span class="px-cnt">✅ Compteur des pré-inscrits mis à jour</span>'
+ +'<button type="button" class="px-b" id="pxCopy">Copier le code</button><button type="button" class="px-b v" id="pxShare">Partager le code</button><button type="button" class="px-b g" id="pxNew">Pré-inscrire un autre campeur</button>';
+ var msg='Camp de District 3 en 1 — code de pré-inscription de '+rec.Name+' : '+code+'. À saisir dans l’application quand on te demande « As-tu déjà ton code ? ».';
+ $('pxClose2').onclick=closeProxy;$('pxCopy').onclick=function(){if(navigator.clipboard)navigator.clipboard.writeText(code).then(function(){toast('Code copié')},function(){toast('Code : '+code)});else toast('Code : '+code)};
+ $('pxShare').onclick=function(){if(navigator.share)navigator.share({title:'Code de pré-inscription',text:msg}).catch(function(){});else window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank')};
+ $('pxNew').onclick=function(){photo='';build();go(0)}}
+function openProxy(){photo='';build();go(0);var o=$('pxOv');o.classList.add('open');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var n=$('floatingAppNav');if(n)n.style.display='none'}
+function closeProxy(){var o=$('pxOv');o.classList.remove('open');o.setAttribute('aria-hidden','true');document.body.style.overflow='';var n=$('floatingAppNav');if(n)n.style.display='grid'}
+window.openProxyReg=openProxy;
+
+/* ---------- 4. « As-tu déjà ton code ? » avant la pré-inscription classique ---------- */
+var orig=null;
+function proceed(){var f=orig||window.__pxOrig;if(f)f.call(window)}
+function asked(){try{return sessionStorage.getItem('px_asked')}catch(e){return null}}
+function setAsked(){try{sessionStorage.setItem('px_asked','1')}catch(e){}}
+function closeAsk(){var o=$('pxAsk');o.classList.remove('open');o.setAttribute('aria-hidden','true')}
+function ask(){var sh=$('pxAskSh');
+ sh.innerHTML='<div class="px-hd"><div><small>PRÉ-INSCRIPTION</small><h2 id="pxAskT">As-tu déjà ton code ?</h2></div><button type="button" class="px-x" id="pxAx" aria-label="Fermer">×</button></div><p class="px-note">Si tu as déjà été pré-inscrit(e) sans téléphone (à l’accueil ou par ton responsable), entre ton code à 4 chiffres pour retrouver ton dossier.</p><input class="px-in4" id="pxIn4" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="····" aria-label="Code à 4 chiffres"><div class="px-err" id="pxAe" role="alert"></div><button type="button" class="px-b v" id="pxOk" style="width:100%">Valider mon code</button><button type="button" class="px-b g" id="pxNo" style="width:100%;margin-top:9px">Non, je n’ai pas de code</button>';
+ var o=$('pxAsk');o.classList.add('open');o.setAttribute('aria-hidden','false');
+ $('pxAx').onclick=closeAsk;o.onclick=function(e){if(e.target===o)closeAsk()};
+ $('pxIn4').oninput=function(){this.value=this.value.replace(/\D/g,'').slice(0,4)};
+ $('pxNo').onclick=function(){setAsked();try{localStorage.removeItem(CL)}catch(e){}closeAsk();proceed()};
+ $('pxOk').onclick=function(){var c=$('pxIn4').value,e=$('pxAe');if(!/^\d{4}$/.test(c)){e.textContent='Le code comporte 4 chiffres.';return}
+  e.textContent='Vérification…';find(c).then(function(it){if(!it){e.textContent='Code introuvable ou déjà utilisé.';return}claim(it);closeAsk();setAsked();proceed();toast('Dossier retrouvé : vérifie, ajoute ton numéro puis valide.')})};
+ setTimeout(function(){$('pxIn4').focus()},250)}
+function find(c){var it=rd(PK,[]).filter(function(x){return x.code===c})[0];if(it)return Promise.resolve(it.claimed?null:it);var s=sb();if(!s)return Promise.resolve(null);
+ return Promise.race([Promise.resolve(s.from(TB).select('code,data,claimed').eq('code',c).maybeSingle()).then(function(r){var x=r&&r.data;return x&&!x.claimed?{code:x.code,d:x.data}:null},function(){return null}),new Promise(function(r){setTimeout(function(){r(null)},5000)})])}
+function claim(it){var d=it.d,v={regName:d.Name,regPhone:'',regEmail:'',regAddress:d.Address,regBirth:d.Birth,regBirthPlace:d.BirthPlace,regNation:d.Nation,regSex:d.Sex,regBranch:d.Branch,regGrade:d.Grade,regRegion:d.RegionSel||d.Region,regRegionOther:d.RegionOther||'',regGroup:d.Group,regTroop:d.Troop,regChurch:d.ChurchSel||d.Church,regChurchOther:d.ChurchOther||'',regPatrol:d.PatrolSel||d.Patrol,regPatrolOther:d.PatrolOther||'',regTitle:d.Title};
+ wr(DK,{v:v,eng:true,price:d.Price||'',step:0,photo:d.Photo||''});wr(CL,it.code)}
+function install(){orig=window.openRegistration;if(typeof orig!=='function'){return false}window.__pxOrig=orig;
+ window.openRegistration=function(){var s=rd(RK,null),dr=rd(DK,null);
+  if((s&&s.Name)||asked()||(dr&&dr.v&&Object.keys(dr.v).some(function(k){return dr.v[k]}))){return orig.apply(this,arguments)}ask()};
+ var om=window.v63AddMember;
+ window.v63AddMember=function(d){var c=rd(CL,null);
+  if(c&&d&&d.Phone&&String(d.Phone).indexOf('px')!==0){wr(MK,rd(MK,[]).filter(function(m){return m.id!=='px'+c}));
+   var l=rd(PK,[]);l.forEach(function(x){if(x.code===c)x.claimed=true});wr(PK,l);var s=sb();if(s)Promise.resolve(s.from(TB).update({claimed:true}).eq('code',c)).then(function(){},function(){});try{localStorage.removeItem(CL)}catch(e){}}
+  return om&&om.apply(this,arguments)};
+ return true}
+
+function init(){mountBtn();if(!install()){var n=0,t=setInterval(function(){if(install()||++n>20)clearInterval(t)},300)}
+ rd(PK,[]).filter(function(x){return !x.synced}).forEach(function(x){push(x.code)})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+setTimeout(mountBtn,800);
+})();
+</script>
+
+<!-- ====== NOUVEAUTÉ : pop-up « Fonctionnalité débloquée » + tutoriel de 30 s (pré-inscription sans téléphone) ====== -->
+<style id="pt-style">
+.px-hbtn.pt-new{position:relative}
+.px-hbtn.pt-new::after{content:"NEW";position:absolute;top:-7px;right:-5px;padding:2px 5px;border-radius:99px;background:#ff8a22;color:#fff;font-size:8px;font-weight:900;letter-spacing:.5px;box-shadow:0 0 0 2px #fff;animation:ptBadge 1.4s ease-in-out infinite}
+@keyframes ptBadge{50%{transform:scale(1.18)}}
+.pt-ov{position:fixed;inset:0;z-index:1500;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(5,2,20,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pt-ov.open{display:flex;animation:ptFade .3s ease both}
+@keyframes ptFade{from{opacity:0}to{opacity:1}}
+.pt-card{position:relative;width:min(100%,420px);max-height:94dvh;overflow:hidden;border-radius:28px;color:#fff;padding:18px 18px calc(18px + env(safe-area-inset-bottom));text-align:center;background:linear-gradient(155deg,#2a1a73,#15103d 55%,#0b1535);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px -20px #000,0 0 0 1px rgba(255,138,34,.25);animation:ptPop .75s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes ptPop{0%{transform:scale(.3) translateY(40px);opacity:0}60%{transform:scale(1.06);opacity:1}100%{transform:scale(1)}}
+.pt-bar{height:5px;border-radius:9px;background:#ffffff22;overflow:hidden;margin:0 0 12px}
+.pt-bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#ff8a22,#ffd76a)}
+.pt-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 6px;font-size:11px;font-weight:800;color:#cfc5d8}
+.pt-skip{border:0;background:#ffffff18;color:#fff;font:inherit;font-size:12px;font-weight:800;padding:7px 12px;border-radius:99px;cursor:pointer}
+.pt-stage{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+.pt-stage>*{animation:ptIn .55s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes ptIn{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:none}}
+.pt-badge{display:inline-block;padding:6px 12px;border-radius:99px;background:linear-gradient(135deg,#ff8a22,#ef5a00);font-size:10px;font-weight:900;letter-spacing:1.4px;box-shadow:0 8px 20px -8px #ff8a22}
+.pt-h{margin:0;font-size:23px;line-height:1.15;font-weight:900}
+.pt-h em{font-style:normal;color:#ffb066}
+.pt-p{margin:0;font-size:14px;line-height:1.45;color:#dcd6ea;max-width:320px}
+.pt-ico{position:relative;width:110px;height:110px;border-radius:32px;display:grid;place-items:center;font-size:50px;background:linear-gradient(135deg,#6a0dad,#2563eb);box-shadow:0 18px 40px -14px #2563eb,0 0 0 6px #ffffff12;animation:ptIn .55s cubic-bezier(.2,1.2,.4,1) both,ptFloat 3s ease-in-out .6s infinite}
+@keyframes ptFloat{50%{transform:translateY(-7px)}}
+.pt-lock{width:64px;height:64px;overflow:visible}
+.pt-lock .sh{transform-origin:70% 100%;animation:ptUnlock 1.1s cubic-bezier(.3,1.6,.5,1) .5s both}
+@keyframes ptUnlock{0%{transform:none}100%{transform:translateY(-5px) rotate(-38deg)}}
+.pt-ring{position:absolute;inset:0;border-radius:32px;border:3px solid #ffb066;animation:ptRing 1.6s ease-out .45s infinite}
+@keyframes ptRing{from{transform:scale(1);opacity:.9}to{transform:scale(1.9);opacity:0}}
+.pt-cf{position:absolute;left:50%;top:92px;width:9px;height:9px;border-radius:2px;opacity:0;animation:ptCf 1.5s ease-out .5s both}
+@keyframes ptCf{0%{opacity:1;transform:translate(0,0) rotate(0) scale(.4)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1)}}
+.pt-mock{width:100%;max-width:330px;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:16px;background:#fff;color:#18205d;font-weight:800;font-size:11px;box-shadow:0 12px 30px -12px #000}
+.pt-mock .lg{width:30px;height:30px;border-radius:50%;background:#ff6500;flex:none}
+.pt-mock .tx{flex:1;text-align:left;line-height:1.1}
+.pt-mock .c{width:30px;height:30px;border-radius:10px;background:#f1f2fa;flex:none}
+.pt-mock .pill{position:relative;display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 10px;border-radius:11px;background:linear-gradient(135deg,#6a0dad,#2563eb);color:#fff;font-size:11px;font-weight:900;animation:ptGlow 1.2s ease-in-out infinite}
+@keyframes ptGlow{0%,100%{box-shadow:0 0 0 0 #ff8a22aa}50%{box-shadow:0 0 0 9px #ff8a2200}}
+.pt-hand{font-size:34px;animation:ptTap 1s ease-in-out infinite;margin-top:-6px}
+@keyframes ptTap{50%{transform:translate(-6px,-10px) scale(.9)}}
+.pt-code{display:flex;gap:8px;justify-content:center}
+.pt-code b{width:46px;height:60px;display:grid;place-items:center;border-radius:14px;background:#fff;color:#2b1470;font-size:32px;font-weight:1000;box-shadow:0 10px 24px -10px #000;animation:ptIn .5s cubic-bezier(.2,1.4,.4,1) both}
+.pt-code b:nth-child(2){animation-delay:.12s}.pt-code b:nth-child(3){animation-delay:.24s}.pt-code b:nth-child(4){animation-delay:.36s}
+.pt-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:330px}
+.pt-chips span{padding:6px 10px;border-radius:99px;background:#ffffff18;border:1px solid #ffffff25;font-size:11px;font-weight:800}
+.pt-dots{display:flex;gap:6px;justify-content:center;margin:12px 0 10px}
+.pt-dots i{width:8px;height:8px;border-radius:50%;background:#ffffff30;transition:all .3s}
+.pt-dots i.on{width:22px;border-radius:9px;background:#ff8a22}
+.pt-nav{display:flex;gap:9px}
+.pt-b{flex:1;min-height:46px;border:0;border-radius:14px;font:inherit;font-size:14px;font-weight:900;color:#fff;cursor:pointer;background:linear-gradient(135deg,#ff8a22,#ef5a00)}
+.pt-b.g{background:#ffffff1c}.pt-b.v{background:linear-gradient(135deg,#6a0dad,#2563eb)}
+@media(prefers-reduced-motion:reduce){.pt-card,.pt-stage>*,.pt-ico,.pt-cf,.pt-ring,.pt-hand,.pt-mock .pill,.px-hbtn.pt-new::after,.pt-lock .sh{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+<div class="pt-ov" id="ptOv" aria-hidden="true"><section class="pt-card" role="dialog" aria-modal="true" aria-labelledby="ptT" id="ptCard"></section></div>
+<script id="pt-script">
+(function(){'use strict';
+var KEY='camp_feat_px_tour_v1',DUR=[3000,5400,5400,5400,5400,5400],TOTAL=30000,$=function(i){return document.getElementById(i)};
+var starts=[],a=0;DUR.forEach(function(d){starts.push(a);a+=d});
+function seen(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function mark(){try{localStorage.setItem(KEY,'1')}catch(e){}var b=$('pxBtn');if(b)b.classList.remove('pt-new')}
+var STEPS=[
+ function(){var c=['#ff8a22','#ffd76a','#6a0dad','#2563eb','#fff'],h='';for(var i=0;i<26;i++){var an=Math.random()*6.283,d=70+Math.random()*110;h+='<i class="pt-cf" style="background:'+c[i%5]+';--dx:'+Math.round(Math.cos(an)*d)+'px;--dy:'+Math.round(Math.sin(an)*d-30)+'px;--r:'+Math.round(Math.random()*720-360)+'deg;animation-delay:'+(.45+Math.random()*.2).toFixed(2)+'s"></i>'}
+  return h+'<span class="pt-badge">🔓 FONCTIONNALITÉ DÉBLOQUÉE</span><div class="pt-ico"><span class="pt-ring"></span><svg class="pt-lock" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><g class="sh"><path d="M20 28V20a12 12 0 0 1 24 0v2"/></g><rect x="12" y="28" width="40" height="28" rx="8" fill="#ffffff22"/><circle cx="32" cy="42" r="3" fill="#fff"/></svg></div><h2 class="pt-h" id="ptT">Pré-inscris un campeur <em>sans téléphone</em></h2><p class="pt-p">Nouveau dans l’application. Découvre en 30 secondes comment ça marche.</p>'},
+ function(){return '<span class="pt-badge">ÉTAPE 1 · LE BOUTON</span><h2 class="pt-h" id="ptT">Repère <em>« Sans tél. »</em></h2><div class="pt-mock"><span class="lg"></span><span class="tx">Camp de District<br>3 en 1</span><span class="pill">👤＋ Sans tél.</span><span class="c"></span><span class="c"></span></div><div class="pt-hand">👆</div><p class="pt-p">Il est en haut de l’écran, dans l’entête. Touche-le pour ouvrir le formulaire.</p>'},
+ function(){return '<span class="pt-badge">ÉTAPE 2 · LE CAMPEUR</span><div class="pt-ico">📷</div><h2 class="pt-h" id="ptT">Photo et <em>identité</em></h2><p class="pt-p">Prends la photo en présentiel (ou importe-la), puis renseigne nom, adresse, naissance, nationalité et sexe.</p>'},
+ function(){return '<span class="pt-badge">ÉTAPE 3 · LA MISSION</span><h2 class="pt-h" id="ptT">Parcours et <em>place au camp</em></h2><div class="pt-chips"><span>🧭 Branche</span><span>🎖️ Grade</span><span>📍 Région</span><span>🏕️ District</span><span>👥 Troupe</span><span>⛪ Église</span><span>🏷️ Titre</span></div><p class="pt-p">Choisis les mêmes informations que dans la pré-inscription classique.</p>'},
+ function(){return '<span class="pt-badge">ÉTAPE 4 · LE TICKET</span><div class="pt-ico">🎫</div><h2 class="pt-h" id="ptT">Choisis le <em>tarif</em></h2><p class="pt-p">Pass Élément 7 000 F CFA ou Pass Chef 8 000 F CFA, puis valide. Le compteur des pré-inscrits monte tout de suite.</p>'},
+ function(){return '<span class="pt-badge">ÉTAPE 5 · LE CODE</span><h2 class="pt-h" id="ptT">Remets le <em>code à 4 chiffres</em></h2><div class="pt-code"><b>4</b><b>8</b><b>2</b><b>7</b></div><p class="pt-p">Donne-le au campeur. S’il a un téléphone plus tard, il le saisira à « As-tu déjà ton code ? » pour retrouver son dossier.</p>'}
+];
+var idx=-1,el=0,timer=null,last=0,open=false;
+function render(i){idx=i;var st=$('ptStage');if(!st)return;st.innerHTML=STEPS[i]();var d=$('ptDots');if(d)[].forEach.call(d.children,function(x,k){x.classList.toggle('on',k===i)});
+ var nx=$('ptNext'),tr=$('ptTry'),end=i===STEPS.length-1;if(nx)nx.style.display=end?'none':'';if(tr)tr.style.display=end?'':'none';var ok=$('ptOk');if(ok)ok.style.display=end?'':'none'}
+function which(t){for(var i=DUR.length-1;i>=0;i--)if(t>=starts[i])return i;return 0}
+function tick(){if(document.hidden){last=Date.now();return}var n=Date.now();el=Math.min(TOTAL,el+(n-last));last=n;
+ var b=$('ptBar'),t=$('ptTime');if(b)b.style.width=(el/TOTAL*100).toFixed(1)+'%';if(t)t.textContent=Math.max(0,Math.ceil((TOTAL-el)/1000))+' s';
+ var i=which(el);if(i!==idx)render(i);if(el>=TOTAL){clearInterval(timer);timer=null}}
+function build(){$('ptCard').innerHTML='<div class="pt-bar"><i id="ptBar"></i></div><div class="pt-top"><span id="ptTime">30 s</span><button type="button" class="pt-skip" id="ptSkip">Passer ✕</button></div><div class="pt-stage" id="ptStage"></div><div class="pt-dots" id="ptDots"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="pt-nav"><button type="button" class="pt-b g" id="ptNext">Suivant →</button><button type="button" class="pt-b g" id="ptOk" style="display:none">J’ai compris ✓</button><button type="button" class="pt-b v" id="ptTry" style="display:none">Essayer maintenant</button></div>';
+ $('ptSkip').onclick=close;$('ptOk').onclick=close;
+ $('ptNext').onclick=function(){var n=Math.min(STEPS.length-1,idx+1);el=starts[n];last=Date.now();tick()};
+ $('ptTry').onclick=function(){close();setTimeout(function(){if(window.openProxyReg)window.openProxyReg()},250)}}
+function show(){if(open)return;open=true;build();el=0;idx=-1;last=Date.now();var o=$('ptOv');o.classList.add('open');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var n=$('floatingAppNav');if(n)n.style.display='none';tick();timer=setInterval(tick,100)}
+function close(){if(timer){clearInterval(timer);timer=null}open=false;mark();var o=$('ptOv');o.classList.remove('open');o.setAttribute('aria-hidden','true');document.body.style.overflow='';var n=$('floatingAppNav');if(n)n.style.display='grid'}
+window.openPxTour=show;
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)close()});
+/* Affichage : une fois par appareil, quand l'app est en ligne, chargée, et qu'aucune autre fenêtre n'est ouverte */
+function busy(){var h=document.documentElement;if(h.classList.contains('cd-lic'))return true;var s=document.querySelectorAll('.px-ov.open,.v-modal.open');return s.length>0}
+function ready(){return !!$('pxBtn')&&document.readyState==='complete'}
+function wait(){var forced=/[?&]tour=1/.test(location.search);if(seen()&&!forced)return;
+ var b=$('pxBtn');if(b)b.classList.add('pt-new');
+ var n=0,t=setInterval(function(){if(open){clearInterval(t);return}
+  if(!navigator.onLine)return;
+  if(ready()&&!busy()){clearInterval(t);setTimeout(function(){if(navigator.onLine&&!busy()&&(forced||!seen()))show()},900)}
+  else if(++n>600)clearInterval(t)},500)}
+function init(){setTimeout(wait,1200)}
+window.addEventListener('online',function(){if(!seen()&&!open)wait()});
+if(document.readyState==='complete')init();else window.addEventListener('load',init);
+setTimeout(function(){var b=$('pxBtn');if(b&&!seen())b.classList.add('pt-new')},1500);
+})();
+</script>
