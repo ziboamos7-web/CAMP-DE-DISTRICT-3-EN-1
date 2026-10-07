@@ -10946,6 +10946,24 @@ html.sm-open #cvBar{display:none!important}
 .sm-res ul{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:13px;margin-top:12px}.sm-res li{display:flex;align-items:center;gap:6px;line-height:1.25}
 #smErr{color:#b3261e;min-height:18px;margin:0;font-weight:600}
 @media(prefers-reduced-motion:reduce){.sm-res.ok,.sm-res.err,.sm-vid.live::after{animation:none}}
+
+.sm-chips{display:flex;gap:8px}.sm-chips button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:14px;padding:11px 8px;background:#fff;color:#43118a;font-weight:800;font-size:13px;font-family:inherit;box-shadow:0 10px 24px -20px #43118a}.sm-chips button.off{color:#9a93b8;background:#ece6fa}
+.sm-zm{display:none;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:8px 14px;font-size:12.5px;font-weight:800;color:#6b6788}.sm-zm input[type=range]{flex:1;padding:0;border:0;box-shadow:none;accent-color:#f05a00}
+.sm-pend{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff4d6;color:#7a4a00;border-radius:16px;padding:12px 14px;font-weight:800;font-size:13.5px}.sm-pend[hidden]{display:none}.sm-pend button{border:0;border-radius:12px;padding:9px 14px;background:#f05a00;color:#fff;font-weight:800;font-family:inherit}
+.sm-lh{display:flex;align-items:center;justify-content:space-between;margin-top:6px}.sm-lh b{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:#6b6788}
+.sm-mini{border:0;border-radius:99px;padding:8px 14px;background:#43118a;color:#fff;font-weight:800;font-size:12.5px;font-family:inherit}
+.sm-ch{display:flex;gap:8px}.sm-ch button{border:0;border-radius:99px;padding:8px 14px;background:#ece6fa;color:#43118a;font-weight:800;font-size:13px;font-family:inherit}.sm-ch button.on{background:#43118a;color:#fff}
+.sm-ls div.k::before{content:"✕";background:#ffdede;color:#d62f2f}.sm-ls div.k small{color:#b3261e}
+.sm-lkb{border:0;border-radius:16px;padding:14px;background:#ece6fa;color:#43118a;font-weight:800;font-size:15px;font-family:inherit}
+.sm-hd{padding-bottom:16px!important}.sm-ht b{font-size:19px!important;letter-spacing:-.01em}.sm-ht small{display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px!important}
+.sm-ht .sm-dot{all:unset;flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:#2ee077;box-shadow:0 0 0 3px #2ee07733}.sm-ht .sm-dot.off{background:#ff6b6b;box-shadow:0 0 0 3px #ff6b6b33}
+.sm-hd .sm-back{padding:0 14px 0 6px!important}#smCnt{white-space:nowrap}
+#smLock .sm-lk{margin-top:3vh;padding-bottom:20px}
+.sm-stp{position:relative;list-style:none;margin:4px 0 2px;padding:14px 4px 0;border-top:1px dashed #e3dbf6;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;counter-reset:n}
+.sm-stp li{counter-increment:n;font-size:12px;font-weight:700;color:#6b6788;line-height:1.3;display:flex;flex-direction:column;align-items:center;gap:6px}
+.sm-stp li::before{content:counter(n);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#ece6fa;color:#43118a;font-weight:900;font-size:13px}
+.sm-sec{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:6px;color:#1a7f45;background:#e3f7ea;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:800;margin:0 auto}.sm-sec.off{color:#a0361b;background:#ffe8e0}
+#smFl{position:fixed;inset:0;z-index:9;display:grid;place-items:center;font-size:140px;font-weight:900;color:#fff;opacity:0;pointer-events:none;transition:opacity .18s}#smFl.ok{background:#1fa653d9;opacity:1}#smFl.err{background:#d62f2fd9;opacity:1}
 </style>
 <div class="sm-sw" id="smSw" aria-hidden="true"><svg class="sm-logo" viewBox="0 0 220 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="smg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a0fb8"/><stop offset=".5" stop-color="#4a34d4"/><stop offset="1" stop-color="#0f7ae5"/></linearGradient>
 <linearGradient id="smo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a2e"/><stop offset="1" stop-color="#ff6500"/></linearGradient></defs>
@@ -10970,8 +10988,8 @@ html.sm-open #cvBar{display:none!important}
 <path d="M110 222L50 180Q80 190 110 190Q140 190 170 180Z" fill="#e85d00" opacity=".35"/>
 <ellipse cx="110" cy="188" rx="11" ry="8" fill="#ffb15c"/><path d="M104 188h12" stroke="#e85d00" stroke-width="2.5" stroke-linecap="round"/>
 </g></svg><b id="smSwT">Changement de compte…</b><div class="sm-dots"><i></i><i></i><i></i></div></div>
-<div class="sm-pg" id="smPg" role="dialog" aria-modal="true" aria-label="Scan My">
- <div class="sm-hd"><button type="button" id="smQuit" class="sm-back" aria-label="Retour"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Retour</button><div class="sm-ht"><b>Scan My</b><small>Contrôle d’entrée</small></div><span id="smCnt">0 scans</span></div>
+<div class="sm-pg" id="smPg" role="dialog" aria-modal="true" aria-label="Contrôle de ticket"><div id="smFl" aria-hidden="true"></div>
+ <div class="sm-hd"><button type="button" id="smQuit" class="sm-back" aria-label="Retour"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Retour</button><div class="sm-ht"><b>Contrôle de ticket</b><small><em class="sm-dot" id="smDot"></em>Garango 2026 · Camp 3 en 1</small></div><span id="smCnt">0 scan</span></div>
  <div class="sm-b">
   <div id="smLock" class="sm-b" style="padding:0"><div class="sm-lk"><div class="sm-mas"><svg class="sm-logo2" viewBox="0 0 220 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="smg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a0fb8"/><stop offset=".5" stop-color="#4a34d4"/><stop offset="1" stop-color="#0f7ae5"/></linearGradient>
 <linearGradient id="smo2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a2e"/><stop offset="1" stop-color="#ff6500"/></linearGradient></defs>
@@ -10995,21 +11013,28 @@ html.sm-open #cvBar{display:none!important}
 <path d="M44 160Q110 196 176 160L170 180 110 222 50 180Z" fill="url(#smo2)"/>
 <path d="M110 222L50 180Q80 190 110 190Q140 190 170 180Z" fill="#e85d00" opacity=".35"/>
 <ellipse cx="110" cy="188" rx="11" ry="8" fill="#ffb15c"/><path d="M104 188h12" stroke="#e85d00" stroke-width="2.5" stroke-linecap="round"/>
-</g></svg></div><h2>Espace agents</h2><p class="sm-sub">Entre ton code pour scanner les tickets à l’entrée du camp.</p><div class="sm-fld" id="smFld"><input id="smCode" type="password" placeholder="Code agent" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" id="smEye" aria-label="Afficher le code"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div><p id="smErr" role="alert"></p><button class="sm-btn" id="smOk" type="button">Entrer</button><small class="sm-note">Accès réservé · code vérifié en ligne</small></div></div>
+</g></svg></div><h2>Espace agents</h2><p class="sm-sub">Entre ton code pour scanner les tickets à l’entrée du camp.</p><div class="sm-fld" id="smFld"><input id="smCode" type="password" placeholder="Code agent" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" id="smEye" aria-label="Afficher le code"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div><p id="smErr" role="alert"></p><button class="sm-btn" id="smOk" type="button">Entrer</button><ol class="sm-stp"><li>Entre ton code agent</li><li>Scanne le QR du ticket</li><li>Remets le bracelet</li></ol><span class="sm-sec" id="smSec">Connexion sécurisée</span><small class="sm-note">Accès réservé · code vérifié en ligne</small></div></div>
   <div id="smMain" class="sm-b" style="padding:0;display:none">
    <div class="sm-st"><div><b id="smOkN">0</b><small>Validés</small></div><div class="e"><b id="smKoN">0</b><small>Refusés</small></div></div>
    <div class="sm-vid" id="smVid"><video id="smV" playsinline muted></video></div>
    <div class="sm-row"><button class="sm-btn" id="smCam" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"/></svg><span>Scanner un ticket</span></button><label class="sm-tb" for="smPhoto" aria-label="Photo du QR" title="Photo du QR"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></label><input id="smPhoto" type="file" accept="image/*" capture="environment" hidden><button type="button" id="smTorch" class="sm-tb" style="display:none" aria-label="Lampe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></button></div>
+   <div class="sm-chips"><button type="button" id="smSnd">Son activé</button><button type="button" id="smFlip">Changer de caméra</button></div>
+   <div class="sm-zm" id="smZw">Zoom<input id="smZm" type="range" min="1" max="4" step="0.1" value="1"></div>
+   <div class="sm-pend" id="smPend" hidden></div>
    <div class="sm-res" id="smRes">Prêt à scanner<small>Vise le QR du ticket, ou utilise la saisie manuelle.</small></div>
    <details class="sm-man" id="smMan"><summary><span class="sm-sl"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></svg>Saisie manuelle</span></summary><div class="sm-mb"><input id="smTk" placeholder="N° du ticket" inputmode="numeric"><input id="smPh" placeholder="Téléphone du campeur" inputmode="tel"><button class="sm-btn" id="smGo" type="button" style="background:#43118a;box-shadow:none">Valider à la main</button></div></details>
-   <b>Derniers scans</b><div class="sm-ls" id="smLs"></div>
+   <div class="sm-lh"><b>Historique du jour</b><button type="button" id="smExp" class="sm-mini">Exporter</button></div>
+   <div class="sm-ch" id="smCh"><button type="button" data-f="all" class="on">Tous</button><button type="button" data-f="ok">Validés</button><button type="button" data-f="ko">Refusés</button></div>
+   <input id="smQ" type="search" placeholder="Rechercher un nom ou un n° de ticket" autocomplete="off">
+   <div class="sm-ls" id="smLs"></div>
+   <button type="button" class="sm-lkb" id="smLk">Verrouiller la session</button>
   </div>
  </div>
 </div>
 <script id="sm-script">
 (function(){
 'use strict';
-var $=function(i){return document.getElementById(i)},sb=null,code='',stream=null,loop=null,busy=false,done=[],bad=0,trk=null,tor=false,det=null,want=false;
+var $=function(i){return document.getElementById(i)},sb=null,code='',stream=null,loop=null,busy=false,done=[],bad=0,hist=[],flt='all',qs='',snd=true,face='environment',pend=[],tok='',direct=false,lastRaw='',lastT=0,act=Date.now(),actx=null,trk=null,tor=false,det=null,want=false;
 function conn(){if(!sb&&window.supabase){try{sb=window.supabase.createClient('https://pzxpjavylrsmptwjeupi.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6eHBqYXZ5bHJzbXB0d2pldXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5MTU1ODMsImV4cCI6MjEwNjQ5MTU4M30.DeuASRJAaTuMhrSaF5N0SHfo-4E5r_c_wiugheIFiN0')}catch(e){}}return sb}
 var MSG={qr_non_valide:['QR non valide','Ce QR n’est pas authentique. Le campeur doit ouvrir son ticket en ligne.'],non_preinscrit:['Non pré-inscrit','Ce numéro n’est pas dans les inscriptions.'],ticket_invalide:['Ticket invalide','Le téléphone ne correspond pas au ticket.'],deja_scanne:['Déjà scanné','Ce ticket a déjà été utilisé.'],code_invalide:['Code agent refusé','Reconnecte-toi.']};
 var CAMI='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"/></svg><span>Scanner un ticket</span>',STPI='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg><span>Arrêter la caméra</span>';
@@ -11022,23 +11047,46 @@ function el(t,x){var e=document.createElement(t);if(x!=null)e.textContent=x;retu
 function res(c,t,s){var v=$('smVid');v.dataset.f=c;clearTimeout(res.t);res.t=setTimeout(function(){v.dataset.f=''},1300);var r=$('smRes');r.className='sm-res '+c;r.textContent=t;if(s)r.appendChild(el('small',s));return r}
 function swap(txt,cb){$('smSwT').textContent=txt;$('smSw').classList.add('on');setTimeout(cb,1000);setTimeout(function(){$('smSw').classList.remove('on')},1500)}
 function hm(){var d=new Date();return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
-function list(){$('smCnt').textContent=done.length+' scan'+(done.length>1?'s':'');$('smOkN').textContent=done.length;$('smKoN').textContent=bad;var l=$('smLs');l.textContent='';done.slice(0,12).forEach(function(x){var r=el('div'),w=el('span');w.appendChild(el('b',x.n));w.appendChild(el('small',x.t));r.appendChild(w);r.appendChild(el('time',x.h));l.appendChild(r)})}
-function stop(){if(loop){clearInterval(loop);loop=null}if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}$('smVid').classList.remove('live');$('smCam').innerHTML=CAMI;trk=null;tor=false;$('smTorch').style.display='none';$('smTorch').classList.remove('on')}
-function submit(num,phone,sig,manual){
- if(!conn()){res('err','Connexion indisponible','Vérifie ta connexion internet puis réessaie.');return}
- sb.rpc('submit_scan',{p_code:code,p_ticket:num,p_phone:phone,p_sig:sig||null,p_manual:!!manual}).then(function(r){var d=r.data;
-  if(r.error||!d){res('err','Erreur réseau','Réessaie dans un instant.');return}
-  if(!d.ok){bad++;list();var m=MSG[d.alert]||['Scan refusé',''];res('err',m[0],m[1]);if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
+var DK='camp_sm_'+new Date().toISOString().slice(0,10);
+try{hist=JSON.parse(localStorage.getItem(DK)||'[]')||[];snd=localStorage.getItem('camp_sm_snd')!=='0'}catch(e){hist=[]}
+function save(){try{localStorage.setItem(DK,JSON.stringify(hist))}catch(e){}}
+function rec(ok,n,t){hist.unshift({ok:ok,n:n,t:t,h:hm(),d:new Date().toISOString()});hist=hist.slice(0,300);save();list()}
+function list(){var ok=hist.filter(function(x){return x.ok}).length,ko=hist.length-ok;bad=ko;
+ $('smCnt').textContent=hist.length+' scan'+(hist.length>1?'s':'');$('smOkN').textContent=ok;$('smKoN').textContent=ko;
+ var l=$('smLs'),q=qs.toLowerCase();l.textContent='';
+ hist.filter(function(x){return (flt==='all'||(flt==='ok')===x.ok)&&(!q||(x.n+' '+x.t).toLowerCase().indexOf(q)>-1)}).slice(0,60).forEach(function(x){var r=el('div'),w=el('span');if(!x.ok)r.className='k';w.appendChild(el('b',x.n));w.appendChild(el('small',x.t));r.appendChild(w);r.appendChild(el('time',x.h));l.appendChild(r)})}
+function beep(ok){if(!snd)return;try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();var o=actx.createOscillator(),g=actx.createGain();o.connect(g);g.connect(actx.destination);o.type=ok?'sine':'square';o.frequency.value=ok?880:180;g.gain.value=.15;o.start();if(ok)o.frequency.setValueAtTime(1175,actx.currentTime+.09);o.stop(actx.currentTime+(ok?.2:.45))}catch(e){}}
+function verdict(c){var f=$('smFl');f.className=c;f.textContent=c==='ok'?'✓':'✕';beep(c==='ok');clearTimeout(verdict.t);verdict.t=setTimeout(function(){f.className=''},750)}
+function pendUi(){var b=$('smPend');if(!pend.length){b.hidden=true;return}b.hidden=false;b.textContent='';b.appendChild(el('span',pend.length+' scan'+(pend.length>1?'s':'')+' en attente de connexion'));var k=el('button','Renvoyer');k.type='button';k.onclick=flush;b.appendChild(k)}
+function queue(n,p,g,m){pend.push({n:n,p:p,g:g,m:m});pendUi()}
+function flush(){if(!pend.length)return;var q=pend;pend=[];pendUi();q.forEach(function(x){submit(x.n,x.p,x.g,x.m)})}
+function net(){var on=navigator.onLine;$('smDot').classList.toggle('off',!on);var c=$('smSec');c.classList.toggle('off',!on);c.textContent=on?'Connexion sécurisée':'Hors ligne · connexion requise pour entrer'}var fails=0,until=0;window.addEventListener('online',function(){net();flush()});window.addEventListener('offline',net);net();
+
+function jpost(path,b,t){var h={'Content-Type':'application/json'};if(t)h.Authorization='Bearer '+t;return fetch(path,{method:'POST',headers:h,body:JSON.stringify(b)}).then(function(r){if(r.status===404||r.status>=500&&r.status!==502)throw 0;return r.json().then(function(j){j._s=r.status;return j})})}
+function chk(c){return jpost('/api/agent/login',{code:c}).then(function(j){if(j._s===429)return {data:false,lim:true};if(j.ok&&j.token){tok=j.token;direct=false;return {data:true}}if(j._s===401)return {data:false};throw 0}).catch(function(){direct=true;tok='';if(!conn())return Promise.reject();return sb.rpc('staff_check',{p_code:c})})}
+function scanRpc(num,phone,sig,manual){
+ var dir=function(){if(!conn())return Promise.reject();return sb.rpc('submit_scan',{p_code:code,p_ticket:num,p_phone:phone,p_sig:sig||null,p_manual:!!manual})};
+ if(direct||!tok)return dir();
+ return jpost('/api/scan',{ticket:num,phone:phone,sig:sig||null,manual:!!manual},tok).then(function(j){if(j._s===401){tok='';return {data:{ok:false,alert:'code_invalide'}}}if(j.ok)return {data:j.data};return {error:true}},function(){direct=true;return dir()})}
+
+function lock(msg){tok='';want=false;stop();code='';$('smLock').style.display='';$('smMain').style.display='none';$('smErr').textContent=msg||''}
+function touch(){act=Date.now()}
+setInterval(function(){if(code&&!stream&&Date.now()-act>600000)lock('Session verrouillée après 10 min d’inactivité.')},30000);
+function stop(){if(loop){clearInterval(loop);loop=null}if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}$('smVid').classList.remove('live');$('smCam').innerHTML=CAMI;trk=null;tor=false;$('smTorch').style.display='none';$('smTorch').classList.remove('on');$('smZw').style.display='none'}
+function submit(num,phone,sig,manual){touch();
+ scanRpc(num,phone,sig,manual).then(function(r){var d=r.data;
+  if(r.error||!d){queue(num,phone,sig,manual);res('err','Erreur réseau','Scan mis en attente, il sera renvoyé automatiquement.');return}
+  if(!d.ok){var m=MSG[d.alert]||['Scan refusé',''];rec(false,'Ticket N° '+num,m[0]);res('err',m[0],m[1]);verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
   var box=res('ok','Entrée confirmée',d.name+' · '+(d.troupe||'—'));
   box.appendChild(el('small','Bracelet à remettre : '+(window.campBracelet?window.campBracelet(d.bracelet).label:(d.bracelet||'—'))));
   var ul=el('ul');['Pré-inscrit','Ticket valide','Bracelet reçu','Présence confirmée'].forEach(function(x){ul.appendChild(el('li','✓ '+x))});box.appendChild(ul);
-  done.unshift({n:d.name,t:'N° '+num+' · '+(d.troupe||'—'),h:hm()});list();if(navigator.vibrate)navigator.vibrate(120)},
-  function(){res('err','Erreur réseau')})}
-function handle(raw){var p=String(raw||'').split('|');
- if(p[0]==='CAMP3EN1'&&p[1])submit(p[1],p[3]||'',p[5]||'',false);else res('err','QR non reconnu','Ce code ne vient pas du Camp.')}
+  rec(true,d.name,'N° '+num+' · '+(d.troupe||'—'));verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},
+  function(){queue(num,phone,sig,manual);res('err','Erreur réseau','Scan mis en attente, il sera renvoyé automatiquement.')})}
+function handle(raw){var now=Date.now();if(raw===lastRaw&&now-lastT<4000)return;lastRaw=raw;lastT=now;var p=String(raw||'').split('|');
+ if(p[0]==='CAMP3EN1'&&p[1])submit(p[1],p[3]||'',p[5]||'',false);else{rec(false,'QR inconnu','Ce code ne vient pas du Camp');res('err','QR non reconnu','Ce code ne vient pas du Camp.');verdict('err')}}
 function cam(){
  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||window.isSecureContext===false){res('err','Caméra bloquée','Ouvre l’application depuis son adresse en ligne (https) pour utiliser la caméra, ou prends le QR en photo avec le bouton photo.');return}
- navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}}).then(function(s){stream=s;var v=$('smV');v.srcObject=s;v.play();$('smVid').classList.add('live');$('smCam').innerHTML=STPI;trk=s.getVideoTracks()[0];try{var cp=trk.getCapabilities?trk.getCapabilities():{};$('smTorch').style.display=cp.torch?'':'none'}catch(e){}
+ navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:face}}}).then(function(s){stream=s;var v=$('smV');v.srcObject=s;v.play();$('smVid').classList.add('live');$('smCam').innerHTML=STPI;trk=s.getVideoTracks()[0];try{var cp=trk.getCapabilities?trk.getCapabilities():{};$('smTorch').style.display=cp.torch?'':'none';if(cp.zoom){var z=$('smZm');z.min=cp.zoom.min;z.max=Math.min(cp.zoom.max,6);z.step=cp.zoom.step||.1;z.value=(trk.getSettings()||{}).zoom||cp.zoom.min;$('smZw').style.display='flex'}}catch(e){}
   loop=setInterval(function(){if(busy||v.readyState<2||!v.videoWidth)return;busy=true;grab(v,v.videoWidth,v.videoHeight,720).then(function(raw){if(raw){handle(raw);stop();setTimeout(function(){if(want)cam()},2200)}busy=false},function(){busy=false})},300)},
   function(e){var n=e&&e.name;
    if(n==='NotFoundError'||n==='OverconstrainedError')res('err','Aucune caméra trouvée','Utilise le bouton photo ou la saisie manuelle.');
@@ -11048,16 +11096,16 @@ function photo(f){res('','Analyse de la photo…');
  var go=function(src,w,h){grab(src,w,h,1280).then(function(raw){if(raw)handle(raw);else res('err','QR illisible','Rapproche-toi, évite les reflets et garde le QR bien droit.')},function(){res('err','Analyse impossible','Vérifie ta connexion internet puis réessaie.')})};
  if(window.createImageBitmap){createImageBitmap(f).then(function(b){go(b,b.width,b.height)},function(){res('err','Image illisible')})}
  else{var im=new Image();im.onload=function(){go(im,im.naturalWidth,im.naturalHeight)};im.onerror=function(){res('err','Image illisible')};im.src=URL.createObjectURL(f)}}
-function openSm(){swap('Changement de compte…',function(){$('smPg').classList.add('open');document.documentElement.classList.add('sm-open');$('smCode').type='password';$('smEye').classList.remove('on');$('smLock').style.display='';$('smMain').style.display='none';$('smCode').value='';$('smErr').textContent=''})}
+function openSm(){swap('Changement de compte…',function(){$('smPg').classList.add('open');document.documentElement.classList.add('sm-open');$('smCode').type='password';$('smEye').classList.remove('on');$('smLock').style.display='';$('smMain').style.display='none';$('smCode').value='';$('smErr').textContent='';net();setTimeout(function(){try{$('smCode').focus()}catch(e){}},150)})}
 function quit(){want=false;stop();code='';swap('Retour à ton compte…',function(){$('smPg').classList.remove('open');document.documentElement.classList.remove('sm-open')})}
 function shake(){var f=$('smFld');f.classList.remove('sm-shk');void f.offsetWidth;f.classList.add('sm-shk');if(navigator.vibrate)navigator.vibrate([120,60,120])}
 $('smOk').onclick=function(){var c=$('smCode').value.trim(),e=$('smErr'),b=$('smOk');
+ if(Date.now()<until){var w=Math.ceil((until-Date.now())/1000);e.textContent='Trop d’essais. Réessaie dans '+w+' s.';shake();return}
  if(!c){e.textContent='Entre ton code.';shake();return}
- if(!conn()){e.textContent='Connexion indisponible. Vérifie internet.';return}
  b.disabled=true;b.textContent='Vérification…';e.textContent='';
- sb.rpc('staff_check',{p_code:c}).then(function(r){b.disabled=false;b.textContent='Entrer';
-  if(r.data){code=c;$('smCode').value='';$('smLock').style.display='none';$('smMain').style.display='';list()}
-  else{e.textContent='Code incorrect.';shake();$('smCode').select()}},
+ chk(c).then(function(r){b.disabled=false;b.textContent='Entrer';if(r.lim){e.textContent='Trop d’essais. Réessaie dans quelques minutes.';shake();return}
+  if(r.data){fails=0;touch();code=c;$('smCode').value='';$('smLock').style.display='none';$('smMain').style.display='';list()}
+  else{fails++;if(fails>=5){until=Date.now()+30000;fails=0;e.textContent='Trop d’essais. Réessaie dans 30 s.'}else e.textContent='Code incorrect. '+(5-fails)+' essai'+(5-fails>1?'s':'')+' restant'+(5-fails>1?'s':'')+'.';shake();$('smCode').select()}},
   function(){b.disabled=false;b.textContent='Entrer';e.textContent='Erreur réseau, réessaie.'})};
 $('smEye').onclick=function(){var i=$('smCode'),on=i.type==='password';i.type=on?'text':'password';this.classList.toggle('on',on)};
 $('smCode').addEventListener('keydown',function(e){if(e.key==='Enter')$('smOk').click()});
@@ -11066,6 +11114,19 @@ $('smPhoto').onchange=function(){var f=this.files&&this.files[0];this.value='';i
 $('smTorch').onclick=function(){if(!trk)return;tor=!tor;trk.applyConstraints({advanced:[{torch:tor}]}).then(function(){$('smTorch').classList.toggle('on',tor)}).catch(function(){tor=!tor})};
 $('smGo').onclick=function(){var t=$('smTk').value.trim(),p=$('smPh').value.trim();if(!t||!p){res('err','Champs manquants','Numéro du ticket et téléphone.');return}submit(t,p,'',true);$('smTk').value='';$('smPh').value=''};
 $('smQuit').onclick=quit;
+$('smZm').oninput=function(){if(trk)trk.applyConstraints({advanced:[{zoom:+this.value}]}).catch(function(){})};
+$('smFlip').onclick=function(){face=face==='environment'?'user':'environment';if(stream){stop();cam()}};
+function sndUi(){var b=$('smSnd');b.textContent=snd?'Son activé':'Son coupé';b.classList.toggle('off',!snd)}sndUi();
+$('smSnd').onclick=function(){snd=!snd;try{localStorage.setItem('camp_sm_snd',snd?'1':'0')}catch(e){}sndUi();if(snd)beep(true)};
+$('smCh').onclick=function(e){var f=e.target.dataset&&e.target.dataset.f;if(!f)return;flt=f;[].forEach.call(this.children,function(c){c.classList.toggle('on',c.dataset.f===f)});list()};
+$('smQ').oninput=function(){qs=this.value.trim();list()};
+$('smLk').onclick=function(){lock('')};
+$('smExp').onclick=function(){if(!hist.length){res('err','Rien à exporter','Aucun scan aujourd’hui.');return}
+ var rows=['Heure;Statut;Nom;Détail'].concat(hist.slice().reverse().map(function(x){return [x.h,x.ok?'Validé':'Refusé',x.n,x.t].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(';')}));
+ var f=new File(['\ufeff'+rows.join('\n')],'scans-camp-'+new Date().toISOString().slice(0,10)+'.csv',{type:'text/csv'});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'Scans du camp'}).catch(function(){})}
+ else{var u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000)}};
+['click','touchstart','keydown'].forEach(function(ev){$('smPg').addEventListener(ev,touch,{passive:true})});
 function inject(){var plus=document.getElementById('screenPlus');if(!plus||plus.querySelector('#smBtn'))return;
  var lo=plus.querySelector('#v193Plus .p-lo-card');if(!lo)return;
  var w=document.createElement('div');w.className='p-card';w.id='smBtn';w.style.marginBottom='14px';
