@@ -11063,11 +11063,11 @@ function flush(){if(!pend.length)return;var q=pend;pend=[];pendUi();q.forEach(fu
 function net(){var on=navigator.onLine;$('smDot').classList.toggle('off',!on);var c=$('smSec');c.classList.toggle('off',!on);c.textContent=on?'Connexion sécurisée':'Hors ligne · connexion requise pour entrer'}var fails=0,until=0;window.addEventListener('online',function(){net();flush()});window.addEventListener('offline',net);net();
 
 function jpost(path,b,t){var h={'Content-Type':'application/json'};if(t)h.Authorization='Bearer '+t;return fetch(path,{method:'POST',headers:h,body:JSON.stringify(b)}).then(function(r){if(r.status===404||r.status>=500&&r.status!==502)throw 0;return r.json().then(function(j){j._s=r.status;return j})})}
-function chk(c){return jpost('/api/agent/login',{code:c}).then(function(j){if(j._s===429)return {data:false,lim:true};if(j.ok&&j.token){tok=j.token;direct=false;return {data:true}}if(j._s===401)return {data:false};throw 0}).catch(function(){direct=true;tok='';if(!conn())return Promise.reject();return sb.rpc('staff_check',{p_code:c})})}
+function chk(c){return jpost('/api?r=login',{code:c}).then(function(j){if(j._s===429)return {data:false,lim:true};if(j.ok&&j.token){tok=j.token;direct=false;return {data:true}}if(j._s===401)return {data:false};throw 0}).catch(function(){direct=true;tok='';if(!conn())return Promise.reject();return sb.rpc('staff_check',{p_code:c})})}
 function scanRpc(num,phone,sig,manual){
  var dir=function(){if(!conn())return Promise.reject();return sb.rpc('submit_scan',{p_code:code,p_ticket:num,p_phone:phone,p_sig:sig||null,p_manual:!!manual})};
  if(direct||!tok)return dir();
- return jpost('/api/scan',{ticket:num,phone:phone,sig:sig||null,manual:!!manual},tok).then(function(j){if(j._s===401){tok='';return {data:{ok:false,alert:'code_invalide'}}}if(j.ok)return {data:j.data};return {error:true}},function(){direct=true;return dir()})}
+ return jpost('/api?r=scan',{ticket:num,phone:phone,sig:sig||null,manual:!!manual},tok).then(function(j){if(j._s===401){tok='';return {data:{ok:false,alert:'code_invalide'}}}if(j.ok)return {data:j.data};return {error:true}},function(){direct=true;return dir()})}
 
 function lock(msg){tok='';want=false;stop();code='';$('smLock').style.display='';$('smMain').style.display='none';$('smErr').textContent=msg||''}
 function touch(){act=Date.now()}
