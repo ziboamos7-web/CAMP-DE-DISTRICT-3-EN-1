@@ -80,9 +80,7 @@ button{font:inherit;cursor:pointer}
   overflow:hidden;
 }
 
-/* =========================================================
-   HEADER — identité Camp, sans barre de navigation
-   ========================================================= */
+
 .header{
   height:96px;
   background:linear-gradient(180deg,#07144a 0%,#09185a 100%);
@@ -153,9 +151,7 @@ button{font:inherit;cursor:pointer}
   box-shadow:0 8px 20px #0003;
 }
 
-/* =========================================================
-   HERO — composition événementielle forte
-   ========================================================= */
+
 .hero{
   position:relative;
   background:
@@ -245,7 +241,7 @@ button{font:inherit;cursor:pointer}
   line-height:1.5;
 }
 
-/* MICRO-INTERACTIONS — discrètes et événementielles */
+
 @keyframes campRise{
   from{opacity:0;transform:translateY(10px)}
   to{opacity:1;transform:translateY(0)}
@@ -261,9 +257,7 @@ button{font:inherit;cursor:pointer}
 .cta,.sticky-ticket button{transition:transform .18s ease,box-shadow .18s ease}
 .cta:active,.sticky-ticket button:active{transform:scale(.97)}
 
-/* =========================================================
-   CARTES INFOS — inspiration directe de la capture
-   ========================================================= */
+
 .info-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -302,9 +296,7 @@ button{font:inherit;cursor:pointer}
   font-weight:1000;
 }
 
-/* =========================================================
-   TARIFS / COUNTDOWN — même bloc visuel que VibeCode
-   ========================================================= */
+
 .ticket-panel{
   margin-top:30px;
   padding:26px 18px 22px;
@@ -363,9 +355,7 @@ button{font:inherit;cursor:pointer}
 }
 .pay-note{text-align:center;color:#8e878a;font-size:10px;font-weight:900;margin-top:12px}
 
-/* =========================================================
-   SUITE DE L'ACCUEIL — structure inspirée du site de référence
-   ========================================================= */
+
 .light-section{
   background:var(--cream);
   color:var(--dark);
@@ -453,7 +443,7 @@ button{font:inherit;cursor:pointer}
   padding:14px 17px;font-weight:1000;
 }
 
-/* MOBILE */
+
 @media(max-width:520px){
   .header{height:82px;padding:0 14px 0 16px}
   .camp-logo{gap:2px}
@@ -481,9 +471,7 @@ button{font:inherit;cursor:pointer}
   .sticky-ticket{margin-left:12px;margin-right:12px}
 }
 
-/* =========================================================
-   V4 — EXPERIENCE VIOLET CONTINUE + ACTIONS PRÉSENTATEUR
-   ========================================================= */
+
 body{
   background:
     radial-gradient(circle at 50% 0%, #8b3bd4 0%, #421078 42%, #16052e 100%);
@@ -725,12 +713,12 @@ body{
 }
 
 
-/* V6 — les cartes sont entièrement cliquables; aucun sous-texte DATE/LIEU/THÈME */
+
 .action-card{position:relative;-webkit-tap-highlight-color:transparent}
 .action-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,transparent 20%,#ffffff55 48%,transparent 72%);transform:translateX(-120%);transition:transform .55s ease;pointer-events:none}
 .action-card:active::after{transform:translateX(120%)}
 
-/* V7 — BOUTONS ICONES UNIQUEMENT */
+
 .action-grid{margin-top:24px}
 .action-card{
   min-height:145px;
@@ -754,7 +742,7 @@ body{
 }
 
 
-/* V8 — icônes blanches professionnelles + bouton participation sans fond noir */
+
 .info-icon svg{
   width:31px;height:31px;
   fill:none !important;
@@ -785,7 +773,7 @@ body{
 }
 
 
-/* V9 — INTERFACE DE PRÉSENTATION DU DEUXIÈME ONGLET : LIEU */
+
 .presenter-map{
   position:relative;
   height:150px;
@@ -843,7 +831,7 @@ body{
 }
 
 
-/* V10 — INTERFACE DE PRÉSENTATION DU PREMIER ONGLET : DATE */
+
 .presenter-date-visual{
   position:relative;
   display:flex;
@@ -906,7 +894,7 @@ body{
 }
 
 
-/* V11 — ONGLET 3 : THÈME + ICÔNE LIVRE OUVERT RÉALISTE */
+
 .theme-icon svg{
   width:34px;
   height:34px;
@@ -1007,7 +995,7 @@ body{
 }
 
 
-/* V12 — ONGLET 3 RÉELLEMENT ACTIF : LIVRE OUVERT */
+
 .theme-icon svg{
   width:36px!important;
   height:30px!important;
@@ -1103,9 +1091,7 @@ body{
 }
 
 
-/* V13 — LOGO OFFICIEL DYNAMIQUE DISTRICT DE BOUAFLÉ
-   Intégré directement au HTML, fond blanc extérieur supprimé,
-   proportions conservées. */
+
 .header{
   justify-content:center;
 }
@@ -1137,13 +1123,13 @@ body{
 }
 
 
-/* V14 — LOGO DISTRICT INTÉGRÉ SANS FOND BLANC */
+
 .header{position:relative;}
 .district-logo{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:62px;height:62px;object-fit:contain;object-position:center;display:block;background:transparent;z-index:8;}
 @media(max-width:520px){.district-logo{left:10px;width:56px;height:56px}.camp-logo{margin-left:52px;max-width:calc(100% - 62px)}}
 
 
-/* V15 — COMPTE À REBOURS + PARTICIPATION SOUS LE BOUTON */
+
 .camp-bottom-info{
   width:100%;
   max-width:680px;
@@ -1261,7 +1247,7 @@ body{
 }
 
 
-/* V16 — les interfaces Date / Lieu / Thème reprennent EXACTEMENT leurs icônes */
+
 .presenter-orb{
   display:grid!important;
   place-items:center!important;
@@ -1303,7 +1289,7 @@ body{
 }
 
 
-/* V17 — EXPÉRIENCE CAMP : présentation, programme et actualités */
+
 .camp-experience{
   width:100%;
   max-width:680px;
@@ -1370,7 +1356,7 @@ body{
 }
 
 
-/* V18 — navigation flottante et interfaces réelles */
+
 .floating-app-nav{
   position:fixed;
   z-index:950;
@@ -1499,7 +1485,7 @@ body{
 }
 
 
-/* V19 — navigation flottante compacte et icônes professionnelles */
+
 .floating-app-nav{
   width:min(82vw,390px)!important;
   height:54px!important;
@@ -1557,7 +1543,7 @@ body{
 }
 
 
-/* V20.4 — compact home cards + wider bottom navigation */
+
 .floating-app-nav{
   width:min(96vw,620px)!important;
   min-width:0!important;
@@ -1584,7 +1570,7 @@ body{
   .nav-item b{font-size:6.7px!important}
 }
 
-/* Keep page content clear of the fixed navigation bar. */
+
 main, .app-main, .page, .screen, .content{
   padding-bottom:88px;
 }
@@ -1592,7 +1578,7 @@ main, .app-main, .page, .screen, .content{
 </style>
 
 <style id="v20-5-visual-refinement">
-/* Compact Date / Lieu / Thème cards */
+
 .info-grid.action-grid{gap:8px!important}
 .info-grid.action-grid .info-card{
   min-height:88px!important;
@@ -1607,7 +1593,7 @@ main, .app-main, .page, .screen, .content{
 .info-grid.action-grid .info-label{font-size:9.5px!important}
 .info-grid.action-grid .info-value{font-size:10.5px!important;line-height:1.15!important}
 
-/* Wider, balanced bottom navigation on the home screen */
+
 .floating-app-nav{
   width:min(96vw,620px)!important;
   height:60px!important;
@@ -1616,7 +1602,7 @@ main, .app-main, .page, .screen, .content{
   .floating-app-nav{width:96vw!important;height:60px!important}
 }
 
-/* When a participation/presenter modal is open, it must cover the nav area cleanly. */
+
 .modal, .overlay, .bottom-sheet, .presenter{
   z-index:2000!important;
 }
@@ -1631,7 +1617,7 @@ body:has(.presenter.active) .floating-app-nav{
   display:none!important;
 }
 
-/* Keep the modal content comfortably above the gesture area. */
+
 .modal, .overlay, .bottom-sheet, .presenter{
   padding-bottom:max(16px,env(safe-area-inset-bottom))!important;
 }
@@ -1653,7 +1639,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="v20-9-clean-info-cards">
-/* V20.9 — blocs Date / Lieu / Thème : sans texte accrocheur, logos centrés et légèrement agrandis */
+
 .info-grid.action-grid .action-card{
   flex-direction:column!important;
   align-items:center!important;
@@ -1717,7 +1703,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="v20-10-hide-card-labels">
-/* V20.10 — masquer les libellés Date / Lieu / Thème, conserver uniquement les icônes */
+
 .info-grid.action-grid .action-card .info-content{
   display:none!important;
 }
@@ -1762,7 +1748,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="final-home-reference-2026">
-/* Composition finale de la page d'accueil — selon la maquette validée */
+
 .hero-inner > .badge{
   width:min(86%,520px)!important;
   margin:0 auto 28px!important;
@@ -1807,7 +1793,7 @@ body:has(.presenter.active) .floating-app-nav{
   line-height:1.45!important;
   color:#f6f3ff!important;
 }
-/* Trois blocs : on conserve les clics Date/Lieu/Thème et on agrandit fortement les icônes. */
+
 .info-grid.action-grid{
   gap:10px!important;
   margin-top:8px!important;
@@ -1852,7 +1838,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="v20-11-final-size-adjustments">
-/* V20.11 — icônes Date/Lieu/Thème plus grandes + panneaux plus épais */
+
 .info-grid.action-grid .action-card{
   min-height:122px!important;
   height:122px!important;
@@ -1947,7 +1933,7 @@ body:has(.presenter.active) .floating-app-nav{
 </style>
 
 <style id="v16-my-camp-large-interface">
-/* V16 — Interface Mon Camp agrandie et plus lisible */
+
 #screenMonCamp .mycamp-welcome{padding:24px 18px;margin-left:8px;margin-right:8px}
 #screenMonCamp .mycamp-welcome h1{font-size:30px!important;line-height:1.08!important;letter-spacing:-.8px!important;margin:15px 0 9px!important}
 #screenMonCamp .mycamp-welcome p{font-size:12px!important;line-height:1.55!important;max-width:460px}
@@ -1986,7 +1972,7 @@ body:has(.presenter.active) .floating-app-nav{
 </style>
 
 <style id="v17-my-camp-modern">
-/* V17 — refonte moderne complète de Mon Camp, sans Championnat ni Actualités */
+
 #screenMonCamp{
   background:
     radial-gradient(circle at 90% 0%,rgba(255,121,16,.22),transparent 28%),
@@ -2074,7 +2060,7 @@ body:has(.presenter.active) .floating-app-nav{
 </style>
 
 <style id="v18-mon-camp-blanc-dynamique">
-/* V18 — Mon Camp : en-tête clair + typographie dynamique */
+
 #screenMonCamp{
   background:#f7f8fc !important;
   color:#182033 !important;
@@ -2107,7 +2093,7 @@ body:has(.presenter.active) .floating-app-nav{
   color:#6b7280 !important;
 }
 
-/* Zone d'accueil */
+
 #screenMonCamp .mycamp-welcome{
   background:#fff !important;
   border:1px solid #e7eaf1 !important;
@@ -2131,7 +2117,7 @@ body:has(.presenter.active) .floating-app-nav{
   font-size:13px !important;
 }
 
-/* Carte inscription */
+
 #screenMonCamp .mycamp-status-card{
   background:#fff !important;
   color:#182033 !important;
@@ -2146,7 +2132,7 @@ body:has(.presenter.active) .floating-app-nav{
   color:#687386 !important;
 }
 
-/* Actions principales — grandes écritures, fond blanc */
+
 #screenMonCamp .mycamp-quick-grid{
   gap:12px !important;
 }
@@ -2183,7 +2169,7 @@ body:has(.presenter.active) .floating-app-nav{
   font-weight:700 !important;
 }
 
-/* Repères : titres dynamiques et lisibles */
+
 #screenMonCamp .mycamp-section-head{
   color:#10172a !important;
   font-size:15px !important;
@@ -2221,7 +2207,7 @@ body:has(.presenter.active) .floating-app-nav{
   font-size:21px !important;
 }
 
-/* Prochaine étape */
+
 #screenMonCamp .mycamp-next-card{
   background:#fff !important;
   color:#182033 !important;
@@ -2236,7 +2222,7 @@ body:has(.presenter.active) .floating-app-nav{
   color:#697386 !important;
 }
 
-/* Petits écrans */
+
 @media(max-width:520px){
   #screenMonCamp .screen-head h2{font-size:24px !important}
   #screenMonCamp .mycamp-welcome h1{font-size:28px !important}
@@ -2256,7 +2242,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="v21-mon-camp-final">
-/* En-tête de Mon Camp : identique aux autres interfaces, titre fixe */
+
 #screenMonCamp .screen-head > div h2{
   width:auto!important;
   max-width:none!important;
@@ -2267,7 +2253,7 @@ body:has(.presenter.active) .floating-app-nav{
   animation:none!important;
 }
 
-/* Actions : orange */
+
 #screenMonCamp .mycamp-action,
 #screenMonCamp .mycamp-next button,
 #screenMonCamp .mycamp-status button{
@@ -2281,7 +2267,7 @@ body:has(.presenter.active) .floating-app-nav{
   stroke:#fff!important;
 }
 
-/* Date / Lieu / Thème : cartes blanches */
+
 #screenMonCamp .mycamp-info-row{
   background:#fff!important;
   color:#111827!important;
@@ -2292,7 +2278,7 @@ body:has(.presenter.active) .floating-app-nav{
   color:#111827!important;
 }
 
-/* Icônes : reprise du style choisi au départ */
+
 #screenMonCamp .mycamp-info-icon{
   width:46px!important;
   height:46px!important;
@@ -2312,7 +2298,7 @@ body:has(.presenter.active) .floating-app-nav{
   stroke-width:2!important;
 }
 
-/* Texte plus dynamique et lisible */
+
 #screenMonCamp .mycamp-info-row b{
   font-size:15px!important;
   font-weight:800!important;
@@ -2325,7 +2311,7 @@ body:has(.presenter.active) .floating-app-nav{
 
 
 <style id="v22-mon-camp-correction">
-/* V22 — titre de Mon Camp fixe, même comportement que les autres interfaces */
+
 #screenMonCamp .screen-head > div h2{
   animation:none!important;
   transform:none!important;
@@ -2334,7 +2320,7 @@ body:has(.presenter.active) .floating-app-nav{
   overflow:visible!important;
 }
 
-/* V22 — icônes originales Date / Lieu / Thème */
+
 #screenMonCamp .mycamp-info-icon{
   flex:0 0 46px!important;
   width:46px!important;
@@ -2373,7 +2359,7 @@ body:has(.presenter.active) .floating-app-nav{
   stroke-linecap:round!important;
 }
 
-/* V22 — toutes les actions visibles de Mon Camp en orange */
+
 #screenMonCamp .mycamp-next-card button,
 #screenMonCamp .mycamp-status-card button,
 #screenMonCamp .mycamp-action,
@@ -2495,15 +2481,15 @@ body:has(.presenter.active) .floating-app-nav{
 .ref-quick.teal{background:linear-gradient(135deg,#0aa5b8,#077c8f)}
 .ref-quick.amber{background:linear-gradient(135deg,#e29a06,#b86e00)}
 .ref-quick.crimson{background:linear-gradient(135deg,#d62839,#a3162a)}
-/* hero V32 : la photo des scouts n'est plus dans le fichier -> fond dégradé provisoire */
+
 .ref-hero-photo{display:none!important}
 .ref-hero{background:radial-gradient(120% 90% at 85% 78%,#ff9a3c 0%,#c2571d 22%,#3a1a8a 60%,#12054e 100%)}
 .cf-hero-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .cf-hero-btns .cf-hero-btn{margin-top:0}
 .cf-hero-btn.ghost{background:#ffffff26;border:1px solid #ffffff55}
 </style><style id="v37-hero-slim">
-/* ===== V37 — Hero photo 3:2 + éléments allégés ===== */
-/* En-tête plus fin */
+
+
 main.ref-home{--v37-r:16px}
 .ref-header{height:64px!important;padding:0 12px!important;gap:8px!important}
 .ref-header .ref-logo img{width:44px!important;height:44px!important}
@@ -2513,7 +2499,7 @@ main.ref-home{--v37-r:16px}
 .ref-header .ref-brand-text em{font-size:17px!important}
 .ref-header .ref-brand-text span{margin-top:3px!important;padding:2px 7px!important;font-size:7px!important;border-radius:4px!important}
 
-/* Hero : photo en fond, format 3:2 */
+
 main.ref-home .ref-hero{height:auto!important;aspect-ratio:3/2;background:#12054e}
 main.ref-home .ref-hero .ref-hero-photo{display:block!important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
 main.ref-home .ref-hero .ref-hero-overlay{background:
@@ -2532,7 +2518,7 @@ main.ref-home .ref-hero .cf-hero-btn{display:inline-flex;align-items:center;gap:
 main.ref-home .ref-hero .cf-hero-btn .ic{width:14px;height:14px;stroke-width:1.9}
 main.ref-home .ref-hero .cf-hero-btn.ghost{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);box-shadow:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 
-/* Compte à rebours plus fin */
+
 main.ref-home .ref-countdown{margin:-16px 3.5% 16px!important;position:relative;z-index:3}
 main.ref-home .cd-card{padding:13px 12px 12px!important;border-radius:20px!important;box-shadow:0 12px 26px -10px rgba(10,4,30,.65)!important}
 main.ref-home .cd-title{margin:0 0 9px;font-size:clamp(10px,3vw,12px);font-weight:700;letter-spacing:.16em}
@@ -2597,7 +2583,7 @@ main.ref-home .ref-hero .rh-date .ic{width:12px;height:12px}
 .ref-speakers .speaker-extra-profile b{font-size:14px;display:grid;place-items:center}
 .ref-speakers .speaker-extra-profile .ic{width:14px;height:14px}
 .ref-speakers .v39-main{flex-basis:72%;max-width:280px}
-/* V165 — Atelier Rescom ajouté au bloc « Ils portent le Camp » */
+
 .ref-speakers .v39-rescom{flex-basis:82%;max-width:310px}
 .ref-speakers .v39-rescom .speaker-extra-top>span{background:linear-gradient(135deg,#43118a,#7a3ee0)}
 .ref-speakers .v39-rescom .speaker-extra-photo img{object-position:center 18%}
@@ -2615,7 +2601,7 @@ main.ref-home .ref-speakers .speaker-extra-card .speaker-extra-photo{margin:0!im
 @media(min-width:700px){.ref-speakers .speaker-extra-card{flex-basis:30%}.ref-speakers .v39-main{flex-basis:32%}}
 </style>
 <style id="v40-visual-refresh">
-/* ===== V40 — Refonte visuelle globale : rythme, rayons, ombres, hiérarchie ===== */
+
 :root{--v40-r:16px;--v40-r-sm:12px;--v40-gap:16px;--v40-ink:#141a52;--v40-mut:#5b6288;--v40-line:#e7e9f4;
 --v40-sh:0 1px 2px rgba(20,26,82,.06),0 10px 24px -14px rgba(20,26,82,.28);
 --v40-sh-hi:0 2px 4px rgba(20,26,82,.08),0 18px 36px -16px rgba(20,26,82,.45);--v40-or:#ff6a00}
@@ -2623,14 +2609,14 @@ html{-webkit-text-size-adjust:100%}
 body{letter-spacing:.005em}
 .app{box-shadow:0 0 0 1px rgba(255,255,255,.04),0 30px 80px -30px #000}
 
-/* En-tête : net, aéré, séparé du contenu */
+
 .ref-header{background:rgba(255,255,255,.96)!important;-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--v40-line)!important;box-shadow:0 6px 18px -14px rgba(20,26,82,.5);position:sticky!important;top:0;padding:0 16px!important;height:68px!important}
 .ref-header .ref-brand-text strong{color:var(--v40-ink);font-weight:800}
 .ref-header .ref-brand-text em{color:var(--v40-or);font-style:normal;font-weight:900}
 .ref-header .ref-circle,.ref-header .ref-profile{border-radius:12px!important;border:1px solid var(--v40-line);background:#f6f7fc;color:var(--v40-ink);transition:background .2s,transform .15s}
 .ref-header .ref-circle:active,.ref-header .ref-profile:active{transform:scale(.94)}
 
-/* Rythme vertical uniforme sur l'accueil */
+
 main.ref-home{padding-bottom:120px}
 main.ref-home>section{margin-left:16px!important;margin-right:16px!important}
 main.ref-home>section+section{margin-top:var(--v40-gap)!important}
@@ -2645,7 +2631,7 @@ main.ref-home .cd-box{border-radius:12px;background:rgba(255,255,255,.06);border
 main.ref-home .cd-box strong{font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min-height:44px}
 
-/* Repères : cartes homogènes, plus d'air */
+
 .v38-info{gap:12px!important;margin-top:var(--v40-gap)!important}
 .v38-stats{border-radius:var(--v40-r)!important;padding:14px 0!important;background:linear-gradient(180deg,#23114b,#190a3a)!important}
 .v38-stats strong{font-size:22px!important}
@@ -2661,7 +2647,7 @@ main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min
 .v38-actions button:active{transform:scale(.97)}
 .v38-actions button:first-child{background:linear-gradient(135deg,#ff7a0a,#f05a00)!important}
 
-/* À lire en priorité : le bloc qui ressort le plus */
+
 .prio{margin:var(--v40-gap) 16px 0!important;border-radius:var(--v40-r)!important;box-shadow:0 0 0 1px rgba(246,201,74,.55),0 0 0 5px rgba(255,122,10,.16),var(--v40-sh-hi)!important}
 .prio-top{padding:16px 18px 0!important}
 .prio-lab{font-size:12px!important;letter-spacing:.12em!important}
@@ -2670,7 +2656,7 @@ main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min
 .prio-txt h3{font-size:18px!important;line-height:1.22!important;text-wrap:balance}
 .prio-meta{line-height:1.45}
 
-/* Fil du Camp : cartes claires, séparées, lisibles */
+
 #filCamp{margin-top:24px!important}
 .fil-head{margin-bottom:14px!important;padding:0 2px}
 .fil-head h2{font-size:20px!important;letter-spacing:-.01em;color:#fff!important;display:flex;align-items:center;gap:10px}
@@ -2681,7 +2667,7 @@ main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min
 .fil-card.hl{border-left:5px solid #e0ad20!important}
 .fil-body{padding:16px 16px 8px!important;line-height:1.55}
 
-/* Cartes infos & accès rapide */
+
 .ref-info-grid.kc{gap:12px!important;margin:var(--v40-gap) 16px 0!important}
 .kc .ref-info-card{border-radius:var(--v40-r)!important;padding:16px!important;box-shadow:var(--v40-sh)!important}
 .ref-section{margin-top:26px!important}
@@ -2693,14 +2679,14 @@ main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min
 .ref-quick strong{line-height:1.2;margin-top:2px}
 .cf-card{border-radius:var(--v40-r)!important;box-shadow:var(--v40-sh-hi)}
 
-/* Intervenants */
+
 .ref-speakers .speaker-extra-grid{gap:14px!important}
 .ref-speakers .speaker-extra-card{border-radius:var(--v40-r)!important;overflow:hidden;box-shadow:var(--v40-sh-hi)!important}
 .ref-speakers .speaker-extra-info{padding:14px!important}
 .ref-speakers .speaker-extra-info h3{font-size:15px!important}
 .ref-speakers .speaker-extra-profile{height:38px!important;border-radius:10px!important;width:100%;justify-content:center}
 
-/* Écrans (Mon Camp, Championnat, Plus) */
+
 .app-screen{padding:20px 16px 120px!important}
 .screen-head{margin-bottom:6px}
 .screen-head h2{letter-spacing:-.02em}
@@ -2709,24 +2695,24 @@ main.ref-home .cd-cta{border-radius:12px!important;margin-top:14px!important;min
 .plus-menu button{padding:14px!important;border-radius:14px!important;box-shadow:var(--v40-sh)}
 .champ-event-list,.mycamp-info-list{gap:10px}
 
-/* Barre de navigation flottante */
+
 .floating-app-nav{border-radius:20px!important;background:rgba(14,8,44,.92)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 16px 40px -10px rgba(0,0,0,.6)!important}
 .floating-app-nav .nav-item{border-radius:14px!important;transition:background .2s,transform .15s}
 .floating-app-nav .nav-item.active{background:linear-gradient(135deg,#ff7a0a,#e85b00)!important;box-shadow:0 8px 18px -8px rgba(255,106,0,.8)}
 
-/* Accessibilité & confort */
+
 button,label,[onclick]{-webkit-tap-highlight-color:transparent}
 button:focus-visible,label:focus-visible{outline:3px solid #ffb066;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media(max-width:360px){main.ref-home>section{margin-left:12px!important;margin-right:12px!important}.v38-chips{grid-template-columns:1fr!important}}
 </style>
 <style id="v41-fullscreen">
-/* ===== V41 — Plein écran : plus aucun vide sur les bords ===== */
+
 html,body{width:100%;margin:0;padding:0;background:#160636}
 .app{max-width:none!important;width:100%!important;margin:0!important}
 .ref-header{padding-left:max(12px,env(safe-area-inset-left))!important;padding-right:max(12px,env(safe-area-inset-right))!important}
 
-/* Accueil : hero en pleine largeur, cartes avec une marge minimale */
+
 main.ref-home>section,.ref-info-grid.kc,.prio,.v38-info{margin-left:8px!important;margin-right:8px!important}
 main.ref-home .ref-hero{margin:0!important;border-radius:0 0 20px 20px!important;width:100%}
 main.ref-home .ref-countdown{margin:-22px 8px 0!important}
@@ -2734,15 +2720,15 @@ main.ref-home .ref-countdown,.prio{max-width:none!important}
 .ref-info-grid.kc{margin-top:var(--v40-gap,16px)!important}
 .cf-wrap,.cf-row{max-width:none!important}
 
-/* Écrans Mon Camp / Championnat / Plus */
+
 .app-screen{padding-left:8px!important;padding-right:8px!important}
 .mycamp-welcome,.champ-hero{margin-left:0!important;margin-right:0!important}
 .screen-head,.plus-menu,.champ-tabs,.champ-panel{max-width:none!important}
 
-/* Barre de navigation collée aux bords */
+
 .floating-app-nav{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;transform:none!important;border-radius:18px 18px 0 0!important;border-left:0!important;border-right:0!important;border-bottom:0!important;padding:7px 8px max(8px,env(safe-area-inset-bottom))!important;height:auto!important;min-height:64px}
 
-/* Grands écrans : les cartes s'étendent au lieu de laisser des bandes vides */
+
 @media(min-width:700px){
   main.ref-home>section,.ref-info-grid.kc,.prio,.v38-info{margin-left:16px!important;margin-right:16px!important}
   .ref-quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
@@ -2751,19 +2737,19 @@ main.ref-home .ref-countdown,.prio{max-width:none!important}
 }
 </style>
 <style id="v42-hero-extras">
-/* ===== V42 — Éléments ajoutés sur la photo d'accueil ===== */
+
 main.ref-home .ref-hero{aspect-ratio:4/3.3!important}
 main.ref-home .ref-hero .ref-hero-photo{object-position:center 22%}
-/* Pastille "Pré-inscriptions ouvertes" (haut, sous la date) */
+
 .v42-live{display:inline-flex;align-items:center;gap:6px;align-self:flex-end;margin-top:8px;padding:5px 10px;border-radius:999px;background:rgba(10,6,40,.62);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:9px;font-weight:800;letter-spacing:.1em;color:#fff;text-shadow:none}
 .v42-live i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.7);animation:v42p 1.8s infinite}
 @keyframes v42p{70%{box-shadow:0 0 0 7px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
 main.ref-home .ref-hero .rh-top{flex-wrap:wrap}
-/* Rangée de repères en verre dépoli */
+
 .v42-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .v42-chips span{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:10px;font-weight:700;color:#fff;white-space:nowrap;text-shadow:none}
 .v42-chips .ic{width:12px;height:12px;color:#ffb066}
-/* Sceau doré : durée + compétitions */
+
 .v42-seal{position:absolute;right:14px;bottom:30px;width:74px;height:74px;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 30% 25%,#ffd76a,#e08a06);color:#2b0f4d;box-shadow:0 0 0 3px rgba(255,255,255,.35),0 10px 22px -6px rgba(0,0,0,.6);transform:rotate(-8deg);text-shadow:none;pointer-events:none}
 .v42-seal b{font-size:24px;line-height:1;font-weight:900}
 .v42-seal small{font-size:8px;font-weight:800;letter-spacing:.08em;line-height:1.25}
@@ -2783,7 +2769,7 @@ main.ref-home>section.v45-open{margin:12px 8px 0!important;display:flex;align-it
 main.ref-home>section.ref-countdown{margin-top:12px!important}
 </style>
 <style id="v50-open-css">
-/* ===== V50 — Bannière « Pré-inscriptions ouvertes » dynamique ===== */
+
 .v50-open .v45-txt b{display:flex;align-items:center;gap:6px}
 .v50-open .v45-txt b .ic{width:15px;height:15px;stroke-width:2.6;color:#7dffb3;flex:none}
 .v50-open .v45-txt small{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -2791,12 +2777,12 @@ main.ref-home>section.ref-countdown{margin-top:12px!important}
 .v50-meta span{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);font-size:10px;font-weight:700;letter-spacing:.01em;color:#fff;white-space:nowrap}
 .v50-open .v45-open button,.v45-open#v50Open button{min-height:44px;height:44px}
 .v50-open button:focus-visible{outline:3px solid #ffd76a;outline-offset:2px}
-/* Dernière semaine : urgence en orange */
+
 main.ref-home>section.v45-open.v50-urgent{background:linear-gradient(135deg,#ff8a1f,#e85b00)!important;box-shadow:0 10px 22px -12px rgba(232,91,0,.9)}
 .v50-urgent .v45-dot{background:#fff}
 .v50-urgent .v45-txt small{color:#fff0df}
 .v50-urgent button{color:#c24a00}
-/* Inscrit : bleu-violet sobre, accès direct au ticket */
+
 main.ref-home>section.v45-open.v50-in{background:linear-gradient(135deg,#43118a,#1028a5)!important;box-shadow:0 10px 22px -12px rgba(67,17,138,.9)}
 .v50-in .v45-dot{animation:none;background:#7dffb3}
 .v50-in .v45-txt small{color:#dfe3ff}
@@ -2804,7 +2790,7 @@ main.ref-home>section.v45-open.v50-in{background:linear-gradient(135deg,#43118a,
 @media(max-width:360px){.v50-meta span{font-size:9px;padding:3px 6px}.v45-open#v50Open button{padding:0 10px}}
 </style>
 <style id="v51-css">
-/* ===== V51 — bannière + compte à rebours ===== */
+
 #v50Open .v50-meta .v51-share{position:relative;display:inline-flex;align-items:center;gap:5px;height:28px;min-height:28px;padding:0 10px;border-radius:999px;background:rgba(0,0,0,.24);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:10px;font-weight:800;box-shadow:none;letter-spacing:.01em}
 #v50Open .v50-meta .v51-share::after{content:"";position:absolute;inset:-9px -4px}
 #v50Open .v50-meta .v51-share:focus-visible{outline:3px solid #ffd76a;outline-offset:2px}
@@ -2825,7 +2811,7 @@ main.ref-home .v51-ag[hidden]{display:none}
 #v51Cd.v51-done .cd-cta{display:none!important}
 </style>
 <style id="v52-css">
-/* ===== V52 — chiffres, thème, raccourcis ===== */
+
 .v52-info{display:grid;gap:12px;margin-top:16px;margin-bottom:16px;color:#fff}
 .v52-stats{display:grid;grid-template-columns:repeat(4,1fr);position:relative;overflow:hidden;border-radius:18px;padding:14px 2px 12px;background:linear-gradient(160deg,#25124d,#150833);border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 26px -14px rgba(20,8,60,.8)}
 .v52-stats:before{content:"";position:absolute;left:18%;right:18%;top:0;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#ff8a1f,transparent)}
@@ -2863,7 +2849,7 @@ main.ref-home .v51-ag[hidden]{display:none}
 @media(min-width:700px){.v52-quick{justify-content:center}}
 </style>
 <style id="v53-css">
-/* ===== V54 — chiffres en boîtes identiques au compte à rebours ===== */
+
 #v51Cd .v53-grid{position:relative;margin-top:16px;padding-top:15px}
 #v51Cd .v53-grid:before{content:"";position:absolute;left:5%;right:5%;top:0;border-top:1px dashed rgba(255,255,255,.22)}
 #v51Cd .v53-grid .cd-box{min-width:0;padding:10px 2px 9px!important}
@@ -2872,13 +2858,13 @@ main.ref-home .v51-ag[hidden]{display:none}
 #v51Cd .v53-grid .cd-box span.v53-long{font-size:clamp(6px,1.85vw,8px)!important;letter-spacing:.03em!important}
 #v51Cd .v53-grid .cd-box small{display:block;margin-top:3px;font-size:clamp(7.5px,2.2vw,9px);font-weight:600;line-height:1.2;color:#bfb5e4;white-space:nowrap}
 #v51Cd .v53-plus{font-weight:900}
-/* synchro : pendant le Camp, la boîte « jours » passe au vert comme le titre */
+
 #v51Cd .v53-grid .cd-box.v53-now{border-color:rgba(125,255,179,.6)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 0 1px rgba(125,255,179,.22)!important}
 #v51Cd .v53-grid .cd-box.v53-now small{color:#7dffb3}
 #v51Cd .cd-cta{margin-top:14px!important}
 </style>
 <style id="v55-css">
-/* ===== V55 — compte à rebours vivant + À lire en priorité ===== */
+
 .v55-prog{margin-top:11px;padding:0 4px}
 .v55-prog[hidden]{display:none}
 .v55-track{height:6px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden}
@@ -2888,7 +2874,7 @@ main.ref-home .v51-ag[hidden]{display:none}
 #v51Cd.v51-live .cd-title:before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:#7dffb3;vertical-align:middle;animation:v45p 1.8s infinite}
 #v51Cd.v51-hot #cdSeconds{animation:v55hot 1s ease-in-out infinite}
 @keyframes v55hot{50%{filter:drop-shadow(0 0 6px rgba(255,138,31,.9))}}
-/* À lire en priorité */
+
 .prio-nav{display:flex;align-items:center;gap:6px}
 .prio-pv{width:30px;height:30px;border:0;border-radius:50%;background:#ffffff1f;color:#fff;font-size:19px;line-height:1;padding:0;display:grid;place-items:center}
 .prio-pv:active,.prio-nx:active{transform:scale(.9)}
@@ -2922,33 +2908,33 @@ main.ref-home .ref-hero h1 em{display:inline-block!important;margin-left:8px!imp
 @media(min-width:700px){main.ref-home .ref-hero h1{font-size:34px!important}main.ref-home .ref-hero h1 em{font-size:40px!important}}
 </style>
 <style id="v48-polish">
-/* ===== V48 — Finitions : photo, titre, boutons, compte à rebours ===== */
+
 main.ref-home .ref-hero .ref-hero-photo{filter:saturate(1.1) contrast(1.05);animation:v48z 16s ease-in-out infinite alternate;transform-origin:50% 35%}
 @keyframes v48z{from{transform:scale(1)}to{transform:scale(1.06)}}
 main.ref-home .ref-hero .ref-hero-overlay{background:
  linear-gradient(0deg,rgba(9,3,44,.97) 0%,rgba(14,5,68,.86) 28%,rgba(20,8,90,.25) 56%,rgba(20,8,90,0) 76%),
  radial-gradient(90% 60% at 0% 0%,rgba(255,106,0,.22),transparent 60%),
  linear-gradient(180deg,rgba(14,5,64,.55) 0%,rgba(14,5,64,0) 24%)!important}
-/* Entrée douce du contenu */
+
 main.ref-home .ref-hero .rh-bottom>*{animation:v48u .6s cubic-bezier(.2,.7,.2,1) both}
 main.ref-home .ref-hero .rh-bottom>:nth-child(2){animation-delay:.08s}
 main.ref-home .ref-hero .rh-bottom>:nth-child(3){animation-delay:.16s}
 main.ref-home .ref-hero .rh-bottom>:nth-child(4){animation-delay:.24s}
 @keyframes v48u{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-/* Barre d'accent + titre */
+
 main.ref-home .ref-hero .rh-bottom:before{content:"";display:block;width:44px;height:4px;border-radius:2px;background:linear-gradient(90deg,#ffc24d,#ff6a00);box-shadow:0 0 14px rgba(255,140,30,.8)}
 main.ref-home .ref-hero h1{text-shadow:0 2px 0 rgba(0,0,0,.25),0 6px 22px rgba(5,2,30,.85)!important}
-/* Ligne lieu + devise */
+
 main.ref-home .ref-hero .ref-city{background:linear-gradient(135deg,#6b24b8,#43118a)!important;border:1px solid rgba(255,255,255,.25);box-shadow:0 6px 14px -6px rgba(107,36,184,.9);font-weight:800}
 main.ref-home .ref-hero p{color:#ffe6cf;font-weight:700;letter-spacing:.06em;font-size:11.5px}
-/* Repères plus lisibles */
+
 main.ref-home .ref-hero .v42-chips span{background:rgba(12,6,46,.55)!important;border-color:rgba(255,255,255,.32)!important;box-shadow:0 4px 10px -6px #000}
-/* Boutons */
+
 main.ref-home .ref-hero .cf-hero-btn{min-height:40px;font-weight:700;transition:transform .15s}
 main.ref-home .ref-hero .cf-hero-btn:not(.ghost){background:linear-gradient(135deg,#ff8a1f,#f05a00)!important;box-shadow:0 10px 22px -8px rgba(255,106,0,.95),inset 0 1px 0 rgba(255,255,255,.35)!important}
 main.ref-home .ref-hero .cf-hero-btn.ghost{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.45)!important}
 main.ref-home .ref-hero .cf-hero-btn:active{transform:scale(.96)}
-/* Compte à rebours */
+
 main.ref-home .cd-card{position:relative;background:linear-gradient(160deg,#1e0c4f,#0e052c)!important;border:1px solid rgba(255,255,255,.14)!important}
 main.ref-home .cd-card:before{content:"";position:absolute;left:18%;right:18%;top:0;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#ff8a1f,transparent)}
 main.ref-home .cd-title{color:#ffb066!important;font-weight:800!important}
@@ -2956,11 +2942,11 @@ main.ref-home .cd-box{background:linear-gradient(180deg,rgba(255,255,255,.10),rg
 main.ref-home .cd-box strong{background:linear-gradient(180deg,#fff,#ffd9b3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#fff}
 main.ref-home .cd-box span{color:#ff9a3c!important}
 main.ref-home .cd-cta{background:linear-gradient(135deg,#ff8a1f,#f05a00)!important;box-shadow:0 12px 24px -10px rgba(255,106,0,.9)!important}
-/* Bande inscription */
+
 main.ref-home>section.v45-open{background:linear-gradient(135deg,#12a066,#0b6b52)!important}
 .v45-open button{box-shadow:0 6px 14px -6px rgba(0,0,0,.4);transition:transform .15s}
 .v45-open button:active{transform:scale(.96)}
-/* Cartes : effet tactile homogène */
+
 .ref-quick,.ref-info-card,.fil-card,.speaker-extra-card{transition:transform .18s ease,box-shadow .18s ease}
 .fil-card:active,.speaker-extra-card:active{transform:scale(.99)}
 </style>
@@ -3002,25 +2988,24 @@ main.ref-home .ref-hero .cf-hero-btn.v49-tk .ic{color:#2b0f4d}
 .v49-empty p{margin:0;font-size:12px;line-height:1.5;color:#5b6288}
 </style>
 <style id="v80-header-fixe">
-/* ===== V80 — En-tête (logo, cloche, profil) fixe : le contenu défile derrière ===== */
-/* Cause : .app en overflow:hidden devenait le conteneur de défilement du sticky.
-   overflow:clip rogne pareil mais laisse l'en-tête se coller à l'écran. */
+
+
 .app{overflow:clip!important}
 .ref-header{position:sticky!important;top:0;z-index:1000!important}
-/* Repli pour les anciens navigateurs sans overflow:clip (Safari < 16) */
+
 @supports not (overflow:clip){
   .app{overflow:visible!important;padding-top:68px}
   .ref-header{position:fixed!important;top:0;left:0;right:0;width:100%}
 }
 </style>
 <style id="v81-header-masque">
-/* ===== V81 — L'en-tête disparaît hors Accueil / Mon camp / Championnat ===== */
-/* visibility (et non display) : la mise en page de l'accueil ne saute pas quand on ouvre une fiche */
+
+
 .ref-header{transition:opacity .15s ease}
 body.cd-header-off .ref-header{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
 body:not(.cd-header-off) .app-shell-view{top:var(--cd-header-h,68px)!important}
 body:not(.cd-header-off) .app-shell-view .app-screen{padding-top:14px!important}
-/* V83 — le titre de l'écran reste dans le flux (plus de superposition sur la carte du dessous) */
+
 body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head{position:relative!important;top:auto!important;z-index:1;flex:none;height:auto!important;min-height:64px;box-sizing:border-box;margin:0 0 14px!important;padding-top:10px!important;padding-bottom:10px!important;overflow:visible}
 body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head>div{min-width:0;flex:1}
 body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head h2{margin:2px 0 0!important;line-height:1.1!important;white-space:normal!important}
@@ -3029,7 +3014,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 
 
 <style id="v86-lieu-polish">
-/* V86 — Présentation du lieu : fenêtre plus lisible, galerie mieux hiérarchisée */
+
 #presenter:has(#v69Gal){align-items:center!important;padding:clamp(12px,3vh,30px)!important}
 #presenter:has(#v69Gal) .presenter{
   box-sizing:border-box;width:min(100%,980px)!important;max-height:min(92dvh,900px)!important;
@@ -3208,14 +3193,14 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 .cu-pch i,.cu-pch b{font-size:inherit}.cu-pch b{font-size:13px}.cu-pch i{font-size:15px}
 .cu-pch em{background:#ffffff26;border-radius:999px;padding:5px 11px;opacity:1}
 </style><style id="cuflb-v8">#cuLb .cu-seg{display:flex;gap:6px;background:#ffffff1c;border-radius:999px;padding:4px;max-width:420px;width:100%;box-sizing:border-box}#cuLb .cu-seg button{flex:1;border:0;border-radius:999px;background:transparent;color:#fff;font-weight:800;font-size:13px;padding:10px 8px;min-height:40px}#cuLb .cu-seg button.on{background:#ff7a0a}#cuLb img{max-height:56%}</style><style id="cuflb-v9">
-/* V115 — écran Championnat */
+
 #screenMatchs .champ-hero{margin-top:14px!important}
 .cu-tro{width:96px!important;height:76px!important;top:18px!important;right:14px!important;background:none!important;filter:none!important;border-radius:0!important}
 .cu-tro img{width:92px;height:auto;display:block;filter:drop-shadow(0 8px 10px #15176b33)}
 #screenMatchs .champ-tabs{gap:8px!important;padding:4px 14px 14px!important}
 #screenMatchs .champ-tabs .champ-tab{font-size:12.5px!important;padding:12px 18px!important;min-height:44px;line-height:1.2;letter-spacing:.1px}
 #screenMatchs .champ-tabs .champ-tab .live-dot{width:8px;height:8px}
-/* bouton Licence de joueur */
+
 #screenMatchs .cu-cta{padding:2px 14px 16px}
 #screenMatchs .cu-cta .cu-lic{position:relative;overflow:hidden;min-height:92px;padding:16px;gap:14px;border:0;border-bottom:4px solid #e0ad20;border-radius:22px;background:linear-gradient(135deg,#15176b,#3a1a8c);box-shadow:0 18px 30px -16px #15176bcc;cursor:pointer;transition:transform .15s}
 #screenMatchs .cu-cta .cu-lic:active{transform:scale(.98)}
@@ -3224,7 +3209,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 #screenMatchs .cu-lic small{font-size:12px;line-height:1.35;color:#d8d3f5}
 #screenMatchs .cu-lic .tx em{font-style:normal;font-size:11px;font-weight:800;color:#ffe38a;margin-top:3px}
 #screenMatchs .cu-lic .go{flex:none;width:auto;height:40px;padding:0 15px;border-radius:999px;background:linear-gradient(135deg,#ff8a1a,#ff5a00);color:#fff;font-size:13px;font-weight:900;line-height:40px;white-space:nowrap;box-shadow:0 10px 18px -8px #ff5a0099}
-/* interface de la licence */
+
 #cuLic{padding:calc(env(safe-area-inset-top,0px) + 12px) 16px calc(env(safe-area-inset-bottom,0px) + 20px)}
 #cuLic .lhd{display:flex;align-items:center;gap:12px;margin:0 52px 14px 0}
 #cuLic .lhd .lgo{width:64px;height:auto}#cuLic .lhd .lwd{height:20px;width:auto;display:block}
@@ -3242,7 +3227,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 #cuLic input[type=file]{padding:12px;background:#fff;border:2px dashed #d9d1f0}
 #cuLic .nav{position:sticky;bottom:0;margin-top:14px;padding:12px 0 4px;background:linear-gradient(180deg,#fff0,#fff 35%)}
 #cuLic .cu-btn{min-height:54px;font-size:16px;border-radius:17px}
-/* archives : pas de téléchargement */
+
 #cuLb .lock{display:none;max-width:420px;text-align:center;font-size:13px;font-weight:800;color:#fff;background:#ffffff1c;border-radius:14px;padding:11px 16px}
 #cuLb.arch .lock{display:block}#cuLb.arch .r{display:none}
 #cuLb.arch img{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
@@ -3315,7 +3300,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 @media(prefers-reduced-motion:reduce){#cuLic *{transition:none!important}}
 </style>
 <style id="cuflb-v131">
-/* V131 — étape Photo de la licence : bloc d'ajout + écran « Ajuster ma photo » */
+
 #cuLic .phb{box-sizing:border-box;width:100%;display:flex;align-items:center;gap:14px;margin:0 0 4px;padding:14px;border:2px dashed #d9d1f0;border-radius:18px;background:#fbfaff;color:#14104a;min-height:96px;font-family:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
 #cuLic .phb.bad{border-color:#d12b2b;box-shadow:0 0 0 4px #d12b2b22}
 #cuLic .phb:focus-visible{outline:3px solid #5a2fc2;outline-offset:2px}
@@ -3372,7 +3357,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 </style>
 
 <style id="v166-rescom-detail-css">
-/* V166 — fiche Atelier Rescom alignée sur le modèle des fiches intervenants */
+
 #presenter.rescom-detail-mode{padding:0!important;align-items:stretch;justify-content:stretch;background:#f4efff;-webkit-backdrop-filter:none;backdrop-filter:none;overflow-y:auto}
 #presenter.rescom-detail-mode .presenter{width:100%;max-width:560px;margin:0 auto;min-height:100%;padding:0 0 calc(env(safe-area-inset-bottom,0px) + 34px)!important;border:0!important;border-radius:0!important;box-shadow:none!important;animation:none!important;background:linear-gradient(180deg,#f4efff 0,#fff 72%);color:#1c1440;overflow:visible}
 #presenter.rescom-detail-mode #presenterIcon,#presenter.rescom-detail-mode #presenterKicker,#presenter.rescom-detail-mode #presenterTitle,#presenter.rescom-detail-mode #presenterText,#presenter.rescom-detail-mode #presenterDetail,#presenter.rescom-detail-mode .presenter-action{display:none!important}
@@ -3446,7 +3431,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 #v193Plus .p-cv[style*="url("]{background-size:100% auto!important;background-position:center calc(var(--st) + 10px)!important;background-repeat:no-repeat!important;background-color:#081f6e!important}
 </style>
 <style id="d10-css">
-/* Écran « Plus » : structure et disposition */
+
 #v193Plus .p-body{padding:12px 14px 130px!important}
 #v193Plus .p-lb{display:flex!important;align-items:center;gap:9px;margin:22px 4px 10px!important;font-size:12.5px!important;font-weight:900!important;letter-spacing:.07em!important;color:#14104a!important}
 #v193Plus .p-lb::before{content:'';width:4px;height:15px;border-radius:4px;background:linear-gradient(#ff7a0a,#e0ad20)}
@@ -3463,7 +3448,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 #v193Plus .p-tiles .p-ch{display:none}
 #v193Plus .p-tiles .p-it:last-child:nth-child(odd){grid-column:1/-1}
 #v193Plus .p-tiles .p-it:last-child:nth-child(odd) .p-row{flex-direction:row;align-items:center;min-height:72px}
-/* Animation : un district atteint 10 pré-inscrits */
+
 .d10{position:fixed;inset:0;z-index:100200;overflow:hidden;-webkit-tap-highlight-color:transparent}
 .d10-back{position:absolute;inset:0;opacity:0}
 .d10-bg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 34%,#5a35d6 0%,#2a1280 38%,#0d0636 72%,#04021a 100%)}
@@ -3500,7 +3485,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 #v103Add{background:linear-gradient(135deg,#ff8a1a,#ff5a00)!important;color:#fff!important;font-weight:800!important;margin-bottom:8px}
 </style>
 <style id="plus-v2">
-/* Écran « Plus » v2 : tuiles « Mon camp » (icônes carrées, chevron en coin, texte en bas) */
+
 #v193Plus .p-tiles .p-it{display:flex;animation:pUp .5s both;transition:transform .15s}
 #v193Plus .p-tiles .p-it:nth-child(2){animation-delay:.05s}
 #v193Plus .p-tiles .p-it:nth-child(3){animation-delay:.1s}
@@ -3520,7 +3505,7 @@ body:not(.cd-header-off) .app-shell-view .app-screen>.screen-head~*{position:rel
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&display=swap">
 <style id="cuflb-modern-2026">
-/* CUFLB V2026 — habillage moderne façon SofaScore, identité du Camp conservée (violet, orange, or). Aucune logique modifiée. */
+
 #screenMatchs{--cm-n:#14104a;--cm-v:#43118a;--cm-o:#ff6500;--cm-g:#ffd76a;--cm-l:#ece9f7;--cm-m:#6d6a92;--cm-sc:'Barlow Condensed','Arial Narrow',Arial,sans-serif}
 html body #screenMatchs .champ-tabs{display:flex!important;gap:0!important;overflow-x:auto!important;padding:0 16px!important;margin:6px 0 0!important;background:#fff!important;border-bottom:1px solid var(--cm-l)!important;position:sticky;top:0;z-index:5;scrollbar-width:none}
 html body #screenMatchs .champ-tab{min-height:0!important;flex:none!important;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:var(--cm-m)!important;font-weight:700!important;font-size:14px!important;padding:14px 4px 11px!important;margin-right:20px!important;border-bottom:3px solid transparent!important;transition:color .15s,border-color .15s}
@@ -3555,8 +3540,13 @@ html body #screenMatchs .champ-tab.active{background:none!important;box-shadow:n
 html body #screenMatchs .cu-team .cu-cr{width:34px!important;height:34px!important;display:grid;place-items:center}
 html body #screenMatchs .cu-team .cu-cr img{width:100%!important;height:100%!important;object-fit:contain!important}
 </style>
-</head>
-<body>
+<style id="boot-cover-css">#bootCover{position:fixed;inset:0;z-index:2147483600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(120% 70% at 50% 0,#5a1fb8,#1c0b45 70%);color:#fff;font:800 22px system-ui,sans-serif;transition:opacity .45s}#bootCover.out{opacity:0;pointer-events:none}#bootCover i{width:46px;height:46px;border-radius:50%;border:4px solid #ffffff40;border-top-color:#ffd23f;animation:bcs 1s linear infinite}@keyframes bcs{to{transform:rotate(360deg)}}</style></head>
+<body><div id="bootCover" role="status" aria-label="Chargement"><i></i>Mon CAMP</div><script>(function(){var c=document.getElementById("bootCover"),d=0,t0=0,last=Date.now(),iv=0;
+function hide(){if(d)return;d=1;clearInterval(iv);c.className="out";setTimeout(function(){c.remove()},500)}
+function ok(m){var t=m.target;t=t&&t.nodeType===1?t:t&&t.parentElement;return !(t&&t.closest&&t.closest("#v51Cd,#bootCover"))}
+try{new MutationObserver(function(a){for(var i=0;i<a.length;i++)if(ok(a[i])){last=Date.now();break}}).observe(document.documentElement,{childList:true,subtree:true})}catch(e){}
+window.addEventListener("load",function(){t0=Date.now();iv=setInterval(function(){var n=Date.now();if((n-t0>1800&&n-last>900)||n-t0>6000)hide()},200)});
+setTimeout(hide,20000)})();</script>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16"/><path d="M9.5 20 12 15.2l2.5 4.8"/><path d="M2 20h20"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 9.5h18M7.5 13.5h3M13.5 13.5h3M7.5 17h3"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M3.5 5.5C6.7 4.6 9.5 5 12 7c2.5-2 5.300-2.400 8.500-1.500V18.500C17.300 17.600 14.500 18 12 20c-2.500-2-5.300-2.400-8.500-1.500Z"/><path d="M12 7v13"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.500 2h-15Z"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.500 20.500a7.500 7.500 0 0 1 15 0"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.500 4.500 13.500H11L10 21.500l8.500-11H13Z"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.500a2.500 2.500 0 0 0 0 5V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.500a2.500 2.500 0 0 0 0-5Z"/><path d="M14.500 5.500v2M14.500 11v2M14.500 16.500v2"/></symbol><symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12.500H6Z"/><path d="M9 8V6.500a3 3 0 0 1 6 0V8"/></symbol><symbol id="i-news" viewBox="0 0 24 24"><path d="M4 4.500h12v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2Z"/><path d="M16 8.500h4v10a2 2 0 0 1-2 2"/><path d="M7.500 8.500h5M7.500 12h5M7.500 15.500h3"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5.500a4 4 0 0 1-8 0Z"/><path d="M8 6H5v1.500A3 3 0 0 0 8 10.500M16 6h3v1.500a3 3 0 0 1-3 3"/><path d="M12 13.500v3.500M8.500 20.500h7M9.500 20.500 10 17h4l.5 3.500"/></symbol><symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4L16.500 4.500a2.100 2.100 0 0 1 3 3L8 19Z"/><path d="M14.500 6.500l3 3"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.500 10 17.500 19 7"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8.500 15 10.700 13.900 14.200H10.100L9 10.700Z"/><path d="M12 8.500V3.200M15 10.700l5-1.600M13.900 14.200l3 4M10.100 14.200l-3 4M9 10.700 4 9.100"/></symbol><symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M7 8h10a4.500 4.500 0 0 1 4.400 5.400l-.6 3a2.500 2.500 0 0 1-4.300 1.200L14.500 16h-5l-1.900 1.600a2.500 2.500 0 0 1-4.300-1.200l-.6-3A4.500 4.500 0 0 1 7 8Z"/><path d="M7.500 10.500v3M6 12h3M15.500 11.500h.01M17.500 13.500h.01"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.500 8.500-2 5-5 2 2-5Z"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9.500" cy="8" r="3.500"/><path d="M3 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1"/><path d="M16 4.700a3.500 3.500 0 0 1 0 6.600M21 20v-1a5 5 0 0 0-3.500-4.700"/></symbol><symbol id="i-podium" viewBox="0 0 24 24"><path d="M9 21V9h6v12"/><path d="M3 21v-7h6M15 21v-9h6v9"/><path d="M2 21h20M12 3.500v2.500"/></symbol><symbol id="i-live" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.800"/><path d="M7.800 7.800a6 6 0 0 0 0 8.400M16.200 7.800a6 6 0 0 1 0 8.400M4.900 4.900a10 10 0 0 0 0 14.200M19.100 4.900a10 10 0 0 1 0 14.200"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8.500M17.500 7H20M4 17h2.500M11.500 17H20"/><circle cx="15" cy="7" r="2.500"/><circle cx="9" cy="17" r="2.500"/></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.700"/><path d="M4 17.500l5-4.500 4 3.500 3-2.500 4 3.500"/></symbol><symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 13.500v-1.500a8 8 0 0 1 16 0v1.500"/><path d="M4 13.500h2.500a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1ZM20 13.500h-2.500a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1H19a1 1 0 0 0 1-1Z"/><path d="M18.500 18.500v.5a2.500 2.500 0 0 1-2.500 2.500h-3"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3l1.900 5.100L18 10l-5.100 1.900L11 17l-1.900-5.100L4 10l5.100-1.900Z"/><path d="M19 15.500v4M17 17.500h4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.200l3.300 2"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.500 11a6.500 6.500 0 0 0 13 0M12 17.500V21"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5.500l6.500 6.500L9 18.500"/></symbol><symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 5.500 8.500 12l6.500 6.500"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.500l2.600 5.400 5.900.8-4.300 4.100 1 5.800L12 16.800l-5.200 2.800 1-5.800L3.500 9.700l5.900-.8Z"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4.500 6h.01M4.500 12h.01M4.500 18h.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol></defs></svg>
 <div class="app">
 
@@ -4006,7 +3996,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 .v63-cb .v63-ed{position:absolute;top:12px;right:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;color:#43118a;background:rgba(255,255,255,.94)}
 .v63-cb:focus-visible{outline:3px solid #ff8a1f;outline-offset:3px}
 
-/* V67 — cadre commissaire amélioré */
+
 #v63Comm.v63-grid{padding:8px 8px 4px}
 #v63Comm .v63-cb{cursor:default;overflow:hidden;border-radius:28px;background:#fff;
  box-shadow:0 0 0 3px #fff,0 0 0 6px #ff8a1f,0 0 0 8px rgba(255,138,31,.25),0 26px 44px -20px rgba(40,10,90,.8)}
@@ -4017,7 +4007,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
  background-size:250% 100%;background-position:120% 0;animation:v67shine 5.5s ease-in-out infinite}
 @keyframes v67shine{0%,55%{background-position:120% 0}100%{background-position:-60% 0}}
 
-/* V70 — carte commissaire : partage, compteur, fiche, transition */
+
 #v63Comm .v63-cb{animation:v70in .4s cubic-bezier(.2,.8,.2,1) both}
 @keyframes v70in{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
 #v63Comm .v63-cb{cursor:pointer}
@@ -4046,7 +4036,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 #v63Comm .v63-cb .v63-scarf{position:absolute;left:0;right:0;bottom:0;height:8px;z-index:3;
  background:linear-gradient(90deg,#e10b1c 0 33.3%,#ffd23f 33.3% 66.6%,#fff 66.6%)}
 
-/* V71 — fond flouté, fiches refaites, troupes + chef de troupe (CT) */
+
 .v63-ov{background:rgba(22,8,52,.34);-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
 .v63-ov.open{animation:v71f .28s ease-out}
 @keyframes v71f{from{opacity:0}to{opacity:1}}
@@ -4068,12 +4058,12 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 .v71-file{display:flex;align-items:center;justify-content:center;height:46px;border:1.5px dashed #b9a6ea;border-radius:12px;color:#43118a;font-weight:800;font-size:14px;background:#faf8ff;cursor:pointer}
 .v71-pv{display:block;width:84px;aspect-ratio:4/5;object-fit:cover;border-radius:14px;margin:10px auto 0;box-shadow:0 0 0 2px #ff8a1f}
 .v71-note{margin:8px 0 0!important;font-size:12px!important;color:#6b6788;text-align:center}
-/* carte commissaire */
+
 #v63Comm .v63-cb::before{aspect-ratio:5/6}
 #v63Comm .v63-cb .v63-cap b{font-size:28px}
 .v71-cta{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;margin-top:12px;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:800;color:#43118a;background:rgba(255,255,255,.96);box-shadow:0 10px 20px -10px rgba(0,0,0,.7)}
 
-/* v72 : bouton Ajouter (troupes du district) sur la carte commissaire */
+
 .v72-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:12px;align-self:flex-start}
 .v72-row .v71-cta{margin-top:0}
 .v72-addb{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff8a1f,#f05a00);box-shadow:0 10px 20px -10px rgba(0,0,0,.7);cursor:pointer}
@@ -4121,7 +4111,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 .v72-em{grid-column:1/-1;padding:40px 10px;text-align:center;font-weight:700;color:#6b6788}
 @keyframes v72in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.v72-tc,.v72-pg.open{animation:none}}
-/* troupes */
+
 .v71-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .v71-t{position:relative;display:flex;flex-direction:column;padding:0;border:1px solid #ece7fb;border-radius:20px;overflow:hidden;background:#fff;text-align:left;cursor:pointer;box-shadow:0 12px 26px -16px rgba(40,10,90,.6);transition:transform .15s}
 .v71-t:active{transform:scale(.97)}
@@ -4138,7 +4128,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 .v71-t.e .v71-cp small{color:#8a86a3;font-weight:600}
 @media(prefers-reduced-motion:reduce){.v63-sh,.v63-ov.open{animation:none}.v71-t{transition:none}}
 
-/* V74 — logos, cartes CT, filtres visibles */
+
 #v63Comm .v63-cb .v70-share{right:auto;left:14px;top:14px;z-index:4}
 #v63Comm .v63-cb .v63-cap{z-index:3}
 .v63-dh{display:flex;align-items:center;gap:12px}
@@ -4151,7 +4141,7 @@ main.ref-home>section.cm-card:focus-visible{outline:3px solid #ffd76a;outline-of
 .v72-ph{position:relative;inset:auto;aspect-ratio:3/4;width:100%;background:linear-gradient(160deg,#efe7ff,#dcd0fb)}
 .v72-cp{position:relative;left:auto;right:auto;bottom:auto;padding:10px 12px 16px;background:none;gap:6px}
 .v72-cp b{text-shadow:none}
-/* V75 — page Nos troupes : liste claire et professionnelle */
+
 .v72-hd{padding-bottom:10px}
 .v72-hk{font-size:13.5px;font-weight:800;letter-spacing:.01em;padding:7px 14px}
 .v72-hero{padding:4px 20px 24px}
@@ -4505,7 +4495,7 @@ render()})();
 .registration-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}.registration-kicker{display:block;color:#ff8a22;font-size:9px;font-weight:1000;letter-spacing:1.4px}.registration-head h2{margin:5px 0 0;font-size:24px;line-height:1.05}.registration-close{width:40px;height:40px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:#ffffff0b;color:#fff;font-size:25px;cursor:pointer}.registration-note{padding:12px 13px;border-radius:16px;background:linear-gradient(135deg,#ff791014,#7628cf18);border:1px solid #ffffff10;color:#cfc5d8;font-size:10px;line-height:1.45;margin-bottom:14px}.registration-form{display:grid;gap:11px}.registration-field{display:grid;gap:6px}.registration-field label{font-size:9px;font-weight:1000;letter-spacing:.6px;color:#cfc5d8}.registration-field input,.registration-field select{width:100%;box-sizing:border-box;border:1px solid #ffffff16;border-radius:14px;background:#0f0822;color:#fff;padding:13px 12px;font:inherit;font-size:12px;outline:none}.registration-field input:focus,.registration-field select:focus{border-color:#ff7910;box-shadow:0 0 0 3px #ff791018}.registration-field select option{background:#160a2e;color:#fff}.registration-submit{margin-top:4px;width:100%;border:0;border-radius:16px;padding:14px 16px;background:linear-gradient(135deg,#ff7910,#e65200);color:#fff;font-size:13px;font-weight:1000;cursor:pointer;box-shadow:0 10px 24px #ff79102e}.registration-status{display:none;margin-top:10px;padding:12px 13px;border-radius:14px;background:#3a1760;border:1px solid #ffffff12;color:#fff;font-size:10px;line-height:1.4}.registration-status.show{display:block}.registration-summary{display:none;margin-top:12px;padding:14px;border-radius:17px;background:#ffffff08;border:1px solid #ffffff10}.registration-summary.show{display:block}.registration-summary b{font-size:12px}.registration-summary p{margin:6px 0 0;color:#bdb2c8;font-size:9px;line-height:1.45}
 @media(min-width:700px){.registration-overlay{align-items:center;padding:20px}.registration-sheet{border-radius:30px;max-height:88vh}}
 
-/* V-LOGOUT-PLUS — bloc Déconnexion dans l’interface PLUS */
+
 #screenPlus .plus-logout{width:100%;min-height:68px;margin-top:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;border-radius:18px;border:1px solid #efb6b6;background:linear-gradient(135deg,#fff7f7,#fff1f1);color:#8f2020;text-align:left;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 8px 18px rgba(143,32,32,.08)}
 #screenPlus .plus-logout:active{transform:scale(.985)}
 #screenPlus .plus-logout .plus-icon{background:#c92f3d;box-shadow:0 6px 14px rgba(201,47,61,.22)}
@@ -4584,7 +4574,7 @@ render()})();
 .reg-photo-frame img{width:100%;height:100%;object-fit:cover}.reg-photo-frame img[hidden],.reg-photo-copy em[hidden]{display:none}
 .reg-photo-copy{display:grid;gap:5px}.reg-photo-copy b{font-size:14px;color:#fff}.reg-photo-copy small,.reg-help{font-size:11px;color:#cfc5d8}.reg-photo-copy em{font-style:normal;font-size:11px;font-weight:800;color:#ff9a38}
 .reg-photo-choose{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;border:0;border-radius:11px;background:linear-gradient(135deg,#ff8a22,#ef5a00);color:#fff;font:inherit;font-size:12px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #ff790033}.reg-photo-choose:focus-visible{outline:3px solid #fff;outline-offset:3px}
-/* Photo : « Prendre une photo » et « Importer une photo » sur une seule ligne */
+
 .reg-photo-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:380px;margin:2px auto 0}
 .reg-photo-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:48px;padding:8px 10px;border:0;border-radius:14px;font:inherit;font-size:13px;font-weight:800;line-height:1.15;text-align:center;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}
 .reg-photo-btn svg{width:18px;height:18px;flex:none}
@@ -5099,7 +5089,7 @@ document.addEventListener('keydown',e=>{
 
 
 <style>
-/* V20.3 — CHAMPIONNAT */
+
 .champ-hero{position:relative;overflow:hidden;margin:10px 14px 14px;padding:22px 18px 17px;border-radius:28px;background:linear-gradient(145deg,#32105d,#16052f 72%);border:1px solid #ffffff18;box-shadow:0 18px 40px #0005}
 .champ-hero-glow{position:absolute;width:170px;height:170px;right:-55px;top:-75px;border-radius:50%;background:#ff7910;filter:blur(48px);opacity:.28}
 .champ-kicker{position:relative;font-size:9px;font-weight:1000;letter-spacing:1px;color:#ff9a3c}.champ-kicker span{font-size:13px;margin-right:4px}
@@ -5169,7 +5159,7 @@ document.addEventListener('keydown',e=>{
 </script>
 
 <style id="v20-8-final-fix">
-/* V20.8 — Date / Lieu / Thème : taille précédente préférée */
+
 .info-grid.action-grid{
   gap:10px!important;
   margin-top:24px!important;
@@ -5230,7 +5220,7 @@ document.addEventListener('keydown',e=>{
   margin-left:auto;
 }
 
-/* La navigation reste cachée pendant l'ouverture du présentateur. */
+
 body:has(.presenter-overlay.open) .floating-app-nav{
   display:none!important;
 }
@@ -5257,7 +5247,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 
 
 <style id="v20-12-user-final">
-/* Ajustements demandés : icônes nettement agrandies + panneaux Compte à rebours / Participation plus épais. */
+
 .info-grid.action-grid .action-card{
   min-height:112px!important;
   height:112px!important;
@@ -5348,8 +5338,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 </style>
 
 <style id="v20-13-width-alignment">
-/* Alignement horizontal demandé : CTA, compte à rebours et participation
-   utilisent exactement les mêmes limites gauche/droite que les 3 cartes Date/Lieu/Thème. */
+
 .ticket-panel{
   padding-left:0!important;
   padding-right:0!important;
@@ -5379,7 +5368,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 </style>
 
 <style id="v22-speaker-feature">
-/* V22 — Espace Orateur moderne sur l'accueil */
+
 .speaker-feature{
   width:100%; box-sizing:border-box; margin:16px 0 0; padding:0;
   border:1px solid rgba(255,255,255,.16); border-radius:26px; overflow:hidden;
@@ -5418,7 +5407,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 </style>
 
 <style id="v23-speaker-photo">
-/* V23 — Photo portrait adaptable automatiquement, sans déformation */
+
 .speaker-photo-frame{
   position:absolute; inset:8px 8px 8px 0; z-index:4;
   display:flex; align-items:center; justify-content:center;
@@ -5481,7 +5470,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 
 
 <style id="v24-speaker-portfolio">
-/* V24 — Carte Intervenant : grand cadre photo + profil portfolio */
+
 .speaker-feature{
   display:block!important;
   width:100%!important;
@@ -5566,7 +5555,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 .speaker-profile-btn b{font-size:20px;line-height:1}
 .speaker-photo-input{display:none!important}
 
-/* Portfolio dans la fenêtre Voir le profil */
+
 .presenter-portfolio[hidden]{display:none!important}
 .presenter-portfolio{display:block;text-align:left}
 .portfolio-photo-wrap{
@@ -5602,7 +5591,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 }
 </style>
 <style id="v25-speaker-photo-fix">
-/* Correction définitive : la photo occupe toute la structure du cadre. */
+
 .speaker-photo-frame{position:relative!important;width:100%!important;height:100%!important;overflow:hidden!important;padding:0!important}
 .speaker-photo-frame img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center center!important;z-index:1!important}
 .speaker-photo-placeholder{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:2!important}
@@ -5613,7 +5602,7 @@ body:has(.presenter-overlay.open) .floating-app-nav{
 
 
 <style id="v26-movement-profile">
-/* Profil intervenant — présentation complète du parcours dans le mouvement */
+
 .presenter-overlay .presenter{
   max-height:92vh!important;
   overflow-y:auto!important;
@@ -5874,7 +5863,7 @@ function shareSpeaker(e){
 
 
 <style id="v26-extra-speakers">
-/* 10 cadres supplémentaires, construits sur le même modèle que la carte Intervenant. */
+
 .speaker-extra-list{width:100%;margin:18px 0 110px;padding:0;}
 .speaker-extra-heading{padding:4px 4px 13px;text-align:left;}
 .speaker-extra-heading>span{display:block;color:#ff8b19;font-size:11px;font-weight:1000;letter-spacing:1.8px;}
@@ -5975,20 +5964,20 @@ function openExtraSpeakerProfile(i){
 })();
 </script>
 <style id="v27-icons-polish">
-/* ===== V27 — Système d'icônes SVG + finitions de rendu ===== */
+
 .ic{width:1em;height:1em;flex:none;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
 body{font-family:"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent}
 button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .ref-count-values strong,.timeline-day strong{font-variant-numeric:tabular-nums}
 
-/* En-tête */
+
 .ref-mark .ic{width:34px;height:34px;stroke-width:1.9}
 .ref-circle,.ref-profile{display:grid;place-items:center;padding:0;box-shadow:0 4px 12px rgba(24,32,93,.10)}
 .ref-circle .ic{width:22px;height:22px}
 .ref-profile .ic{width:22px;height:22px}
 @media(max-width:700px){.ref-mark .ic{width:28px;height:28px}.ref-circle .ic,.ref-profile .ic{width:20px;height:20px}}
 
-/* Compte à rebours */
+
 .ref-cal{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#ff78101c;font-size:0}
 .ref-cal .ic{width:24px;height:24px}
 .ref-program{display:flex;align-items:center;gap:10px;box-shadow:0 10px 22px -8px rgba(255,106,0,.55)}
@@ -5997,12 +5986,12 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .ref-program b{float:none;margin-left:auto;display:grid;place-items:center}
 .ref-program b .ic{width:22px;height:22px}
 
-/* Cartes infos */
+
 .ref-info-icon{box-shadow:0 8px 16px -6px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.25)}
 .ref-info-icon .ic{width:24px;height:24px}
 @media(max-width:700px){.ref-info-icon .ic{width:21px;height:21px}}
 
-/* Titres de section + liens */
+
 .ref-section-head h2{display:flex;align-items:center;gap:9px}
 .ref-section-head h2 span{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#4923c61a}
 .ref-section-head h2 span .ic{width:18px;height:18px}
@@ -6010,7 +5999,7 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .ref-section-head button b{display:grid;place-items:center}
 .ref-section-head button .ic{width:16px;height:16px;stroke-width:2.2}
 
-/* Accès rapide : tuile d'icône + pastille flèche */
+
 .ref-quick>span:first-child{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;margin-bottom:14px;background:rgba(255,255,255,.18);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
 .ref-quick>span:first-child .ic{width:24px;height:24px}
 .ref-quick>b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);right:12px;bottom:12px}
@@ -6019,14 +6008,14 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .ref-quick:active,.ref-info-card:active,.champ-event-card:active,.plus-menu button:active,.profile-card:active,.mycamp-quick:active{transform:scale(.975)}
 @media(max-width:700px){.ref-quick>span:first-child{width:42px;height:42px;margin-bottom:12px}.ref-quick>span:first-child .ic{width:22px;height:22px}}
 
-/* Écran retour / en-têtes d'écran */
+
 .screen-back{display:grid;place-items:center;padding:0}
 .screen-back .ic{width:22px;height:22px;stroke-width:2.1}
 #screenMonCamp .screen-back{display:grid!important;place-items:center!important;font-size:0!important}
 .settings-gear{font-size:0}
 .settings-gear .ic{width:20px;height:20px}
 
-/* Mon Camp */
+
 #screenMonCamp .mycamp-status-icon{display:grid;place-items:center;font-size:0!important}
 .mycamp-status-icon .ic{width:26px;height:26px;stroke-width:2.2}
 .quick-icon{display:grid;place-items:center;font-size:0!important}
@@ -6036,7 +6025,7 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .mycamp-next-card button,.registration-submit{display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .mycamp-next-card button .ic,.registration-submit .ic{width:16px;height:16px;stroke-width:2.2}
 
-/* Championnat */
+
 .champ-kicker{display:flex;align-items:center;gap:6px}
 .champ-kicker span{display:grid;place-items:center;margin:0;font-size:0}
 .champ-kicker .ic{width:15px;height:15px}
@@ -6053,11 +6042,11 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .champ-footer span{display:inline-grid;vertical-align:-3px;font-size:0;margin-right:4px}
 .champ-footer span .ic{width:16px;height:16px}
 
-/* Menu Plus */
+
 .plus-icon{font-size:0}
 .plus-icon .ic{width:19px;height:19px}
 
-/* Fenêtres (presenter / inscription) */
+
 .presenter-orb .ic{color:#fff;stroke-width:1.7}
 .presenter-close,.registration-close{display:grid;place-items:center;padding:0;font-size:0}
 .presenter-close .ic,.registration-close .ic{width:18px;height:18px;stroke-width:2.2}
@@ -6066,21 +6055,21 @@ button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .date-arrow{display:grid;place-items:center;font-size:0}
 .date-arrow .ic{width:26px;height:26px;stroke-width:2}
 
-/* Navigation : libellés lisibles */
+
 .floating-app-nav .nav-item b{font-size:9px!important;letter-spacing:.3px}
 .nav-icon svg{stroke-width:1.9!important}
 .floating-app-nav .nav-item.active .nav-icon{filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
 
-/* Textes trop petits → seuil de lisibilité mobile */
+
 .champ-empty-state>span,.mini-pill,.section-label,.mycamp-section-head small,.screen-dot{font-size:max(9px,1em)}
 .champ-empty-state p,.ranking-placeholder p{font-size:11px}
 .ref-quick small{font-size:10.5px}
 
-/* Accessibilité */
+
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2.5px solid #ffb35a;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-/* Mon Camp (fond clair) : contrastes corrigés — textes et icônes étaient blancs sur blanc */
+
 #screenMonCamp .screen-back{color:#18205d!important;background:#fff!important;border:1px solid #e4e1f0!important;box-shadow:0 4px 12px rgba(24,32,93,.08)!important}
 #screenMonCamp .screen-dot{background:#fff1e6!important;color:#e85b00!important}
 #screenMonCamp .mycamp-quick b{color:#18205d!important}
@@ -6104,7 +6093,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .map-pin .ic{width:26px;height:26px;stroke-width:2}
 
 
-/* ===== V28 — logo + compte à rebours ===== */
+
 .ref-mark.ref-logo{width:58px;height:58px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #6b24b8,0 6px 14px rgba(24,32,93,.22)}
 .ref-mark.ref-logo img{width:100%;height:100%;display:block;object-fit:cover}
 @media(max-width:700px){.ref-mark.ref-logo{width:50px;height:50px}}
@@ -6117,7 +6106,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .cd-cta{margin-top:16px!important;width:100%;min-width:0;justify-content:center;text-align:center}
 .cd-cta b{margin-left:0!important}
 
-/* ===== V29 — Cartes Date / Lieu / Thème ===== */
+
 .ref-info-grid.kc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 4% 26px}
 .kc .ref-info-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-height:0;padding:16px 15px 15px;border-radius:24px;border:1px solid rgba(24,32,93,.07);text-align:left;font:inherit;overflow:hidden;box-shadow:0 10px 24px -14px rgba(24,32,93,.35)}
 .kc .kc-label{font-size:12px;font-weight:800;color:#6a7190;margin:12px 0 5px}
@@ -6130,7 +6119,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .kc .kc-theme{background:linear-gradient(160deg,#eefaf3,#d9f2e3)}
 .kc .kc-theme .kc-ico{background:linear-gradient(145deg,#12a86a,#07804f)}
 .kc .kc-theme strong{font-style:italic;font-size:16px}
-/* Date : bandeau pleine largeur */
+
 .kc .kc-date{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px;padding:14px 14px 14px 14px;background:linear-gradient(135deg,#3b17a8,#5a2bd0 60%,#7b3fe4);border-color:transparent;box-shadow:0 16px 30px -14px rgba(59,23,168,.7)}
 .kc .kc-date:before{content:"";position:absolute;right:-40px;top:-50px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.08)}
 .kc .kc-leaf{position:relative;flex:none;width:64px;border-radius:16px;background:#fff;overflow:hidden;text-align:center;box-shadow:0 8px 16px -8px rgba(0,0,0,.5)}
@@ -6145,7 +6134,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .kc .kc-go .ic{width:16px;height:16px;stroke-width:2.2}
 @media(max-width:380px){.kc .ref-info-card strong{font-size:15.5px}.kc .kc-date strong{font-size:16.5px}}
 
-/* ===== V30 — Accès rapide : 4 petits blocs alignés ===== */
+
 .ref-quick-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important}
 .ref-quick-grid .ref-quick{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;min-height:0!important;height:auto;padding:9px 3px 9px!important;border-radius:16px;text-align:center;box-shadow:0 10px 18px -12px rgba(24,32,93,.6)}
 .ref-quick-grid .ref-quick>span:first-child{width:32px!important;height:32px!important;margin:0 0 6px!important;border-radius:11px}
@@ -6154,7 +6143,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .ref-quick-grid .ref-quick small,.ref-quick-grid .ref-quick>b{display:none!important}
 @media(max-width:340px){.ref-quick-grid .ref-quick strong{font-size:10.5px!important}}
 
-/* ===== V31 — Cadres intervenants ===== */
+
 .ref-speakers .speaker-extra-grid{gap:18px;margin:0}
 .speaker-extra-card{box-shadow:0 18px 34px -16px rgba(242,75,8,.65)}
 .speaker-extra-top>span{color:#fff}
@@ -6166,7 +6155,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .speaker-extra-info>span{font-size:10px}
 .speaker-extra-info h3{color:#fff}
 
-/* ===== V32 — Intervenants : 2 colonnes compactes ===== */
+
 .ref-speakers .speaker-extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:start}
 .ref-speakers .speaker-extra-card{border-radius:20px;box-shadow:0 12px 22px -14px rgba(242,75,8,.7)}
 .ref-speakers .speaker-extra-top{padding:9px 8px;gap:6px}
@@ -6370,7 +6359,7 @@ window.goCampFrame=function(){if(window.showAppTab)showAppTab('home');setTimeout
 })();
 </script>
 <style id="v57-prio-css">
-/* ===== V57 — À lire en priorité ===== */
+
 .prio::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,236,170,.22),transparent);transform:skewX(-18deg);animation:v57shine 6.5s ease-in-out 1.5s infinite}
 @keyframes v57shine{0%{left:-40%}28%,100%{left:130%}}
 .prio-cnt{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;font-size:12px!important}
@@ -6537,7 +6526,7 @@ render(0);
 })();
 </script>
 <style id="v183-moncamp-polish">
-/* ===== V183 — Mon camp : finitions (apparition douce, appuis, ticket) ===== */
+
 @keyframes mc183in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 html body #screenMonCamp>*{animation:mc183in .45s cubic-bezier(.2,.8,.2,1) both}
 html body #screenMonCamp>*:nth-child(2){animation-delay:.05s}
@@ -6559,14 +6548,11 @@ html body #screenMonCamp .mc6-day.now{animation:mc183pulse 2.2s ease-in-out infi
 html body #screenMonCamp .mc8-steps{grid-template-columns:repeat(2,1fr)!important}
 </style>
 <style id="v180-header-onglets">
-/* ===== V180 — l'en-tête reste visible sur Mon camp et CUFLB, même si l'Accueil était défilé =====
-   Cause : sur ces onglets la page est verrouillée (html/body overflow:hidden). Le body devient alors
-   son propre conteneur de défilement et l'en-tête « sticky » reste collé en haut du document,
-   hors de l'écran si l'Accueil avait été défilé. On le fixe donc à l'écran sur ces onglets. */
+
 html.cd-shell .ref-header{position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;box-sizing:border-box}
 </style>
 <style id="v179-like-comments">
-/* ===== V179 — like animé + commentaires en feuille (style Facebook) ===== */
+
 .fil-acts button.lk{position:relative;overflow:visible}
 .fil-acts button.lk svg{transition:fill .2s,stroke .2s,color .2s}
 .fil-acts button.lk.pop svg{animation:lkPop .55s cubic-bezier(.2,.9,.3,1.4)}
@@ -6613,7 +6599,7 @@ html.cd-shell .ref-header{position:fixed!important;top:0!important;left:0!import
 @media(prefers-reduced-motion:reduce){.fil-acts button.lk svg,.fil-acts button.lk span,.lk-dot,.lk-ring,.cms-row.new{animation:none!important}.cms-panel{transition:none}}
 </style>
 <style id="v228-css">
-/* V228 — T-shirt 360° + Atelier RESCOM (Pixellab, Participer) */
+
 .fil-img.tee{height:auto;background:none;display:block;padding:0}
 .fil-img.tee{display:block!important;height:330px!important}.tee-stage{position:relative;display:block;width:100%;min-width:100%;height:330px;background:radial-gradient(ellipse at 50% 38%,#6a2fc4 0,#3a1280 46%,#1b0a45 100%);perspective:900px;touch-action:pan-y;cursor:grab;overflow:hidden;user-select:none;-webkit-user-select:none}
 .tee-stage:active{cursor:grabbing}
@@ -7197,7 +7183,7 @@ document.addEventListener('DOMContentLoaded',render);window.addEventListener('lo
 </script>
 
 <style id="v229-marraine-css">
-/* V229 — Marraine du football : carte « Ils portent le Camp » + à la une dans la CUFLB */
+
 .ref-speakers .v39-marraine .speaker-extra-top>span{background:linear-gradient(135deg,#e0a010,#ffd76a);color:#2b0f4d}
 .ref-speakers .v39-marraine .speaker-extra-photo img{object-position:center 4%}
 .ref-speakers .v39-marraine .speaker-extra-info>span{color:#b8820a}
@@ -7366,7 +7352,7 @@ document.addEventListener('DOMContentLoaded',render);window.addEventListener('lo
 })();
 </script>
 <style id="v56-css">
-/* ===== V56 — compte à rebours hors du commun ===== */
+
 #v51Cd{--rc:#ff8a1f;overflow:hidden;isolation:isolate}
 #v51Cd.v51-hot{--rc:#ff5a2a}
 #v51Cd.v51-live{--rc:#7dffb3}
@@ -7401,7 +7387,7 @@ main.ref-home .v51-sub{min-height:32px;display:flex;align-items:center;justify-c
 @media(prefers-reduced-motion:reduce){#v51Cd::after,.v56-head,.v56-final:before{animation:none!important}}
 </style>
 <style id="v59-css">
-/* ===== V59 — scout qui marche vraiment, sac à dos, tentes réalistes ===== */
+
 #v51Cd .v55-prog{margin-top:12px;padding:0}
 .v58-scene{position:relative;height:106px;border-radius:16px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;background:radial-gradient(1.2px 1.2px at 12% 18%,#fffc,transparent),radial-gradient(1px 1px at 33% 30%,#fff9,transparent),radial-gradient(1.2px 1.2px at 51% 14%,#fffc,transparent),radial-gradient(1px 1px at 68% 26%,#fff9,transparent),radial-gradient(1px 1px at 84% 12%,#fffc,transparent),linear-gradient(0deg,rgba(30,10,80,.9) 0 26px,transparent 26px),linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,138,31,.10));border:1px solid rgba(255,255,255,.10)}
 .v58-moon{position:absolute;right:22px;top:9px;width:14px;height:14px;border-radius:50%;box-shadow:inset -4px -1px 0 0 #ffe9a8;transform:rotate(-20deg);opacity:.85}
@@ -7451,7 +7437,7 @@ main.ref-home .v51-sub{min-height:32px;display:flex;align-items:center;justify-c
 .v58-sparks circle{opacity:0;animation:v58sp 1.6s ease-out infinite}
 .v58-sparks .sp2{animation-delay:.5s}.v58-sparks .sp3{animation-delay:1s}
 @keyframes v58sp{0%{opacity:0;transform:translate(0,4px)}20%{opacity:1}100%{opacity:0;transform:translate(3px,-12px)}}
-/* cycle de marche */
+
 .v59-th{transform-origin:21px 38px;animation:v59th var(--cyc) linear infinite}
 .v59-th.b{animation-delay:calc(var(--cyc)/-2)}
 .v59-sh{transform-origin:21px 48.5px;animation:v59sh var(--cyc) linear infinite}
@@ -7474,7 +7460,7 @@ main.ref-home .v51-sub{min-height:32px;display:flex;align-items:center;justify-c
 @media(prefers-reduced-motion:reduce){.v58-trees,.v58-ground,#v51Cd .v58-path .v55-track,.v59-th,.v59-sh,.v59-bd,.v59-arm,.v59-pk,.v59-shadow,.v59-dust,.v59-fire,.v59-fglow,.v59-em,.v59-flag,.v58-flame,.v58-sparks circle,#v51Cd .v56-head::before{animation:none!important}.v59-th{transform:rotate(-2deg)}}
 </style>
 <style id="v61-cd-3x2">
-/* ===== V61 — carte compte à rebours au format 3:2 ===== */
+
 main.ref-home #v51Cd.cd-card{aspect-ratio:3/2;container-type:inline-size;display:flex!important;flex-flow:row wrap;align-content:space-between;align-items:flex-start;padding:3cqw 3.2cqw 3cqw!important;column-gap:2cqw;row-gap:0!important}
 #v51Cd>*{flex:0 0 100%;min-width:0}
 #v51Cd .cd-title{margin:0 0 1.5cqw!important;font-size:clamp(9px,2.9cqw,11.5px)!important;line-height:1.2;text-align:center}
@@ -7496,7 +7482,7 @@ main.ref-home #v51Cd .v51-sub{margin:1.9cqw 0 0!important;min-height:4.8cqw!impo
 #v51Cd.v51-done .v51-ag{display:none}
 </style>
 <style id="v62-cf-css">
-/* ===== V62 — Ma photo du Camp : carte 3:2 + éditeur plein écran ===== */
+
 html.cf-lock,html.cf-lock body{overflow:hidden!important}
 .cf-card{aspect-ratio:3/2;container-type:inline-size;display:flex;gap:3cqw;align-items:stretch;padding:3.2cqw!important;overflow:hidden;position:relative}
 .cf-card .cf-bar,.cf-card .cf-x{display:none}
@@ -7525,7 +7511,7 @@ html.cf-lock,html.cf-lock body{overflow:hidden!important}
 .cf-save{background:#ffffff26;border:1px solid #ffffff44}
 .cf-share:disabled,.cf-save:disabled{opacity:.45}
 .cf-change{align-self:center;font-size:clamp(10px,2.8cqw,11.5px);font-weight:700;color:#ffd76a;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:.4cqw 0}
-/* --- plein écran --- */
+
 .cf-card.full{position:fixed!important;inset:0;z-index:99999;margin:0!important;width:auto;aspect-ratio:auto!important;border-radius:0!important;container-type:normal;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 62px) 16px calc(env(safe-area-inset-bottom,0px) + 20px)!important;background:linear-gradient(160deg,#43118a,#07144a)!important;box-shadow:none!important;-webkit-overflow-scrolling:touch}
 .cf-card.full .cf-bar{display:block;position:fixed;top:0;left:0;right:0;z-index:2;padding:calc(env(safe-area-inset-top,0px) + 18px) 64px 14px;text-align:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(#2a0d6e 55%,transparent)}
 .cf-card.full .cf-x{display:grid;place-items:center;position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:3;width:42px;height:42px;border:0;border-radius:50%;background:#ffffff2e;color:#fff;font-size:18px}
@@ -7552,7 +7538,7 @@ html.cf-lock,html.cf-lock body{overflow:hidden!important}
 
 
 <style id="v60-prio-3x2">
-/* ===== V60 — carte « À lire en priorité » au format 3:2 ===== */
+
 .prio{aspect-ratio:3/2;container-type:inline-size;display:flex!important;flex-direction:column}
 .prio .prio-top{flex:none;padding:2.7cqw 4.8cqw 0!important}
 .prio .prio-lab{font-size:clamp(10px,3.1cqw,12px)!important;gap:2.2cqw}
@@ -7581,7 +7567,7 @@ html.cf-lock,html.cf-lock body{overflow:hidden!important}
 </style>
 
 <style id="v76-cd">
-/* V76 — compte à rebours : boîtes plus nettes, scout agrandi avec pastille J-x */
+
 main.ref-home #v51Cd .cd-title{font-size:12px!important;font-weight:700!important;letter-spacing:.14em!important;color:#d9ceff!important;opacity:1!important;margin:0 0 14px!important}
 main.ref-home #v51Cd #v51Grid{gap:10px}
 main.ref-home #v51Cd #v51Grid .cd-box{padding:14px 2px 11px!important;border-radius:16px!important;border:1px solid rgba(255,255,255,.12)!important;background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.04))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 12px 22px -16px rgba(0,0,0,.8)!important}
@@ -8034,7 +8020,7 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 .ref-hero .v78-fam strong{display:inline-block;margin-top:3px;font-size:clamp(17px,5.4vw,26px);font-weight:900;letter-spacing:-.3px;padding-bottom:3px;border-bottom:3px solid #ff7410}
 </style>
 <style id="v79-css">
-/* V79 — cadre commissaire épuré + fiche améliorée */
+
 #v63Comm.v63-grid{padding:4px 2px 2px}
 #v63Comm .v63-cb{border-radius:26px;background:#1b0a44;
  box-shadow:0 0 0 1.5px rgba(255,138,31,.9),0 22px 40px -22px rgba(30,8,80,.85)}
@@ -8050,7 +8036,7 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 #v63Comm .v63-cb .v71-cta{background:#fff;color:#43118a}
 .v63-dh{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:20px;background:linear-gradient(135deg,#43118a,#7a1aa8);box-shadow:0 14px 28px -18px rgba(40,10,90,.8)}
 .v63-dh>span{display:flex;flex-direction:column;gap:2px}
-/* fiche */
+
 .v71-hero{width:min(58%,220px);border-radius:26px;box-shadow:0 0 0 3px #fff,0 0 0 5px #ff8a1f,0 22px 40px -20px rgba(40,10,90,.8)}
 .v71-nm{font-size:25px!important;letter-spacing:-.2px}
 .v71-p .v63-row{background:#faf8ff;border:1px solid #efe9fc;border-radius:14px;padding:12px 14px;margin-top:8px;align-items:center}
@@ -8061,7 +8047,7 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 .v71-p .v63-btn{margin-top:0;height:50px;border-radius:15px}
 </style>
 <style id="v80-nav">
-/* V80 — barre de navigation améliorée */
+
 #floatingAppNav.floating-app-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;align-items:stretch!important;
  min-height:68px!important;padding:8px 10px max(10px,env(safe-area-inset-bottom))!important;
  background:rgba(255,255,255,.95)!important;-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);
@@ -8171,41 +8157,41 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 })();
 </script>
 <style id="v84-desktop">
-/* ===== V84 — Version ordinateur (écrans >= 900px). Le mobile n'est pas touché. ===== */
+
 @media (min-width:900px){
   :root{--cd-w:1200px;--cd-w2:1100px}
   html,body{background:#160636!important}
   .app{background:transparent!important}
 
-  /* En-tête : contenu aligné sur la colonne centrale */
+  
   .ref-header{padding-left:max(24px,calc((100vw - var(--cd-w))/2 + 24px))!important;padding-right:max(24px,calc((100vw - var(--cd-w))/2 + 24px))!important}
 
-  /* Accueil : colonne centrée, la photo reste pleine largeur de la colonne */
+  
   main.ref-home{max-width:var(--cd-w)!important;margin:0 auto!important;padding-left:24px!important;padding-right:24px!important;box-sizing:border-box;box-shadow:0 0 70px rgba(0,0,0,.4)}
   main.ref-home>.ref-hero{margin-left:-24px!important;margin-right:-24px!important;min-height:450px}
 
-  /* Grilles : plus de colonnes sur grand écran */
+  
   main.ref-home .ref-quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
   main.ref-home .ref-info-grid.kc{grid-template-columns:repeat(3,minmax(0,1fr))!important}
   main.ref-home .speaker-extra-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
   main.ref-home .speaker-extra-photo{height:300px!important}
 
-  /* Mon camp / Championnat / Plus : contenu centré, largeur confortable */
+  
   .app-shell-view .app-screen{padding-left:max(24px,calc((100vw - var(--cd-w2))/2))!important;padding-right:max(24px,calc((100vw - var(--cd-w2))/2))!important}
   .mycamp-quick-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))!important}
   .mycamp-info-list{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))!important}
   .plus-menu{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 
-  /* Barre de navigation : plus large, textes lisibles */
+  
   .floating-app-nav{width:560px!important;height:64px!important;bottom:18px!important;border-radius:26px!important}
   .floating-app-nav .nav-item b{font-size:10px!important;letter-spacing:.6px}
 
-  /* Fenêtres (fiche intervenant, tickets, districts) : centrées au lieu de collées en bas */
+  
   .presenter-overlay,.ps,.v63-ov{align-items:center!important}
   .presenter,.ps-sheet{border-radius:28px!important}
   .v63-sh{border-radius:26px!important}
 
-  /* Petit confort à la souris */
+  
   .ref-quick,.ref-info-card,.plus-menu button,.mycamp-quick,.nav-item{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
   .ref-quick:hover,.ref-info-card:hover,.plus-menu button:hover,.mycamp-quick:hover{transform:translateY(-3px)}
 }
@@ -8215,7 +8201,7 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 </style>
 
 <style id="v85-desktop-version">
-/* V85 — Version ordinateur : mise en page large, équilibrée et confortable */
+
 @media (min-width: 900px){
   html,body{min-height:100%;overflow-x:hidden}
   body{background:
@@ -8248,7 +8234,7 @@ window.openProgramme=open;window.CPG={D:D,P:P,S:S,kind:kind};
 }
 </style>
 <style id="v108-mon-camp">
-/* V108 — Mon camp : compte à rebours, carte « Mon ticket » avec N° d'inscription, boutons corrigés */
+
 #screenMonCamp .screen-head>div{min-width:0;flex:1}
 #screenMonCamp .screen-head h2{font-size:18px!important;line-height:1.15;white-space:normal}
 #screenMonCamp .screen-dot{flex:none}
@@ -9125,7 +9111,7 @@ window.CUFLB_team=tmOpen;
 L_cta();spLoad();render();window.CUFLB={M,P,render,poster,dayPoster,JOUEURS,openTeam:tmOpen};
 })();
 </script><style id="v118-couleurs">
-/* V118 — palette uniforme scout : bleu roi · rouge · jaune */
+
 main.ref-home>section.v45-open#v50Open{position:relative;overflow:hidden;background:linear-gradient(135deg,#1c4be0,#0a1f8f 85%)!important;border:1px solid rgba(255,214,90,.45)!important;box-shadow:0 12px 24px -12px rgba(10,31,143,.95)!important}
 main.ref-home>section.v45-open#v50Open::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#d7262d 0 34%,#ffc21a 34% 68%,#fff 68%)}
 #v50Open .v45-dot,#v50Open.v50-in .v45-dot{background:#ffc21a;animation:v118p 1.8s infinite}
@@ -9163,7 +9149,7 @@ main.ref-home #v51Cd .v51-sub b{color:#ffd24d!important}
 })();
 </script>
 <style id="cuflb-v134">
-/* V136 — plus d'écran violet derrière la licence, et pas de défilement de l'écran précédent */
+
 .app-shell-view,.app-screen,#cuLb,.registration-overlay,.auth-screen,.v49-ov,.cpg,.poster-viewer,.presenter-overlay{overscroll-behavior-y:contain}
 #cuLic{overscroll-behavior:none;background-color:#f4f0ff!important;isolation:isolate;-webkit-overflow-scrolling:touch}
 html.cd-lock,html.cd-lock body{overflow:hidden!important;overscroll-behavior:none}
@@ -9183,7 +9169,7 @@ html.cd-lic #accueil,html.cd-lic #appShellView,html.cd-lic #floatingAppNav,html.
 })();
 </script>
 <style id="cuflb-v137">
-/* V137 — refonte de l'interface CUFLB : nuit bleue, or, cartes claires */
+
 #screenMatchs{background:#f3f1fb!important}
 #screenMatchs .champ-hero{position:relative!important;overflow:hidden!important;padding:22px 18px 18px!important;border:0!important;border-radius:28px!important;color:#fff!important;background:radial-gradient(90% 70% at 100% 0,#6a3be0 0,transparent 60%),linear-gradient(160deg,#080e48,#17106a 62%,#2a0d7a)!important;box-shadow:0 24px 40px -24px #080e48!important}
 #screenMatchs .champ-hero::before{content:''!important;position:absolute!important;left:-50px!important;bottom:-70px!important;right:auto!important;top:auto!important;width:210px!important;height:210px!important;border-radius:50%!important;background:radial-gradient(circle,#f6c94a38,transparent 70%)!important;opacity:1!important;-webkit-mask-image:none!important;mask-image:none!important}
@@ -9227,7 +9213,7 @@ html.cd-lic #accueil,html.cd-lic #appShellView,html.cd-lic #floatingAppNav,html.
 window.cuOpen=function(l){try{showAppTab('matchs')}catch(e){}setTimeout(function(){var b=document.querySelector('#screenMatchs [data-lic]');if(l&&b)b.click()},380)};
 </script>
 <style id="cuflb-v138">
-/* V138 — page équipe */
+
 [data-tm]{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .cu-team[data-tm]:active,.cu-pr[data-tm]:active,.cu-rw[data-tm]:active{opacity:.7}
 html.cd-tm #floatingAppNav{visibility:hidden!important}
@@ -9306,7 +9292,7 @@ html.cd-tm #floatingAppNav{visibility:hidden!important}
 #cuLic .chs.g2{grid-template-columns:1fr 1fr}
 </style>
 <style id="cuflb-v140">
-/* V140 — tableau de la phase finale (couleurs déjà utilisées dans la CUFLB) */
+
 #screenMatchs .br-wrap{overflow-x:auto;padding:2px 2px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}#screenMatchs .br-wrap::-webkit-scrollbar{display:none}
 #screenMatchs .br-hd,#screenMatchs .br{display:flex;gap:24px;min-width:540px}
 #screenMatchs .br-hd span{flex:1;min-width:150px;text-align:center;font-size:11px;font-weight:900;letter-spacing:1.3px;color:#8a84a8;text-transform:uppercase;padding:4px 0 8px}
@@ -9331,7 +9317,7 @@ html.cd-tm #floatingAppNav{visibility:hidden!important}
 #screenMatchs .br-ch span{font-size:26px}#screenMatchs .br-ch small{font-size:10px;font-weight:900;letter-spacing:1.4px;color:#f6c94a}#screenMatchs .br-ch b{font-size:16px;font-weight:900}
 </style>
 <style id="cuflb-v144">
-/* V144 — page équipe : logo du championnat + cartes de match lisibles (couleurs déjà utilisées dans la CUFLB) */
+
 #cuTm .tm-ctx{gap:11px}
 #cuTm .tm-ctx .tm-lgo{flex:none;width:38px;height:38px;object-fit:contain;border-radius:50%;background:#fff;padding:3px;box-sizing:border-box;box-shadow:0 0 0 1px #ebe6fa,0 6px 12px -6px #2a0d7a66}
 #cuTm .cu-card{margin:0 0 12px;padding:14px 16px 12px 20px;border:1px solid #ebe6fa;border-radius:22px;background:#fff;color:#14104a;box-shadow:inset 5px 0 0 #f6c94a,0 14px 30px -22px #2a0d7a77}
@@ -9347,7 +9333,7 @@ html.cd-tm #floatingAppNav{visibility:hidden!important}
 #cuTm .cu-ft{margin-top:8px;padding-top:11px;border-top:1px solid #efeaff;font-size:12.5px;font-weight:800;color:#6b6690}
 </style>
 <style id="v149-fix-css">
-/* Les fenêtres d'info (Orateurs, Lieu, Formules, Dates, Thème) passent AU-DESSUS de l'écran de l'app */
+
 .presenter-overlay{z-index:2700!important}
 #screenMonCamp [hidden]{display:none!important}
 #screenMonCamp button,#screenMonCamp [role=button]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -9363,7 +9349,7 @@ html.cd-tm #floatingAppNav{visibility:hidden!important}
 })();
 </script>
 <style id="v150-home-buttons">
-/* Boutons de « Mon camp » : même style que les raccourcis de l'accueil */
+
 html body #screenMonCamp .mc8-q,html body #screenMonCamp .mc6-acts,html body #screenMonCamp .mc6-tiles{display:grid;gap:14px 6px;margin:0 12px 18px;padding:2px 0}
 html body #screenMonCamp .mc8-q{grid-template-columns:repeat(2,1fr)}
 html body #screenMonCamp .mc6-acts,html body #screenMonCamp .mc6-tiles{grid-template-columns:repeat(3,1fr)}
@@ -9377,7 +9363,7 @@ html body #screenMonCamp .mc6-act{font-size:11.5px;font-weight:800}
 html body #screenMonCamp .mc8-qc>small,html body #screenMonCamp .mc6-tile small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:-3px 0 0;font-size:10px;font-weight:600;line-height:1.25;color:#6b7085;max-width:100px}
 html body #screenMonCamp .mc6-tile .mc8-tc{display:flex;flex-direction:column;align-items:center;gap:3px}
 html body #screenMonCamp .mc8-qg,html body #screenMonCamp .mc8-tch{display:none}
-/* mêmes couleurs que l'accueil */
+
 html body #screenMonCamp .mc6-t1,html body #screenMonCamp .mc6-act:nth-child(1) .mc6-ti{background:#f1e8fb;color:#6b24b8}
 html body #screenMonCamp .mc6-t2,html body #screenMonCamp .mc6-act:nth-child(2) .mc6-ti{background:#e6ebff;color:#1028a5}
 html body #screenMonCamp .mc6-t3,html body #screenMonCamp .mc6-act:nth-child(3) .mc6-ti{background:#fff3d6;color:#b97800}
@@ -9511,31 +9497,31 @@ window.spPhoto=function(n){try{var id=/N[’']DAH/i.test(n||'')?7:(/TOUTOUKPO/i.
 window.spMini=function(n){var p=window.spPhoto(n);return p?'<img class="sp-mini" alt="" src="'+p+'"> ':''};
 </script>
 <style id="v157-speakers-like-commissaires">
-/* V157 — cartes intervenants = même cadre que les commissaires */
+
 .ref-speakers .speaker-extra-grid{gap:14px!important;padding:4px 4px 10px!important}
 .ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{position:relative;flex:0 0 86%!important;max-width:360px!important;aspect-ratio:5/6;border-radius:26px!important;overflow:hidden;background:#1b0a44!important;border:0!important;
  box-shadow:0 0 0 1.5px rgba(255,138,31,.9),0 22px 40px -22px rgba(30,8,80,.85)!important;padding:0!important}
 .ref-speakers .speaker-extra-photo,main.ref-home .ref-speakers .speaker-extra-card .speaker-extra-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;margin:0!important;border-radius:0!important;background:linear-gradient(160deg,#efe7ff,#dcd0fb);cursor:pointer}
 .ref-speakers .speaker-extra-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
 .ref-speakers .speaker-extra-card::after{content:"";position:absolute;inset:0;border-radius:26px;pointer-events:none;z-index:2;background:linear-gradient(to bottom,rgba(20,5,55,.38),rgba(20,5,55,0) 26%)}
-/* haut : bouton partager à gauche (comme les commissaires), badge masqué car repris dans le bandeau bas */
+
 .ref-speakers .speaker-extra-top{position:absolute;top:14px;left:14px;right:auto;z-index:5;display:block;pointer-events:none}
 .ref-speakers .speaker-extra-top>span{display:none!important}
 .ref-speakers .speaker-extra-share{pointer-events:auto;width:38px;height:38px;border-radius:50%;color:#fff;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 8px 18px -10px rgba(0,0,0,.7)}
 .ref-speakers .speaker-extra-share svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2}
-/* bas : légende sur dégradé */
+
 .ref-speakers .speaker-extra-info{position:absolute!important;left:0;right:0;bottom:0;z-index:3;display:flex;flex-direction:column;gap:6px;padding:120px 18px 26px!important;background:linear-gradient(to top,rgba(20,5,55,.98) 10%,rgba(20,5,55,.78) 50%,rgba(20,5,55,0))!important;color:#fff}
 .ref-speakers .speaker-extra-info>span{align-self:flex-start;padding:5px 12px;border-radius:999px;font-size:11px!important;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:#2b0f4d!important;background:#ffd23f;opacity:1}
 .ref-speakers .speaker-extra-info h3{margin:2px 0 0!important;font-size:25px!important;line-height:1.08;letter-spacing:-.2px;color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.45)}
 .ref-speakers .speaker-extra-info p{align-self:flex-start;margin:2px 0 0!important;min-height:0!important;padding:6px 12px;border-radius:999px;font-size:12px!important;font-weight:700;color:#fff!important;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3)}
 .ref-speakers .speaker-extra-profile{width:100%;height:44px!important;margin-top:10px;padding:0 10px!important;border:0!important;border-radius:14px!important;justify-content:center;font-size:13.5px!important;font-weight:800;color:#43118a!important;background:#fff!important}
-/* bande tricolore */
+
 .ref-speakers .speaker-extra-info::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,#e10b1c 0 33.3%,#ffd23f 33.3% 66.6%,#fff 66.6%)}
 .ref-speakers .speaker-extra-placeholder{color:#8d6fd6}
 @media(min-width:700px){.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex-basis:340px!important}}
 </style>
 <style id="v158-speaker-profile">
-/* V158 — fiche intervenant : photo en grand plan + résumé de l'enseignement */
+
 html body #presenter.cd-spk .presenter,html body #presenter.cd-spk .presenter.cd-hb{padding:0 0 calc(env(safe-area-inset-bottom,0px) + 36px)!important;background:#fff}
 html body #presenter.cd-spk .presenter-portfolio{position:relative;display:block}
 html body #presenter.cd-spk .portfolio-photo-wrap{position:relative!important;width:100%!important;height:calc(min(112vw,540px) + env(safe-area-inset-top,0px))!important;min-height:calc(400px + env(safe-area-inset-top,0px));aspect-ratio:auto!important;margin:0!important;border:0!important;border-radius:0 0 34px 34px!important;overflow:hidden!important;box-shadow:0 24px 44px -26px rgba(30,8,80,.8)!important;background:linear-gradient(160deg,#efe7ff,#dcd0fb)!important}
@@ -9615,7 +9601,7 @@ html body #presenter.cd-spk .cd-spk-extra{margin-top:14px;padding:0}
 </script>
 
 <style id="v185-patch">
-/* V185 — Mon camp */
+
 #screenMonCamp .mc8-tk{border-radius:22px!important;overflow:hidden;box-shadow:0 14px 30px -16px #1b0f6a99!important}
 #screenMonCamp .mc8-tt b{font-size:clamp(20px,6.4vw,26px)!important;letter-spacing:.3px;word-break:break-all}
 #screenMonCamp .mc8-tb{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -9630,7 +9616,7 @@ html body #presenter.cd-spk .cd-spk-extra{margin-top:14px;padding:0}
 #screenMonCamp .mc6-tile b,#screenMonCamp .mc6-tile small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #screenMonCamp .mc8-rr{min-height:64px;border-radius:16px!important}
 #screenMonCamp .mc8-rc{min-width:0}
-/* V185 — Plus : boutons adaptés au téléphone */
+
 #screenPlus .profile-card{min-height:72px;border-radius:20px!important;padding:14px 16px!important}
 #screenPlus .profile-card b{font-size:16px!important}#screenPlus .profile-card small{font-size:12px!important}
 #screenPlus .plus-menu{gap:10px!important}
@@ -9640,7 +9626,7 @@ html body #presenter.cd-spk .cd-spk-extra{margin-top:14px;padding:0}
 #screenPlus .plus-menu b{font-size:15px!important;line-height:1.2}
 #screenPlus .plus-menu small{font-size:12px!important;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #screenPlus .plus-icon{flex:0 0 46px;width:46px;height:46px;border-radius:14px!important}
-/* V185 — CUFLB (cadre conservé) */
+
 #screenMatchs .champ-hero h3{font-size:clamp(34px,11vw,46px)!important;line-height:1}
 #screenMatchs .champ-stats{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px}
 #screenMatchs .champ-stats>div{border-radius:16px!important;padding:12px 6px!important;min-width:0}
@@ -9656,16 +9642,16 @@ html body #presenter.cd-spk .cd-spk-extra{margin-top:14px;padding:0}
 </style>
 
 <style id="v227-css">
-/* ---- Récap verrouillé (1re inscription) ---- */
+
 .rn.lk .rn-x{display:none}
-/* ---- Profil : en-tête / couverture au format 3:2 ---- */
+
 #v193Plus{--w3:260px}
 #v193Plus .p-hero{--H:max(var(--w3),calc(206px + var(--st)));height:var(--H);top:calc(64px + var(--st) - var(--H));background:#0b2a7a}
 #v193Plus .p-cv{inset:-10px}
 #v193Plus .p-av{top:calc(var(--st) + 20px + (var(--H) - 72px - var(--st))*var(--p))}
 #v193Plus .p-nm{top:calc(var(--st) + 50px + (var(--H) - 93px - var(--st))*var(--p))}
 #v193Plus .rh-info{top:calc(var(--st) + 132px)}
-/* ---- Éditeur de couverture 3:2 ---- */
+
 .cve{position:fixed;inset:0;z-index:100060;display:flex;flex-direction:column;background:#0a0f2e;color:#fff;opacity:0;transition:opacity .2s;overscroll-behavior:none}
 .cve.on{opacity:1}
 .cve,.cve *{box-sizing:border-box}
@@ -9761,7 +9747,7 @@ html body #presenter.cd-spk .cd-spk-extra{margin-top:14px;padding:0}
 })();
 </script>
 <style id="v231-cartes-reduites">
-/* V231 — CUFLB : carte marraine et carte du match du jour plus compactes (aucune couleur modifiée) */
+
 #screenMatchs .cu-marr{gap:10px!important;margin:10px 12px 0!important;padding:9px!important;border-radius:18px!important;border-bottom-width:3px!important}
 #screenMatchs .cu-marr-ph{width:68px!important;border-radius:14px!important;border-width:2px!important}
 #screenMatchs .cu-marr-ph img{min-height:0!important;height:100%!important}
@@ -9867,7 +9853,7 @@ html body #presenter.cd-spk .v234-mail{margin-top:10px;font-size:13px;color:#3d3
 })();
 </script>
 <style id="v235-cuflb-compact">
-/* V235 — CUFLB : carte du haut plus compacte (aucune couleur modifiée) */
+
 html body #screenMatchs .champ-hero{padding:14px 14px 12px!important;border-radius:22px!important;margin-top:10px!important}
 html body #screenMatchs .champ-hero h3{margin:9px 0 4px!important;font-size:22px!important;line-height:1.05!important;letter-spacing:-.5px!important}
 html body #screenMatchs .champ-hero p{font-size:11.5px!important;line-height:1.3!important;max-width:15em!important}
@@ -10526,33 +10512,33 @@ function plusLogout(){
 @keyframes pSpin{to{transform:rotate(360deg)}}
 </style>
 <style id="camp-responsive">
-/* ===== ADAPTATION À TOUS LES ÉCRANS : téléphone, tablette, ordinateur, TV, projecteur ===== */
+
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{overflow-x:hidden}
 img,video,canvas,iframe{max-width:100%}
 .app{min-height:100vh;min-height:100dvh}
-/* focus bien visible : clavier, télécommande TV, manette */
+
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ffb347!important;outline-offset:3px}
-/* tablette et plus : navigation du bas centrée */
+
 @media (min-width:700px){
  .floating-app-nav{left:50%!important;right:auto!important;margin:0!important;transform:translateX(-50%)!important;width:min(92vw,520px)!important}
 }
-/* ordinateur : bannière d'accueil pleine largeur de la colonne, hauteur raisonnable */
+
 @media (min-width:900px){
  main.ref-home>.ref-hero{margin-left:0!important;margin-right:0!important;width:100%!important;aspect-ratio:auto!important;min-height:0!important;height:clamp(420px,64vh,720px)!important}
  #cvBar{right:max(12px,calc((100vw / var(--z,1) - var(--cd-w,1200px))/2 + 12px))!important}
  .ref-header{padding-left:max(24px,calc((100vw / var(--z,1) - var(--cd-w,1200px))/2 + 24px))!important;padding-right:max(24px,calc((100vw / var(--z,1) - var(--cd-w,1200px))/2 + 24px))!important}
  .app-shell-view .app-screen{padding-left:max(24px,calc((100vw / var(--z,1) - var(--cd-w2,1100px))/2))!important;padding-right:max(24px,calc((100vw / var(--z,1) - var(--cd-w2,1100px))/2))!important}
 }
-/* téléphone en paysage / écrans très bas */
+
 @media (max-height:520px) and (orientation:landscape){
  .ref-hero{aspect-ratio:auto!important;height:max(300px,92vh)!important;min-height:0!important}
  #floatingAppNav.floating-app-nav{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;transform:none!important;height:48px!important;min-height:48px!important;padding:3px 10px max(3px,env(safe-area-inset-bottom))!important;border-radius:14px 14px 0 0!important}
  .app-screen{padding-bottom:70px!important}
 }
-/* petits téléphones */
+
 @media (max-width:340px){.ref-hero h1{white-space:normal!important;flex-wrap:wrap!important}}
-/* TV, projecteur, grands écrans : tout est agrandi pour rester lisible de loin */
+
 @media (min-width:1920px){html{zoom:1.25;--z:1.25} main.ref-home>.ref-hero{height:clamp(420px,50vh,720px)!important}}
 @media (min-width:2560px){html{zoom:1.6;--z:1.6}}
 @media (min-width:3400px){html{zoom:2.2;--z:2.2}}
@@ -10561,7 +10547,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visibl
 #v63Comm .v63-cb .v70-chips em .cv-n{display:inline!important;font-size:inherit!important;line-height:inherit!important;font-weight:800!important;letter-spacing:inherit!important;color:inherit!important;margin:0 -5px 0 0!important;padding:0!important}
 </style>
 <style id="camp-licence-v2">
-/* ===== Fiche licence joueur — nouvelle version ===== */
+
 #cuPl .pl-sh.pl3{padding:0;background:#f3f0fc;overflow-x:hidden;border-radius:28px 28px 0 0}
 #cuPl .pl3 .pl-x{z-index:5}
 #cuPl .pl-x:focus-visible{outline:none!important;box-shadow:0 0 0 2px #ffffff55}
@@ -10590,7 +10576,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visibl
 .pl3-bd>*:nth-child(2){animation-delay:.06s}.pl3-bd>*:nth-child(3){animation-delay:.12s}.pl3-bd>*:nth-child(4){animation-delay:.18s}.pl3-bd>*:nth-child(5){animation-delay:.24s}
 @keyframes pl3in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .pl3-nv,.pl3-nv .pl3-bd>*{animation:none!important}
-/* validité */
+
 .pl3-ex{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2px 12px;padding:13px 14px;border-radius:20px;background:#e6f7ee;border:1px solid #c9ecd9}
 .pl3-ex.ko{background:#ffeaea;border-color:#f6c9c9}
 .pl3-exi{grid-row:1;width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:#34a853;color:#fff}
@@ -10603,7 +10589,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visibl
 .pl3-ex .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#34a853,#7be0a3)}
 .pl3-ex.ko .bar i{background:#e5484d}
 .pl3-tl{margin-top:12px}
-/* informations */
+
 .pl3-gr{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
 .pl3-c{position:relative;min-width:0;padding:11px 12px 11px 54px;border-radius:18px;background:#fff;box-shadow:0 8px 18px -14px #15176bcc}
 .pl3-c.w{grid-column:1/-1}
@@ -10694,11 +10680,11 @@ window.openVideos=function(t){if(root)return;tab=t==='s'?'s':'l';var e=document.
 
 
 <style id="cd-v300-style">
-/* V300 — fiche « Ils portent le Camp » (même modèle que les commissaires) */
+
 .v63-sh .cd3-stack{flex-direction:column;align-items:flex-start;gap:4px}
 .v63-sh .cd3-stack b{text-align:left!important;font-size:14px!important;line-height:1.4}
 .v71-p .v70-role{max-width:100%}
-/* V300 — Atelier Rescom : cadre « viseur » unique */
+
 html body #presenter.rescom-detail-mode .rx-hero{height:auto!important;min-height:0!important;padding:calc(env(safe-area-inset-top,0px) + 70px) 22px 46px;border-radius:0 0 40px 40px;text-align:center;color:#fff;overflow:hidden;position:relative;background:radial-gradient(120% 80% at 85% 0,#7a3ee0 0,transparent 60%),radial-gradient(90% 70% at 0 100%,rgba(255,122,10,.4) 0,transparent 62%),linear-gradient(170deg,#2a0e5e,#12052b 75%);box-shadow:0 24px 44px -24px rgba(30,10,70,.7)}
 html body #presenter.rescom-detail-mode .rx-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%);pointer-events:none}
 .rx-aurora{position:absolute;inset:-35%;background:conic-gradient(from 0deg,rgba(255,138,31,.32),rgba(122,62,224,.4),rgba(255,210,63,.18),rgba(255,138,31,.32));filter:blur(70px);animation:rxspin 22s linear infinite;pointer-events:none}
@@ -10727,16 +10713,16 @@ html body #presenter.rescom-detail-mode .rx-hero h1{margin:18px 0 16px;font-size
 .rx-stats div{padding:11px 6px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .rx-stats b{display:block;font-size:22px;font-weight:950;color:#ffd62d;line-height:1}
 .rx-stats small{display:block;margin-top:5px;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#e6dcfa}
-/* carte « Participer » qui chevauche le bandeau */
+
 html body #presenter.rescom-detail-mode .rc-joincard{margin-top:-26px;position:relative;z-index:3;background:linear-gradient(145deg,#fff,#fff4e6);border:1.5px solid #ffc88a;box-shadow:0 20px 34px -20px rgba(224,98,10,.55)}
-/* axes en frise numérotée */
+
 html body #presenter.rescom-detail-mode .rescom-axis-list{gap:0}
 html body #presenter.rescom-detail-mode .rescom-axis-list>div{display:grid;grid-template-columns:42px 1fr;column-gap:13px;align-items:start;padding:0 0 18px;background:none;border:0;border-radius:0;position:relative}
 html body #presenter.rescom-detail-mode .rescom-axis-list>div:last-child{padding-bottom:0}
 html body #presenter.rescom-detail-mode .rescom-axis-list>div:not(:last-child)::before{content:"";position:absolute;left:20px;top:44px;bottom:2px;width:2px;border-radius:2px;background:linear-gradient(#ff9a3c,#e6dcfa)}
 html body #presenter.rescom-detail-mode .rescom-axis-list>div i{grid-row:1/3;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-weight:950;font-size:14px;color:#fff;background:linear-gradient(135deg,#ff8a1f,#e2540a);box-shadow:0 10px 18px -10px rgba(226,84,10,.8)}
 html body #presenter.rescom-detail-mode .rescom-axis-list>div b{align-self:end;margin:0 0 2px;font-size:14.5px}
-/* apparition douce des cartes */
+
 html body #presenter.rescom-detail-mode .rescom-info-card,html body #presenter.rescom-detail-mode .rescom-result-card,html body #presenter.rescom-detail-mode .rescom-formateur-card{animation:rxup .5s ease both}
 html body #presenter.rescom-detail-mode .rescom-info-card:nth-of-type(2){animation-delay:.05s}
 html body #presenter.rescom-detail-mode .rescom-info-card:nth-of-type(3){animation-delay:.1s}
@@ -10789,7 +10775,7 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
 </script>
 
 <style id="cd-iv-frame">
-/* Intervenants — fiche : grande photo + cadre soigné */
+
 .v63-sh .v71-p.cd-iv{text-align:center}
 .v63-sh .v71-p.cd-iv .v63-kick{margin-bottom:16px;padding:7px 16px;font-size:11.5px;letter-spacing:.1em;box-shadow:0 10px 20px -10px rgba(168,0,28,.7)}
 .v63-sh .v71-p.cd-iv .v71-hero{width:100%;max-width:100%;aspect-ratio:4/5;max-height:64vh;margin:0 auto 22px;border-radius:30px;
@@ -10802,13 +10788,13 @@ html body #presenter.rescom-detail-mode .rescom-result-card::after{content:"";po
 .v63-sh .v71-p.cd-iv .v70-role{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:.02em;box-shadow:0 10px 18px -12px rgba(255,170,0,.9)}
 .v63-sh .v71-p.cd-iv .v63-row{margin-top:10px;padding:13px 15px;border-radius:16px;background:linear-gradient(#fff,#faf8ff);border:1px solid #ece6fb;box-shadow:0 8px 16px -14px rgba(67,17,138,.5)}
 .v63-sh .v71-p.cd-iv .v63-row:first-of-type{margin-top:22px}
-/* Intervenants — cartes de l'accueil : photos plus grandes */
+
 .ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex:0 0 90%!important;max-width:380px!important;aspect-ratio:4/5!important}
 .ref-speakers .speaker-extra-photo img{object-position:50% 8%}
 @media(min-width:700px){.ref-speakers .speaker-extra-card,.ref-speakers .speaker-extra-card.v39-main{flex-basis:380px!important}}
 </style>
 <style id="cd-rx-v2">
-/* Atelier Rescom — bandeau formateur épuré + bouton Pixellab */
+
 html body #presenter.rescom-detail-mode .rx-hero{padding:calc(env(safe-area-inset-top,0px) + 66px) 22px 44px}
 html body #presenter.rescom-detail-mode .rx-k{margin-bottom:20px}
 html body #presenter.rescom-detail-mode .rx-frame{width:min(84%,330px);aspect-ratio:4/5;transform:none;animation:none}
@@ -11069,7 +11055,7 @@ function flush(){if(!pend.length)return;var q=pend;pend=[];pendUi();q.forEach(fu
 function net(){var on=navigator.onLine;$('smDot').classList.toggle('off',!on);var c=$('smSec');c.classList.toggle('off',!on);c.textContent=on?'Connexion sécurisée':'Hors ligne · connexion requise pour entrer'}var fails=0,until=0;window.addEventListener('online',function(){net();flush()});window.addEventListener('offline',net);net();
 
 function jpost(path,b,t){var h={'Content-Type':'application/json'};if(t)h.Authorization='Bearer '+t;return fetch(path,{method:'POST',headers:h,body:JSON.stringify(b)}).then(function(r){if(r.status===404||r.status>=500&&r.status!==502)throw 0;return r.json().then(function(j){j._s=r.status;return j})})}
-function chk(c){return jpost('/api?r=login',{code:c}).then(function(j){if(j._s===429)return {data:false,lim:true};if(j.ok&&j.token){tok=j.token;direct=false;return {data:true}}if(j._s===401)return {data:false};throw 0}).catch(function(){direct=true;tok='';return ensure().then(function(s){return s.rpc('staff_check',{p_code:c})}).then(function(r){if(r&&r.error)throw r.error;return r})})}
+function chk(c){return jpost('/api?r=login',{code:c}).then(function(j){if(j._s===429)return {data:false,lim:true};if(j.ok&&j.token){tok=j.token;direct=false;return {data:true}}throw 0}).catch(function(){direct=true;tok='';return ensure().then(function(s){return s.rpc('staff_check',{p_code:c})}).then(function(r){if(r&&r.error)throw r.error;return r})})}
 function scanRpc(num,phone,sig,manual){
  var dir=function(){return ensure().then(function(s){return s.rpc('submit_scan',{p_code:code,p_ticket:num,p_phone:phone,p_sig:sig||null,p_manual:!!manual})})};
  if(direct||!tok)return dir();
@@ -11234,42 +11220,42 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden)fetc
 })();
 </script>
 
-<style id="px-intro-css">
-.px-pg{position:fixed;inset:0;z-index:100001;display:none;flex-direction:column;background:#f4f0fc;color:#1c1440;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.px-pg.open{display:flex}
-.px-hd{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 14px;background:linear-gradient(135deg,#1c0b45,#43118a);color:#fff}
-.px-hd button{width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:20px}
-.px-hd b{flex:1;font-size:18px;font-weight:800}
-.px-b{padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
-.px-c{background:#fff;border-radius:20px;padding:16px;box-shadow:0 10px 24px -20px #43118a}
-.px-c h3{margin:0 0 10px;font-size:15px}.px-c ol{margin:0;padding-left:20px;font-size:14px;line-height:1.55}.px-c small{color:#6b6788;font-size:13px}
-.px-btn{border:0;border-radius:16px;padding:15px;min-height:52px;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,#ff8a1f,#f05a00);box-shadow:0 12px 22px -14px #f05a00;width:100%}
-.px-li{display:flex;flex-direction:column;padding:9px 0;border-top:1px solid #eee8fa}.px-li:first-of-type{border-top:0}.px-li b{font-size:14px}
-.px-st{position:relative;aspect-ratio:16/11;border-radius:24px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0,#5a1fb8,#1c0b45)}
-.px-sc{position:absolute;inset:0 0 34px;display:grid;place-items:center;opacity:0;animation:pxs 12s infinite both}
-.px-sc:nth-child(2){animation-delay:3s}.px-sc:nth-child(3){animation-delay:6s}.px-sc:nth-child(4){animation-delay:9s}
-.px-sc svg{width:68%;max-height:100%}
-@keyframes pxs{0%{opacity:0;transform:scale(.9)}4%{opacity:1;transform:none}22%{opacity:1;transform:none}25%,100%{opacity:0}}
-.px-sl{stroke-dasharray:80;animation:pxsl 12s infinite both}
-@keyframes pxsl{0%{stroke-dashoffset:80}8%,100%{stroke-dashoffset:0}}
-.px-ln{transform-origin:left center;transform-box:fill-box;animation:pxln 12s infinite both}
-.px-ln:nth-of-type(1){animation-delay:3.3s}.px-ln:nth-of-type(2){animation-delay:3.8s}.px-ln:nth-of-type(3){animation-delay:4.3s}
-@keyframes pxln{0%{transform:scaleX(0)}8%,100%{transform:scaleX(1)}}
-.px-fl{animation:pxfl 12s infinite both;animation-delay:6s}
-@keyframes pxfl{0%,30%{opacity:0}33%{opacity:.95}42%,100%{opacity:0}}
-.px-cd{transform-origin:center;transform-box:fill-box;animation:pxcd 12s infinite both;animation-delay:9s}
-@keyframes pxcd{0%{transform:scale(.55) rotate(-5deg)}6%{transform:scale(1.06)}9%,100%{transform:none}}
-.px-ok{transform-origin:center;transform-box:fill-box;animation:pxok 12s infinite both;animation-delay:9.7s}
-@keyframes pxok{0%{transform:scale(0)}5%{transform:scale(1.25)}8%,100%{transform:scale(1)}}
-.px-cp{position:absolute;left:0;right:0;bottom:0;height:34px}
-.px-cp span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;opacity:0;animation:pxc 12s infinite both}
-.px-cp span:nth-child(2){animation-delay:3s}.px-cp span:nth-child(3){animation-delay:6s}.px-cp span:nth-child(4){animation-delay:9s}
-@keyframes pxc{0%{opacity:0}4%,22%{opacity:1}25%,100%{opacity:0}}
-.px-dt{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
-.px-dt i{width:7px;height:7px;border-radius:9px;background:#ffffff40;animation:pxd 12s infinite both}
-.px-dt i:nth-child(2){animation-delay:3s}.px-dt i:nth-child(3){animation-delay:6s}.px-dt i:nth-child(4){animation-delay:9s}
-@keyframes pxd{0%{background:#ffd23f;width:20px}24%{background:#ffd23f;width:20px}26%,100%{background:#ffffff40;width:7px}}
-@media(prefers-reduced-motion:reduce){.px-sc,.px-sc *,.px-cp span,.px-dt i{animation:none!important}.px-sc:nth-child(4),.px-cp span:nth-child(4){opacity:1}}
+<style id="lx-intro-css">
+.lx-pg{position:fixed;inset:0;z-index:100001;display:none;flex-direction:column;background:#f4f0fc;color:#1c1440;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.lx-pg.open{display:flex}
+.lx-hd{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 14px;background:linear-gradient(135deg,#1c0b45,#43118a);color:#fff}
+.lx-hd button{width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:20px}
+.lx-hd b{flex:1;font-size:18px;font-weight:800}
+.lx-b{padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
+.lx-c{background:#fff;border-radius:20px;padding:16px;box-shadow:0 10px 24px -20px #43118a}
+.lx-c h3{margin:0 0 10px;font-size:15px}.lx-c ol{margin:0;padding-left:20px;font-size:14px;line-height:1.55}.lx-c small{color:#6b6788;font-size:13px}
+.lx-btn{border:0;border-radius:16px;padding:15px;min-height:52px;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,#ff8a1f,#f05a00);box-shadow:0 12px 22px -14px #f05a00;width:100%}
+.lx-li{display:flex;flex-direction:column;padding:9px 0;border-top:1px solid #eee8fa}.lx-li:first-of-type{border-top:0}.lx-li b{font-size:14px}
+.lx-st{position:relative;aspect-ratio:16/11;border-radius:24px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0,#5a1fb8,#1c0b45)}
+.lx-sc{position:absolute;inset:0 0 34px;display:grid;place-items:center;opacity:0;animation:lxs 12s infinite both}
+.lx-sc:nth-child(2){animation-delay:3s}.lx-sc:nth-child(3){animation-delay:6s}.lx-sc:nth-child(4){animation-delay:9s}
+.lx-sc svg{width:68%;max-height:100%}
+@keyframes lxs{0%{opacity:0;transform:scale(.9)}4%{opacity:1;transform:none}22%{opacity:1;transform:none}25%,100%{opacity:0}}
+.lx-sl{stroke-dasharray:80;animation:lxsl 12s infinite both}
+@keyframes lxsl{0%{stroke-dashoffset:80}8%,100%{stroke-dashoffset:0}}
+.lx-ln{transform-origin:left center;transform-box:fill-box;animation:lxln 12s infinite both}
+.lx-ln:nth-of-type(1){animation-delay:3.3s}.lx-ln:nth-of-type(2){animation-delay:3.8s}.lx-ln:nth-of-type(3){animation-delay:4.3s}
+@keyframes lxln{0%{transform:scaleX(0)}8%,100%{transform:scaleX(1)}}
+.lx-fl{animation:lxfl 12s infinite both;animation-delay:6s}
+@keyframes lxfl{0%,30%{opacity:0}33%{opacity:.95}42%,100%{opacity:0}}
+.lx-cd{transform-origin:center;transform-box:fill-box;animation:lxcd 12s infinite both;animation-delay:9s}
+@keyframes lxcd{0%{transform:scale(.55) rotate(-5deg)}6%{transform:scale(1.06)}9%,100%{transform:none}}
+.lx-ok{transform-origin:center;transform-box:fill-box;animation:lxok 12s infinite both;animation-delay:9.7s}
+@keyframes lxok{0%{transform:scale(0)}5%{transform:scale(1.25)}8%,100%{transform:scale(1)}}
+.lx-cp{position:absolute;left:0;right:0;bottom:0;height:34px}
+.lx-cp span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;opacity:0;animation:lxc 12s infinite both}
+.lx-cp span:nth-child(2){animation-delay:3s}.lx-cp span:nth-child(3){animation-delay:6s}.lx-cp span:nth-child(4){animation-delay:9s}
+@keyframes lxc{0%{opacity:0}4%,22%{opacity:1}25%,100%{opacity:0}}
+.lx-dt{position:absolute;top:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.lx-dt i{width:7px;height:7px;border-radius:9px;background:#ffffff40;animation:lxd 12s infinite both}
+.lx-dt i:nth-child(2){animation-delay:3s}.lx-dt i:nth-child(3){animation-delay:6s}.lx-dt i:nth-child(4){animation-delay:9s}
+@keyframes lxd{0%{background:#ffd23f;width:20px}24%{background:#ffd23f;width:20px}26%,100%{background:#ffffff40;width:7px}}
+@media(prefers-reduced-motion:reduce){.lx-sc,.lx-sc *,.lx-cp span,.lx-dt i{animation:none!important}.lx-sc:nth-child(4),.lx-cp span:nth-child(4){opacity:1}}
 .ip-ov{position:fixed;inset:0;z-index:2147483100;display:none;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;color:#fff;padding:calc(env(safe-area-inset-top,0px) + 14px) 22px calc(env(safe-area-inset-bottom,0px) + 22px);background:radial-gradient(120% 70% at 50% 0,#5a1fb8,#1c0b45 70%)}
 .ip-ov.on{display:flex;animation:ipin .4s ease both}@keyframes ipin{from{opacity:0}to{opacity:1}}
 .ip-top{width:100%;display:flex;justify-content:flex-end}.ip-top button{border:0;background:#ffffff1f;color:#fff;font-weight:800;font-size:14px;padding:10px 16px;min-height:44px;border-radius:99px}
@@ -11294,7 +11280,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden)fetc
 .ip-nx{border:0;border-radius:16px;padding:15px;min-height:52px;font-weight:900;font-size:16px;color:#2b0f4d;background:#ffd23f;width:100%}
 @media(prefers-reduced-motion:reduce){.ip-ov *{animation:none!important}}
 </style>
-<script id="px-intro-js">
+<script id="lx-intro-js">
 (function(){
 'use strict';
 var $=function(i){return document.getElementById(i)};
@@ -11302,32 +11288,32 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function mk(h){var d=document.createElement('div');d.innerHTML=h;return d.firstElementChild}
 var ICO='<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M6 16c.6-1.6 1.7-2.3 3-2.3s2.4.7 3 2.3M14.5 10.5h4M14.5 13.5h3"/>';
 /* ===== Onglet « Licence sans téléphone » ===== */
-var STAGE='<div class="px-st" aria-hidden="true"><div class="px-dt"><i></i><i></i><i></i><i></i></div>'
-+'<div class="px-sc"><svg viewBox="0 0 160 100"><circle cx="58" cy="34" r="11" fill="#ffd23f"/><path d="M38 80c2-16 11-23 20-23s18 7 20 23z" fill="#ffd23f"/><rect x="96" y="22" width="30" height="54" rx="6" fill="none" stroke="#cbb8f5" stroke-width="3"/><circle cx="111" cy="68" r="2.5" fill="#cbb8f5"/><path class="px-sl" d="M90 18 132 82" stroke="#ff5a5a" stroke-width="5" stroke-linecap="round"/></svg></div>'
-+'<div class="px-sc"><svg viewBox="0 0 160 100"><rect x="30" y="8" width="100" height="84" rx="10" fill="#fff"/><circle cx="56" cy="34" r="12" fill="#cbb8f5"/><rect class="px-ln" x="76" y="26" width="42" height="6" rx="3" fill="#43118a"/><rect class="px-ln" x="40" y="58" width="80" height="6" rx="3" fill="#ff8a1f"/><rect class="px-ln" x="40" y="72" width="60" height="6" rx="3" fill="#cbb8f5"/></svg></div>'
-+'<div class="px-sc"><svg viewBox="0 0 160 100"><g fill="none" stroke="#ffd23f" stroke-width="4" stroke-linecap="round"><path d="M44 30V14h16M100 14h16v16M116 70v16h-16M60 86H44V70"/></g><circle cx="80" cy="40" r="13" fill="#cbb8f5"/><path d="M54 80c2-16 12-24 26-24s24 8 26 24z" fill="#cbb8f5"/><rect class="px-fl" x="0" y="0" width="160" height="100" fill="#fff"/></svg></div>'
-+'<div class="px-sc"><svg viewBox="0 0 160 100"><g class="px-cd"><rect x="24" y="12" width="112" height="76" rx="10" fill="#fff"/><rect x="24" y="12" width="112" height="16" rx="10" fill="#ffd23f"/><rect x="34" y="38" width="30" height="38" rx="5" fill="#cbb8f5"/><rect x="72" y="42" width="38" height="6" rx="3" fill="#43118a"/><rect x="72" y="56" width="28" height="6" rx="3" fill="#ff8a1f"/><rect x="104" y="64" width="22" height="16" rx="3" fill="#1c0b45"/></g><g class="px-ok"><circle cx="128" cy="20" r="14" fill="#1fa653"/><path d="M121 20l5 5 9-10" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>'
-+'<div class="px-cp"><span>Le joueur n’a pas de téléphone</span><span>Remplis ses informations avec lui</span><span>Prends sa photo d’identité</span><span>La licence est prête !</span></div></div>';
+var STAGE='<div class="lx-st" aria-hidden="true"><div class="lx-dt"><i></i><i></i><i></i><i></i></div>'
++'<div class="lx-sc"><svg viewBox="0 0 160 100"><circle cx="58" cy="34" r="11" fill="#ffd23f"/><path d="M38 80c2-16 11-23 20-23s18 7 20 23z" fill="#ffd23f"/><rect x="96" y="22" width="30" height="54" rx="6" fill="none" stroke="#cbb8f5" stroke-width="3"/><circle cx="111" cy="68" r="2.5" fill="#cbb8f5"/><path class="lx-sl" d="M90 18 132 82" stroke="#ff5a5a" stroke-width="5" stroke-linecap="round"/></svg></div>'
++'<div class="lx-sc"><svg viewBox="0 0 160 100"><rect x="30" y="8" width="100" height="84" rx="10" fill="#fff"/><circle cx="56" cy="34" r="12" fill="#cbb8f5"/><rect class="lx-ln" x="76" y="26" width="42" height="6" rx="3" fill="#43118a"/><rect class="lx-ln" x="40" y="58" width="80" height="6" rx="3" fill="#ff8a1f"/><rect class="lx-ln" x="40" y="72" width="60" height="6" rx="3" fill="#cbb8f5"/></svg></div>'
++'<div class="lx-sc"><svg viewBox="0 0 160 100"><g fill="none" stroke="#ffd23f" stroke-width="4" stroke-linecap="round"><path d="M44 30V14h16M100 14h16v16M116 70v16h-16M60 86H44V70"/></g><circle cx="80" cy="40" r="13" fill="#cbb8f5"/><path d="M54 80c2-16 12-24 26-24s24 8 26 24z" fill="#cbb8f5"/><rect class="lx-fl" x="0" y="0" width="160" height="100" fill="#fff"/></svg></div>'
++'<div class="lx-sc"><svg viewBox="0 0 160 100"><g class="lx-cd"><rect x="24" y="12" width="112" height="76" rx="10" fill="#fff"/><rect x="24" y="12" width="112" height="16" rx="10" fill="#ffd23f"/><rect x="34" y="38" width="30" height="38" rx="5" fill="#cbb8f5"/><rect x="72" y="42" width="38" height="6" rx="3" fill="#43118a"/><rect x="72" y="56" width="28" height="6" rx="3" fill="#ff8a1f"/><rect x="104" y="64" width="22" height="16" rx="3" fill="#1c0b45"/></g><g class="lx-ok"><circle cx="128" cy="20" r="14" fill="#1fa653"/><path d="M121 20l5 5 9-10" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>'
++'<div class="lx-cp"><span>Le joueur n’a pas de téléphone</span><span>Remplis ses informations avec lui</span><span>Prends sa photo d’identité</span><span>La licence est prête !</span></div></div>';
 var pg=null;
 function build(){if(pg)return pg;
- pg=mk('<div class="px-pg" id="pxPg" role="dialog" aria-modal="true" aria-label="Licence sans téléphone"><div class="px-hd"><button type="button" id="pxBack" aria-label="Retour">←</button><b>Licence sans téléphone</b></div><div class="px-b">'+STAGE
- +'<div class="px-c"><h3>Comment ça marche</h3><ol><li>Prends le téléphone d’un responsable : le joueur n’a pas besoin du sien.</li><li>Remplis avec lui son identité, sa troupe et un numéro de proche.</li><li>Ajoute sa photo d’identité.</li><li>Télécharge ou partage sa licence : elle est prête.</li></ol></div>'
- +'<button type="button" class="px-btn" id="pxGo">Créer une licence</button>'
- +'<div class="px-c"><h3>Licences créées sur cet appareil <small id="pxCnt"></small></h3><div id="pxList"></div></div></div></div>');
+ pg=mk('<div class="lx-pg" id="lxPg" role="dialog" aria-modal="true" aria-label="Licence sans téléphone"><div class="lx-hd"><button type="button" id="lxBack" aria-label="Retour">←</button><b>Licence sans téléphone</b></div><div class="lx-b">'+STAGE
+ +'<div class="lx-c"><h3>Comment ça marche</h3><ol><li>Prends le téléphone d’un responsable : le joueur n’a pas besoin du sien.</li><li>Remplis avec lui son identité, sa troupe et un numéro de proche.</li><li>Ajoute sa photo d’identité.</li><li>Télécharge ou partage sa licence : elle est prête.</li></ol></div>'
+ +'<button type="button" class="lx-btn" id="lxGo">Créer une licence</button>'
+ +'<div class="lx-c"><h3>Licences créées sur cet appareil <small id="lxCnt"></small></h3><div id="lxList"></div></div></div></div>');
  document.body.appendChild(pg);
- $('pxBack').onclick=function(){pg.classList.remove('open')};
- $('pxGo').onclick=function(){pg.classList.remove('open');if(window.CUFLB_proxyStart)window.CUFLB_proxyStart()};
+ $('lxBack').onclick=function(){pg.classList.remove('open')};
+ $('lxGo').onclick=function(){pg.classList.remove('open');if(window.CUFLB_proxyStart)window.CUFLB_proxyStart()};
  return pg}
-function fill(){var L=$('pxList');if(!L)return;var a=[];try{a=JSON.parse(localStorage.getItem('cuflb_lic')||'[]').filter(function(r){return r&&r.px}).reverse()}catch(e){}
- L.innerHTML=a.length?a.map(function(r){return '<div class="px-li"><b>'+esc(((r.nom||'').toUpperCase()+' '+(r.pre||'')).trim())+'</b><small>'+esc(r.num||'')+(r.tr?' · '+esc(r.tr):'')+'</small></div>'}).join(''):'<small>Aucune licence créée pour l’instant.</small>';
- var t=$('pxCnt');if(t)t.textContent=a.length?'· '+a.length:''}
+function fill(){var L=$('lxList');if(!L)return;var a=[];try{a=JSON.parse(localStorage.getItem('cuflb_lic')||'[]').filter(function(r){return r&&r.px}).reverse()}catch(e){}
+ L.innerHTML=a.length?a.map(function(r){return '<div class="lx-li"><b>'+esc(((r.nom||'').toUpperCase()+' '+(r.pre||'')).trim())+'</b><small>'+esc(r.num||'')+(r.tr?' · '+esc(r.tr):'')+'</small></div>'}).join(''):'<small>Aucune licence créée pour l’instant.</small>';
+ var t=$('lxCnt');if(t)t.textContent=a.length?'· '+a.length:''}
 function openPx(){build();fill();pg.classList.remove('open');void pg.offsetWidth;pg.classList.add('open');pg.scrollTop=0}
-function inject(){var plus=$('screenPlus');if(!plus||plus.querySelector('#pxBtn'))return;
- var sm=plus.querySelector('#smBtn'),ref=sm||plus.querySelector('#v193Plus .p-lo-card');if(!ref)return;
- var w=document.createElement('div');w.className='p-card';w.id='pxBtn';w.style.marginBottom='14px';
+function inject(){var plus=$('screenPlus');if(!plus||plus.querySelector('#lxBtn'))return;
+ var sm=plus.querySelector('#smBtn'),ref=sm||plus.querySelector('#v193Plus .p-lo-card')||plus.querySelector('#v193Plus .p-body');if(!ref)return;
+ var w=document.createElement('div');w.className='p-card';w.id='lxBtn';w.style.marginBottom='14px';
  w.innerHTML='<div class="p-it"><button type="button" class="p-row"><i style="background:#ff7a0a"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round">'+ICO+'</svg></i><span class="t"><b>Licence sans téléphone</b><small>Créer la licence d’un joueur sans téléphone</small></span></button></div>';
  w.querySelector('button').addEventListener('click',function(e){e.stopPropagation();openPx()});
- ref.parentNode.insertBefore(w,sm?sm.nextSibling:ref)}
+ if(ref.classList.contains('p-body'))ref.appendChild(w);else ref.parentNode.insertBefore(w,sm?sm.nextSibling:ref)}
 function watch(){var plus=$('screenPlus');if(!plus){setTimeout(watch,500);return}inject();new MutationObserver(inject).observe(plus,{childList:true,subtree:true})}
 /* ===== Présentation de Scan My : une seule fois par utilisateur ===== */
 var KEY='camp_intro_scanmy_v1',SL=[['Voici Scan My','L’espace des agents du camp pour contrôler les tickets à l’entrée.'],['Un accès réservé','Entre ton code d’agent : seuls les agents autorisés peuvent scanner.'],['Valide en un éclair','Vise le QR du ticket : l’écran passe au vert si tout est bon, au rouge sinon.']];
@@ -11349,7 +11335,7 @@ function wait(force){var n=0,t=setInterval(function(){if(!force&&seen()){clearIn
  if(!busy()){clearInterval(t);try{localStorage.setItem(KEY,'1')}catch(e){}openIntro();return}
  if(++n>600)clearInterval(t)},1000)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
-setTimeout(inject,1500);
+setTimeout(inject,1500);setInterval(inject,1000);
 setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
@@ -11357,7 +11343,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 </body>
 </html>
 <style id="v87-fohundi-approved">
-/* Présentation validée — lieu FOHOUNDI */
+
 #presenter.presenter-lieu .presenter{width:min(1100px,calc(100vw - 34px));max-height:calc(100dvh - 34px);overflow:auto;padding:30px 30px 26px;background:radial-gradient(ellipse at 85% 0%,#2920a0 0,#10165b 42%,#080d3e 100%);border:1px solid rgba(126,143,255,.38);border-radius:30px;color:#f8f9ff;box-shadow:0 30px 90px #0009}
 #presenter.presenter-lieu .presenter-orb{background:linear-gradient(145deg,#ff7900,#ed4e12);color:white;box-shadow:0 8px 24px #ff650044}
 #presenter.presenter-lieu .presenter-kicker{color:#ff941d;letter-spacing:.16em;font-weight:900}
@@ -11453,7 +11439,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 
 
 <style id="v92-journey-ticket-style">
-/* Parcours plus lisible */
+
 #regProgress{gap:7px!important;align-items:center}
 #regProgress:before{content:'ÉTAPE '+(var(--reg-step,1))+' / 4';display:none}
 .reg-step h3{font-size:20px!important;color:#fff;letter-spacing:-.3px}
@@ -11503,7 +11489,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 
 
 <style id="v93-ticket-fix">
-/* V93 — ticket final réellement lisible et complet */
+
 #v49Ov{z-index:99999!important;padding:14px!important;overflow:auto!important}
 #v49Ov .v49-card{width:min(680px,100%)!important;max-height:none!important;margin:18px auto!important;background:#fff!important;color:#15234b!important;border:1px solid #dbe4f5!important;border-radius:24px!important;overflow:hidden!important;box-shadow:0 24px 70px #0008!important}
 .v93-ticket{font-family:inherit;background:#fff;color:#15234b}
@@ -11561,7 +11547,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 <!-- V94: import photo via explicit user-gesture button; no forced camera; compressed preview for reliable storage -->
 
 <style id="v95-premium-registration">
-/* V95 — harmonisation visuelle globale du parcours d'inscription et du ticket */
+
 :root{--camp-blue:#153b91;--camp-violet:#21105a;--camp-orange:#ff861f;--camp-ink:#17264b}
 #registrationOverlay{padding:10px;align-items:center;background:radial-gradient(ellipse at 50% 0%,rgba(83,55,171,.42),transparent 55%),rgba(5,7,24,.84);backdrop-filter:blur(14px)}
 #registrationOverlay .registration-sheet{width:min(100%,590px);max-height:min(94dvh,900px);border:1px solid rgba(255,255,255,.18);border-radius:28px;background:linear-gradient(155deg,#21145b 0%,#15103d 54%,#0b1535 100%);padding:clamp(17px,4vw,28px);box-shadow:0 28px 90px #020617b8;scrollbar-width:thin;scrollbar-color:#ff922f #20164b}
@@ -11628,8 +11614,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 
 
 <style id="v99-texte-inscription-seulement">
-/* V99 : lisibilité des textes du parcours d'inscription uniquement.
-   Aucun fond, bouton, bordure, dégradé ou couleur de marque n'est modifié. */
+
 #registrationOverlay .registration-head h2,
 #registrationOverlay .reg-step h3,
 #registrationOverlay .registration-field label,
@@ -11652,8 +11637,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 #registrationOverlay .v93-progress-labels span.current { color:#17264b !important; }
 </style>
 <style id="v100-parcours-inscription">
-/* V100 — parcours d'inscription : erreurs en ligne, navigation collante, récapitulatif.
-   Palette, fonds et boutons de marque inchangés ; on corrige seulement ce qui était illisible ou manquant. */
+
 #registrationOverlay #regProgress .reg-dot{background:#dfe5f1}
 #registrationOverlay #regProgress .reg-dot.active,#registrationOverlay #regProgress .reg-dot.done{background:linear-gradient(90deg,#ff9d39,#ff6a17)}
 #registrationOverlay .v92-step-labels{display:none!important}
@@ -11683,7 +11667,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 .reg-toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 <style id="v101-refonte-inscription">
-/* V101 — refonte visuelle du parcours d'inscription (logique V100 conservée) */
+
 #registrationOverlay{padding:0!important;align-items:stretch!important;background:rgba(8,12,34,.72)!important}
 #registrationOverlay .registration-sheet{width:100%!important;max-width:none!important;height:100dvh;max-height:100dvh!important;padding:0!important;border:0!important;border-radius:0!important;background:#f3f5fb!important;overflow-y:auto}
 #registrationOverlay .registration-sheet>.registration-note{display:none}
@@ -11752,7 +11736,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
 <style id="v102-menus-deroulants">
-/* V102 — menus déroulants en carte flottante (remplacent le sélecteur natif du navigateur) */
+
 .registration-field.has-dd{position:relative}
 .registration-field.has-dd>select{position:absolute;left:0;bottom:0;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;opacity:0;pointer-events:none;border:0!important}
 .reg-dd-btn{width:100%;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border:2px solid transparent;border-radius:16px;background:#fff;color:#12235a;font:inherit;font-size:16px;text-align:left;box-shadow:0 2px 10px #15264b12;cursor:pointer;transition:.15s}
@@ -11855,7 +11839,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
 <style id="v106-dd-z">
-/* V106 — le menu déroulant passe au-dessus de la barre de progression */
+
 #registrationOverlay .v93-progress-labels{z-index:1}
 #registrationOverlay .reg-step.active{position:relative;z-index:2}
 .reg-dd-menu{overscroll-behavior:contain}
@@ -11869,7 +11853,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
 <style id="v103-recu">
-/* V103 — reçu d'inscription (style ticket à déchirure) avec logo du district en filigrane */
+
 #v49Ov .v49-card.v103{width:min(380px,100%)!important;max-height:none!important;margin:18px auto!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;color:#18205d!important}
 .v103 .v49-body{position:relative;overflow:hidden}
 .v103 .v49-body>*:not(.v103-wm){position:relative;z-index:1}
@@ -11913,7 +11897,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
 <style id="v104-ticket">
-/* V104 — nouveau ticket (design bleu/orange) — ne touche que l'écran du ticket */
+
 #v49Ov .v49-card.v104{width:min(400px,100%)!important;max-height:none!important;margin:14px auto!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;color:#0f1f5c!important}
 .v104-t{border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 0 0 2px #2a5be0,0 22px 60px #0009;font-family:inherit}
 .v104-h{position:relative;padding:18px 16px 16px;color:#fff;background:radial-gradient(circle at 85% 0,#2f6bff55,transparent 55%),linear-gradient(160deg,#0a2f9f,#0b1f70 70%);display:grid;grid-template-columns:1fr auto;gap:8px}
@@ -11944,7 +11928,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 .v104-b{position:relative}
 </style>
 <style id="v107-ticket">
-/* V107 — ticket simple (fond violet→bleu, libellés orange) + N° d'inscription */
+
 #v49Ov .v49-card.v104{width:min(400px,100%)!important}
 .v107-t{border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 22px 60px #0009;color:#12235a}
 .v107-h{padding:20px 22px 18px;color:#fff;background:radial-gradient(circle at 92% 30%,#ff7a3a66,transparent 22%),linear-gradient(120deg,#3b1584,#0f2fae)}
@@ -12020,7 +12004,7 @@ setTimeout(function(){wait(/[?&]intro=1/.test(location.search))},1500);
 })();
 </script>
 <style id="v119-ticket">
-/* V119 — ticket compact (style V49) + N° d'inscription + code QR */
+
 #v49Ov .v49-card.v104{width:min(380px,100%)!important;margin:10px auto!important}
 .v119-t{filter:drop-shadow(0 24px 40px rgba(0,0,0,.55));color:#18205d}
 .v119-h{border-radius:22px 22px 0 0;padding:18px 18px 16px;color:#fff;background:linear-gradient(135deg,#43118a,#1028a5 70%);position:relative;overflow:hidden}
@@ -12588,7 +12572,7 @@ html body #screenMonCamp .mc-tk,html body #screenMonCamp .mycamp-quick-grid,html
 </style>
 
 <style id="cd-v150-css">
-/* Bouton retour universel */
+
 .cd-bk{position:absolute;left:12px;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:60;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;padding:0;border:1px solid rgba(67,17,138,.16);background:#fff;color:#43118a;box-shadow:0 8px 18px -8px rgba(20,8,60,.55);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .cd-bk:active{transform:scale(.94)}
 .cd-bk svg{width:22px;height:22px;display:block}
@@ -12603,16 +12587,16 @@ html body #screenMonCamp .mc-tk,html body #screenMonCamp .mycamp-quick-grid,html
 #cuPh .pa-top>.cd-bk{left:0;top:0;width:48px;height:48px}
 .cf-card>.cd-bk{display:none}
 .cf-card.full>.cd-bk{display:grid;position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:12px}
-/* Champs vides masqués */
+
 .speaker-extra-placeholder b{display:none}
 .v71-cp small:empty,.v63-c small:empty,.v72-st:empty{display:none}
 .v71-add,.v77-add{display:none!important}
 #v63Comm:empty{display:none}
-/* Galerie du lieu : vignettes défilantes (10 photos) */
+
 .v69-th{overflow-x:auto;scrollbar-width:none;padding:4px 2px 2px}
 .v69-th::-webkit-scrollbar{display:none}
 .v69-th button{flex:0 0 62px!important}
-/* Fiche intervenant : version douce, plein écran */
+
 #presenter.cd-spk{padding:0;align-items:stretch;justify-content:stretch;background:#f4efff;-webkit-backdrop-filter:none;backdrop-filter:none;overflow-y:auto}
 #presenter.cd-spk .presenter.cd-hb{padding-top:calc(env(safe-area-inset-top,0px) + 76px)!important}
 #presenter.cd-spk .presenter{width:100%;max-width:560px;margin:0 auto;min-height:100%;border:0;border-radius:0;box-shadow:none;animation:none;color:#1c1440;background:radial-gradient(120% 50% at 50% 0,#e9ddff 0,rgba(244,239,255,0) 70%),linear-gradient(180deg,#f4efff,#fff 60%);padding:calc(env(safe-area-inset-top,0px) + 76px) 22px calc(env(safe-area-inset-bottom,0px) + 40px)}
@@ -12697,12 +12681,12 @@ html body #screenMonCamp .mc-tk,html body #screenMonCamp .mycamp-quick-grid,html
 </script>
 
 <style id="v152-css">
-/* ===== V152 — En-tête stable, Mon camp redessiné, fil façon Facebook, inscrit = plus de blocs « S'inscrire » ===== */
 
-/* --- En-tête : jamais de bande vide sur Accueil / Mon camp / CUFLB --- */
+
+
 body:not(.cd-header-off) .ref-header{visibility:visible!important;opacity:1!important}
 
-/* --- Mon camp : cartes plus compactes et homogènes --- */
+
 html body #screenMonCamp .mc6-box{margin:0 10px 14px;padding:14px;border-radius:20px;border:1px solid #e6e8f3;box-shadow:0 8px 22px -14px rgba(30,40,110,.35)}
 html body #screenMonCamp .mc6-h{margin-bottom:12px}
 html body #screenMonCamp .mc6-hi{width:36px;height:36px;border-radius:12px}
@@ -12712,7 +12696,7 @@ html body #screenMonCamp .mycamp-section-head{margin:4px 14px 10px}
 html body #screenMonCamp .mycamp-section-head span{display:flex;align-items:center;gap:8px;font-size:12px!important;letter-spacing:1.4px;color:#17173b}
 html body #screenMonCamp .mycamp-section-head span:before{content:"";width:4px;height:15px;border-radius:3px;background:linear-gradient(#ff9a3c,#ff6a00)}
 
-/* Ma fiche */
+
 #screenMonCamp .mc9-id{display:flex;align-items:center;gap:11px;margin:-2px 0 12px;padding:10px 12px;border-radius:16px;background:linear-gradient(135deg,#f4efff,#eaf0ff)}
 #screenMonCamp .mc9-av{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:15px;font-weight:900;color:#fff;background:linear-gradient(135deg,#7a3ee0,#43118a);box-shadow:0 6px 14px -6px rgba(67,17,138,.7)}
 #screenMonCamp .mc9-idt{min-width:0}
@@ -12731,7 +12715,7 @@ html body #screenMonCamp .mc6-fiche .mc9-f{display:flex;align-items:center;gap:1
 html body #screenMonCamp .mc6-fiche .mc9-ft small{display:block;font-size:9.5px;font-weight:900;letter-spacing:.8px;color:#8a8fa6}
 html body #screenMonCamp .mc6-fiche .mc9-ft b{display:block;margin-top:2px;font-size:13.5px;font-weight:900;color:#17173b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-/* Repères du camp : une seule carte, lignes séparées */
+
 html body #screenMonCamp .mc8-rep{display:block;margin:0 10px 14px;padding:0;border-radius:20px;background:#fff;border:1px solid #e6e8f3;box-shadow:0 8px 22px -14px rgba(30,40,110,.35);overflow:hidden}
 html body #screenMonCamp .mc8-rr{border:0;border-radius:0;box-shadow:none;background:none;padding:12px 14px;gap:12px}
 html body #screenMonCamp .mc8-rr+.mc8-rr{border-top:1px solid #eef0f8}
@@ -12741,7 +12725,7 @@ html body #screenMonCamp .mc8-rc small{font-size:10px;letter-spacing:1.1px}
 html body #screenMonCamp .mc8-rc b{font-size:14px}
 html body #screenMonCamp .mc8-rc em{font-size:11.5px}
 
-/* Ma préparation */
+
 html body #screenMonCamp .mc8-prep{padding:0;overflow:hidden}
 html body #screenMonCamp .mc8-ptop{margin:0;padding:14px;gap:14px;background:linear-gradient(135deg,#fff4ea,#fff);border-bottom:1px solid #f1e4d8}
 html body #screenMonCamp .mc8-prep.done .mc8-ptop{background:linear-gradient(135deg,#e8f8ee,#fff);border-bottom-color:#d6efe0}
@@ -12764,7 +12748,7 @@ html body #screenMonCamp .mc8-prep .mc6-add{margin:12px 14px 0}
 html body #screenMonCamp .mc8-prep .mc6-rs{margin:10px auto 14px}
 html body #screenMonCamp .mc8-prep .mc6-add:last-child{margin-bottom:14px}
 
-/* --- Fil du Camp : cartes façon Facebook, plus compactes, tout affiché --- */
+
 #filCamp #filAll{display:none!important}
 #filCamp .fil-head{margin-bottom:10px!important}
 #filCamp .fil-list{gap:10px!important}
@@ -12780,7 +12764,7 @@ html body #screenMonCamp .mc8-prep .mc6-add:last-child{margin-bottom:14px}
 #filCamp .fil-body h3{margin:6px 0 4px;font-size:15.5px;line-height:1.22}
 #filCamp .fil-body p{font-size:13.5px;line-height:1.4}
 #filCamp .fil-cta{margin-top:9px;padding:9px 14px;border-radius:10px;font-size:13px}
-/* Image entière, jamais rognée (formats Facebook : 1.91:1, 1:1, 4:5…) */
+
 #filCamp .fil-img,#filCamp .fil-img.po,#filCamp .fil-img.ph{height:auto!important;aspect-ratio:auto!important;background:#f0f2f5}
 #filCamp .fil-img img,#filCamp .fil-img.po img,#filCamp .fil-img.ph img{width:100%;height:auto!important;max-height:none;object-fit:contain;display:block}
 #filCamp .fil-img:not(.po):not(.ph):not(:has(img)){height:96px!important;font-size:44px}
@@ -12789,11 +12773,11 @@ html body #screenMonCamp .mc8-prep .mc6-add:last-child{margin-bottom:14px}
 #filCamp .fil-acts svg{width:19px;height:19px}
 #filCamp .fil-cm{padding:0 12px 10px}
 
-/* --- Inscription validée : plus aucun bloc « S'inscrire » --- */
+
 .camp-reg #filCamp .fil-card[data-id="inscription"],
 .camp-reg #filCamp .fil-cta[data-reg]{display:none!important}
 
-/* Toutes les publications du Fil — photo entière dans un cadre arrondi centré */
+
 #filCamp .fil-card .fil-img,#filCamp .fil-card .fil-img.po,#filCamp .fil-card .fil-img.ph{width:calc(100% - 24px)!important;height:auto!important;aspect-ratio:auto!important;margin:10px auto 0!important;border-radius:12px!important;overflow:hidden;background:#f0f2f5}
 #filCamp .fil-card .fil-img img{width:100%!important;height:auto!important;object-fit:contain!important;border-radius:12px;display:block}
 </style>
@@ -14060,7 +14044,7 @@ html body .ref-header .ref-mark.ref-logo{box-shadow:none!important;border:0!impo
 @keyframes fxFade{0%{opacity:0}20%,80%{opacity:1}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){#fx .p,#fx .r,#fx .w{display:none}#fx svg *{animation:none;stroke-dashoffset:0}#fx .h svg *{animation:none;fill-opacity:1}#fx .m{animation:fxFade .7s both}}
 
-/* Carte d'étape franchie : fond flouté, carte blanche, pastille grise + icône SVG, titre gras, texte gris */
+
 .fx{background:rgba(18,20,44,.26);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:fxBgIn .25s ease both}
 .fx.out{animation:fxBgOut .35s ease forwards}
 .fx:not(.big){align-items:center;padding-top:0}
@@ -14078,7 +14062,7 @@ html body .ref-header .ref-mark.ref-logo{box-shadow:none!important;border:0!impo
 @keyframes fxIcon{0%{transform:scale(.6)}55%{transform:scale(1.08)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.fx,.fx-c,.fx-i{animation:none}.fx-i svg *{animation:none;stroke-dashoffset:0}}
 
-/* Pop-up compact des petits gestes (même langage visuel que la carte d'étape) */
+
 #fx .fxp{position:absolute;display:flex;align-items:center;gap:12px;width:232px;box-sizing:border-box;padding:12px 16px 12px 12px;border-radius:20px;background:#fff;color:#12131f;box-shadow:0 18px 40px -14px rgba(12,14,44,.5),0 0 0 1px rgba(20,22,60,.05);animation:fxpIn .7s cubic-bezier(.2,.9,.25,1) both,fxpOut .25s 1.6s ease forwards}
 #fx .fxp .i{flex:none;width:42px;height:42px;border-radius:50%;background:#eceef3;display:grid;place-items:center;color:#12131f}
 #fx .fxp.h .i{color:#e5484d;background:#fdeceb}
@@ -14196,7 +14180,7 @@ window.ActionFX={play:play,types:Object.keys(T),reset:function(){Object.keys(T).
 .rc-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,56,.55) 0%,rgba(8,13,56,0) 26%,rgba(8,13,56,0) 52%,rgba(8,13,56,.92) 82%,#080d38 100%)}
 .rc-bg:empty::after,.rc-bg.rf-none::after{display:none}
 
-/* bannière d'accès au récap (accueil) */
+
 #rfBanner{margin:12px 8px 0}
 #rfBanner .rfb{all:unset;box-sizing:border-box;position:relative;display:block;width:100%;border-radius:18px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;
  box-shadow:0 14px 28px -16px rgba(20,16,74,.65),0 0 0 1px rgba(255,255,255,.14) inset;transition:transform .2s ease,box-shadow .2s ease}
@@ -14209,7 +14193,7 @@ window.ActionFX={play:play,types:Object.keys(T),reset:function(){Object.keys(T).
 @keyframes rfPulse{0%{transform:scale(1);opacity:.8}70%,100%{transform:scale(1.7);opacity:0}}
 #v209Hint,#v55Prog{display:none!important}
 @media(prefers-reduced-motion:reduce){#rfBanner .rfp::after{animation:none;opacity:0}}
-/* visuels intégrés : vignette fondue au-dessus de la bulle */
+
 .rc-bg .rf.pic img.pic{position:absolute;left:0;right:0;top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 225px);width:100%;height:auto;object-fit:initial;
  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 78%,transparent 100%)}
 .rc-bg .rf.pic img.p7{bottom:calc(env(safe-area-inset-bottom,0px) + 262px)}
@@ -14281,7 +14265,7 @@ new MutationObserver(function(ms){ms.forEach(function(m){
 </script>
 
 <style id="rh-css">
-/* En-tête de profil premium : avatar à gauche cerclé d'or, titre doré devant le nom, infos en pastilles de verre */
+
 #v193Plus .p-hero{border-radius:0 0 calc(28px - 12px*var(--p)) calc(28px - 12px*var(--p));box-shadow:0 18px 34px -22px rgba(8,14,56,.9)}
 #v193Plus .p-ov{background:linear-gradient(180deg,rgba(5,9,44,calc(.16 + var(--p)*.55)) 0%,rgba(5,9,44,calc(.40 + var(--p)*.4)) 52%,rgba(5,9,44,.93) 100%)}
 #v193Plus .p-ov::after{display:none}
@@ -14342,14 +14326,14 @@ new MutationObserver(upgrade).observe(root,{childList:true});upgrade();
 })();
 </script>
 <style id="v223-auth-pro">
-/* ===== V223 — Écran Connexion / Créer un compte : version pro ===== */
+
 html body .ac{
   background:#f3f4f9;
   overscroll-behavior:none;
   height:100vh;height:100dvh;
   -webkit-overflow-scrolling:touch;
 }
-/* En-tête : plus compact, sobre */
+
 html body .ac .ac-h{
   padding:calc(env(safe-area-inset-top,0px) + 16px) 22px 62px;
   background:linear-gradient(180deg,#0f3aa8 0%,#0a2670 100%);
@@ -14377,7 +14361,7 @@ html body .ac .ac-h h2{
 }
 html body .ac .ac-h p{font-size:13px;line-height:1.45;opacity:.82;max-width:300px;margin-top:4px}
 
-/* Carte : plate, nette */
+
 html body .ac .ac-c{
   margin:-34px 14px 0;
   padding:14px 16px 22px;
@@ -14385,12 +14369,12 @@ html body .ac .ac-c{
   border:1px solid #e6e8f2;
   box-shadow:0 1px 2px rgba(16,24,64,.05),0 12px 28px -16px rgba(16,24,64,.28);
 }
-/* Onglets */
+
 html body .ac .ac-sg{padding:3px;gap:3px;border-radius:13px;background:#eceef7;margin-bottom:16px}
 html body .ac .ac-sg button{min-height:40px;border-radius:10px;font-size:14px;font-weight:600;color:#5b6180}
 html body .ac .ac-sg button.on{color:#0f2a78;font-weight:700;box-shadow:0 1px 3px rgba(16,24,64,.16)}
 
-/* Champs */
+
 html body .ac .ac-f{margin-bottom:14px}
 html body .ac .ac-f label{margin:0 0 6px 1px;font-size:12.5px;font-weight:600;color:#2a2f52}
 html body .ac .ac-i{height:48px;border:1px solid #d9dcea;border-radius:12px;background:#fff;transition:border-color .15s,box-shadow .15s}
@@ -14400,11 +14384,11 @@ html body .ac .ac-i input::placeholder{color:#9a9fb5;font-weight:400}
 html body .ac .ac-i .pf{padding-left:13px;font-size:15px;font-weight:600;color:#2a2f52;position:relative;padding-right:10px;margin-right:2px}
 html body .ac .ac-i .pf::after{content:"";position:absolute;right:0;top:25%;bottom:25%;width:1px;background:#dfe2ee}
 html body .ac .ac-i .pf+input{padding-left:4px}
-/* Mot de passe : placeholder lisible, chiffres espacés seulement une fois saisis */
+
 html body .ac .ac-pw input{letter-spacing:0;font-weight:500}
 html body .ac .ac-pw input:not(:placeholder-shown){letter-spacing:.32em;font-weight:700}
 html body .ac .ac-eye{flex:0 0 44px;color:#8a90a8}
-/* Jauge 8 chiffres : fine et discrète */
+
 html body .ac .ac-d{gap:4px;margin:8px 1px 0}
 html body .ac .ac-d i{height:3px;background:#e3e6f1}
 html body .ac .ac-d i.on{background:#1a56db}
@@ -14413,7 +14397,7 @@ html body .ac .ac-e{font-size:12px;margin:5px 1px 0;color:#d12f3a}
 html body .ac .ac-f.err .ac-i{border-color:#e5484d;background:#fffafa}
 html body .ac .ac-fe{border-radius:11px;font-size:13px;border:1px solid #f4c6c9}
 
-/* Bouton principal : sobre, sans halo */
+
 html body .ac .ac-sub{
   min-height:50px;margin-top:8px;border-radius:12px;font-size:15.5px;font-weight:700;
   background:#f26a0f;box-shadow:0 1px 2px rgba(0,0,0,.12);
@@ -14421,11 +14405,11 @@ html body .ac .ac-sub{
 html body .ac .ac-sub:active{background:#dc5d08;transform:scale(.985)}
 html body .ac .ac-lk{font-size:13.5px;font-weight:600;margin-top:10px;color:#1a56db}
 html body .ac .ac-lg{font-size:12px;color:#8a90a8;margin-top:14px}
-/* Dégagement bas : le bouton n'est plus masqué par la barre du navigateur */
+
 html body .ac::after{content:"";display:block;height:calc(env(safe-area-inset-bottom,0px) + 36px)}
 </style>
 <style id="v240-auth-gate">
-/* ===== V240 — Écran « Crée ton compte » : structure de la maquette, couleurs du Camp ===== */
+
 html body .ac{
   background:#fff;color:#07144a;z-index:100040;
   transform:none;transition:none;
@@ -14437,17 +14421,17 @@ html body .ac::before{
 html body .ac .ac-w{
   position:relative;z-index:1;max-width:460px;margin:0 auto;
   padding:calc(env(safe-area-inset-top,0px) + 26px) 24px 0}
-/* Logo : tuile arrondie comme sur la maquette */
+
 html body .ac .ac-mk{
   width:58px;height:58px;margin:0;padding:3px;border-radius:18px;
   background:#fff;border:1px solid #e3e7f4;box-shadow:0 8px 20px -14px rgba(7,20,74,.55);overflow:hidden;display:grid;place-items:center}
 html body .ac .ac-mk img{width:100%;height:100%;object-fit:contain;border-radius:14px}
 html body .ac .ac-mk svg{width:30px;height:30px;fill:none;stroke:#153b91;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-/* Titres */
+
 html body .ac .ac-kk{margin:30px 0 0;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#153b91;white-space:nowrap}
 html body .ac h2{margin:8px 0 0;padding:0;border:0;max-width:none;font-size:32px;line-height:1.08;font-weight:800;letter-spacing:-.025em;color:#07144a;text-align:left}
 html body .ac .ac-sb{margin:10px 0 26px;font-size:16px;line-height:1.45;color:#5b6288;max-width:34ch}
-/* Champs */
+
 html body .ac .ac-f{margin-bottom:18px}
 html body .ac .ac-f label{margin:0 0 8px 2px;font-size:15px;font-weight:700;color:#07144a}
 html body .ac .ac-r{gap:12px}
@@ -14470,16 +14454,16 @@ html body .ac .ac-ok{margin:-8px 2px 18px;font-size:14px;color:#6b7399}
 html body .ac .ac-e{margin:6px 3px 0;font-size:13px;color:#d12f3a}
 html body .ac .ac-f.err .ac-i{border-color:#e5484d;background:#fff7f7}
 html body .ac .ac-fe{margin-bottom:16px;padding:12px 14px;border-radius:14px;font-size:14px;border:1px solid #f4c6c9}
-/* Pastilles de réassurance */
+
 html body .ac .ac-bd{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 18px}
 html body .ac .ac-bd span{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 8px;border-radius:18px;background:#f3f5fb;color:#4a5280;font-size:13.5px;font-weight:600;line-height:1.25;text-align:center}
 html body .ac .ac-bd svg{width:21px;height:21px;fill:none;stroke:#153b91;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-/* Bouton principal */
+
 html body .ac .ac-sub{
   min-height:60px;margin-top:4px;border-radius:20px;font-size:17px;font-weight:800;letter-spacing:.005em;
   background:linear-gradient(135deg,#ff8a1f,#f05a00);box-shadow:0 14px 24px -16px #f05a00}
 html body .ac .ac-sub:active{transform:scale(.985);background:#e25400}
-/* Liens bas de formulaire */
+
 html body .ac .ac-lk{display:block;margin:-6px 0 16px auto;padding:6px 2px;font-size:14.5px;font-weight:700;color:#153b91}
 html body .ac .ac-sw{margin:20px 0 0;text-align:center;font-size:15px;color:#5b6288}
 html body .ac .ac-sw button{border:0;background:none;padding:8px 4px;font:inherit;font-weight:800;color:#153b91;touch-action:manipulation}
@@ -14845,7 +14829,7 @@ html body .ac .ac-lg{margin:16px 0 0;font-size:12px;line-height:1.45;text-align:
 window.CAMP_TROUPES_DISPONIBLES=false;
 </script>
 <style id="v226-css">
-/* ---- « Nos troupes » : animation indisponible ---- */
+
 .v226-na{position:fixed;inset:0;z-index:100052;display:grid;place-items:center;padding:24px;background:rgba(18,20,44,.34);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:v226f .25s ease both}
 .v226-na.out{animation:v226fo .25s ease forwards}
 .v226-c{position:relative;width:min(320px,100%);padding:30px 24px 26px;border-radius:26px;background:#fff;color:#12131f;text-align:center;overflow:hidden;box-shadow:0 30px 60px -22px rgba(12,14,44,.55);animation:v226p .55s cubic-bezier(.2,1.1,.3,1) both}
@@ -14874,7 +14858,7 @@ window.CAMP_TROUPES_DISPONIBLES=false;
 @keyframes v226h{to{transform:rotate(360deg)}}
 @keyframes v226pr{to{transform:scaleX(0)}}
 @media(prefers-reduced-motion:reduce){.v226-ring,.v226-g,.v226-hand,.v226-c,.v226-bd{animation:none}.v226-g svg *{animation:none;stroke-dashoffset:0}.v226-pr b{animation-duration:.01s}}
-/* ---- Liste des pré-inscrits d'un district ---- */
+
 #v63Dist .v63-h3,#v63Dist #v63List{display:none!important}
 .v226-w{margin-top:22px}
 .v226-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
@@ -15012,7 +14996,7 @@ function mem(){var d=norm(st.d),l=ld().filter(function(m){return norm(m.d)===d})
 </script>
 
 <style id="v230-carte-cuflb">
-/* V230 — carte d'en-tête CUFLB : "Une compétition. Un seul District." (clair, barre orange→violet, logo en haut à droite) */
+
 body #screenMatchs .champ-hero{position:relative!important;overflow:hidden!important;padding:24px 18px 18px!important;border-radius:28px!important;background:#fff!important;color:#14104a!important;border:1px solid #e7e0f7!important;box-shadow:0 22px 44px -22px #4a2fa066!important}
 body #screenMatchs .champ-hero::after{content:''!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:6px!important;background:linear-gradient(90deg,#ff7a0a,#e0ad20,#5a2fc2)!important}
 body #screenMatchs .champ-hero::before{content:''!important;position:absolute!important;left:auto!important;bottom:auto!important;right:-18%!important;top:-10%!important;width:78%!important;height:135%!important;border-radius:0!important;background:var(--hex) center/cover!important;opacity:.55!important;-webkit-mask-image:radial-gradient(circle at 65% 40%,#000 28%,transparent 70%)!important;mask-image:radial-gradient(circle at 65% 40%,#000 28%,transparent 70%)!important;pointer-events:none!important}
@@ -15397,7 +15381,7 @@ html body .ac.cv .ac-sub{min-height:54px;border-radius:16px;font-size:16px;font-
 html body .ac.cv .ac-lk{color:#1a56db}
 html body .ac.cv .ac-lg{max-width:400px;margin:16px auto 0;padding:0 18px;text-align:center;color:#7a819f;font-size:13px;line-height:1.5}
 
-/* V240 — résultats du jour, actualités de match, effectif, compteur */
+
 html.cd-tm #cvBar{display:none!important}
 .cu-une.cu-res{background:linear-gradient(135deg,#0e3b46,#15176b)}
 .cu-res .uk i.ok{background:#3ddc84;animation:none}
@@ -15440,7 +15424,7 @@ html.cd-tm #cvBar{display:none!important}
 .ef-ch em.c{background:#e8e3fb;color:#3a1a8c}.ef-ch em.t{background:#e3f4ea;color:#1b7a43}
 .v70-chips .cv-n{font-weight:900;font-size:13px}
 
-/* V241 — Programme des matchs */
+
 .pg{position:relative;overflow:hidden;border-radius:22px;padding:18px 12px 16px;background:radial-gradient(circle at 50% 50%,#1d5a35 0,#143d27 55%,#0e2a1b 100%);box-shadow:0 18px 30px -18px #0e2a1bcc}
 .pg:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#ffffff2e}
 .pg-s1,.pg-s2{position:absolute;width:150px;height:26px;background:#e8a91c;transform:rotate(-45deg);opacity:.95}
@@ -15459,7 +15443,7 @@ html.cd-tm #cvBar{display:none!important}
 .pg-v.sc{background:#0c2a5e;color:#ffd75e;font-size:18px}
 .pg-f{position:relative;display:block;text-align:center;margin-top:6px;font-size:10px;color:#ffffffb3;letter-spacing:.4px}
 
-/* V242 — récap de journée */
+
 .cu-jr{margin:0 14px 14px;padding:16px 14px;border-radius:22px;background:#fff;border-top:5px solid #ff6a00;box-shadow:0 14px 28px -18px #15176bcc}
 #screenMatchs .cu-jr{margin:0 0 14px}
 .jr-k{font-size:10.5px;font-weight:900;letter-spacing:1.3px;color:#ff6a00}
@@ -15485,7 +15469,7 @@ html.cd-tm #cvBar{display:none!important}
 .jr-m{gap:4px;padding:10px 8px}.jr-m .jt{font-size:12.5px;line-height:1.25;word-break:break-word}
 .jr-m b{min-width:56px;font-size:15px;padding:5px 6px}
 
-/* V243 — licence joueur */
+
 #cuPl .pl-sh.pl2{padding:0;background:#f4f1fd;overflow-x:hidden}
 .pl2-hero{position:relative;padding:18px 18px 22px;color:#fff;background:radial-gradient(circle at 85% 0,#4a2bb8 0,transparent 55%),linear-gradient(160deg,#0a1050,#2a0d7a);border-radius:28px 28px 0 0;border-bottom:4px solid #f6c94a}
 #cuPl .pl2 .pl-x{top:14px;right:14px;background:#ffffff26;color:#fff}
@@ -15604,7 +15588,7 @@ html.cd-tm #cvBar{display:none!important}
 </script>
 
 <style id="logout-fix-v1">
-/* Bouton « Se déconnecter » : toujours visible et nettement distinct des autres lignes */
+
 #v193Plus .p-lo-card{display:block!important;visibility:visible!important;opacity:1!important;margin-top:22px!important;border:2px solid #e4545f!important;background:#fff1f2!important;border-radius:18px!important;box-shadow:0 10px 24px rgba(201,47,61,.18)!important}
 #v193Plus .p-lo-card .p-row{background:linear-gradient(135deg,#fff1f2,#ffe1e4)!important;min-height:68px!important}
 #v193Plus .p-lo-card .p-row b{color:#b3202d!important;font-weight:900!important}
@@ -15612,7 +15596,7 @@ html.cd-tm #cvBar{display:none!important}
 #v193Plus .p-lo-card .p-row i{background:#d62f3a!important}
 #v193Plus .p-lo-card .p-ch{background:#ffd3d8!important;color:#c92f3d!important}
 .p-sh{z-index:100006}
-/* Aucune session : le bouton « Se déconnecter » (nouveau et ancien) est masqué */
+
 html.camp-no-session #v193Plus .p-lo-card,
 html.camp-no-session #screenPlus .plus-logout,
 html.camp-no-session #screenPlus .camp-logout-visible{display:none!important}
@@ -16961,7 +16945,7 @@ setTimeout(function(){var b=$('pxBtn');if(b&&!seen())b.classList.add('pt-new')},
 </script>
 
 <style id="scann-anim-css">
-/* Animation de l'onglet Scann : QR + laser, viseur qui respire, flash de verdict, compteurs qui sautent */
+
 .sm-qrw{position:absolute;left:50%;top:44%;width:92px;height:92px;transform:translate(-50%,-50%);z-index:1;pointer-events:none;animation:sqfloat 2.6s ease-in-out infinite}
 .sm-vid.live .sm-qrw{display:none}
 .sm-vid:not(.live)::after{padding-top:128px;box-sizing:border-box}
