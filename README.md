@@ -1,6 +1,6 @@
 # Camp de District 3 en 1
 
-Application web mobile du **Camp de District 3 en 1** (Garango 2026), développer pas l'entreprise SIAMS avec le chef de projet PDG ZIBO DETOH AMOS,à destination des campeurs, des chefs et des supporters. Elle regroupe en un seul endroit l'inscription, le programme, l'actualité du camp et la compétition **CUFLB** (Coupe d'Unité Flambeaux-Lumières de Bouaflé).
+Application web mobile du **Camp de District 3 en 1** (Garango 2026), développer par l'entreprise SIAMS avec le chef de projet PDG ZIBO DETOH AMOS, à destination des campeurs, des chefs et des supporters. Elle regroupe en un seul endroit l'inscription, le programme, l'actualité du camp et la compétition **CUFLB** (Coupe d'Unité Flambeaux-Lumières de Bouaflé).
 
 L'application est un **fichier unique** (`index.html`) : HTML, CSS et JavaScript, sans étape de build. Les données sont stockées dans **Supabase** (projet « SITE DU CAMP »).
 
@@ -62,4 +62,10 @@ Dans Supabase, sous **Authentication → URL Configuration**, renseigner l'adres
 - La clé Supabase intégrée au fichier est une clé publique (`anon`). La protection des données repose sur les règles **RLS** : à vérifier avant toute mise en production.
 - Les mêmes URL et clé Supabase sont utilisées par le tableau de bord admin, qui lit les mêmes tables.
 - Les versions successives du fichier portent un numéro (ex. `Camp_District_3_en_1_V230.html`) ; la version en ligne est livrée sous le nom `index.html`.
-- 
+
+- ## Développer contact
+
+- WhatsApp assistant : 0506172317
+- E-mail : serviceclientsiams.ci@gmail.com
+
+- Toujours a vos côtés.
