@@ -11475,6 +11475,82 @@ t.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest(
 setTimeout(function(){var r=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
 t.scrollTo({left:Math.max(0,b.offsetLeft-(t.clientWidth-b.offsetWidth)/2),behavior:r?'auto':'smooth'})},30)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
+<script id="cuflb-sync-js">
+/* Synchronisation CUFLB : les fiches de match, scores, buts, cartons, compositions et homme du match
+   publiés depuis le tableau de bord (tables « matchs », « cuflb_poules », « camp_items ») s'affichent dans
+   l'application sans modifier le code. Actualisation : 4 s sur l'écran CUFLB, 20 s ailleurs. */
+(function(){'use strict';
+var SB='https://pzxpjavylrsmptwjeupi.supabase.co',KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6eHBqYXZ5bHJzbXB0d2pldXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5MTU1ODMsImV4cCI6MjEwNjQ5MTU4M30.DeuASRJAaTuMhrSaF5N0SHfo-4E5r_c_wiugheIFiN0';
+var API=null,last=0,busy=false,sig='',lastP=0,okOnce=false;
+function rest(p){return fetch(SB+'/rest/v1/'+p,{headers:{apikey:KEY,Authorization:'Bearer '+KEY},cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})}
+function soft(p){return rest(p).catch(function(){return[]})}
+function nk(t){return String(t==null?'':t).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function num(v){return v==null||v===''||isNaN(+v)?null:+v}
+function hhmm(h){var x=String(h||'').match(/(\d{1,2})\s*[h:]\s*(\d{2})?/i);return x?('0'+x[1]).slice(-2)+':'+(x[2]||'00'):''}
+function toH(t){var x=String(t||'').match(/^(\d{1,2}):(\d{2})/);return x?(+x[1])+'h'+x[2]:''}
+function lines(s){return String(s||'').split('\n').map(function(x){return x.trim()}).filter(Boolean)}
+function canonMap(){var c={};Object.keys(API.P).forEach(function(k){API.P[k].forEach(function(t){c[nk(t)]=t})});API.M.forEach(function(m){if(m.h)c[nk(m.h)]=c[nk(m.h)]||m.h;if(m.a)c[nk(m.a)]=c[nk(m.a)]||m.a});return c}
+function conv(r,ev,co,mv,C){
+ var det=r.details&&typeof r.details==='object'?r.details:{},ra=r.equipe_a||r.equipe_domicile||'',rb=r.equipe_b||r.equipe_exterieur||'';
+ if(!ra||!rb)return null;
+ var done=/termin/i.test(r.statut||''),sa=num(r.score_a!=null?r.score_a:r.score_domicile),sb=num(r.score_b!=null?r.score_b:r.score_exterieur);
+ var d=r.date_match?String(r.date_match).slice(0,10):'',hh=hhmm(r.heure),fin=hhmm(det.fin),
+  e={ed:String(r.edition)==='2024'?'2024':'cur',ph:r.phase||'Phase de poules',d:d,h:C[nk(ra)]||ra,a:C[nk(rb)]||rb,_r:r.id};
+ if(r.journee!=null&&r.journee!=='')e.j=+r.journee;
+ if(hh)e.t=toH(hh)+(fin?' – '+toH(fin):'');
+ var v=r.lieu||r.stade;if(v)e.v=v;
+ if(done){e.hs=sa==null?0:sa;e.as=sb==null?0:sb}
+ if(r.forfait)e.ff=1;if(r.reporte)e.rp=1;if(r.resume)e.rs=r.resume;
+ var lab=[d,hh].filter(Boolean).join(' ')+' · '+ra+' – '+rb;
+ var ee=ev.filter(function(x){return x.match===lab});
+ var g=ee.filter(function(x){return /^But/.test(x.type)}).map(function(x){return[x.joueur,x.club,String(x.minute==null?'':x.minute)]});if(g.length)e.g=g;
+ var y=ee.filter(function(x){return x.type==='Carton jaune'}).map(function(x){return[x.joueur,x.club]});if(y.length)e.y=y;
+ var rr=ee.filter(function(x){return x.type==='Carton rouge'}).map(function(x){return[x.joueur,x.club]});if(rr.length)e.r=rr;
+ var cs=co.filter(function(x){return x.match===lab}),c={};cs.forEach(function(x){c[x.cote==='Extérieur'?'a':'h']={f:x.formation||'',x:lines(x.titulaires),s:lines(x.remplacants)}});if(cs.length)e.c=c;
+ var t=mv.filter(function(x){return x.match===lab})[0];if(t)e.mom=[t.joueur,t.club];
+ return e}
+function key(m){return m.ed+'|'+m.d+'|'+nk(m.h)+'|'+nk(m.a)}
+function apply(rem){
+ var M=API.M,i,keep={},idx={};
+ rem.forEach(function(e){keep[key(e)]=1});
+ for(i=M.length-1;i>=0;i--)if(M[i]._r&&!keep[key(M[i])])M.splice(i,1);
+ M.forEach(function(m,j){if(!m._r)idx[key(m)]=j});
+ var drop={};rem.forEach(function(e){var k=key(e);
+  if(idx[k]!=null){var m=M[idx[k]];['hs','as','ff','rp','rs','g','y','r','c','mom'].forEach(function(f){delete m[f]});Object.keys(e).forEach(function(f){if(f!=='_r')m[f]=e[f]});m._s=1}
+  else{drop[k]=1}});
+ for(i=M.length-1;i>=0;i--)if(M[i]._r&&!M[i]._s&&!keep[key(M[i])])M.splice(i,1);
+ for(i=M.length-1;i>=0;i--)if(M[i]._r&&!M[i]._s&&idx[key(M[i])]==null&&drop[key(M[i])])M.splice(i,1);
+ rem.forEach(function(e){if(drop[key(e)])M.push(e)});
+ M.forEach(function(m){delete m._s})}
+function applyPoules(rows){
+ var t={},n=0,cur=0;rows.forEach(function(r){if(String(r.edition)==='2024'||!r.poule||!r.equipe)return;(t[r.poule]=t[r.poule]||[]).push(r.equipe);n++});
+ Object.keys(API.P).forEach(function(k){cur+=API.P[k].length});
+ if(!n||n<cur)return false;var C=canonMap(),ks=Object.keys(t).sort(),out={};
+ ks.forEach(function(k){out[k]=t[k].map(function(x){return C[nk(x)]||x})});
+ var o=JSON.stringify(API.P);if(o===JSON.stringify(out))return false;
+ Object.keys(API.P).forEach(function(k){delete API.P[k]});Object.keys(out).forEach(function(k){API.P[k]=out[k]});return true}
+function screenOn(){var s=document.getElementById('screenMatchs');return !!(s&&s.offsetParent!==null&&s.getAttribute('aria-hidden')!=='true')}
+function go(){
+ if(busy||!API&&!(API=window.CUFLB))return;busy=true;last=Date.now();var wantP=Date.now()-lastP>60000;
+ Promise.all([rest('matchs?select=*&order=created_at.asc&limit=500'),
+  soft('camp_items?select=kind,data&kind=in.(cuflb_events,cuflb_compos,cuflb_motm)&limit=3000'),
+  wantP?soft('cuflb_poules?select=*&limit=200'):Promise.resolve(null)]).then(function(r){
+   var rows=r[0]||[],it=r[1]||[],ch=false;
+   function pick(k){return it.filter(function(x){return x.kind===k&&x.data}).map(function(x){return x.data})}
+   var ev=pick('cuflb_events'),co=pick('cuflb_compos'),mv=pick('cuflb_motm');
+   if(r[2]){lastP=Date.now();if(r[2].length&&applyPoules(r[2]))ch=true}
+   var C=canonMap(),rem=[];rows.forEach(function(x){var e=conv(x,ev,co,mv,C);if(e)rem.push(e)});
+   var sg=JSON.stringify(rem);okOnce=true;
+   if(sg!==sig){sig=sg;apply(rem);ch=true}
+   if(ch){try{API.render()}catch(e){}}
+  }).catch(function(){}).then(function(){busy=false})}
+setInterval(function(){if(document.hidden||busy)return;var due=screenOn()?4000:20000;if(Date.now()-last<due)return;go()},1000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-tab="matchs"],.v52-c3'))setTimeout(go,80)},true);
+window.CUFLB_sync=go;
+setTimeout(go,1500);
+})();
+</script>
 </body>
 </html>
 <style id="v87-fohundi-approved">
@@ -17362,7 +17438,7 @@ function initBell(){
   var b=t.closest('.v300-ni');if(b){var L=ov.querySelector('.v300-nl')._L,it=L&&L[+b.getAttribute('data-k')];closeBell();if(it&&it.go)setTimeout(it.go,60)}});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('on'))closeBell()});
  var pill=document.createElement('button');pill.type='button';pill.id='v300Pill';pill.className='v300-pill';pill.innerHTML='<i></i><span></span>';pill.onclick=goLive;document.body.appendChild(pill);
- pullFeed();pullLive();setInterval(function(){if(!document.hidden){pullLive()}},12000);setInterval(function(){if(!document.hidden)pullFeed()},120000);
+ pullFeed();pullLive();setInterval(function(){if(!document.hidden){pullLive()}},4000);setInterval(function(){if(!document.hidden)pullFeed()},120000);
  document.addEventListener('visibilitychange',function(){if(!document.hidden)pullLive()})}
 
 /* ---------- 3. Animation des 3 calendriers ---------- */
