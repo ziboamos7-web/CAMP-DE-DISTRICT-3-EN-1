@@ -10387,7 +10387,7 @@ setTimeout(ui,1500);
    puis choix d'un nouveau mot de passe. Met aussi à jour le compte enregistré sur l'appareil. */
 (function(){
  'use strict';
- var ACC='camp_accounts_2026',WAIT=60,MAXTRY=5,LEN=6,cur=null;
+ var ACC='camp_accounts_2026',WAIT=300,MAXTRY=5,LEN=6,cur=null;
  var EM=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
  var IC={
   back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
@@ -15356,7 +15356,7 @@ html body .ac .ac-lg{margin:16px 0 0;font-size:12px;line-height:1.45;text-align:
    Le code est envoyé et contrôlé par Supabase (window.CAMP_OTP, défini dans le script Supabase en bas de page).
    Aucun code n'est jamais affiché dans l'application. */
 (function(){
- var WAIT=60,MAXTRY=5,LEN=6,cur=null;
+ var WAIT=300,MAXTRY=5,LEN=6,cur=null;
  var I={
   back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
   head:'<svg viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>',
@@ -17883,7 +17883,7 @@ function tick(){var r=rot(),now=Date.now();if(r.t&&now-r.t<H2)return;if(busy())r
 function initSp(){setTimeout(tick,7000);setInterval(tick,60000);document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(tick,1500)})}
 window.CampCalRotation={next:tick,reset:function(){LS('camp_cal_rot_v1','')}};
 
-ready(function(){setTimeout(function(){initBell();initSp()},800)});
+ready(function(){setTimeout(function(){initBell()},800)});
 })();
 </script>
 
@@ -18421,7 +18421,7 @@ ready(function(){setTimeout(function(){initBell();initSp()},800)});
   var s = document.createElement('style'); s.id = 'cal2-css'; s.textContent = css; document.head.appendChild(s);
 
   window.CampCal2 = { show: show, hide: hide, reset: function () { ls(K, ''); } };
-  function init() { setTimeout(tick, 8000); setInterval(tick, 60000); document.addEventListener('visibilitychange', function () { if (!document.hidden) setTimeout(tick, 1500); }); }
+  function init() {}
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 
