@@ -13803,7 +13803,7 @@ var inst=null;
  window.addEventListener('appinstalled',function(){inst=null;toast('Appli installée');try{refresh()}catch(e){}});
  function isApp(){try{return !!((window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone)}catch(e){return false}}
  function shortcuts(){M.install=['dl','#2563eb','Installer l’appli','Sur l’écran d’accueil'];
-  var a=[['qpx','addu','#6a0dad','Sans tél.'],['qin','dl','#2563eb','Installer'],['qnf','bell','#f08a1c','Notifs']];
+  var a=[['qpx','addu','#6a0dad','Sans tél.'],['qtk','tk','#7c4dff','Mon ticket'],['qsh','share','#25a244','Partager'],['qin','dl','#2563eb','Installer'],['qnf','bell','#f08a1c','Notifs']];
   if(isApp())a=a.filter(function(x){return x[0]!=='qin'});
   return '<div class="qk-row" style="--n:'+a.length+'">'+a.map(function(x){return '<button type="button" class="qk" data-c="'+x[0]+'"><i style="background:'+x[2]+'">'+sv(x[1])+'</i><span>'+x[3]+'</span></button>'}).join('')+'</div>'}
  function instHelp(){var ios=/iphone|ipad|ipod/i.test(navigator.userAgent||'');
