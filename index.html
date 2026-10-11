@@ -17400,7 +17400,7 @@ var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 var dg=function(s){return String(s||'').replace(/\D+/g,'')};
 function F(n){return String(Math.round(+n||0)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0F'}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
-function ptotal(it){return parseInt(dg(it&&it.d&&it.d.Price),10)||0}
+function ptotal(it){var d=(it&&it.d)||{},n=parseInt(dg(d.Price),10)||0;if(n)return n;var t=String(d.Pass||''),m=parseInt(dg(t),10)||0;if(m>=1000)return m;return /chef/i.test(t)?8000:/l[eé]ment/i.test(t)?7000:0}
 function pcount(p){return p&&p.items?p.items.reduce(function(a,x){return a+(x.status==='rejected'?0:(+x.amount||0))},0):0}
 function pview(it){var T=ptotal(it),p=it&&it.pay&&Array.isArray(it.pay.items)?it.pay:{mode:'',items:[]},paid=pcount(p);return{T:T,paid:paid,rest:Math.max(0,T-paid),p:p}}
 function mkItem(amount,name,phone){return{id:uid(),amount:amount,name:String(name).replace(/\s+/g,' ').trim(),phone:dg(phone),at:new Date().toISOString(),status:'pending'}}
@@ -17411,9 +17411,9 @@ function payErr(amount,name,phone,limit,T){
  if(String(name||'').trim().length<2)return 'Indique le nom de la personne qui a payé.';
  if(dg(phone).length<8)return 'Indique le numéro de la personne qui a payé.';
  return ''}
-function addPay(code,amount,name,phone){var l=rd(PK,[]),it=l.filter(function(x){return x.code===code})[0];if(!it)return false;
+function addPay(code,amount,name,phone,mode){var l=rd(PK,[]),it=l.filter(function(x){return x.code===code})[0];if(!it)return false;
  var p=it.pay&&Array.isArray(it.pay.items)?it.pay:{mode:'',items:[]};
- if(!p.mode)p.mode=amount>=ptotal(it)?'unique':'echelonne';
+ if(!p.mode)p.mode=mode||(amount>=ptotal(it)?'unique':'echelonne');
  p.items.push(mkItem(amount,name,phone));it.pay=p;it.synced=false;
  if(!wr(PK,l))return false;
  push(code);refreshCards();return true}
@@ -17428,7 +17428,7 @@ function mountPay(){var eng=$('regEngage');if(!eng||$('pxPay'))return;
  +'<p class="px-pay-n">Si le campeur a déjà versé de l’argent, enregistre-le ici. Le <b>nom</b> et le <b>numéro</b> demandés sont ceux de <b>la personne qui a payé</b>, pas ceux du campeur.</p>'
  +'<label class="reg-price"><input type="radio" name="pxMode" value="later" checked><span><b>Pas encore payé</b><small>Tu pourras ajouter les versements plus tard</small></span></label>'
  +'<label class="reg-price"><input type="radio" name="pxMode" value="echelonne"><span><b>Paiement échelonné</b><small>Un premier versement, par exemple 1 500 F</small></span></label>'
- +'<label class="reg-price"><input type="radio" name="pxMode" value="unique"><span><b>Ticket entièrement payé</b><small>Le tarif complet a été réglé en une fois</small></span></label>'
+ +'<label class="reg-price"><input type="radio" name="pxMode" value="unique"><span><b>Paiement direct</b><small>Le tarif complet est réglé en une fois</small></span></label>'
  +'<div id="pxPayF" style="display:none"><div class="registration-field"><label for="pxPayAmt">MONTANT VERSÉ (F CFA) *</label><input id="pxPayAmt" inputmode="numeric" autocomplete="off" placeholder="Ex. 1500"></div>'
  +'<div class="px-chips" id="pxPayChips"><button type="button" data-v="1000">1 000 F</button><button type="button" data-v="1500">1 500 F</button><button type="button" data-v="2000">2 000 F</button><button type="button" data-v="3000">3 000 F</button></div>'
  +'<div class="registration-field"><label for="pxPayNm">NOM DE LA PERSONNE QUI A PAYÉ *</label><input id="pxPayNm" autocomplete="off" placeholder="Nom et prénoms de celui qui paie"></div>'
@@ -17456,43 +17456,44 @@ function readPay(T){var m=pxMode();if(!m)return null;
  return{mode:(m==='unique'||amt>=T)?'unique':'echelonne',items:[mkItem(amt,nm,ph)]}}
 
 /* --- fiche « Paiement » d'un campeur déjà pré-inscrit (ajouter d'autres versements) --- */
-var pov=null,BADGE={pending:['En attente de validation','p'],confirmed:['Validé','c'],rejected:['Refusé','r']};
+var pmode='echelonne',SEL=' style="background:#43118a;color:#fff;border-color:#43118a"',pov=null,BADGE={pending:['En attente de validation','p'],confirmed:['Validé','c'],rejected:['Refusé','r']};
 function closePay(){if(!pov)return;var e=pov;pov=null;e.classList.remove('on');setTimeout(function(){e.remove()},250)}
 function curItem(code){return rd(PK,[]).filter(function(x){return x.code===code})[0]}
-function openPay(code){closePay();if(!curItem(code)){toast('Dossier introuvable sur cet appareil.');return}
+function openPay(code){closePay();pmode='echelonne';if(!curItem(code)){toast('Dossier introuvable sur cet appareil.');return}
  pov=document.createElement('div');pov.className='cpy-ov';pov.setAttribute('role','dialog');pov.setAttribute('aria-modal','true');pov.setAttribute('aria-label','Paiement du campeur');pov.setAttribute('data-code',code);
  document.body.appendChild(pov);drawPay();pov.addEventListener('click',payClick);
  requestAnimationFrame(function(){requestAnimationFrame(function(){pov&&pov.classList.add('on')})})}
 function drawPay(){if(!pov)return;var code=pov.getAttribute('data-code'),it=curItem(code);if(!it)return closePay();
- var v=pview(it),d=it.d||{},pct=v.T?Math.min(100,Math.round(v.paid/v.T*100)):0,items=v.p.items,last=items.length?items[items.length-1]:null;
+ var v=pview(it),d=it.d||{},first=!v.p.items.length,uni=first&&pmode==='unique',pct=v.T?Math.min(100,Math.round(v.paid/v.T*100)):0,items=v.p.items,last=items.length?items[items.length-1]:null;
  var h='<div class="cpy-sh"><div class="cpy-hd"><button type="button" class="cpy-x" data-q="close" aria-label="Fermer">×</button><span class="cpy-ic">'+WALLET+'</span><h3>'+esc(d.Name||'Campeur')+'</h3><p>Paiement du ticket · code '+esc(code)+'</p></div><div class="cpy-bd">';
  h+='<div class="cpy-card"><div class="cpy-tot"><div><small>DÉJÀ PAYÉ</small><b>'+F(v.paid)+'</b></div><div><small>RESTE</small><b class="'+(v.rest?'':'ok')+'">'+F(v.rest)+'</b></div></div><div class="cpy-bar"><i style="width:'+pct+'%"></i></div><p class="cpy-mt">Tarif du ticket : <b>'+F(v.T)+'</b>'+(v.p.mode==='echelonne'?' · paiement échelonné':v.p.mode==='unique'?' · paiement en une fois':'')+'</p></div>';
  if(!v.T)h+='<div class="cpy-card cpy-c"><b>Tarif du ticket inconnu</b><p>Ce dossier n’a pas de formule enregistrée.</p></div>';
  else if(v.rest<=0)h+='<div class="cpy-card cpy-done"><span>✓</span><b>Ticket entièrement payé</b><p>Le total est réglé (en attente de validation par l’organisation si besoin).</p></div>';
- else h+='<div class="cpy-lb">NOUVEAU VERSEMENT</div><div class="cpy-card"><p class="cpy-mt">Le nom et le numéro sont ceux de <b>la personne qui paie</b>, pas ceux du campeur.</p>'
-  +'<label for="pxpA">Montant versé (F CFA)</label><input id="pxpA" inputmode="numeric" autocomplete="off" placeholder="Ex. 1500">'
-  +'<div class="cpy-chips">'+[1000,1500,2000,3000].filter(function(x){return x<v.rest}).map(function(x){return '<button type="button" data-q="chip:'+x+'">'+F(x)+'</button>'}).join('')+'<button type="button" data-q="chip:'+v.rest+'">Le reste · '+F(v.rest)+'</button></div>'
+ else h+='<div class="cpy-lb">'+(first?'PAIEMENT DU TICKET':'NOUVEAU VERSEMENT')+'</div><div class="cpy-card">'+(first?'<div class="cpy-chips"><button type="button" data-q="mode:echelonne"'+(uni?'':SEL)+'>Paiement échelonné</button><button type="button" data-q="mode:unique"'+(uni?SEL:'')+'>Paiement direct · '+F(v.rest)+'</button></div>':'')+'<p class="cpy-mt">Le nom et le numéro sont ceux de <b>la personne qui paie</b>, pas ceux du campeur.</p>'
+  +'<label for="pxpA">Montant versé (F CFA)</label><input id="pxpA" inputmode="numeric" autocomplete="off" placeholder="Ex. 1500"'+(uni?' value="'+v.rest+'" readonly':'')+'>'
+  +(uni?'':'<div class="cpy-chips">'+[1000,1500,2000,3000].filter(function(x){return x<v.rest}).map(function(x){return '<button type="button" data-q="chip:'+x+'">'+F(x)+'</button>'}).join('')+'<button type="button" data-q="chip:'+v.rest+'">Le reste · '+F(v.rest)+'</button></div>')
   +'<label for="pxpN">Nom de la personne qui a payé</label><input id="pxpN" autocomplete="off" placeholder="Nom et prénoms" value="'+esc(last?last.name:'')+'">'
   +'<label for="pxpP">Numéro de la personne qui a payé</label><input id="pxpP" type="tel" inputmode="tel" autocomplete="off" placeholder="Numéro de téléphone" value="'+esc(last?last.phone:'')+'">'
-  +'<div class="cpy-err" id="pxpE" role="alert"></div><button type="button" class="cpy-btn" data-q="ok">Enregistrer le versement</button></div>';
+  +'<div class="cpy-err" id="pxpE" role="alert"></div><button type="button" class="cpy-btn" data-q="ok">'+(uni?'Valider le paiement direct':'Enregistrer le versement')+'</button></div>';
  if(items.length)h+='<div class="cpy-lb">VERSEMENTS</div><div class="cpy-card cpy-hist">'+items.slice().reverse().map(function(x){var b=BADGE[x.status]||BADGE.pending,dt=new Date(x.at),ds=isNaN(dt)?'':dt.toLocaleDateString('fr-FR',{day:'2-digit',month:'short'})+' · '+dt.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
   return '<div class="cpy-row"><div><b>'+F(x.amount)+'</b><small>'+esc(x.name)+' · '+esc(x.phone)+'</small><small>'+esc(ds)+'</small></div><em class="'+b[1]+'">'+b[0]+'</em></div>'}).join('')+'</div>';
  pov.innerHTML=h+'</div></div>'}
 function payClick(e){if(!pov)return;var a=e.target.closest('[data-q]');if(!a){if(e.target===pov)closePay();return}
  var k=a.getAttribute('data-q'),code=pov.getAttribute('data-code');
  if(k==='close')return closePay();
+ if(k.indexOf('mode:')===0){pmode=k.slice(5);drawPay();return}
  if(k.indexOf('chip:')===0){var i=$('pxpA');if(i){i.value=k.slice(5);i.focus()}return}
  if(k==='ok'){var it=curItem(code),v=pview(it),amt=parseInt(dg($('pxpA').value),10)||0,nm=$('pxpN').value,ph=$('pxpP').value,er=payErr(amt,nm,ph,v.rest,v.T);
   if(er){$('pxpE').textContent=er;return}
-  if(!addPay(code,amt,nm,ph)){$('pxpE').textContent='Mémoire de l’appareil pleine : versement non enregistré.';return}
+  if(!addPay(code,amt,nm,ph,pmode==='unique'?'unique':'')){$('pxpE').textContent='Mémoire de l’appareil pleine : versement non enregistré.';return}
   drawPay();toast('Versement enregistré · en attente de validation');var sc=pov&&pov.querySelector('.cpy-sh');if(sc)sc.scrollTop=0}}
 
 /* --- résumé de paiement dans la liste « Inscriptions » du profil --- */
 function sumHTML(it){var v=pview(it);if(!v.T)return '';var pct=Math.min(100,Math.round(v.paid/v.T*100));
  var st=v.rest<=0?'<span class="hx-pst ok">Soldé ✓</span>':(v.paid?'<span class="hx-pst">Reste '+F(v.rest)+'</span>':'<span class="hx-pst no">Pas encore payé</span>');
  return '<div class="hx-pl"><span>Paiement</span><b>'+F(v.paid)+' / '+F(v.T)+'</b>'+st+'</div><div class="hx-pb"><i style="width:'+pct+'%"></i></div>'
-  +'<button type="button" class="p-btn" data-pxpay="'+esc(it.code)+'">'+(v.rest<=0?'Voir les versements':'Ajouter un versement')+'</button>'}
-function cardHTML(x){var it=x&&curItem(x.code);return it?'<div class="hx-pay" data-pxsum="'+esc(it.code)+'">'+sumHTML(it)+'</div>':''}
+  +'<button type="button" class="p-btn" data-pxpay="'+esc(it.code)+'">'+(v.rest<=0?'Voir les versements':(v.paid?'Ajouter un versement':'Enregistrer un paiement'))+'</button>'}
+function cardHTML(x){if(!x||!x.code)return '';var it=curItem(x.code);if(!it){it={code:x.code,ts:x.ts||Date.now(),claimed:!!x.claimed,synced:true,adopted:true,d:x.d||{}};var l=rd(PK,[]);l.push(it);wr(PK,l)}return '<div class="hx-pay" data-pxsum="'+esc(it.code)+'">'+sumHTML(it)+'</div>'}
 function refreshCards(){[].forEach.call(document.querySelectorAll('[data-pxsum]'),function(n){var it=curItem(n.getAttribute('data-pxsum'));if(it)n.innerHTML=sumHTML(it)})}
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-pxpay]');if(!b)return;e.preventDefault();e.stopPropagation();openPay(b.getAttribute('data-pxpay'))},true);
 window.CampProxyPay={open:openPay,card:cardHTML,refresh:refreshCards};
@@ -17595,7 +17596,9 @@ function genCode(){var used=rd(PK,[]).map(function(x){return x.code});
   return Promise.race([Promise.resolve(s.from(TB).select('code').eq('code',c).limit(1)).then(function(r){return r&&r.data&&r.data.length?one(n+1):c},function(){return c}),new Promise(function(r){setTimeout(function(){r(c)},2500)})])}
  return one(0)}
 function push(code){var s=sb();if(!s)return;var it=rd(PK,[]).filter(function(x){return x.code===code})[0];if(!it)return;
- Promise.resolve(s.from(TB).upsert({code:code,data:Object.assign({},it.d,{TS:it.ts},it.pay?{Pay:it.pay}:{}),claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l);try{if(window.campRefreshStats)window.campRefreshStats()}catch(e){}}},function(){})}
+ var up=function(dat){Promise.resolve(s.from(TB).upsert({code:code,data:dat,claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l);try{if(window.campRefreshStats)window.campRefreshStats()}catch(e){}}},function(){})};
+ if(!it.adopted)return up(Object.assign({},it.d,{TS:it.ts},it.pay?{Pay:it.pay}:{}));
+ Promise.resolve(s.from(TB).select('data').eq('code',code).maybeSingle()).then(function(r){var b=r&&r.data&&r.data.data;if(!b)return;var P=it.pay||{mode:'',items:[]},o=(b.Pay&&b.Pay.items)||[],seen={},items=o.concat(P.items).filter(function(x){return x&&!seen[x.id]&&(seen[x.id]=1)});up(Object.assign({},b,{Pay:{mode:(b.Pay&&b.Pay.mode)||P.mode,items:items}}))},function(){})}
 function save(rec,pay){
  genCode().then(function(code){var l=rd(PK,[]),it={code:code,ts:Date.now(),claimed:false,synced:false,d:rec,pay:pay||undefined};l.push(it);
   if(!wr(PK,l)){rec.Photo='';it.d=rec;if(!wr(PK,l)){busy=false;toast('Mémoire de l’appareil pleine : impossible d’enregistrer.');return}}
@@ -17643,7 +17646,7 @@ function ask(){var sh=$('pxAskSh');
  $('pxOk').onclick=function(){var c=$('pxIn4').value,e=$('pxAe');if(!/^\d{4}$/.test(c)){e.textContent='Le code comporte 4 chiffres.';return}
   e.textContent='Vérification…';find(c).then(function(it){if(!it){e.textContent='Code introuvable ou déjà utilisé.';return}claim(it);closeAsk();setAsked();proceed();toast('Dossier retrouvé : vérifie, ajoute ton numéro puis valide.')})};
  setTimeout(function(){$('pxIn4').focus()},250)}
-function find(c){var it=rd(PK,[]).filter(function(x){return x.code===c})[0];if(it)return Promise.resolve(it.claimed?null:it);var s=sb();if(!s)return Promise.resolve(null);
+function find(c){var it=rd(PK,[]).filter(function(x){return x.code===c&&!x.adopted})[0];if(it)return Promise.resolve(it.claimed?null:it);var s=sb();if(!s)return Promise.resolve(null);
  return Promise.race([Promise.resolve(s.from(TB).select('code,data,claimed').eq('code',c).maybeSingle()).then(function(r){var x=r&&r.data;return x&&!x.claimed?{code:x.code,d:x.data}:null},function(){return null}),new Promise(function(r){setTimeout(function(){r(null)},5000)})])}
 function claim(it){var d=it.d,v={regName:d.Name,regPhone:'',regEmail:'',regAddress:d.Address,regBirth:d.Birth,regBirthPlace:d.BirthPlace,regNation:d.Nation,regSex:d.Sex,regBranch:d.Branch,regGrade:d.Grade,regRegion:d.RegionSel||d.Region,regRegionOther:d.RegionOther||'',regGroup:d.Group,regTroop:d.Troop,regChurch:d.ChurchSel||d.Church,regChurchOther:d.ChurchOther||'',regPatrol:d.PatrolSel||d.Patrol,regPatrolOther:d.PatrolOther||'',regTitle:d.Title};
  wr(DK,{v:v,eng:true,price:d.Price||'',step:0,photo:d.Photo||''});wr(CL,it.code);
