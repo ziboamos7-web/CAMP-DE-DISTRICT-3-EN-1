@@ -3540,7 +3540,26 @@ html body #screenMatchs .champ-tab.active{background:none!important;box-shadow:n
 html body #screenMatchs .cu-team .cu-cr{width:34px!important;height:34px!important;display:grid;place-items:center}
 html body #screenMatchs .cu-team .cu-cr img{width:100%!important;height:100%!important;object-fit:contain!important}
 </style>
-<style id="boot-cover-css">#bootCover{position:fixed;inset:0;z-index:2147483600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(120% 70% at 50% 0,#5a1fb8,#1c0b45 70%);color:#fff;font:800 22px system-ui,sans-serif;transition:opacity .45s}#bootCover.out{opacity:0;pointer-events:none}#bootCover i{width:46px;height:46px;border-radius:50%;border:4px solid #ffffff40;border-top-color:#ffd23f;animation:bcs 1s linear infinite}@keyframes bcs{to{transform:rotate(360deg)}}</style><style id="cuflb-ui-2026-10">
+<style id="boot-cover-css">#bootCover{position:fixed;inset:0;z-index:2147483600;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 70% at 50% 0,#5a1fb8,#1c0b45 70%);color:#fff;font:800 22px system-ui,sans-serif;transition:opacity .45s}
+#bootCover.out{opacity:0;pointer-events:none}
+#bootCover.out .bc-scene{transform:scale(1.07);transition:transform .45s}
+.bc-stars{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1.6px 1.6px at 12% 18%,#fff,transparent),radial-gradient(1.2px 1.2px at 28% 8%,#fff,transparent),radial-gradient(1.8px 1.8px at 46% 22%,#ffe8b0,transparent),radial-gradient(1.2px 1.2px at 63% 10%,#fff,transparent),radial-gradient(1.6px 1.6px at 82% 20%,#fff,transparent),radial-gradient(1.2px 1.2px at 91% 8%,#ffe8b0,transparent),radial-gradient(1.2px 1.2px at 8% 40%,#fff,transparent),radial-gradient(1.6px 1.6px at 74% 36%,#fff,transparent);animation:bctw 3.2s ease-in-out infinite alternate}
+@keyframes bctw{from{opacity:.3}to{opacity:1}}
+.bc-scene{position:relative;width:min(80vw,330px);height:auto;overflow:visible;filter:drop-shadow(0 18px 28px rgba(0,0,0,.35))}
+.bc-glow{transform-box:fill-box;transform-origin:50% 50%;animation:bcgl 1.5s ease-in-out infinite alternate}
+@keyframes bcgl{from{opacity:.5;transform:scale(.9)}to{opacity:1;transform:scale(1.1)}}
+.bc-fl{transform-box:fill-box;transform-origin:50% 100%;animation:bcfl .9s ease-in-out infinite alternate}
+.bc-fl.b{animation-duration:.62s;animation-delay:-.3s}.bc-fl.c{animation-duration:.48s;animation-delay:-.15s}
+@keyframes bcfl{0%{transform:scale(.94,.9) skewX(-3deg)}50%{transform:scale(1.03,1.07) skewX(2deg)}100%{transform:scale(.97,1.12) skewX(-2deg)}}
+.bc-sp{opacity:0;animation:bcsp 2.2s ease-out infinite}
+@keyframes bcsp{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx,6px),-64px)}}
+.bc-t{margin-top:12px;font-size:27px;font-weight:900;letter-spacing:.5px}
+.bc-t em{font-style:normal;color:#ffb347}
+.bc-s{margin-top:6px;font-size:13px;font-weight:600;color:#cfc2ee;letter-spacing:.3px}
+.bc-bar{margin-top:22px;width:min(56vw,200px);height:5px;border-radius:9px;background:rgba(255,255,255,.16);overflow:hidden}
+.bc-bar i{display:block;width:42%;height:100%;border-radius:9px;background:linear-gradient(90deg,#ff8a22,#ffd23f);animation:bcbar 1.3s ease-in-out infinite}
+@keyframes bcbar{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
+@media (prefers-reduced-motion:reduce){.bc-glow,.bc-fl,.bc-stars,.bc-bar i{animation-duration:4s}.bc-sp{display:none}}</style><style id="cuflb-ui-2026-10">
 html body #screenMatchs.app-screen{--n:#14104a;--v:#43118a;--o:#ff6500;--g:#ffd76a;--l:#ece9f7;--m:#5f5c86;--pg:#f3f1fb;--num:'Barlow Condensed','Arial Narrow',Arial,sans-serif}
 /* Hero : tableau d'affichage de nuit, compact */
 html body #screenMatchs .champ-hero{background:radial-gradient(120% 100% at 100% 0,#5b24b8 0,#2b0f78 46%,#14104a 100%)!important;border:0!important;border-radius:22px!important;padding:18px 16px 0!important;box-shadow:0 20px 40px -22px #14104acc!important;color:#fff!important}
@@ -3597,7 +3616,7 @@ html body #screenMatchs .pg-h{font-size:12px!important;letter-spacing:.2px!impor
 @media (prefers-reduced-motion:reduce){html body #screenMatchs .champ-tabs{scroll-behavior:auto}}
 </style>
 </head>
-<body><div id="bootCover" role="status" aria-label="Chargement"><i></i>Mon CAMP</div><script>(function(){var c=document.getElementById("bootCover"),d=0,t0=0,last=Date.now(),iv=0;
+<body><div id="bootCover" role="status" aria-label="Chargement"><div class="bc-stars"></div><svg class="bc-scene" viewBox="0 0 240 150" aria-hidden="true"><defs><linearGradient id="bcT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa13d"/><stop offset="1" stop-color="#f05a00"/></linearGradient><radialGradient id="bcG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb347" stop-opacity=".8"/><stop offset="1" stop-color="#ff6500" stop-opacity="0"/></radialGradient><linearGradient id="bcF" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff5a00"/><stop offset=".6" stop-color="#ff9a1f"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><ellipse cx="120" cy="139" rx="106" ry="7" fill="#000" opacity=".3"/><path d="M216 138 L226 100 L236 138Z" fill="#241052"/><path d="M204 138 L211 112 L218 138Z" fill="#2c1463"/><path d="M28 138 L84 40 L140 138Z" fill="url(#bcT)"/><path d="M84 40 L104 138 L140 138Z" fill="#d94e00" opacity=".5"/><path d="M84 76 L62 138 L106 138Z" fill="#2a0f5e"/><path d="M84 76 V138" stroke="#ffb347" stroke-width="1.4" opacity=".55"/><path d="M84 40 V28" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M84 28 L99 32.5 L84 37Z" fill="#ffd23f"/><circle class="bc-glow" cx="178" cy="116" r="48" fill="url(#bcG)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#6b3b1a" transform="rotate(-8 178 133)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#8a4a1f" transform="rotate(8 178 133)"/><path class="bc-fl" d="M178 68 C192 91 202 103 195 123 C191 134 165 134 161 123 C155 105 168 95 178 68Z" fill="url(#bcF)"/><path class="bc-fl b" d="M178 91 C187 105 192 113 188 124 C185 131 171 131 168 124 C165 113 172 105 178 91Z" fill="#ffd23f"/><path class="bc-fl c" d="M178 109 C183 116 185 120 183 126 C181 129 175 129 173 126 C171 120 174 116 178 109Z" fill="#fff6d8"/><circle class="bc-sp" cx="172" cy="84" r="1.9" fill="#ffd23f" style="--dx:-12px;animation-delay:0s"/><circle class="bc-sp" cx="182" cy="82" r="1.5" fill="#ffb347" style="--dx:10px;animation-delay:.5s"/><circle class="bc-sp" cx="177" cy="86" r="1.7" fill="#fff6d8" style="--dx:-3px;animation-delay:1s"/><circle class="bc-sp" cx="186" cy="88" r="1.3" fill="#ffd23f" style="--dx:16px;animation-delay:1.45s"/><circle class="bc-sp" cx="168" cy="90" r="1.4" fill="#ffb347" style="--dx:-18px;animation-delay:1.8s"/></svg><b class="bc-t">Mon <em>CAMP</em></b><small class="bc-s">On allume le feu de camp…</small><div class="bc-bar"><i></i></div></div><script>(function(){var c=document.getElementById("bootCover"),d=0,t0=0,last=Date.now(),iv=0;
 function hide(){if(d)return;d=1;clearInterval(iv);c.className="out";setTimeout(function(){c.remove()},500)}
 function ok(m){var t=m.target;t=t&&t.nodeType===1?t:t&&t.parentElement;return !(t&&t.closest&&t.closest("#v51Cd,#bootCover"))}
 try{new MutationObserver(function(a){for(var i=0;i<a.length;i++)if(ok(a[i])){last=Date.now();break}}).observe(document.documentElement,{childList:true,subtree:true})}catch(e){}
@@ -13780,7 +13799,7 @@ var inst=null;
    h+='<div class="hx-it"><div class="hx-top"><b>'+esc(d.Name||'Sans nom')+'</b><span class="hx-st'+(x.claimed?' ok':'')+'">'+(x.claimed?'Dossier récupéré':'Code à remettre')+'</span></div>'
     +'<div class="hx-code" aria-label="Code '+esc(String(x.code||'').split('').join(' '))+'">'+esc(x.code||'—')+'</div>'
     +kv('Numéro du ticket',tk||'Aucun ticket')+kv('Date',dd)+kv('Heure',tt)+kv('Troupe',d.Troop)+kv('Formule',d.Pass)
-    +'<button type="button" class="p-btn" data-c="hcopy" data-v="'+esc(x.code||'')+'">Copier le code</button></div>'});
+    +(window.CampProxyPay?window.CampProxyPay.card(x):'')+'<button type="button" class="p-btn" data-c="hcopy" data-v="'+esc(x.code||'')+'">Copier le code</button></div>'});
   return h}
  function ck(){try{return JSON.parse(LS('camp_checklist_2026')||'[]')}catch(e){return[]}}
  function toast(m){var t=document.createElement('div');t.className='p-toast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2200)}
@@ -14177,14 +14196,25 @@ var inst=null;
   go()}
  function set(){
   var R=window.CampReferral||{},app=false;try{app=matchMedia('(display-mode: standalone)').matches||navigator.standalone}catch(x){}
-  var e=shell('#8e5be8','#5b3bd0','<div class="d8-ic d8-gear">'+sv('set')+'</div>','Paramètres','Règle l’application à ta façon.'),bd=e.querySelector('.d8-bd');
+  var e=shell('#8e5be8','#5b3bd0','<div class="d8-ic d8-gear">'+sv('set')+'</div>','Paramètres','Règle l’application à ta façon.'),bd=e.querySelector('.d8-bd');e.classList.add('d8-set');
   function tg(k,t,s,on){return '<button type="button" class="d8-tg" data-k="'+k+'" aria-pressed="'+on+'"><span>'+t+'<small>'+s+'</small></span><i></i></button>'}
   function ro(k,t,s){return '<button type="button" class="d8-ro" data-a="'+k+'"><span>'+t+'<small>'+s+'</small></span><em>›</em></button>'}
-  function paint(){bd.innerHTML='<div class="d8-c"><h4>Préférences</h4>'+tg('vib','Vibrations','Petit retour au toucher',(LS('camp_set_vibr')||'1')==='1')+tg('calm','Économie d’énergie','Moins d’animations',LS('camp_set_calm')==='1')+tg('rem','Rappels du Camp','Compte à rebours à J-7, J-3, J-1 et le jour J',LS('camp_set_rem')==='1')+'</div>'
-   +'<div class="d8-c"><h4>Le Camp</h4>'+ro('ics','Ajouter au calendrier','28 oct. → 1er nov. 2026, rappel la veille')+ro('map','Itinéraire vers le Camp','Collège FOHOUNDI, Garango')+'</div>'
-   +'<div class="d8-c"><h4>Mon compte</h4><button type="button" class="d8-btn gh" data-p="avatar" style="margin-top:0">Changer ma photo de profil</button><button type="button" class="d8-btn gh" data-p="cover">Changer ma couverture</button>'+ro('pw','Changer mon mot de passe','8 caractères, majuscule, minuscule, chiffre')
-   +'<div id="d8pw" hidden><input class="d8-in" id="d8p1" type="password" autocomplete="new-password" placeholder="Nouveau mot de passe"><input class="d8-in" id="d8p2" type="password" autocomplete="new-password" placeholder="Confirme le mot de passe"><button type="button" class="d8-btn" data-a="pwgo">Enregistrer</button><div class="d8-em" id="d8pm"></div></div></div>'
-   +'<div class="d8-c"><h4>Application</h4>'+(app?'':ro('inst','Installer l’appli','Ouvre-la comme une vraie application'))+ro('shr','Partager l’appli','Envoie le lien sur WhatsApp')+ro('cache','Vider le cache','Recharge l’appli, ton compte reste connecté')+ro('rst','Réinitialiser les réglages','Reviens aux réglages par défaut')+'</div><div class="d8-em">Camp de District 3 en 1 · Garango 2026<br>Former • Servir • Impacter</div>'}
+  var SX={vib:'<path d="M8 4h8a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zM3 9v6M21 9v6"/>',bolt:'<path d="M13 3 5 14h6l-1 7 8-11h-6z"/>',bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18"/>',pin:'<path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/>',cam:'<path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',img:'<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/>',key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/>',dl:'<path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/>',refresh:'<path d="M20 11a8 8 0 0 0-14.5-4M4 4v4h4M4 13a8 8 0 0 0 14.5 4M20 20v-4h-4"/>',reset:'<path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/>',wallet:'<path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v10a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-3"/><path d="M21 10h-4a2 2 0 0 0 0 4h4z"/>',tk:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 6v12"/>'};
+  function ix(n,c){return '<i class="sx-i" style="--c:'+c+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+(SX[n]||P[n]||'')+'</svg></i>'}
+  function tg2(k,n,c,t,s,on){return '<button type="button" class="sx-r sx-t" data-k="'+k+'" aria-pressed="'+on+'">'+ix(n,c)+'<span class="sx-x"><b>'+t+'</b><small>'+s+'</small></span><u class="sx-sw"></u></button>'}
+  function ro2(k,n,c,t,s,cls,at){return '<button type="button" class="sx-r'+(cls?' '+cls:'')+'" data-'+(at||'a')+'="'+k+'">'+ix(n,c)+'<span class="sx-x"><b>'+t+'</b><small>'+s+'</small></span><em class="sx-ch">›</em></button>'}
+  function sec(t,body){return '<div class="sx-h">'+t+'</div><div class="sx-g">'+body+'</div>'}
+  function paint(){
+   var h=H(),d=h.reg?h.reg():null,av=h.avatar?h.avatar():'',nm=d&&d.Name?d.Name:'Mon profil',ini=(String(nm).trim().charAt(0)||'M').toUpperCase(),
+    sub=d?[d.Phone?'+225 '+String(d.Phone).replace(/^\+?225/,'').trim():'',d.Group||''].filter(Boolean).join(' • '):'Pas encore pré-inscrit(e)';
+   var me='<div class="sx-me"><div class="sx-av" style="'+(av?'background-image:url('+av+');font-size:0':'')+'">'+esc(ini)+'</div><div class="sx-mt"><b>'+esc(nm)+'</b><small>'+esc(sub||'Camp de District 3 en 1')+'</small></div><span class="sx-badge'+(d?' ok':'')+'">'+(d?'Pré-inscrit(e)':'À compléter')+'</span></div>';
+   bd.innerHTML=me
+   +sec('Préférences',tg2('vib','vib','#e5484d','Vibrations','Petit retour au toucher',(LS('camp_set_vibr')||'1')==='1')+tg2('calm','bolt','#f08a1c','Économie d’énergie','Moins d’animations',LS('camp_set_calm')==='1')+tg2('rem','bell','#7c4dff','Rappels du Camp','Compte à rebours à J-7, J-3, J-1 et le jour J',LS('camp_set_rem')==='1'))
+   +sec('Mon Camp',ro2('pay','wallet','#16a34a','Mes versements','Paiement du ticket et reste à payer')+(d?ro2('tk','tk','#7c4dff','Mon ticket','N° d’inscription et QR code'):'')+ro2('ics','cal','#2563eb','Ajouter au calendrier','28 oct. → 1er nov. 2026, rappel la veille')+ro2('map','pin','#0ea5a4','Itinéraire vers le Camp','Collège FOHOUNDI, Garango'))
+   +sec('Mon compte',ro2('avatar','cam','#2b8cf0','Photo de profil','Changer ma photo','','p')+ro2('cover','img','#a259e6','Couverture','Changer l’image du haut de mon profil','','p')+ro2('pw','key','#475569','Mot de passe','8 caractères, majuscule, minuscule, chiffre')
+    +'<div id="d8pw" class="sx-pw" hidden><input class="d8-in" id="d8p1" type="password" autocomplete="new-password" placeholder="Nouveau mot de passe"><input class="d8-in" id="d8p2" type="password" autocomplete="new-password" placeholder="Confirme le mot de passe"><button type="button" class="d8-btn" data-a="pwgo">Enregistrer</button><div class="d8-em" id="d8pm"></div></div>')
+   +sec('Application',(app?'':ro2('inst','dl','#2563eb','Installer l’appli','Ouvre-la comme une vraie application'))+ro2('shr','share','#25a244','Partager l’appli','Envoie le lien sur WhatsApp')+ro2('cache','refresh','#0ea5a4','Vider le cache','Recharge l’appli, ton compte reste connecté')+ro2('rst','reset','#e5484d','Réinitialiser les réglages','Reviens aux réglages par défaut','dg'))
+   +'<div class="d8-em">Camp de District 3 en 1 · Garango 2026<br>Former • Servir • Impacter</div>'}
   paint();
   bd.addEventListener('click',function(ev){var b=ev.target.closest('[data-k]'),p=ev.target.closest('[data-p]'),a=ev.target.closest('[data-a]');
    if(b){var on=b.getAttribute('aria-pressed')!=='true',k=b.dataset.k;b.setAttribute('aria-pressed',on);
@@ -14193,7 +14223,9 @@ var inst=null;
     else{SS('camp_set_rem',on?'1':'0');if(on)try{window.Notification&&Notification.permission==='default'&&Notification.requestPermission()}catch(x){}}}
    else if(p){var h=H();(p.dataset.p==='cover'?h.pickCover:h.pickAvatar)&&(p.dataset.p==='cover'?h.pickCover():h.pickAvatar())}
    else if(a){var k2=a.dataset.a;
-    if(k2==='ics')R.ics&&R.ics();
+    if(k2==='pay'){window.CampPay&&CampPay.open()}
+     else if(k2==='tk'){e.close&&e.close();window.openTicket&&openTicket()}
+     else if(k2==='ics')R.ics&&R.ics();
     else if(k2==='map')window.open('https://www.google.com/maps/search/?api=1&query=Coll%C3%A8ge%20FOHOUNDI%20Garango','_blank');
     else if(k2==='pw'){var q=bd.querySelector('#d8pw');q.hidden=!q.hidden}
     else if(k2==='pwgo'){var m=bd.querySelector('#d8pm');m.textContent='…';R.pw(bd.querySelector('#d8p1').value,bd.querySelector('#d8p2').value).then(function(r){m.textContent={ok:'Mot de passe modifié ✓',weak:'8 caractères minimum, avec majuscule, minuscule et chiffre.',diff:'Les mots de passe ne correspondent pas.',offline:'Connecte-toi à internet puis réessaie.',err:'Modification impossible. Reconnecte-toi puis réessaie.'}[r]})}
@@ -17331,6 +17363,25 @@ var iv=setInterval(function(){tick();if(shown||rd(FLAG))clearInterval(iv)},900);
 .px-hide{display:none}
 body.px-mode .px-hide{display:none!important}
 .px-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:1400;background:#18205d;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;font-weight:700;box-shadow:0 10px 30px #0006;max-width:86vw;text-align:center}
+.px-pay{display:none;gap:9px;margin:12px 0 4px;padding:14px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+body.px-mode .px-pay{display:grid}
+body.px-mode #cpyReg{display:none!important}
+.px-pay-t{font-size:13px;font-weight:900;color:#ffb066;letter-spacing:.04em}
+.px-pay-n{margin:0;font-size:12px;line-height:1.5;color:#cfc5d8}.px-pay-n b{color:#fff}
+#pxPayF{gap:11px}
+.px-chips{display:flex;flex-wrap:wrap;gap:7px}
+.px-chips button{padding:8px 12px;border:1px solid #ffffff30;border-radius:99px;background:#ffffff14;color:#fff;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.px-chips button:active{transform:scale(.96)}
+.px-pay-h{font-size:12px;font-weight:700;color:#9be7b9}.px-pay-h:empty{display:none}
+.px-pay-e{color:#ff9aa8;font-size:12px;font-weight:700}.px-pay-e:empty{display:none}
+.hx-pay{margin:12px 0 6px;padding:12px;border-radius:14px;background:#f6f4ff;border:1px solid #e6e1fa}
+.hx-pl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:#4a4560}
+.hx-pl span{font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6b7085}
+.hx-pl b{color:#14104a;font-size:14px}
+.hx-pst{margin-left:auto;padding:3px 9px;border-radius:99px;background:#fff1e0;color:#b45a00;font-size:11.5px;font-weight:800}
+.hx-pst.ok{background:#e3f8ec;color:#15803d}.hx-pst.no{background:#ffe9ec;color:#c92f3d}
+.hx-pb{height:8px;border-radius:9px;background:#e4e0f5;overflow:hidden;margin:8px 0 4px}
+.hx-pb i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#ff8a22,#22c55e);transition:width .4s}
 </style>
 <div class="px-ov" id="pxOv" aria-hidden="true"><section class="px-sh" role="dialog" aria-modal="true" aria-labelledby="pxTitle" id="pxSh"></section></div>
 <div class="px-ov" id="pxAsk" aria-hidden="true"><section class="px-sh" role="dialog" aria-modal="true" aria-labelledby="pxAskT" id="pxAskSh"></section></div>
@@ -17344,6 +17395,107 @@ function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return
 function sb(){return window.CampBackend&&window.CampBackend.sb}
 function toast(m){var t=document.createElement('div');t.className='px-toast';t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},3200)}
 var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3.5"/><path d="M19 8v6M16 11h6"/></svg>';
+
+/* ---------- 0. PAIEMENT du ticket : saisi par celui qui pré-inscrit (nom + numéro = ceux de la personne qui PAIE, pas du campeur) ---------- */
+var dg=function(s){return String(s||'').replace(/\D+/g,'')};
+function F(n){return String(Math.round(+n||0)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0F'}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function ptotal(it){return parseInt(dg(it&&it.d&&it.d.Price),10)||0}
+function pcount(p){return p&&p.items?p.items.reduce(function(a,x){return a+(x.status==='rejected'?0:(+x.amount||0))},0):0}
+function pview(it){var T=ptotal(it),p=it&&it.pay&&Array.isArray(it.pay.items)?it.pay:{mode:'',items:[]},paid=pcount(p);return{T:T,paid:paid,rest:Math.max(0,T-paid),p:p}}
+function mkItem(amount,name,phone){return{id:uid(),amount:amount,name:String(name).replace(/\s+/g,' ').trim(),phone:dg(phone),at:new Date().toISOString(),status:'pending'}}
+function payErr(amount,name,phone,limit,T){
+ if(!T)return 'Choisis d’abord le tarif du ticket.';
+ if(!(amount>0))return 'Indique le montant versé.';
+ if(amount>limit)return limit===T?'Le montant dépasse le tarif du ticket ('+F(T)+').':'Le montant dépasse ce qu’il reste à payer ('+F(limit)+').';
+ if(String(name||'').trim().length<2)return 'Indique le nom de la personne qui a payé.';
+ if(dg(phone).length<8)return 'Indique le numéro de la personne qui a payé.';
+ return ''}
+function addPay(code,amount,name,phone){var l=rd(PK,[]),it=l.filter(function(x){return x.code===code})[0];if(!it)return false;
+ var p=it.pay&&Array.isArray(it.pay.items)?it.pay:{mode:'',items:[]};
+ if(!p.mode)p.mode=amount>=ptotal(it)?'unique':'echelonne';
+ p.items.push(mkItem(amount,name,phone));it.pay=p;it.synced=false;
+ if(!wr(PK,l))return false;
+ push(code);refreshCards();return true}
+var WALLET='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v10a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-3"/><path d="M21 10h-4a2 2 0 0 0 0 4h4z"/></svg>';
+
+/* --- bloc « Paiement du ticket » dans la dernière étape de la pré-inscription (mode sans téléphone) --- */
+function pxMode(){var r=document.querySelector('input[name="pxMode"]:checked');return r&&r.value!=='later'?r.value:''}
+function pxPrice(){var r=document.querySelector('input[name="regPrice"]:checked');return r?parseInt(r.value,10)||0:0}
+function mountPay(){var eng=$('regEngage');if(!eng||$('pxPay'))return;
+ var host=eng.closest('label')||eng.parentNode,b=document.createElement('div');b.id='pxPay';b.className='px-pay';
+ b.innerHTML='<div class="px-pay-t">Paiement du ticket</div>'
+ +'<p class="px-pay-n">Si le campeur a déjà versé de l’argent, enregistre-le ici. Le <b>nom</b> et le <b>numéro</b> demandés sont ceux de <b>la personne qui a payé</b>, pas ceux du campeur.</p>'
+ +'<label class="reg-price"><input type="radio" name="pxMode" value="later" checked><span><b>Pas encore payé</b><small>Tu pourras ajouter les versements plus tard</small></span></label>'
+ +'<label class="reg-price"><input type="radio" name="pxMode" value="echelonne"><span><b>Paiement échelonné</b><small>Un premier versement, par exemple 1 500 F</small></span></label>'
+ +'<label class="reg-price"><input type="radio" name="pxMode" value="unique"><span><b>Ticket entièrement payé</b><small>Le tarif complet a été réglé en une fois</small></span></label>'
+ +'<div id="pxPayF" style="display:none"><div class="registration-field"><label for="pxPayAmt">MONTANT VERSÉ (F CFA) *</label><input id="pxPayAmt" inputmode="numeric" autocomplete="off" placeholder="Ex. 1500"></div>'
+ +'<div class="px-chips" id="pxPayChips"><button type="button" data-v="1000">1 000 F</button><button type="button" data-v="1500">1 500 F</button><button type="button" data-v="2000">2 000 F</button><button type="button" data-v="3000">3 000 F</button></div>'
+ +'<div class="registration-field"><label for="pxPayNm">NOM DE LA PERSONNE QUI A PAYÉ *</label><input id="pxPayNm" autocomplete="off" placeholder="Nom et prénoms de celui qui paie"></div>'
+ +'<div class="registration-field"><label for="pxPayPh">NUMÉRO DE LA PERSONNE QUI A PAYÉ *</label><input id="pxPayPh" type="tel" inputmode="tel" autocomplete="off" placeholder="Numéro de celui qui paie"></div>'
+ +'<div class="px-pay-h" id="pxPayHint"></div><div class="px-pay-e" id="pxPayErr" role="alert"></div></div>';
+ host.parentNode.insertBefore(b,host);
+ b.addEventListener('change',syncPay);
+ b.addEventListener('input',function(e){if(e.target.id==='pxPayAmt'||e.target.id==='pxPayNm'||e.target.id==='pxPayPh'){$('pxPayErr').textContent='';syncPay()}});
+ b.addEventListener('click',function(e){var c=e.target.closest('#pxPayChips button');if(!c)return;e.preventDefault();var a=$('pxPayAmt');if(a&&!a.readOnly){a.value=c.getAttribute('data-v');syncPay()}});
+ if(!window.__pxPayPrice){window.__pxPayPrice=1;document.addEventListener('change',function(e){if(e.target&&e.target.name==='regPrice')syncPay()})}
+ syncPay()}
+function syncPay(){var f=$('pxPayF');if(!f)return;var m=pxMode(),T=pxPrice(),a=$('pxPayAmt'),h=$('pxPayHint'),c=$('pxPayChips');
+ f.style.display=m?'grid':'none';
+ if(m==='unique'){a.value=T||'';a.readOnly=true}else{if(a.readOnly)a.value='';a.readOnly=false}
+ if(c)c.style.display=m==='unique'?'none':'';
+ if(!m){h.textContent='';return}
+ if(!T){h.textContent='Choisis d’abord le tarif du ticket ci-dessus.';return}
+ var amt=parseInt(dg(a.value),10)||0;
+ h.textContent=amt>0?(amt>=T?'Ticket soldé : '+F(T)+' payés.':'Reste à payer après ce versement : '+F(T-amt)+'.'):'Tarif du ticket : '+F(T)+'.'}
+function resetPay(){var r=document.querySelector('input[name="pxMode"][value="later"]');if(r)r.checked=true;['pxPayAmt','pxPayNm','pxPayPh'].forEach(function(i){var e=$(i);if(e){e.value='';e.readOnly=false}});var e=$('pxPayErr');if(e)e.textContent='';syncPay()}
+/* lit le bloc : null = pas de paiement, false = erreur affichée, sinon l'objet paiement */
+function readPay(T){var m=pxMode();if(!m)return null;
+ var amt=m==='unique'?T:(parseInt(dg($('pxPayAmt').value),10)||0),nm=$('pxPayNm').value,ph=$('pxPayPh').value,er=payErr(amt,nm,ph,T,T);
+ if(er){$('pxPayErr').textContent=er;var b=$('pxPay');if(b&&b.scrollIntoView)b.scrollIntoView({block:'center',behavior:'smooth'});return false}
+ return{mode:(m==='unique'||amt>=T)?'unique':'echelonne',items:[mkItem(amt,nm,ph)]}}
+
+/* --- fiche « Paiement » d'un campeur déjà pré-inscrit (ajouter d'autres versements) --- */
+var pov=null,BADGE={pending:['En attente de validation','p'],confirmed:['Validé','c'],rejected:['Refusé','r']};
+function closePay(){if(!pov)return;var e=pov;pov=null;e.classList.remove('on');setTimeout(function(){e.remove()},250)}
+function curItem(code){return rd(PK,[]).filter(function(x){return x.code===code})[0]}
+function openPay(code){closePay();if(!curItem(code)){toast('Dossier introuvable sur cet appareil.');return}
+ pov=document.createElement('div');pov.className='cpy-ov';pov.setAttribute('role','dialog');pov.setAttribute('aria-modal','true');pov.setAttribute('aria-label','Paiement du campeur');pov.setAttribute('data-code',code);
+ document.body.appendChild(pov);drawPay();pov.addEventListener('click',payClick);
+ requestAnimationFrame(function(){requestAnimationFrame(function(){pov&&pov.classList.add('on')})})}
+function drawPay(){if(!pov)return;var code=pov.getAttribute('data-code'),it=curItem(code);if(!it)return closePay();
+ var v=pview(it),d=it.d||{},pct=v.T?Math.min(100,Math.round(v.paid/v.T*100)):0,items=v.p.items,last=items.length?items[items.length-1]:null;
+ var h='<div class="cpy-sh"><div class="cpy-hd"><button type="button" class="cpy-x" data-q="close" aria-label="Fermer">×</button><span class="cpy-ic">'+WALLET+'</span><h3>'+esc(d.Name||'Campeur')+'</h3><p>Paiement du ticket · code '+esc(code)+'</p></div><div class="cpy-bd">';
+ h+='<div class="cpy-card"><div class="cpy-tot"><div><small>DÉJÀ PAYÉ</small><b>'+F(v.paid)+'</b></div><div><small>RESTE</small><b class="'+(v.rest?'':'ok')+'">'+F(v.rest)+'</b></div></div><div class="cpy-bar"><i style="width:'+pct+'%"></i></div><p class="cpy-mt">Tarif du ticket : <b>'+F(v.T)+'</b>'+(v.p.mode==='echelonne'?' · paiement échelonné':v.p.mode==='unique'?' · paiement en une fois':'')+'</p></div>';
+ if(!v.T)h+='<div class="cpy-card cpy-c"><b>Tarif du ticket inconnu</b><p>Ce dossier n’a pas de formule enregistrée.</p></div>';
+ else if(v.rest<=0)h+='<div class="cpy-card cpy-done"><span>✓</span><b>Ticket entièrement payé</b><p>Le total est réglé (en attente de validation par l’organisation si besoin).</p></div>';
+ else h+='<div class="cpy-lb">NOUVEAU VERSEMENT</div><div class="cpy-card"><p class="cpy-mt">Le nom et le numéro sont ceux de <b>la personne qui paie</b>, pas ceux du campeur.</p>'
+  +'<label for="pxpA">Montant versé (F CFA)</label><input id="pxpA" inputmode="numeric" autocomplete="off" placeholder="Ex. 1500">'
+  +'<div class="cpy-chips">'+[1000,1500,2000,3000].filter(function(x){return x<v.rest}).map(function(x){return '<button type="button" data-q="chip:'+x+'">'+F(x)+'</button>'}).join('')+'<button type="button" data-q="chip:'+v.rest+'">Le reste · '+F(v.rest)+'</button></div>'
+  +'<label for="pxpN">Nom de la personne qui a payé</label><input id="pxpN" autocomplete="off" placeholder="Nom et prénoms" value="'+esc(last?last.name:'')+'">'
+  +'<label for="pxpP">Numéro de la personne qui a payé</label><input id="pxpP" type="tel" inputmode="tel" autocomplete="off" placeholder="Numéro de téléphone" value="'+esc(last?last.phone:'')+'">'
+  +'<div class="cpy-err" id="pxpE" role="alert"></div><button type="button" class="cpy-btn" data-q="ok">Enregistrer le versement</button></div>';
+ if(items.length)h+='<div class="cpy-lb">VERSEMENTS</div><div class="cpy-card cpy-hist">'+items.slice().reverse().map(function(x){var b=BADGE[x.status]||BADGE.pending,dt=new Date(x.at),ds=isNaN(dt)?'':dt.toLocaleDateString('fr-FR',{day:'2-digit',month:'short'})+' · '+dt.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  return '<div class="cpy-row"><div><b>'+F(x.amount)+'</b><small>'+esc(x.name)+' · '+esc(x.phone)+'</small><small>'+esc(ds)+'</small></div><em class="'+b[1]+'">'+b[0]+'</em></div>'}).join('')+'</div>';
+ pov.innerHTML=h+'</div></div>'}
+function payClick(e){if(!pov)return;var a=e.target.closest('[data-q]');if(!a){if(e.target===pov)closePay();return}
+ var k=a.getAttribute('data-q'),code=pov.getAttribute('data-code');
+ if(k==='close')return closePay();
+ if(k.indexOf('chip:')===0){var i=$('pxpA');if(i){i.value=k.slice(5);i.focus()}return}
+ if(k==='ok'){var it=curItem(code),v=pview(it),amt=parseInt(dg($('pxpA').value),10)||0,nm=$('pxpN').value,ph=$('pxpP').value,er=payErr(amt,nm,ph,v.rest,v.T);
+  if(er){$('pxpE').textContent=er;return}
+  if(!addPay(code,amt,nm,ph)){$('pxpE').textContent='Mémoire de l’appareil pleine : versement non enregistré.';return}
+  drawPay();toast('Versement enregistré · en attente de validation');var sc=pov&&pov.querySelector('.cpy-sh');if(sc)sc.scrollTop=0}}
+
+/* --- résumé de paiement dans la liste « Inscriptions » du profil --- */
+function sumHTML(it){var v=pview(it);if(!v.T)return '';var pct=Math.min(100,Math.round(v.paid/v.T*100));
+ var st=v.rest<=0?'<span class="hx-pst ok">Soldé ✓</span>':(v.paid?'<span class="hx-pst">Reste '+F(v.rest)+'</span>':'<span class="hx-pst no">Pas encore payé</span>');
+ return '<div class="hx-pl"><span>Paiement</span><b>'+F(v.paid)+' / '+F(v.T)+'</b>'+st+'</div><div class="hx-pb"><i style="width:'+pct+'%"></i></div>'
+  +'<button type="button" class="p-btn" data-pxpay="'+esc(it.code)+'">'+(v.rest<=0?'Voir les versements':'Ajouter un versement')+'</button>'}
+function cardHTML(x){var it=x&&curItem(x.code);return it?'<div class="hx-pay" data-pxsum="'+esc(it.code)+'">'+sumHTML(it)+'</div>':''}
+function refreshCards(){[].forEach.call(document.querySelectorAll('[data-pxsum]'),function(n){var it=curItem(n.getAttribute('data-pxsum'));if(it)n.innerHTML=sumHTML(it)})}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-pxpay]');if(!b)return;e.preventDefault();e.stopPropagation();openPay(b.getAttribute('data-pxpay'))},true);
+window.CampProxyPay={open:openPay,card:cardHTML,refresh:refreshCards};
 
 /* ---------- 1. bouton dans l'entête ---------- */
 function mountBtn(){var box=document.querySelector('.ref-head-actions');if(!box||$('pxBtn'))return;
@@ -17368,6 +17520,7 @@ function fixRecap(){var box=$('regRecap'),c=$('pxContact');if(!on||!box)return;
    if(s&&b&&lb==='Contact'){var v=(c&&c.value.trim())||'—';if(b.textContent!==v)b.textContent=v}})})}
 function clearField(id){var e=$(id);if(!e||typed[id]||!e.value)return;e.value='';e.dispatchEvent(new Event('change',{bubbles:true}))}
 function prep(){if(!on)return;
+  mountPay();
  ['regName','regEmail','regGroup'].forEach(clearField);
  var ph=$('regPhone');if(ph)ph.value='00000000';
  Object.keys(PXFILL).forEach(function(id){var e=$(id);if(e&&e.value!==PXFILL[id]){e.value=PXFILL[id];e.dispatchEvent(new Event('change',{bubbles:true}))}});
@@ -17380,7 +17533,7 @@ function prep(){if(!on)return;
  tx('#regSubmit','Valider la pré-inscription');
  var s=$('registrationSummary');if(s)s.classList.remove('show')}
 function openProxy(){
- if(!on){on=true;typed={};
+ if(!on){on=true;typed={};resetPay();
   stash={k:lsGet(KEY),d:lsGet(DKEY),phs:tx('.reg-photo-copy small'),kick:tx('.registration-kicker'),note:tx('.registration-note'),sub:tx('#regSubmit')};
   lsSet(DKEY,null);
   document.body.classList.add('px-mode');
@@ -17396,7 +17549,7 @@ function openProxy(){
  var fn=window.__pxOrig||window.openRegistration;fn.call(window);
  lsSet(KEY,null);typed={};prep();[150,450,900].forEach(function(t){setTimeout(prep,t)})}
 function markTyped(e){if(e.isTrusted&&e.target&&e.target.id)typed[e.target.id]=true}
-function exit(){if(!on)return;on=false;
+function exit(){if(!on)return;on=false;resetPay();
  if(obs){obs.disconnect();obs=null}
  var f=$('registrationForm');if(f)f.removeEventListener('input',markTyped,true);
  document.body.classList.remove('px-mode');
@@ -17420,15 +17573,16 @@ function proxySave(){if(busy)return;
  var miss=need.filter(function(id){return !($(id)&&String($(id).value).trim())});
  if(miss.length){toast('Il manque des informations : reviens aux étapes précédentes.');return}
  if(!pr){toast('Choisis le tarif du ticket.');return}
- var rec=collect(),hc=$('regHasTicket'),tn=$('regTicketNumber');
+ var pay=readPay(parseInt(pr.value,10)||0);if(pay===false)return;
+  var rec=collect(),hc=$('regHasTicket'),tn=$('regTicketNumber');
  if(hc&&hc.checked){var raw=String(tn&&tn.value||'').replace(/\D/g,''),n=parseInt(raw,10);
   if(!n||n<1||n>1000){if(tn){tn.setAttribute('aria-invalid','true');tn.focus()}toast('Le numéro du ticket doit être compris entre 0001 et 1000.');return}
   rec.TicketNumber=String(n).padStart(4,'0');
   try{rec.DistrictCode=window.campDistrictCode?window.campDistrictCode(rec.Group):'';rec.TicketCode=window.campTicketCode?window.campTicketCode(rec):''}catch(e){}
   if(!rec.DistrictCode){toast('Choisis d’abord le district pour valider le numéro du ticket.');return}
   busy=true;
-  ticketTaken(rec.TicketCode).then(function(t){if(t){busy=false;toast('Ce ticket ('+rec.TicketCode+') a déjà été utilisé dans ce district.');return}save(rec)});return}
- busy=true;save(rec)}
+  ticketTaken(rec.TicketCode).then(function(t){if(t){busy=false;toast('Ce ticket ('+rec.TicketCode+') a déjà été utilisé dans ce district.');return}save(rec,pay)});return}
+ busy=true;save(rec,pay)}
 function ticketTaken(code){if(!code)return Promise.resolve(false);
  if(rd(PK,[]).some(function(x){return x.d&&x.d.TicketCode===code}))return Promise.resolve(true);
  var s=sb();if(!s)return Promise.resolve(false);
@@ -17441,13 +17595,13 @@ function genCode(){var used=rd(PK,[]).map(function(x){return x.code});
   return Promise.race([Promise.resolve(s.from(TB).select('code').eq('code',c).limit(1)).then(function(r){return r&&r.data&&r.data.length?one(n+1):c},function(){return c}),new Promise(function(r){setTimeout(function(){r(c)},2500)})])}
  return one(0)}
 function push(code){var s=sb();if(!s)return;var it=rd(PK,[]).filter(function(x){return x.code===code})[0];if(!it)return;
- Promise.resolve(s.from(TB).upsert({code:code,data:Object.assign({},it.d,{TS:it.ts}),claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l);try{if(window.campRefreshStats)window.campRefreshStats()}catch(e){}}},function(){})}
-function save(rec){
- genCode().then(function(code){var l=rd(PK,[]),it={code:code,ts:Date.now(),claimed:false,synced:false,d:rec};l.push(it);
+ Promise.resolve(s.from(TB).upsert({code:code,data:Object.assign({},it.d,{TS:it.ts},it.pay?{Pay:it.pay}:{}),claimed:!!it.claimed},{onConflict:'code'})).then(function(r){if(r&&!r.error){var l=rd(PK,[]);l.forEach(function(x){if(x.code===code)x.synced=true});wr(PK,l);try{if(window.campRefreshStats)window.campRefreshStats()}catch(e){}}},function(){})}
+function save(rec,pay){
+ genCode().then(function(code){var l=rd(PK,[]),it={code:code,ts:Date.now(),claimed:false,synced:false,d:rec,pay:pay||undefined};l.push(it);
   if(!wr(PK,l)){rec.Photo='';it.d=rec;if(!wr(PK,l)){busy=false;toast('Mémoire de l’appareil pleine : impossible d’enregistrer.');return}}
   try{if(window.v63AddMember)window.v63AddMember({Name:rec.Name,Phone:'px'+code,Group:rec.Group,Pass:rec.Pass,Church:rec.Church})}catch(e){}
   window.__cvTotal=(+window.__cvTotal||0)+1;try{document.dispatchEvent(new Event('campstats'))}catch(e){}
-  push(code);busy=false;try{if(window.cdFx)window.cdFx('created',{t:['🎉','Inscription réussie !',(rec.Name||'Le campeur')+' est pré-inscrit(e)']})}catch(e){}showTicket(code,rec)})}
+  push(code);busy=false;try{if(window.cdFx)window.cdFx('created',{t:['🎉','Inscription réussie !',(rec.Name||'Le campeur')+' est pré-inscrit(e)']})}catch(e){}if(pay){try{toast('Paiement de '+F(pay.items[0].amount)+' enregistré · en attente de validation')}catch(e){}}showTicket(code,rec)})}
 function showTicket(code,rec){
  if(!(window.openTicket&&window.campQR&&window.campTicketNum)){done(code,rec);return}
  var msg='Camp de District 3 en 1 — code de pré-inscription de '+rec.Name+' : '+code+'. À saisir dans l’application quand on te demande « As-tu déjà ton code ? ».';
@@ -17492,7 +17646,9 @@ function ask(){var sh=$('pxAskSh');
 function find(c){var it=rd(PK,[]).filter(function(x){return x.code===c})[0];if(it)return Promise.resolve(it.claimed?null:it);var s=sb();if(!s)return Promise.resolve(null);
  return Promise.race([Promise.resolve(s.from(TB).select('code,data,claimed').eq('code',c).maybeSingle()).then(function(r){var x=r&&r.data;return x&&!x.claimed?{code:x.code,d:x.data}:null},function(){return null}),new Promise(function(r){setTimeout(function(){r(null)},5000)})])}
 function claim(it){var d=it.d,v={regName:d.Name,regPhone:'',regEmail:'',regAddress:d.Address,regBirth:d.Birth,regBirthPlace:d.BirthPlace,regNation:d.Nation,regSex:d.Sex,regBranch:d.Branch,regGrade:d.Grade,regRegion:d.RegionSel||d.Region,regRegionOther:d.RegionOther||'',regGroup:d.Group,regTroop:d.Troop,regChurch:d.ChurchSel||d.Church,regChurchOther:d.ChurchOther||'',regPatrol:d.PatrolSel||d.Patrol,regPatrolOther:d.PatrolOther||'',regTitle:d.Title};
- wr(DK,{v:v,eng:true,price:d.Price||'',step:0,photo:d.Photo||''});wr(CL,it.code)}
+ wr(DK,{v:v,eng:true,price:d.Price||'',step:0,photo:d.Photo||''});wr(CL,it.code);
+ var py=it.pay||(d&&d.Pay);
+ if(py&&py.items&&py.items.length){var cp=rd('camp_pay_2026',null);if(!cp||!cp.items||!cp.items.length){wr('camp_pay_2026',{mode:py.mode==='unique'?'unique':'echelonne',items:py.items.map(function(x){return{id:'px'+x.id,amount:x.amount,name:x.name,phone:x.phone,at:x.at,status:x.status||'pending',sent:false}})})}}}
 function install(){orig=window.openRegistration;if(typeof orig!=='function'){return false}window.__pxOrig=orig;hook();
  window.openRegistration=function(){var s=rd(RK,null),dr=rd(DK,null);
   if((s&&s.Name)||asked()||(dr&&dr.v&&Object.keys(dr.v).some(function(k){return dr.v[k]}))){return orig.apply(this,arguments)}ask()};
@@ -18565,3 +18721,75 @@ var n=0,t=setInterval(function(){mount();if(++n>40)clearInterval(t)},500);mount(
 setInterval(mount,4000);
 })();
 </script>
+<style id="camp-v300-css">
+/* ====================================================================
+   V300 — Paramètres redessinés + nouveau style « crépuscule » pour Mon camp
+   ==================================================================== */
+
+/* ---------- Paramètres ---------- */
+.d8-tg>span,.d8-ro>span{flex:1;text-align:left}
+.d8.d8-set{background:#f3f1fa}
+.d8-set .d8-h{text-align:left;padding:calc(env(safe-area-inset-top,0px) + 12px) 20px 58px;border-radius:0 0 34px 34px;background:linear-gradient(150deg,#2a0f6b 0%,#5b2bbf 58%,#8e5be8 100%)!important}
+.d8-set .d8-hero{position:absolute;right:20px;top:calc(env(safe-area-inset-top,0px) + 12px);height:auto;margin:0;display:block}
+.d8-set .d8-ic{width:46px;height:46px;background:rgba(255,255,255,.16)}
+.d8-set .d8-ic svg{width:25px;height:25px}
+.d8-set .d8-h h3{margin:50px 0 0;font-size:30px;letter-spacing:-.5px;position:relative}
+.d8-set .d8-h p{margin:5px 0 0;max-width:none;text-align:left;font-size:14px;opacity:.85;position:relative}
+.d8-set .d8-bd{margin-top:-34px;padding:0 14px calc(env(safe-area-inset-bottom,0px) + 34px);position:relative}
+.sx-me{display:flex;align-items:center;gap:13px;padding:14px;border-radius:22px;background:#fff;box-shadow:0 16px 32px -20px rgba(40,20,110,.55);margin-bottom:4px}
+.sx-av{flex:0 0 54px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:900;color:#fff;background:linear-gradient(135deg,#ff8a22,#f45a0a) center/cover no-repeat}
+.sx-mt{min-width:0;flex:1}
+.sx-mt b{display:block;font-size:16px;color:#14104a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sx-mt small{display:block;margin-top:2px;font-size:12.5px;color:#7d7d8c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sx-badge{flex:none;padding:5px 10px;border-radius:99px;background:#fff1e0;color:#b45a00;font-size:11px;font-weight:900}
+.sx-badge.ok{background:#e3f8ec;color:#15803d}
+.sx-h{margin:20px 8px 8px;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#7d7a96}
+.sx-g{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 24px -20px rgba(30,20,90,.6)}
+.sx-r{display:flex;align-items:center;gap:13px;width:100%;min-height:64px;padding:11px 14px;border:0;background:#fff;color:#14141f;font:inherit;text-align:left;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.sx-r+.sx-r,.sx-pw{box-shadow:inset 0 1px 0 #f0eef8}
+.sx-r:active{background:#f7f5ff}
+.sx-i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--c,#7c4dff);box-shadow:0 6px 12px -8px var(--c,#7c4dff)}
+.sx-i svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sx-x{flex:1;min-width:0;text-align:left}
+.sx-x b{display:block;font-size:15px;font-weight:700;color:#14141f}
+.sx-x small{display:block;margin-top:2px;font-size:12.5px;line-height:1.35;color:#7d7d8c}
+.sx-ch{flex:none;font-style:normal;font-size:22px;line-height:1;color:#b9b6cc}
+.sx-sw{flex:0 0 48px;position:relative;height:28px;border-radius:99px;background:#cfcfd8;transition:.25s;display:block;text-decoration:none}
+.sx-sw::after{content:'';position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.25s;box-shadow:0 2px 5px #0003}
+.sx-t[aria-pressed=true] .sx-sw{background:#34c759}
+.sx-t[aria-pressed=true] .sx-sw::after{left:23px}
+.sx-r.dg .sx-x b{color:#d12b3a}
+.sx-pw{padding:6px 14px 14px;background:#fff}
+.sx-pw[hidden]{display:none!important}
+
+/* ---------- Mon camp : style « crépuscule » ---------- */
+html body #screenMonCamp{background:linear-gradient(180deg,#efe9ff 0,#f7f3ff 280px,#fff8f2 100%)!important}
+html body #screenMonCamp .mycamp-welcome{position:relative!important;overflow:hidden!important;margin:6px 12px 0!important;padding:22px 20px 58px!important;border:0!important;border-radius:28px!important;background:radial-gradient(90% 120% at 100% 0,rgba(255,138,34,.95) 0,rgba(255,138,34,0) 58%),linear-gradient(150deg,#2a0f6b 0,#4a1fa8 55%,#7a35d8 100%)!important;box-shadow:0 24px 40px -26px rgba(60,20,150,.85)!important}
+html body #screenMonCamp .mycamp-welcome:after{display:none!important}
+html body #screenMonCamp .mycamp-welcome .mini-pill{background:rgba(255,255,255,.16)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)!important}
+html body #screenMonCamp .mycamp-welcome h1{color:#fff!important;font-size:29px!important;letter-spacing:-.6px!important}
+html body #screenMonCamp .mycamp-welcome p{color:#e3d9fa!important}
+html body #screenMonCamp #mcCount{position:relative!important;z-index:2!important;margin:-38px 26px 14px!important;padding:12px 16px!important;border-radius:20px!important;background:#fff!important;color:#14104a!important;border:1px solid #ece8f7!important;box-shadow:0 18px 32px -20px rgba(40,20,110,.6)!important}
+html body #screenMonCamp #mcCount>b{color:#f45a0a!important;background:none!important;-webkit-text-fill-color:#f45a0a!important;text-shadow:none!important}
+html body #screenMonCamp #mcCount span{color:#14104a!important}
+html body #screenMonCamp #mcCount small{color:#7d7a96!important}
+html body #screenMonCamp .mc8-next{border-radius:24px!important;background:#fff!important;border:1px solid #ece8f7!important;box-shadow:0 16px 32px -24px rgba(40,20,110,.55)!important}
+html body #screenMonCamp .mc8-q{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin:0 12px 14px!important}
+html body #screenMonCamp .mc8-qc{display:grid!important;grid-template-columns:44px 1fr!important;grid-template-areas:"i b" "i s"!important;column-gap:11px!important;row-gap:2px!important;align-items:center!important;text-align:left!important;min-height:0!important;padding:12px!important;border-radius:20px!important;background:#fff!important;border:1px solid #ece8f7!important;box-shadow:0 12px 24px -20px rgba(40,20,110,.6)!important}
+html body #screenMonCamp .mc8-qc .mc6-ti{grid-area:i!important;width:44px!important;height:44px!important;border-radius:14px!important}
+html body #screenMonCamp .mc8-qc .mc6-ti svg{width:22px!important;height:22px!important}
+html body #screenMonCamp .mc8-qc>b{grid-area:b!important;align-self:end!important;text-align:left!important;font-size:13px!important;color:#14104a!important}
+html body #screenMonCamp .mc8-qc>small{grid-area:s!important;align-self:start!important;text-align:left!important;font-size:11px!important;color:#7d7a96!important;display:block!important;-webkit-line-clamp:unset!important}
+html body #screenMonCamp .mc6-act,html body #screenMonCamp .mc6-tile{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;min-height:0!important;padding:13px 6px 11px!important;border-radius:20px!important;background:#fff!important;border:1px solid #ece8f7!important;box-shadow:0 12px 24px -20px rgba(40,20,110,.6)!important;text-align:center!important}
+html body #screenMonCamp .mc6-acts,html body #screenMonCamp .mc6-tiles{grid-template-columns:repeat(3,1fr)!important;gap:10px!important;margin-left:12px!important;margin-right:12px!important}
+html body #screenMonCamp .mc6-act .mc6-ti,html body #screenMonCamp .mc6-tile .mc6-ti{width:46px!important;height:46px!important;border-radius:15px!important}
+html body #screenMonCamp .mc6-act .mc6-ti svg,html body #screenMonCamp .mc6-tile .mc6-ti svg{width:22px!important;height:22px!important}
+html body #screenMonCamp .mc6-tile .mc8-tc{align-items:center!important;min-width:0!important;width:100%!important}
+html body #screenMonCamp .mc6-tile b{font-size:12px!important;color:#14104a!important;text-align:center!important}
+html body #screenMonCamp .mc6-tile small{font-size:10px!important;color:#7d7a96!important;text-align:center!important}
+html body #screenMonCamp .mc6-act{font-size:12px!important;color:#14104a!important}
+html body #screenMonCamp .mc6-box{margin:0 12px 14px!important;padding:15px!important;border-radius:24px!important;border:1px solid #ece8f7!important;background:#fff!important;box-shadow:0 16px 32px -24px rgba(40,20,110,.55)!important}
+html body #screenMonCamp .mc6-day{border-radius:14px!important}
+html body #screenMonCamp #myCampStatusCard{border-radius:22px!important;background:linear-gradient(135deg,#fff6ec,#fff)!important;border:1px solid #ffd9b8!important;box-shadow:0 14px 28px -22px rgba(244,90,10,.6)!important}
+html body #screenMonCamp .mycamp-section-head{margin:8px 16px 10px!important}
+</style>
