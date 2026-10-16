@@ -6484,7 +6484,7 @@ var PRIO=[
   texte:'<b>Shalom</b> chers responsables de troupe et adjoints du district de Bouaflé, j’ose croire que mon message vous trouve en bonne santé. 🍀<br><br>Nous venons par ce message vous inviter à faire de votre mieux afin de vous acquitter de votre ticket de <b>7.000 F</b> ou de <b>8.000 F</b> en fonction de votre titre. Nous avons jusqu’au <b>15 octobre</b> pour solder notre paiement afin d’avoir nos tee-shirts gratuitement.<br><br><b>N.B :</b> les tee-shirts seront confectionnés à Abidjan et ce sont ceux qui paieront premièrement leur ticket qui seront servis. Les gens de la dernière minute auront leurs tee-shirts après le camp.<br><br>Nous attachons du prix à ce communiqué et nous souhaitons vivement son exécution.<br><br>Large diffusion à tous, cordialement…<br><b>Pour le camp du district 3 en 1, le SG</b>',
   boutons:[{t:'Je me pré-inscris',go:'inscription'}]},
  {id:'cuflb',ico:'🏆',cat:'CUFLB 2026',titre:'CUFLB : matchs, classement et licence de joueur',meta:'Nouveau',date:'Saison 2026',iso:'2026-10-01',cta:'Ouvrir la CUFLB',chips:['Matchs','Classement','Licence'],points:['Suis les matchs, le classement et les statistiques','Crée ta licence de joueur (Flambeaux)','Retrouve ta licence et ta carte à tout moment'],
-  texte:'La Coupe d’Unité Flambeaux-Lumières de Bouaflé est dans l’appli : matchs du jour, classement, statistiques. Flambeau et joueur ? Crée ta licence dans l’appli.',
+  texte:'La Coupe d’Unité Flambeaux-Lumières de Bouaflé est dans l’appli : matchs du jour, classement, statistiques. Flambeau et joueur ? Crée ta licence dans ton profil.',
   boutons:[{t:'🏆 Ouvrir la CUFLB',go:'cuflb'},{t:'Ma licence',go:'licence',alt:1}]},
  {id:'tickets',ico:'🎟️',cat:'Billetterie',titre:'Les tickets sont maintenant disponibles !',meta:'Nouveau',date:'28 sept. 2026',iso:'2026-09-28',cta:'Acheter',ctaTel:1,chips:['Chef · 8 000 F','Élément · 7 000 F'],points:['T-shirt offert après achat','Accès au dortoir du camp','Accès à la nourriture','Bracelet unique pour tout campeur'],
   texte:'Pass Chef : 8 000 F CFA · Pass Élément : 7 000 F CFA. Bonus d’achat : T-shirt offert après achat, accès au dortoir du camp, accès à la nourriture et bracelet unique pour tout campeur.',
@@ -8493,6 +8493,7 @@ function card(m){return `<section class="sf-g"><div class="sf-c solo">${sfRow(m)
 function std(ed,teams){const T={};teams.forEach(t=>T[t]={t,j:0,v:0,n:0,d:0,bp:0,bc:0,p:0});
 M.filter(m=>m.ed==ed&&played(m)&&!/finale|quart|demi/i.test(m.ph||'')).forEach(m=>{const A=T[m.h],B=T[m.a];if(!A||!B)return;A.j++;B.j++;A.bp+=m.hs;A.bc+=m.as;B.bp+=m.as;B.bc+=m.hs;
 if(m.hs>m.as){A.v++;A.p+=3;B.d++}else if(m.hs<m.as){B.v++;B.p+=3;A.d++}else{A.n++;B.n++;A.p++;B.p++}});
+if(ed==='cur'&&window.clsAdj)window.clsAdj(T);
 return Object.values(T).sort((a,b)=>b.p-a.p||(b.bp-b.bc)-(a.bp-a.bc)||b.bp-a.bp||a.t.localeCompare(b.t))}
 const tbl=(r,qn)=>`<table class="cu-tab sf-tab"><tr><th>#</th><th>ÉQUIPE</th><th>J</th><th>V</th><th>N</th><th>D</th><th>+/-</th><th>PTS</th></tr>${r.map((x,i)=>{const f=tmForm(x.t);return `<tr${qn&&i<qn&&x.j?' class="q"':''} data-tm="${q(x.t)}" data-tmt="cls"><td class="rk">${i+1}</td><td class="tn"><div class="tnw">${crest(x.t)}<span class="tnn"><b>${x.t}</b>${f.length?`<em class="sf-f">${f.map(z=>`<u class="f${z}">${z}</u>`).join('')}</em>`:''}</span></div></td><td>${x.j}</td><td>${x.v}</td><td>${x.n}</td><td>${x.d}</td><td>${x.bp-x.bc}</td><td>${x.p}</td></tr>`}).join('')}</table>`;
 const TD=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
@@ -8799,7 +8800,7 @@ document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target&&e.target.id
 document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#cuLic [data-gok]')){e.preventDefault();L_gateCheck()}});
 document.addEventListener('input',e=>{const t=e.target;if(t&&t.id=='cf_code'){t.value=t.value.replace(/\D/g,'').slice(0,4);t.classList.remove('bad');const er=$('cf_er');if(er)er.textContent='';if(t.value.length==4)L_gateCheck()}});
 function L_showMine(m){D={...m.rec};lic.innerHTML=L_head()+'<p class="ls" style="text-align:center;margin-top:34px">Chargement de ta licence…</p>';ph=new Image();ph.onload=()=>L_build(false);ph.onerror=()=>{L_s('cuflb_me','');L_start()};ph.src=m.photo}
-function L_cta(){const c=document.querySelector('#screenMatchs .cu-cta');if(!c)return;if(!L_fl()){c.hidden=true;c.innerHTML='';return}c.hidden=false;const m=L_me();
+function L_cta(){const c=document.querySelector('#screenMatchs .cu-cta');if(!c)return;c.hidden=true;c.innerHTML='';return;if(!L_fl()){c.hidden=true;c.innerHTML='';return}c.hidden=false;const m=L_me();
  c.innerHTML=m?`<button class="cu-lic cu-mine" data-lic aria-label="Voir ma licence"><span class="ph"><img alt="" src="${m.photo}"></span><span class="tx"><small>MA LICENCE · SAISON ${L_x(m.rec.sais)}</small><b>${L_x(((m.rec.nom||'').toUpperCase()+' '+(m.rec.pre||'')).trim())}</b><em>${L_x(m.rec.num)} · ${L_x(m.rec.tr||'')}</em></span><span class="go">Voir ›</span></button>`
  :`<button class="cu-lic" data-lic><span class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#f6c94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2.2"/><path d="M6 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14.5 10h4M14.5 13.5h3"/></svg></span><span class="tx"><b>Licence de joueur</b><small>Crée ta licence officielle de joueur</small><em>4 étapes · photo d’identité</em></span><span class="go">Obtenir ›</span></button>`}
 function L_eqAuto(r){const n=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),hay=n(r.tr),ch=n((r.eg||'')+' '+r.tr);
@@ -9164,6 +9165,7 @@ const tmSort=a=>[...a].sort((x,y)=>(x.d||'').localeCompare(y.d||''));
 function tmStd(sc,mode){const T={};sc.forEach(t=>T[t]={t,j:0,v:0,n:0,d:0,bp:0,bc:0,p:0});
  const up=(X,a,b)=>{X.j++;X.bp+=a;X.bc+=b;if(a>b){X.v++;X.p+=3}else if(a<b)X.d++;else{X.n++;X.p++}};
  list(ED).filter(played).forEach(m=>{const A=T[m.h],B=T[m.a];if(!A||!B)return;if(mode!='a')up(A,m.hs,m.as);if(mode!='h')up(B,m.as,m.hs)});
+ if(ED==CUR&&mode!='h'&&mode!='a'&&window.clsAdj)window.clsAdj(T);
  return Object.values(T).sort((a,b)=>b.p-a.p||(b.bp-b.bc)-(a.bp-a.bc)||b.bp-a.bp||a.t.localeCompare(b.t))}
 const tmForm=t=>tmSort(list(ED).filter(m=>played(m)&&(m.h==t||m.a==t))).slice(-5).map(m=>{const h=m.h==t,a=h?m.hs:m.as,b=h?m.as:m.hs;return a>b?'V':a<b?'D':'N'});
 const tmMy=t=>list(ED).filter(m=>m.h==t||m.a==t);
@@ -9258,7 +9260,7 @@ document.addEventListener('click',e=>{const tg=e.target;if(!tg||!tg.closest)retu
 document.addEventListener('keydown',e=>{if(e.key=='Escape'){if(plEl.classList.contains('on')){plEl.classList.remove('on');e.preventDefault()}else if(tmEl.classList.contains('on')){tmBack();e.preventDefault()}return}
  if((e.key=='Enter'||e.key==' ')&&e.target&&e.target.matches&&e.target.matches('#cuTm [data-tpl]')){e.preventDefault();plOpen(+e.target.dataset.tpl)}});
 window.CUFLB_team=tmOpen;
-L_cta();spLoad();render();window.CUFLB={M,P,render,poster,dayPoster,JOUEURS,openTeam:tmOpen,LG};
+L_cta();spLoad();render();window.CUFLB={M,P,render,poster,dayPoster,JOUEURS,openTeam:tmOpen,LG};window.CUFLB_licInfo=function(){return L_fl()?{mine:L_me()}:null};window.CUFLB_licOpen=function(){if(!L_fl())return;PX=false;L_start();lic.classList.add('on');lic.scrollTop=0};
 })();
 </script><style id="v118-couleurs">
 
@@ -9360,7 +9362,7 @@ html.cd-lic #accueil,html.cd-lic #appShellView,html.cd-lic #floatingAppNav,html.
 #cuLic .gt .er{min-height:22px;margin-top:8px}
 </style>
 <script id="cuflb-v137-js">
-window.cuOpen=function(l){try{showAppTab('matchs')}catch(e){}setTimeout(function(){var b=document.querySelector('#screenMatchs [data-lic]');if(l&&b)b.click()},380)};
+window.cuOpen=function(l){if(l&&window.CUFLB_licOpen){window.CUFLB_licOpen();return}try{showAppTab('matchs')}catch(e){}setTimeout(function(){var b=document.querySelector('#screenMatchs [data-lic]');if(l&&b)b.click()},380)};
 </script>
 <style id="cuflb-v138">
 
@@ -11163,6 +11165,7 @@ html.sm-open #cvBar{display:none!important}
 <ellipse cx="110" cy="188" rx="11" ry="8" fill="#ffb15c"/><path d="M104 188h12" stroke="#e85d00" stroke-width="2.5" stroke-linecap="round"/>
 </g></svg></div><h2>Espace agents</h2><p class="sm-sub">Entre ton code pour scanner les tickets à l’entrée du camp.</p><div class="sm-fld" id="smFld"><input id="smCode" type="password" placeholder="Code agent" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" id="smEye" aria-label="Afficher le code"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div><p id="smErr" role="alert"></p><button class="sm-btn" id="smOk" type="button">Entrer</button><ol class="sm-stp"><li>Entre ton code agent</li><li>Scanne le QR du ticket</li><li>Remets le bracelet</li></ol><span class="sm-sec" id="smSec">Connexion sécurisée</span><small class="sm-note">Accès réservé · code vérifié en ligne</small></div></div>
   <div id="smMain" class="sm-b" style="padding:0;display:none">
+   <div class="sm-tabs" id="smTabs" role="tablist" aria-label="Type de scan"><button type="button" data-m="arr" class="on">Arrivée</button><button type="button" data-m="food">Nourriture</button><button type="button" data-m="act">Activités</button></div><div class="sm-sub" id="smSub" hidden><label id="smSubL" for="smSel">Repas servi</label><select id="smSel"></select></div>
    <div class="sm-st"><div><b id="smOkN">0</b><small>Validés</small></div><div class="e"><b id="smKoN">0</b><small>Refusés</small></div></div>
    <div class="sm-vid" id="smVid"><video id="smV" playsinline muted></video></div>
    <div class="sm-row"><button class="sm-btn" id="smCam" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"/></svg><span>Scanner un ticket</span></button><label class="sm-tb" for="smPhoto" aria-label="Photo du QR" title="Photo du QR"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></label><input id="smPhoto" type="file" accept="image/*" capture="environment" hidden><button type="button" id="smTorch" class="sm-tb" style="display:none" aria-label="Lampe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></button></div>
@@ -11179,6 +11182,7 @@ html.sm-open #cvBar{display:none!important}
   </div>
  </div>
 </div>
+<style id="sm-pass-css">.sm-tabs{display:flex;gap:6px;margin-bottom:12px;background:#ece6fb;padding:4px;border-radius:14px}.sm-tabs button{flex:1;border:0;border-radius:11px;padding:12px 6px;font-weight:700;font-size:14px;font-family:inherit;background:transparent;color:#43118a}.sm-tabs button.on{background:#43118a;color:#fff;box-shadow:0 2px 8px rgba(67,17,138,.3)}.sm-sub{margin-bottom:12px}.sm-sub label{display:block;font-weight:700;font-size:13px;color:#43118a;margin-bottom:4px}.sm-sub select{width:100%;padding:13px;border-radius:12px;border:2px solid #d9cff5;font-size:16px;font-family:inherit;background:#fff;color:#1c1440}</style>
 <script id="sm-script">
 (function(){
 'use strict';
@@ -11220,7 +11224,7 @@ function scanRpc(num,phone,sig,manual){
  if(direct||!tok)return dir();
  return jpost('/api?r=scan',{ticket:num,phone:phone,sig:sig||null,manual:!!manual},tok).then(function(j){if(j._s===401){tok='';return {data:{ok:false,alert:'code_invalide'}}}if(j.ok)return {data:j.data};return {error:true}},function(){direct=true;return dir()})}
 
-function lock(msg){tok='';want=false;stop();code='';$('smLock').style.display='';$('smMain').style.display='none';$('smErr').textContent=msg||''}
+function lock(msg){setMode('arr');tok='';want=false;stop();code='';$('smLock').style.display='';$('smMain').style.display='none';$('smErr').textContent=msg||''}
 function touch(){act=Date.now()}
 setInterval(function(){if(code&&!stream&&Date.now()-act>600000)lock('Session verrouillée après 10 min d’inactivité.')},30000);
 function stop(){if(loop){clearInterval(loop);loop=null}if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}$('smVid').classList.remove('live');$('smCam').innerHTML=CAMI;trk=null;tor=false;$('smTorch').style.display='none';$('smTorch').classList.remove('on');$('smZw').style.display='none'}
@@ -11234,7 +11238,7 @@ function submit(num,phone,sig,manual){touch();
   rec(true,d.name,'N° '+num+' · '+(d.troupe||'—'));verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},
   function(err){queue(num,phone,sig,manual);res('err','Erreur réseau','Scan mis en attente'+(err&&err.message?' ('+err.message+')':'')+', il sera renvoyé automatiquement.')})}
 function handle(raw){var now=Date.now();if(raw===lastRaw&&now-lastT<4000)return;lastRaw=raw;lastT=now;var p=String(raw||'').split('|');
- if(p[0]==='CAMP3EN1'&&String(p[1]||'').replace(/\D/g,''))submit(p[1],p[3]||'',p[5]||'',false);
+ if(p[0]==='CAMP3EN1'&&String(p[1]||'').replace(/\D/g,''))(mode==='arr'?submit(p[1],p[3]||'',p[5]||'',false):pass(p[1],p[3]||'',String(p[2]||'').trim()));
  else if(p[0]==='CAMP3EN1'){var nm=String(p[2]||'').trim()||'Campeur';rec(false,nm,'Pré-inscrit · inscription incomplète (n° de ticket manquant)');res('err','Inscription incomplète',nm+' est pré-inscrit(e) mais n’a pas encore de n° de ticket valide. Il/elle doit ajouter son n° de ticket, puis rouvrir son ticket.');verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200])}
  else{rec(false,'QR inconnu','Ce code ne vient pas du Camp');res('err','QR non reconnu','Ce code ne vient pas du Camp.');verdict('err')}}
 function cam(){
@@ -11265,7 +11269,7 @@ $('smCode').addEventListener('keydown',function(e){if(e.key==='Enter')$('smOk').
 $('smCam').onclick=function(){if(stream){want=false;stop();return}want=true;cam()};
 $('smPhoto').onchange=function(){var f=this.files&&this.files[0];this.value='';if(f)photo(f)};
 $('smTorch').onclick=function(){if(!trk)return;tor=!tor;trk.applyConstraints({advanced:[{torch:tor}]}).then(function(){$('smTorch').classList.toggle('on',tor)}).catch(function(){tor=!tor})};
-$('smGo').onclick=function(){var t=$('smTk').value.trim(),p=$('smPh').value.trim();if(!t||!p){res('err','Champs manquants','Numéro du ticket et téléphone.');return}submit(t,p,'',true);$('smTk').value='';$('smPh').value=''};
+$('smGo').onclick=function(){var t=$('smTk').value.trim(),p=$('smPh').value.trim();if(!t||!p){res('err','Champs manquants','Numéro du ticket et téléphone.');return}(mode==='arr'?submit(t,p,'',true):pass(t,p,''));$('smTk').value='';$('smPh').value=''};
 $('smQuit').onclick=quit;window.openScanMy=openSm;
 $('smZm').oninput=function(){if(trk)trk.applyConstraints({advanced:[{zoom:+this.value}]}).catch(function(){})};
 $('smFlip').onclick=function(){face=face==='environment'?'user':'environment';if(stream){stop();cam()}};
@@ -11290,6 +11294,33 @@ function watch(){var plus=document.getElementById('screenPlus');if(!plus){setTim
  inject();new MutationObserver(inject).observe(plus,{childList:true,subtree:true})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
 setTimeout(inject,1500);
+/* ---- Onglets MyScan : Arrivée · Nourriture · Activités ---- */
+var mode='arr',MEALS=['Petit-déjeuner','Déjeuner','Goûter','Dîner'],acts=null;
+var PMSG={deja_scanne:['Déjà scanné','Ce campeur est déjà enregistré pour cela aujourd’hui.'],non_arrive:['Pas encore arrivé','Son arrivée n’est pas validée : scanne d’abord son ticket dans l’onglet Arrivée.'],code_invalide:['Code agent refusé','Reconnecte-toi.'],qr_non_valide:['Scan invalide','Ticket ou choix manquant.']};
+function mealNow(){var h=new Date().getHours();return h<10?0:h<15?1:h<18?2:3}
+function loadActs(){if(acts)return Promise.resolve(acts);return ensure().then(function(s){return s.from('camp_items').select('data').eq('kind','programme')}).then(function(r){if(r&&r.error)throw r.error;var seen={};acts=((r&&r.data)||[]).map(function(x){return x.data||{}}).filter(function(d){if(!d.titre||seen[d.titre])return false;seen[d.titre]=1;return true}).map(function(d){return {v:d.titre,t:d.titre+(d.lieu?' · '+d.lieu:'')}});return acts})}
+function setMode(m){mode=m;[].forEach.call($('smTabs').children,function(b){b.classList.toggle('on',b.dataset.m===m)});var sub=$('smSub'),sel=$('smSel');sel.textContent='';
+ if(m==='arr'){sub.hidden=true;return}
+ sub.hidden=false;
+ if(m==='food'){$('smSubL').textContent='Repas servi';MEALS.forEach(function(x){var o=el('option',x);o.value=x;sel.appendChild(o)});sel.selectedIndex=mealNow();return}
+ $('smSubL').textContent='Activité (à choisir)';var o0=el('option','Choisir l’activité…');o0.value='';sel.appendChild(o0);
+ loadActs().then(function(a){if(mode!=='act')return;a.forEach(function(x){var o=el('option',x.t);o.value=x.v;sel.appendChild(o)});if(!a.length)o0.textContent='Aucune activité au programme'},function(){acts=null;if(mode==='act')o0.textContent='Activités indisponibles : change d’onglet puis reviens'})}
+function pass(num,phone,name){touch();var kind=mode==='food'?'repas':'activite',lab=$('smSel').value;
+ if(!lab){res('err',mode==='food'?'Choisis le repas':'Choisis d’abord l’activité','Sélectionne-la dans la liste au-dessus du scan.');verdict('err');return}
+ var title=(mode==='food'?'Repas · ':'Activité · ')+lab,nm=name||('Ticket N° '+num),q={n:num,p:phone,nm:nm,k:kind,l:lab},wait=function(m){pq.push(q);pqUi();res('err','Hors connexion',nm+' : scan mis en attente'+(m?' ('+m+')':'')+', il sera renvoyé automatiquement.')};
+ ensure().then(function(s){return s.rpc('submit_pass',{p_code:code,p_ticket:String(num),p_phone:phone||'',p_kind:kind,p_label:lab})}).then(function(r){var d=r&&r.data;
+  if((r&&r.error)||!d){wait(r&&r.error&&r.error.message);return}
+  if(!d.ok){var m=PMSG[d.alert]||['Scan refusé',''];rec(false,nm,title+' · '+m[0]);res('err',m[0],m[1]);verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
+  var box=res('ok',mode==='food'?'Repas validé':'Participation validée',nm);box.appendChild(el('small',lab));
+  rec(true,nm,title+' · N° '+num);verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},function(e){wait(e&&e.message)})}
+$('smTabs').onclick=function(e){var m=e.target.dataset&&e.target.dataset.m;if(!m||m===mode)return;setMode(m);res('','Prêt à scanner',m==='arr'?'Vise le QR du ticket pour valider l’arrivée.':m==='food'?'Choisis le repas puis vise le QR du ticket.':'Choisis l’activité puis vise le QR de chaque participant.')};
+/* ---- Scans repas/activités mis en attente hors connexion ---- */
+var pq=[];
+function pqUi(){var b=$('smPend'),n=pq.length+pend.length;if(!n){b.hidden=true;return}b.hidden=false;b.textContent='';b.appendChild(el('span',n+' scan'+(n>1?'s':'')+' en attente de connexion'));var k=el('button','Renvoyer');k.type='button';k.onclick=function(){flush();pqFlush()};b.appendChild(k)}
+pendUi=pqUi;
+function pqFlush(){if(!pq.length||!code)return;var L=pq;pq=[];pqUi();L.forEach(function(q){ensure().then(function(s){return s.rpc('submit_pass',{p_code:code,p_ticket:String(q.n),p_phone:q.p||'',p_kind:q.k,p_label:q.l})}).then(function(r){var d=r&&r.data;if((r&&r.error)||!d){pq.push(q);pqUi();return}rec(!!d.ok||d.alert==='deja_scanne',q.nm,(q.k==='repas'?'Repas · ':'Activité · ')+q.l+(d.ok?' · renvoyé':' · '+(PMSG[d.alert]||['refusé'])[0]))},function(){pq.push(q);pqUi()})})}
+window.addEventListener('online',pqFlush);
+setMode('arr');
 })();
 </script>
 
@@ -11531,6 +11562,102 @@ t.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest(
 setTimeout(function(){var r=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
 t.scrollTo({left:Math.max(0,b.offsetLeft-(t.clientWidth-b.offsetWidth)/2),behavior:r?'auto':'smooth'})},30)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
+<style id="cu-tm-sf">
+#cuTm{--cm-n:#14104a;--cm-v:#43118a;--cm-o:#ff6500;--cm-g:#ffd76a;--cm-l:#ece9f7;--cm-m:#6d6a92}
+html body #cuTm .sf-m{margin:10px 14px;border:1px solid #ebe7f7;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px -18px rgba(20,16,74,.5)}
+html body #cuTm .sf-m .sf-b{flex:1;min-width:0;padding:10px 12px}
+html body #cuTm .cu-res-list,html body #cuTm .tm-res{padding:12px 14px 24px}
+html body #cuTm .sf-d.on{background:linear-gradient(160deg,var(--cm-v),var(--cm-n))!important;box-shadow:0 8px 16px -8px rgba(67,17,138,.7)!important}
+html body #cuTm .sf-d.on *{color:#fff!important}
+html body #cuTm .sf-d.td{box-shadow:0 0 0 2px var(--cm-o)!important}
+html body #cuTm .sf-dh{color:var(--cm-n)!important;font-weight:900!important;letter-spacing:.4px}
+html body #cuTm .sf-g{border-radius:18px!important;overflow:hidden;background:#fff;box-shadow:0 12px 28px -18px rgba(20,16,74,.5),0 0 0 1px rgba(67,17,138,.08)!important}
+html body #cuTm .sf-gh{background:linear-gradient(90deg,#f4f0ff,#fff)!important;border-left:4px solid var(--cm-o)!important}
+html body #cuTm .sf-gh b{color:var(--cm-n)!important;font-weight:900!important;letter-spacing:.3px}
+html body #cuTm .sf-m:active{background:#f6f2ff!important}
+html body #cuTm .sf-m .sf-s{min-width:26px;text-align:center;font-variant-numeric:tabular-nums;font-weight:900!important}
+html body #cuTm .sf-m.fin .sf-tr.w .sf-n{font-weight:900!important;color:var(--cm-n)!important}
+html body #cuTm .sf-tr.l .sf-n,html body #cuTm .sf-tr.l .sf-s{color:#7c789e!important}
+html body #cuTm .sf-t small.td{background:var(--cm-o);color:#fff!important;border-radius:99px;padding:2px 8px;font-weight:800}
+html body #cuTm .sf-ds{position:relative;display:flex;gap:6px;overflow-x:auto;padding:12px 12px 12px;margin:8px 0 0;background:#fff;border-top:1px solid var(--cm-l);border-bottom:1px solid var(--cm-l);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html body #cuTm .sf-ds::-webkit-scrollbar{display:none}
+html body #cuTm .sf-d{position:relative;flex:none;width:54px;padding:8px 0 7px;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--cm-m);cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+html body #cuTm .sf-d small{font-size:10px;font-weight:800;letter-spacing:.05em;line-height:1.2}
+html body #cuTm .sf-d b{font-size:21px;font-weight:900;line-height:1.1;color:var(--cm-n)}
+html body #cuTm .sf-d i{margin-top:4px;min-width:18px;padding:1px 6px;border-radius:99px;background:var(--cm-l);color:var(--cm-v);font-style:normal;font-size:10px;font-weight:800;line-height:1.5}
+html body #cuTm .sf-d.on{background:var(--cm-n);color:#ffffffb8}
+html body #cuTm .sf-d.on b{color:#fff}
+html body #cuTm .sf-d.on i{background:var(--cm-o);color:#fff}
+html body #cuTm .sf-d.td::after{content:"";position:absolute;top:7px;right:9px;width:6px;height:6px;border-radius:50%;background:var(--cm-o)}
+html body #cuTm .sf-d:focus-visible{outline:2px solid var(--cm-o);outline-offset:1px}
+html body #cuTm .sf-g{margin:12px 12px 0}
+html body #cuTm .sf-gh{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border:1px solid var(--cm-l);border-bottom:0;border-radius:16px 16px 0 0}
+html body #cuTm .sf-gh::before{content:"";flex:none;width:30px;height:30px;border-radius:9px;background:var(--sf-logo,none) center/contain no-repeat,#f7f5fd}
+html body #cuTm .sf-gh b{display:block;font-size:14.5px;font-weight:800;line-height:1.2;color:var(--cm-n)}
+html body #cuTm .sf-gh small{display:block;margin-top:1px;font-size:11px;font-weight:600;color:var(--cm-m)}
+html body #cuTm .sf-c{background:#fff;border:1px solid var(--cm-l);border-radius:0 0 16px 16px;overflow:hidden;box-shadow:0 2px 10px #14104a0f}
+html body #cuTm .sf-c.solo{border-radius:16px}
+html body #cuTm .sf-m{display:flex;align-items:stretch;min-height:66px;background:#fff;border-top:1px solid #f1eff9;cursor:pointer;-webkit-tap-highlight-color:transparent}
+html body #cuTm .sf-m:first-child{border-top:0}
+html body #cuTm .sf-gh+.sf-c .sf-m:first-child{border-top:1px solid var(--cm-l)}
+html body #cuTm .sf-m:active{background:#f7f5fd}
+html body #cuTm .sf-m:focus-visible{outline:2px solid var(--cm-o);outline-offset:-2px}
+html body #cuTm .sf-t{flex:none;width:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-right:1px solid #f1eff9;text-align:center}
+html body #cuTm .sf-t b{font-size:13px;font-weight:800;color:var(--cm-n);font-variant-numeric:tabular-nums}
+html body #cuTm .sf-t small{font-size:10px;font-weight:700;line-height:1.15;color:var(--cm-m)}
+html body #cuTm .sf-t small.td{color:var(--cm-o)}
+html body #cuTm .sf-m.fin .sf-t b{color:var(--cm-m)}
+html body #cuTm .sf-m.rp .sf-t small{color:var(--cm-o)}
+html body #cuTm .sf-b{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:9px 14px 9px 12px}
+html body #cuTm .sf-tr{display:flex;align-items:center;gap:10px;min-height:26px}
+html body #cuTm .sf-cr{flex:none;width:24px;height:24px;display:grid;place-items:center}
+html body #cuTm .sf-cr .cu-cr{width:24px!important;height:24px!important;min-width:0;display:grid!important;place-items:center;border-radius:50%;font-size:9px;font-weight:800;color:#fff;overflow:hidden}
+html body #cuTm .sf-cr .cu-cr.lg{background:none!important;border-radius:0}
+html body #cuTm .sf-cr .cu-cr img{width:100%!important;height:100%!important;object-fit:contain!important}
+html body #cuTm .sf-n{flex:1;min-width:0;font-size:14.5px;font-weight:600;color:var(--cm-n);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body #cuTm .sf-s{flex:none;min-width:22px;text-align:right;font-size:16px;font-weight:800;color:var(--cm-n);font-variant-numeric:tabular-nums}
+html body #cuTm .sf-tr.w .sf-n,html body #cuTm .sf-tr.w .sf-s{font-weight:900}
+html body #cuTm .sf-tr.l .sf-n,html body #cuTm .sf-tr.l .sf-s{color:#9a97b8;font-weight:600}
+html body #cuTm .sf-v{display:block;padding-left:34px;font-size:11px;font-weight:600;color:var(--cm-m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body #cuTm .sf-dh{margin:18px 16px 0;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:var(--cm-m)}
+html body #cuTm .sf-f{display:flex;gap:3px;font-style:normal}
+html body #cuTm .sf-f u{display:grid;place-items:center;width:15px;height:15px;border-radius:50%;font-size:8.5px;font-weight:800;line-height:1;color:#fff;text-decoration:none}
+html body #cuTm .sf-f u.fV{background:#1fa971}
+html body #cuTm .sf-f u.fN{background:#a5a2c0}
+html body #cuTm .sf-f u.fD{background:#e5484d}
+</style>
+<style id="cuflb-pro-css">
+html body #screenMatchs.cu-sf.cu-sf .champ-hero{background:radial-gradient(120% 140% at 100% 0,rgba(255,215,106,.30),transparent 55%),radial-gradient(90% 120% at 0 100%,rgba(255,101,0,.24),transparent 60%),linear-gradient(140deg,#0e0a3a 0%,#2a0f6e 55%,#43118a 100%)!important;padding:18px 16px 14px!important;border-bottom:3px solid #ffd76a!important}
+html body #screenMatchs.cu-sf.cu-sf .cu-tro{box-shadow:0 0 0 3px #ffd76a,0 12px 26px -10px #000b!important}
+html body #screenMatchs.cu-sf.cu-sf .champ-kicker{font-size:22px!important;letter-spacing:.4px!important;text-shadow:0 2px 10px #0006}
+html body #screenMatchs.cu-sf.cu-sf .champ-hero p{color:#e6defb!important;font-weight:700!important}
+html body #screenMatchs.cu-sf.cu-sf .champ-stats strong{color:#ffd76a!important;font-size:24px!important;font-variant-numeric:tabular-nums}
+html body #screenMatchs.cu-sf.cu-sf .champ-stats span{text-transform:uppercase;letter-spacing:.8px!important;color:#d9d2f6!important}
+html body #screenMatchs.cu-sf.cu-sf .champ-tabs{background:#fff!important;box-shadow:0 8px 18px -14px rgba(20,16,74,.55)!important}
+html body #screenMatchs.cu-sf.cu-sf .champ-tab{font-weight:800!important;letter-spacing:.2px;padding-top:14px!important;padding-bottom:14px!important;color:var(--cm-m)!important}
+html body #screenMatchs.cu-sf.cu-sf .champ-tab.active{color:var(--cm-v)!important;box-shadow:inset 0 -3px 0 var(--cm-o)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-d.on{background:linear-gradient(160deg,var(--cm-v),var(--cm-n))!important;box-shadow:0 8px 16px -8px rgba(67,17,138,.7)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-d.on *{color:#fff!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-d.td{box-shadow:0 0 0 2px var(--cm-o)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-dh{color:var(--cm-n)!important;font-weight:900!important;letter-spacing:.4px}
+html body #screenMatchs.cu-sf.cu-sf .sf-g{border-radius:18px!important;overflow:hidden;background:#fff;box-shadow:0 12px 28px -18px rgba(20,16,74,.5),0 0 0 1px rgba(67,17,138,.08)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-gh{background:linear-gradient(90deg,#f4f0ff,#fff)!important;border-left:4px solid var(--cm-o)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-gh b{color:var(--cm-n)!important;font-weight:900!important;letter-spacing:.3px}
+html body #screenMatchs.cu-sf.cu-sf .sf-m:active{background:#f6f2ff!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-m .sf-s{min-width:26px;text-align:center;font-variant-numeric:tabular-nums;font-weight:900!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-m.fin .sf-tr.w .sf-n{font-weight:900!important;color:var(--cm-n)!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-tr.l .sf-n,html body #screenMatchs.cu-sf.cu-sf .sf-tr.l .sf-s{color:#7c789e!important}
+html body #screenMatchs.cu-sf.cu-sf .sf-t small.td{background:var(--cm-o);color:#fff!important;border-radius:99px;padding:2px 8px;font-weight:800}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab{border-collapse:separate!important;border-spacing:0!important;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 12px 28px -18px rgba(20,16,74,.5),0 0 0 1px rgba(67,17,138,.08)!important}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab th{background:linear-gradient(180deg,#f4f0ff,#ece9f7)!important;color:var(--cm-v)!important;font-weight:900!important;letter-spacing:.6px}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab td.rk{font-weight:900!important;color:var(--cm-v)!important}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab tr:nth-child(2) td.rk{color:#b8860b!important}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab td:last-child{font-weight:900!important;background:#faf7ff;color:var(--cm-n)!important;font-variant-numeric:tabular-nums}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab tr.q td:first-child{box-shadow:inset 4px 0 0 #1fa971}
+html body #screenMatchs.cu-sf.cu-sf .cu-tab.sf-tab::after{content:'Barre verte : qualifié · Départage : points, différence de buts, buts marqués';display:table-caption;caption-side:bottom;padding:9px 12px;font-size:10.5px;font-weight:700;color:var(--cm-m);background:#faf7ff}
+.cu-sync{grid-column:1/-1;margin-top:10px;font-size:11px;font-weight:700;color:#d9d2f6;display:flex;align-items:center;gap:7px}.cu-sync i{width:8px;height:8px;border-radius:50%;background:#34d399;animation:cuP 2s infinite}@keyframes cuP{0%{box-shadow:0 0 0 0 rgba(52,211,153,.7)}70%,100%{box-shadow:0 0 0 7px rgba(52,211,153,0)}}.cu-sync.off i{background:#fbbf24;animation:none}@media(prefers-reduced-motion:reduce){.cu-sync i{animation:none}}
+.cu-ph{margin:22px 14px;padding:30px 20px;border-radius:20px;text-align:center;background:#fff;box-shadow:0 14px 32px -20px rgba(20,16,74,.55),0 0 0 1px rgba(67,17,138,.08)}.cu-ph-i{width:68px;height:68px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#fff7df,#ffe9a8);box-shadow:0 0 0 3px #ffd76a}.cu-ph b{display:block;font-size:18px;font-weight:900;color:#14104a}.cu-ph p{margin:8px auto 0;max-width:300px;font-size:13px;line-height:1.45;font-weight:600;color:#6d6a92}.cu-ph button{margin-top:16px;border:0;border-radius:99px;padding:12px 22px;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(135deg,#43118a,#14104a);box-shadow:0 8px 18px -8px rgba(67,17,138,.8)}.cu-sk{margin-top:16px;display:grid;gap:8px}.cu-sk i{height:14px;border-radius:8px;background:linear-gradient(90deg,#ece9f7 25%,#f8f6ff 50%,#ece9f7 75%);background-size:200% 100%;animation:cuSk 1.2s linear infinite}.cu-sk i:nth-child(2){width:80%}.cu-sk i:nth-child(3){width:60%}@keyframes cuSk{to{background-position:-200% 0}}@media(prefers-reduced-motion:reduce){.cu-sk i{animation:none}}html body #screenMatchs.cu-sf.cu-nodata .champ-stats{display:none!important}
+</style>
 <script id="cuflb-sync-js">
 /* Synchronisation CUFLB : les fiches de match, scores, buts, cartons, compositions et homme du match
    publiés depuis le tableau de bord (tables « matchs », « cuflb_poules », « camp_items ») s'affichent dans
@@ -11585,24 +11712,31 @@ function applyPoules(rows){
  ks.forEach(function(k){out[k]=t[k].map(function(x){return C[nk(x)]||x})});
  var o=JSON.stringify(API.P);if(o===JSON.stringify(out))return false;
  Object.keys(API.P).forEach(function(k){delete API.P[k]});Object.keys(out).forEach(function(k){API.P[k]=out[k]});return true}
+window.clsAdj=function(T){var P=window.CLS_PUB;if(!P)return;Object.keys(T).forEach(function(k){var o=P[nk(T[k].t)];if(o&&o.corrige){var x=T[k];x.j=+o.j||0;x.v=+o.g||0;x.n=+o.n||0;x.d=+o.p||0;x.bp=+o.bp||0;x.bc=+o.bc||0;x.p=+o.pts||0}})};
 function screenOn(){var s=document.getElementById('screenMatchs');return !!(s&&s.offsetParent!==null&&s.getAttribute('aria-hidden')!=='true')}
 function go(){
  if(busy||!API&&!(API=window.CUFLB))return;busy=true;last=Date.now();var wantP=Date.now()-lastP>60000;
  Promise.all([rest('matchs?select=*&order=created_at.asc&limit=500'),
   soft('camp_items?select=kind,data&kind=in.(cuflb_events,cuflb_compos,cuflb_motm)&limit=3000'),
-  wantP?soft('cuflb_poules?select=*&limit=200'):Promise.resolve(null)]).then(function(r){
+  wantP?soft('cuflb_poules?select=*&limit=200'):Promise.resolve(null),soft('cuflb_classement?select=*&corrige=eq.true&limit=200')]).then(function(r){
    var rows=r[0]||[],it=r[1]||[],ch=false;
    function pick(k){return it.filter(function(x){return x.kind===k&&x.data}).map(function(x){return x.data})}
    var ev=pick('cuflb_events'),co=pick('cuflb_compos'),mv=pick('cuflb_motm');
    if(r[2]){lastP=Date.now();if(r[2].length&&applyPoules(r[2]))ch=true}
+   {var cm={},c0=JSON.stringify(window.CLS_PUB||{});(r[3]||[]).forEach(function(x){if(String(x.edition)!=='2024'&&x.equipe)cm[nk(x.equipe)]=x});if(JSON.stringify(cm)!==c0){window.CLS_PUB=cm;ch=true}}
    var C=canonMap(),rem=[];rows.forEach(function(x){var e=conv(x,ev,co,mv,C);if(e)rem.push(e)});
-   var sg=JSON.stringify(rem);okOnce=true;
+   var sg=JSON.stringify(rem);okOnce=true;window.CU_SYNC=Date.now();
    if(sg!==sig){sig=sg;apply(rem);ch=true}
    if(ch){try{API.render()}catch(e){}}
-  }).catch(function(){}).then(function(){busy=false})}
+  }).catch(function(){window.CU_FAIL=Date.now()}).then(function(){busy=false})}
 setInterval(function(){if(document.hidden||busy)return;var due=screenOn()?4000:20000;if(Date.now()-last<due)return;go()},1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-tab="matchs"],.v52-c3'))setTimeout(go,80)},true);
+setInterval(function(){var h=document.querySelector('#screenMatchs .champ-hero');if(!h||!window.CU_SYNC)return;var p=document.getElementById('cuSync');if(!p){p=document.createElement('div');p.id='cuSync';p.className='cu-sync';p.setAttribute('role','status');p.innerHTML='<i></i><span></span>';h.appendChild(p)}var s=Math.round((Date.now()-window.CU_SYNC)/1000),off=s>90||!navigator.onLine;p.classList.toggle('off',off);p.lastChild.textContent=off?'Hors connexion · derniers résultats enregistrés':'Résultats en direct · mis à jour '+(s<5?'à l’instant':'il y a '+s+' s')},1000);
+function cuPh(s){var T={load:['⏳','Chargement de la CUFLB…','Récupération des poules, des matchs et du classement.'],off:['📡','Connexion indisponible','Impossible de charger la CUFLB. Vérifie ta connexion puis touche Actualiser.'],empty:['🏆','Les poules arrivent bientôt','Dès que le comité publie le tirage et le calendrier, tout s’affiche ici automatiquement : poules, matchs, classement et statistiques.']}[s];return '<div class="cu-ph" data-s="'+s+'" role="status"><div class="cu-ph-i">'+T[0]+'</div><b>'+T[1]+'</b><p>'+T[2]+'</p>'+(s==='load'?'<div class="cu-sk"><i></i><i></i><i></i></div>':'<button type="button" onclick="window.CUFLB_sync&&CUFLB_sync()">Actualiser</button>')+'</div>'}
+setInterval(function(){var sc=document.getElementById('screenMatchs'),A=window.CUFLB;if(!sc||!A)return;var has=A.M.some(function(m){return m.ed==='cur'})||Object.keys(A.P).length>0;sc.classList.toggle('cu-nodata',!has);if(has)return;
+ var st=(!navigator.onLine||(!window.CU_SYNC&&window.CU_FAIL))?'off':window.CU_SYNC?'empty':'load';
+ ['cuOv','cuRank','cuCal','cuDay'].forEach(function(id){var e=document.getElementById(id);if(!e)return;var p=e.firstElementChild;if(p&&!p.classList.contains('cu-ph'))return;if(p&&p.dataset.s===st)return;e.innerHTML=cuPh(st)})},1000);
 window.CUFLB_sync=go;
 setTimeout(go,1500);
 })();
@@ -13839,7 +13973,7 @@ var inst=null;
   root.innerHTML='<div class="p-hero" id="pHero"><div class="p-cv" style="'+(cv?'background-image:url('+cv+')':'')+'"></div><div class="p-ov" data-c="viewcv"></div><div class="p-av" data-c="viewav" style="'+(av?'background-image:url('+av+');font-size:0':'')+'">'+esc(ini)+'<button type="button" class="p-cam" data-c="avadd" aria-label="Changer ma photo de profil">'+sv('cam')+'</button></div><h2 class="p-nm" data-c="reg">'+esc(nm)+'</h2><p class="p-sb">'+esc(sub)+'</p><p class="p-tag">Ensemble<br>pour un meilleur camp !</p></div>'
   +'<div class="p-body">'+shortcuts()
   +sec('SANS TÉLÉPHONE',[it('lic','lic','#ff7a0a','Créer licence','Créer la licence d’un joueur'),it('lichist','list','#43118a','Historique des licences',lcCount()?lcCount()+' licence'+(lcCount()>1?'s':'')+' créée'+(lcCount()>1?'s':'')+' · voir et télécharger':'Voir et télécharger les licences créées'),it('hist','list','#6a0dad','Historique des inscriptions effectuées',pxList().length?pxList().length+' campeur'+(pxList().length>1?'s':'')+' pré-inscrit'+(pxList().length>1?'s':''):'Codes, tickets, dates et heures')],0)
-  +sec('MON CAMP',[it('reg','user','#2b8cf0','Ma pré-inscription',d?'Voir mes informations':'Pas encore pré-inscrit(e)'),d?it('tk','tk','#7c4dff','Mon ticket',d.TicketNumber?'Titulaire et QR code':'Ajoute ton numéro de ticket'):'',it('agenda','cal','#5b6ee1','Mon agenda','Mes rendez-vous du Camp',1),it('lieu','pin','#e5484d','Lieu & dates',cd)],0)
+  +sec('MON CAMP',[it('reg','user','#2b8cf0','Ma pré-inscription',d?'Voir mes informations':'Pas encore pré-inscrit(e)'),d?it('tk','tk','#7c4dff','Mon ticket',d.TicketNumber?'Titulaire et QR code':'Ajoute ton numéro de ticket'):'',(function(){var li=window.CUFLB_licInfo&&window.CUFLB_licInfo();if(!li)return '';var m=li.mine;return it('mylic','lic','#ff7a0a','Ma licence de joueur',m?esc(String(m.rec.num||''))+' · Voir ma licence':'Crée ta licence officielle · 4 étapes')})(),it('agenda','cal','#5b6ee1','Mon agenda','Mes rendez-vous du Camp',1),it('lieu','pin','#e5484d','Lieu & dates',cd)],0)
   +sec('DÉCOUVRIR',[it('prog','list','#3a56d4','Programme du Camp','Activités et horaires'),it('news','news','#f08a1c','Actualités','Les dernières informations',1),it('gal',galOn()?'gal':'lock',galOn()?'#a259e6':'#a9a9bb','Galerie','Mes photos & mon album'),it('frame','img','#e8a317','Ma photo du Camp','Cadre photo à partager')],70)
   +sec('PRATIQUE',[it('chk','bag','#34a853','À emporter',nck+' / '+CK.length+' prêts'),it('share','share','#0ea5a4','Inviter un ami','50 amis soldés = cadeau du comité'),it('help','head','#1fb5a8','Contact & Assistance','Appeler ou écrire'),it('set','set','#8e5be8','Paramètres','Rappels, calendrier, compte')],140)
   +'<div class="p-card p-lo-card" style="animation-delay:210ms">'+it('logout','out','#c92f3d','Se déconnecter',d&&d.Name?'Connecté(e) : '+esc(d.Name):'Fermer ma session sur cet appareil')+'</div>'
@@ -13853,6 +13987,7 @@ var inst=null;
  function go(k){var m={reg:'openRegistration',tk:'openTicket',agenda:'cdAgenda',news:'goFil',frame:'goCampFrame',help:'openContactSheet'};
   if(k==='logout'){sheet();return}
   if(k==='lic'){window.openLicPx&&openLicPx();return}
+  if(k==='mylic'){window.CUFLB_licOpen&&CUFLB_licOpen();return}
   if(k==='lichist'){window.openLicHist&&openLicHist();return}
   if(k==='scan'){window.openScanMy&&openScanMy();return}
   if(k==='prog'){window.openPresenter&&openPresenter('programme');return}
