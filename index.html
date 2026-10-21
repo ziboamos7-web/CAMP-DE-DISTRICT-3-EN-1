@@ -3617,7 +3617,555 @@ html body #screenMatchs .pg-h{font-size:12px!important;letter-spacing:.2px!impor
 @media (prefers-reduced-motion:reduce){html body #screenMatchs .champ-tabs{scroll-behavior:auto}}
 </style>
 </head>
-<body><div id="bootCover" role="status" aria-label="Chargement"><div class="bc-stars"></div><svg class="bc-scene" viewBox="0 0 240 150" aria-hidden="true"><defs><linearGradient id="bcT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa13d"/><stop offset="1" stop-color="#f05a00"/></linearGradient><radialGradient id="bcG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb347" stop-opacity=".8"/><stop offset="1" stop-color="#ff6500" stop-opacity="0"/></radialGradient><linearGradient id="bcF" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff5a00"/><stop offset=".6" stop-color="#ff9a1f"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><ellipse cx="120" cy="139" rx="106" ry="7" fill="#000" opacity=".3"/><path d="M216 138 L226 100 L236 138Z" fill="#241052"/><path d="M204 138 L211 112 L218 138Z" fill="#2c1463"/><path d="M28 138 L84 40 L140 138Z" fill="url(#bcT)"/><path d="M84 40 L104 138 L140 138Z" fill="#d94e00" opacity=".5"/><path d="M84 76 L62 138 L106 138Z" fill="#2a0f5e"/><path d="M84 76 V138" stroke="#ffb347" stroke-width="1.4" opacity=".55"/><path d="M84 40 V28" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M84 28 L99 32.5 L84 37Z" fill="#ffd23f"/><circle class="bc-glow" cx="178" cy="116" r="48" fill="url(#bcG)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#6b3b1a" transform="rotate(-8 178 133)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#8a4a1f" transform="rotate(8 178 133)"/><path class="bc-fl" d="M178 68 C192 91 202 103 195 123 C191 134 165 134 161 123 C155 105 168 95 178 68Z" fill="url(#bcF)"/><path class="bc-fl b" d="M178 91 C187 105 192 113 188 124 C185 131 171 131 168 124 C165 113 172 105 178 91Z" fill="#ffd23f"/><path class="bc-fl c" d="M178 109 C183 116 185 120 183 126 C181 129 175 129 173 126 C171 120 174 116 178 109Z" fill="#fff6d8"/><circle class="bc-sp" cx="172" cy="84" r="1.9" fill="#ffd23f" style="--dx:-12px;animation-delay:0s"/><circle class="bc-sp" cx="182" cy="82" r="1.5" fill="#ffb347" style="--dx:10px;animation-delay:.5s"/><circle class="bc-sp" cx="177" cy="86" r="1.7" fill="#fff6d8" style="--dx:-3px;animation-delay:1s"/><circle class="bc-sp" cx="186" cy="88" r="1.3" fill="#ffd23f" style="--dx:16px;animation-delay:1.45s"/><circle class="bc-sp" cx="168" cy="90" r="1.4" fill="#ffb347" style="--dx:-18px;animation-delay:1.8s"/></svg><b class="bc-t">Mon <em>CAMP</em></b><small class="bc-s">On allume le feu de camp…</small><div class="bc-bar"><i></i></div></div><script>(function(){var c=document.getElementById("bootCover"),d=0,t0=0,last=Date.now(),iv=0;
+<body>
+<!-- ===== PRÉ-INSCRIPTION CAMP — MODE ACTIF (mettre PC_MODE à false pour rouvrir l'ancienne application) ===== -->
+<style id="pc-css">
+html.pc-on,html.pc-on body{overflow:hidden!important;height:100%!important}
+#pcOverlay{position:fixed;inset:0;z-index:2147483647;background:#2a0a5e;color:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch;font-family:Poppins,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;line-height:1.4;visibility:visible!important;display:block}
+#pcOverlay,#pcOverlay *{box-sizing:border-box;letter-spacing:normal;text-transform:none}
+#pcOverlay .pc-wrap{max-width:520px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 40px)}
+#pcOverlay .pc-tag{display:block;width:max-content;max-width:100%;margin:0 auto 14px;background:#fff;color:#43118a;font-weight:800;font-size:13px;padding:8px 16px;border-radius:4px;text-align:center}
+#pcOverlay h1{margin:0 0 4px;font-size:26px;font-weight:800;text-align:center;color:#fff;line-height:1.15}
+#pcOverlay .pc-sub{margin:0 0 14px;text-align:center;color:#fcd12a;font-style:italic;font-size:14px}
+#pcOverlay .pc-cd{display:flex;gap:8px;margin:0 0 14px}
+#pcOverlay .pc-cd div{flex:1;border:2px solid #fcd12a;border-radius:14px;padding:8px 4px;text-align:center;background:#1f0748}
+#pcOverlay .pc-cd b{display:block;font-size:22px;color:#fcd12a;line-height:1.1}
+#pcOverlay .pc-cd span{font-size:11.5px;color:#e9ddff}
+#pcOverlay .pc-date{background:#fcd12a;color:#43118a;border-radius:999px;font-weight:800;font-size:13px;text-align:center;padding:8px 10px;margin:0 0 16px}
+#pcOverlay .pc-card{background:#fff;color:#1b1038;border-radius:18px;padding:18px 16px;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+#pcOverlay .pc-card h2{margin:0 0 4px;font-size:19px;color:#43118a;font-weight:800}
+#pcOverlay .pc-card p.pc-hint{margin:0 0 14px;font-size:13px;color:#5b5478}
+#pcOverlay label{display:block;font-size:13px;font-weight:700;color:#2a0a5e;margin:12px 0 5px}
+#pcOverlay input[type=text],#pcOverlay input[type=tel],#pcOverlay input[type=number],#pcOverlay input[type=datetime-local],#pcOverlay select{width:100%;height:46px;border:2px solid #d9cdf2;border-radius:12px;padding:0 12px;font-size:16px;color:#1b1038;background:#faf7ff;font-family:inherit;margin:0;appearance:auto;-webkit-appearance:auto}
+#pcOverlay input:focus,#pcOverlay select:focus{outline:none;border-color:#6b24b8;background:#fff}
+#pcOverlay .pc-row{display:flex;gap:10px}#pcOverlay .pc-row>div{flex:1;min-width:0}
+#pcOverlay .pc-pass{display:flex;gap:10px}
+#pcOverlay .pc-pass button{flex:1;border:2px solid #d9cdf2;background:#faf7ff;color:#2a0a5e;border-radius:12px;padding:10px 6px;font-weight:800;font-size:14px;font-family:inherit;cursor:pointer;line-height:1.25}
+#pcOverlay .pc-pass button small{display:block;font-weight:600;color:#6b24b8;font-size:12.5px}
+#pcOverlay .pc-pass button.on{border-color:#6b24b8;background:#6b24b8;color:#fff}
+#pcOverlay .pc-pass button.on small{color:#fcd12a}
+#pcOverlay .pc-tk{display:flex;gap:10px}
+#pcOverlay .pc-tk button{flex:1;border:2px solid #d9cdf2;background:#faf7ff;color:#2a0a5e;border-radius:12px;padding:11px 6px;font-weight:700;font-size:13.5px;font-family:inherit;cursor:pointer}
+#pcOverlay .pc-tk button.on{border-color:#6b24b8;background:#efe6ff}
+#pcOverlay .pc-btn{display:block;width:100%;margin-top:18px;border:0;border-radius:14px;padding:14px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;background:#fcd12a;color:#2a0a5e;text-align:center;text-decoration:none}
+#pcOverlay .pc-btn.wave{background:#1dc8f2;color:#00263a}
+#pcOverlay .pc-btn.sec{background:#efe6ff;color:#43118a}
+#pcOverlay .pc-btn[disabled]{opacity:.6}
+#pcOverlay .pc-err{display:none;margin-top:12px;background:#ffe9e9;color:#b00020;border-radius:10px;padding:10px 12px;font-size:13.5px;font-weight:600}
+#pcOverlay .pc-err.on{display:block}
+#pcOverlay .pc-amt{font-size:34px;font-weight:800;color:#43118a;text-align:center;margin:6px 0 2px}
+#pcOverlay .pc-box{background:#f4edff;border-radius:12px;padding:12px;margin-top:14px;font-size:13.5px;color:#2a0a5e}
+#pcOverlay .pc-box b{color:#43118a}
+#pcOverlay .pc-contact{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;background:#fff;border-radius:10px;padding:8px 10px}
+#pcOverlay .pc-contact div{font-size:13px;font-weight:700;line-height:1.25}
+#pcOverlay .pc-contact small{display:block;color:#6b6290;font-weight:600}
+#pcOverlay .pc-contact a{flex:none;text-decoration:none;font-weight:800;font-size:12.5px;padding:8px 10px;border-radius:9px}
+#pcOverlay .pc-contact a.t{background:#6b24b8;color:#fff}
+#pcOverlay .pc-contact a.w{background:#25d366;color:#05361a;margin-left:6px}
+#pcOverlay .pc-or{text-align:center;font-weight:800;color:#8b80ad;margin:14px 0 0;font-size:13px}
+#pcOverlay .pc-ok{text-align:center}
+#pcOverlay .pc-ok .pc-check{width:64px;height:64px;border-radius:50%;background:#1fbf75;color:#fff;font-size:36px;line-height:64px;margin:4px auto 10px;font-weight:800}
+#pcOverlay input[type=file]{width:100%;font-size:14px;padding:10px;border:2px dashed #b9a4e8;border-radius:12px;background:#faf7ff;color:#2a0a5e}
+#pcOverlay .pc-prev{display:none;max-width:100%;max-height:220px;margin:10px auto 0;border-radius:10px;border:1px solid #d9cdf2}
+#pcOverlay .pc-foot{text-align:center;color:#cbb8f5;font-size:12px;margin-top:18px}
+
+#pcOverlay .pc-leg{max-width:560px;margin:0 auto;min-height:100%;padding:calc(env(safe-area-inset-top,0px) + 16px) 12px calc(env(safe-area-inset-bottom,0px) + 28px);display:flex;flex-direction:column;justify-content:center}
+#pcOverlay .pc-hello{margin:0 0 4px;text-align:center;color:#fcd12a;font-weight:700;font-size:16px;word-break:break-word}
+#pcOverlay .pc-big{display:flex;gap:8px;margin:18px 0}
+#pcOverlay .pc-big div{flex:1;border:2px solid #fcd12a;border-radius:16px;padding:14px 2px;text-align:center;background:#1f0748}
+#pcOverlay .pc-big b{display:block;font-size:34px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+#pcOverlay .pc-big span{display:block;margin-top:6px;font-size:12px;color:#fcd12a;font-weight:700}
+#pcOverlay .pc-bar{height:6px;border-radius:6px;background:#43118a;overflow:hidden;margin:16px 24px 0}
+#pcOverlay .pc-bar i{display:block;height:100%;width:0;background:#fcd12a;animation:pcbar 3s linear forwards}
+@keyframes pcbar{to{width:100%}}
+#pcOverlay .pc-fade{animation:pcfade .5s ease both}
+@keyframes pcfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#pcOverlay .pc-scene{perspective:1400px;width:100%;container-type:inline-size;margin:10px 0 0}
+#pcOverlay .pc-flip{position:relative;width:100%;aspect-ratio:3/2;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.2,.2,1)}
+#pcOverlay .pc-flip.on{transform:rotateY(180deg)}
+#pcOverlay .pc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;color:#1b1038;border-radius:4cqw;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2.5cqw 8cqw rgba(0,0,0,.45)}
+#pcOverlay .pc-face.bk{transform:rotateY(180deg)}
+#pcOverlay .pc-fh{flex:none;height:11.5%;background:linear-gradient(90deg,#2a0a5e,#6b24b8);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4cqw;font-weight:800;font-size:3cqw;white-space:nowrap}
+#pcOverlay .pc-fh em{font-style:normal;color:#fcd12a}
+#pcOverlay .pc-fb{flex:1;display:flex;position:relative;min-height:0}
+#pcOverlay .pc-fb::after{content:"";position:absolute;left:50%;top:5%;bottom:5%;border-left:.6cqw dashed #cdbdf0}
+#pcOverlay .pc-fb>div{width:50%;padding:2.5cqw 2.5cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0}
+#pcOverlay .pc-ph{width:21cqw;height:21cqw;border-radius:3.5cqw;object-fit:cover;background:#efe6ff;border:.8cqw solid #6b24b8;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:8cqw;color:#6b24b8}
+#pcOverlay .pc-nm{margin-top:1.8cqw;font-weight:800;font-size:3.7cqw;line-height:1.15;color:#2a0a5e;max-width:100%;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+#pcOverlay .pc-in{margin-top:.8cqw;font-size:2.7cqw;line-height:1.3;color:#5b5478;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#pcOverlay .pc-in b{color:#43118a}
+#pcOverlay .pc-qr{width:31cqw;height:31cqw;background:#fff;border:.8cqw solid #e5dcf7;border-radius:2.5cqw;padding:1.2cqw;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+#pcOverlay .pc-qr svg{width:100%;height:100%;display:block}
+#pcOverlay .pc-qr.empty{font-size:2.6cqw;color:#8b80ad;font-weight:700;text-align:center;line-height:1.2}
+#pcOverlay .pc-num{margin-top:1.8cqw;font-weight:800;font-size:5.4cqw;color:#43118a;line-height:1;font-variant-numeric:tabular-nums}
+#pcOverlay .pc-lb{margin-top:1cqw;font-size:2.4cqw;font-weight:700;color:#8b80ad}
+#pcOverlay .pc-code{font-weight:800;font-size:7.4cqw;color:#43118a;letter-spacing:.3cqw;line-height:1.1;margin:1.5cqw 0 1cqw;font-variant-numeric:tabular-nums}
+#pcOverlay .pc-hint2{text-align:center;color:#cbb8f5;font-size:13px;margin:16px 0 0}
+#pcOverlay .pc-leg .pc-btn{max-width:360px;margin-left:auto;margin-right:auto}
+#pcOverlay .pc-mini{text-align:center;color:#fcd12a;font-weight:800;font-size:13px;margin-top:14px}
+#pcOverlay .pc-refb{display:none;margin:0 0 12px;background:#efe6ff;color:#43118a;border-radius:10px;padding:9px 12px;font-size:13px;font-weight:700}
+#pcOverlay .pc-refb.on{display:block}
+
+#pcOverlay .pc-btn.wave.alt{background:#fff;color:#00587a;border:2px solid #1dc8f2;margin-top:10px}
+#pcOverlay .pc-sum{display:flex;gap:8px;margin:12px 0 10px}
+#pcOverlay .pc-sum div{flex:1;background:#f4edff;border-radius:12px;padding:9px 4px;text-align:center;min-width:0}
+#pcOverlay .pc-sum small{display:block;font-size:11px;font-weight:700;color:#6b6290}
+#pcOverlay .pc-sum b{display:block;font-size:15px;color:#2a0a5e;white-space:nowrap}
+#pcOverlay .pc-sum b.g{color:#12935a}#pcOverlay .pc-sum b.r{color:#c2410c}
+#pcOverlay .pc-seg{display:flex;height:16px;border-radius:10px;background:#e6def7;overflow:hidden}
+#pcOverlay .pc-seg i{display:block;height:100%;transition:width .5s}
+#pcOverlay .pc-rc{display:flex;align-items:center;gap:10px;margin-top:8px;background:#faf7ff;border-radius:10px;padding:8px 10px;border-left:6px solid #8e8aa3}
+#pcOverlay .pc-rc div{flex:1;min-width:0;font-size:13px;font-weight:800;color:#2a0a5e}
+#pcOverlay .pc-rc small{display:block;font-size:11.5px;font-weight:600;color:#6b6290}
+#pcOverlay .pc-rc em{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;border-radius:999px;padding:4px 9px;white-space:nowrap}
+#pcOverlay .pc-lg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:12px;font-size:11.5px;font-weight:700;color:#5b5478}
+#pcOverlay .pc-lg span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;background:var(--c);vertical-align:-1px}
+#pcOverlay .pc-note{background:#e8f7ef;color:#0f6b43;border-radius:10px;padding:9px 12px;font-size:13px;font-weight:700;margin:8px 0}
+#pcOverlay .pc-note.warn{background:#fff3df;color:#92400e}
+#pcOverlay [hidden]{display:none!important}
+</style>
+<style id="pc-css2">
+#pcOverlay.lt{background:#fff;color:#1b1038}
+#pcOverlay.lt .pc-wrap>.pc-tag,#pcOverlay.lt .pc-wrap>h1,#pcOverlay.lt .pc-wrap>.pc-sub,#pcOverlay.lt .pc-wrap>.pc-cd,#pcOverlay.lt .pc-wrap>.pc-date,#pcOverlay.lt .pc-foot{display:none}
+html #pcOverlay.lt #pcStep1{background:none;box-shadow:none;padding:6px 2px;color:#1b1038}
+#pcOverlay .st-top{display:flex;align-items:center;gap:10px;font-size:12px;color:#444;line-height:1.3}
+#pcOverlay .st-top img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+#pcOverlay h1.st-h{text-align:left;color:#1b1038;font-size:30px;font-weight:500;margin:22px 0 26px;line-height:1.2}
+#pcOverlay .st{list-style:none;margin:0;padding:0}
+#pcOverlay .st>li{position:relative;padding:0 0 16px 56px;min-height:56px}
+#pcOverlay .st>li::before{content:"";position:absolute;left:19px;top:46px;bottom:4px;border-left:2px solid #ddd}
+#pcOverlay .st>li:last-child::before{display:none}
+#pcOverlay .st>li>i{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:#3b2314;color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+#pcOverlay .st>li>i::before{content:attr(data-n)}
+#pcOverlay .st>li.done>i::before{content:"✓"}#pcOverlay .st>li.on>i::before{content:"✎"}
+#pcOverlay .st>li:not(.done):not(.on)>i{background:#bfb3ab}
+#pcOverlay .st>li>b{display:block;font-size:19px;font-weight:500;line-height:40px;color:#3b2314}
+#pcOverlay .st>li.done>b{cursor:pointer}
+#pcOverlay .st>li>.st-b{display:none;padding-top:10px}#pcOverlay .st>li.on>.st-b{display:block}
+html #pcOverlay label.fl{display:block;background:#f2eeeb;border-radius:16px;padding:10px 16px 8px;margin:0 0 14px;font-size:inherit;font-weight:400;color:inherit}
+#pcOverlay .fl small{display:block;font-size:13px;color:#6b625c}
+html #pcOverlay .fl input,html #pcOverlay .fl select{display:block;width:100%;height:30px;border:0;background:transparent;padding:0;font-size:18px;color:#1b1038;border-radius:0}
+#pcOverlay .st-l{margin:14px 0 6px;font-size:14px;font-weight:600;color:#3b2314}
+#pcOverlay.lt .pc-pass button,#pcOverlay.lt .pc-tk button{background:#f2eeeb;border-color:#f2eeeb;color:#3b2314}
+#pcOverlay.lt .pc-pass button.on,#pcOverlay.lt .pc-tk button.on{background:#3b2314;border-color:#3b2314;color:#fff}
+#pcOverlay.lt .pc-pass button.on small{color:#fff}#pcOverlay.lt .pc-pass button small{color:#6b625c}
+#pcOverlay .st-btns{display:flex;align-items:center;gap:16px;margin-top:10px}
+#pcOverlay .st-go{border:0;border-radius:6px;background:#3b2314;color:#fff;padding:15px 26px;font:600 17px inherit;font-family:inherit;cursor:pointer}
+#pcOverlay .st-go[disabled]{opacity:.6}
+#pcOverlay .st-bk{border:0;background:none;color:#3b2314;font:600 17px inherit;font-family:inherit;padding:12px;cursor:pointer}
+#pcOverlay.lt .pc-btn.sec{background:#f2eeeb;color:#3b2314}
+#pcOverlay.lt .pc-refb{background:#f2eeeb;color:#3b2314}
+#stWait{position:fixed;inset:0;z-index:2147483647;background:rgba(60,45,35,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:19px;text-align:center;padding:24px;font-family:inherit}
+#stWait .sp{width:46px;height:46px;border:4px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:stsp .9s linear infinite;margin-bottom:18px}
+@keyframes stsp{to{transform:rotate(360deg)}}
+#stWait[hidden]{display:none}
+#pcBackLog{position:fixed;left:12px;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:2147483646;border:0;border-radius:999px;padding:10px 16px;background:#3b2314;color:#fff;font:700 14px system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+</style>
+<div id="pcOverlay" class="lt" role="dialog" aria-modal="true" aria-label="Pré-inscription au Camp de District 3 en 1">
+<div id="stWait" hidden><div class="sp"></div><p>Enregistrement de ta pré-inscription…<br>Ne ferme pas cette page.</p></div>
+<div class="pc-wrap" id="pcNewWrap">
+  <span class="pc-tag">CAMP DE DISTRICT 3 EN 1</span>
+  <h1>Pré-inscription au camp</h1>
+  <p class="pc-sub">Garango · Collège Fohoundi</p>
+  <div class="pc-cd"><div><b id="pcDays">7</b><span>jours restants</span></div><div><b>8 000 F</b><span>Pass Chef</span></div><div><b>7 000 F</b><span>Pass Élément</span></div></div>
+  <div class="pc-date">DU 28 OCTOBRE AU 1ER NOVEMBRE 2026</div>
+
+  <!-- ÉTAPE 1 : formulaire -->
+  <form class="pc-card" id="pcStep1" autocomplete="on" novalidate>
+    <div class="st-top"><img id="stLogo" alt=""><span>Jeunesse Évangélique Africaine<br>Camp de District 3 en 1</span></div>
+    <h1 class="st-h">Pré-inscription camp - GARANGO 2026</h1>
+    <div class="pc-refb" id="pcRefB"></div>
+    <ol class="st">
+     <li class="on" data-s="1"><i data-n="1"></i><b>Qui es-tu ?</b><div class="st-b">
+      <label class="fl"><small>Nom</small><input id="pcNom" type="text" autocomplete="family-name" maxlength="80"></label>
+      <label class="fl"><small>Prénom</small><input id="pcPrenom" type="text" autocomplete="given-name" maxlength="80"></label>
+      <label class="fl"><small>Téléphone (WhatsApp de préférence)</small><input id="pcTel" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="07 00 00 00 00"></label>
+      <div class="pc-err" id="pcErrS1" role="alert"></div>
+      <div class="st-btns"><button type="button" class="st-go" data-nx="2">Continuer</button></div></div></li>
+     <li data-s="2"><i data-n="2"></i><b>Ton parcours d'aventurier</b><div class="st-b">
+      <label class="fl"><small>Troupe</small><input id="pcTroupe" type="text" list="pcTroupes" maxlength="80" placeholder="Choisis ou écris ta troupe"></label>
+      <label class="fl"><small>Église</small><input id="pcEglise" type="text" list="pcEglises" maxlength="120" placeholder="CMA, UEESO, AEECI… + localité"></label>
+      <label class="fl"><small>Grade</small><select id="pcGrade"><option value="">Choisir</option><option>Aucun grade</option><option>Observateur</option><option>Explorateur</option><option>Pionnier</option><option>Guide</option><option>Chercheuse</option><option>Amie</option><option>Gardienne</option><option>Porteuse</option></select></label>
+      <datalist id="pcTroupes"><option>Nazareth</option><option>Hermankono</option><option>Lopouafla</option><option>UEESO Dehita</option><option>Duhikro</option><option>Tokpakro (AEECI)</option><option>Agbanou-Plateau</option><option>Galilée</option><option>Ouanzannou</option><option>Kouébo</option><option>Koko</option><option>UEESO Port Bouet</option><option>Solibra</option><option>Blanfla</option><option>Tokpakro (CMA)</option><option>Adahikro</option><option>Gbelessou</option></datalist><datalist id="pcEglises"><option>CMA</option><option>UEESO</option><option>AEECI</option></datalist>
+      <div class="pc-err" id="pcErrS2" role="alert"></div>
+      <div class="st-btns"><button type="button" class="st-go" data-nx="3">Continuer</button><button type="button" class="st-bk" data-bk="1">Retour</button></div></div></li>
+     <li data-s="3"><i data-n="3"></i><b>Ta place dans la mission</b><div class="st-b">
+      <label class="fl"><small>District</small><select id="pcDistrict"><option value="">Choisir ton district</option><option>Port-Bouët</option><option>Dioulabougou</option><option>Pakouabo</option></select></label>
+      <label class="fl"><small>Titre</small><select id="pcTitre"><option value="">Choisir</option><option>Élément</option><option>CLJ — Comité Local de Jeunesse</option><option>SCP — Sous-chef de Patrouille</option><option>CP — Chef de Patrouille</option><option>CTA — Chef de Troupe adjoint</option><option>CT — Chef de Troupe</option><option>CD — Commissaire de District</option><option>CR — Commissaire de région</option><option>CNA — Commissaire National Adjoint</option><option>CN — Commissaire National</option></select></label>
+      <p class="st-l">Pass</p>
+      <div class="pc-pass" id="pcPass"><button type="button" data-p="element">Élément<small>7 000 F</small></button><button type="button" data-p="chef">Chef<small>8 000 F</small></button></div>
+      <p class="st-l">As-tu déjà ton ticket ?</p>
+      <div class="pc-tk" id="pcTk"><button type="button" data-t="1">Oui, j'ai un ticket</button><button type="button" data-t="0" class="on">Non, pas encore</button></div>
+      <div id="pcTkNumBox" hidden><label class="fl"><small>Numéro de ticket</small><input id="pcTkNum" type="text" inputmode="numeric" maxlength="40" placeholder="Ex. 0123"></label></div>
+      <div class="pc-err" id="pcErr1" role="alert"></div>
+      <div class="st-btns"><button class="st-go" id="pcGo" type="submit">Passer au paiement</button><button type="button" class="st-bk" data-bk="2">Retour</button></div></div></li>
+    </ol>
+    <button class="pc-btn sec" id="pcFindBtn" type="button">J'ai déjà envoyé un reçu — suivre mon paiement</button>
+    <button class="pc-btn sec" id="pcHave" type="button">J'ai déjà un compte</button>
+  </form>
+
+  <!-- ÉTAPE 2 : paiement -->
+  <div class="pc-card" id="pcStep2" hidden>
+    <h2>Pré-inscription enregistrée ✓</h2>
+    <p class="pc-hint" id="pcWho"></p>
+    <div class="pc-amt" id="pcAmt">7 000 F</div>
+    <p class="pc-hint" style="text-align:center;margin:0" id="pcPassLbl">Pass Élément</p>
+    <a class="pc-btn wave" id="pcWave" href="#" target="_blank" rel="noopener">Payer en une fois avec Wave</a>
+    <a class="pc-btn wave alt" id="pcWaveT" href="https://pay.wave.com/m/M_ci_69kNlRz3-1G9/c/ci/" target="_blank" rel="noopener">Payer en plusieurs fois (échelonné)</a>
+    <div class="pc-box">Paiement vers <b>SIAMS</b>, partenaire officiel du Camp de District 3 en 1. En paiement échelonné, tu choisis le montant dans Wave et tu envoies <b>un reçu à chaque versement</b> : l'application calcule ce qui est payé et ce qu'il reste. <b>Après chaque paiement, reviens ici envoyer ton reçu.</b></div>
+    <button class="pc-btn" id="pcToReceipt" type="button">J'ai payé — envoyer mon reçu</button>
+    <p class="pc-or">— OU ACHETER LE TICKET AUPRÈS DE —</p>
+    <div class="pc-contact"><div>CP ZIBO AMOS<small>0748 96 46 90</small></div><span><a class="t" href="tel:+2250748964690">Appeler</a><a class="w" href="https://wa.me/2250748964690" target="_blank" rel="noopener">WhatsApp</a></span></div>
+    <div class="pc-contact"><div>CD YAO JOACHIM<small>0747 78 68 28</small></div><span><a class="t" href="tel:+2250747786828">Appeler</a><a class="w" href="https://wa.me/2250747786828" target="_blank" rel="noopener">WhatsApp</a></span></div>
+  </div>
+
+  <!-- ÉTAPE 3 : reçu -->
+  <form class="pc-card" id="pcStep3" hidden novalidate>
+    <h2>Envoyer mon reçu de paiement</h2>
+    <p class="pc-hint">Joins la capture d'écran du reçu Wave, puis renseigne les informations.</p>
+    <label for="pcFile">Image du reçu</label><input id="pcFile" type="file" accept="image/*"><img class="pc-prev" id="pcPrev" alt="Aperçu du reçu">
+    <div class="pc-row"><div><label for="pcTNom">Nom (sur la transaction)</label><input id="pcTNom" type="text" maxlength="80"></div>
+    <div><label for="pcTPrenom">Prénom (sur la transaction)</label><input id="pcTPrenom" type="text" maxlength="80"></div></div>
+    <div class="pc-row"><div><label for="pcHeure">Date et heure</label><input id="pcHeure" type="datetime-local"></div>
+    <div><label for="pcMontant">Montant (F)</label><input id="pcMontant" type="number" inputmode="numeric" min="1"></div></div>
+    <label for="pcDNom">Ton nom complet</label><input id="pcDNom" type="text" maxlength="120">
+    <label for="pcDDist">Ton district</label>
+    <select id="pcDDist"><option value="">Choisir ton district</option><option>Port-Bouët</option><option>Dioulabougou</option><option>Pakouabo</option></select>
+    <div class="pc-err" id="pcErr3" role="alert"></div>
+    <button class="pc-btn" id="pcSend" type="submit">Envoyer mon reçu</button>
+    <button class="pc-btn sec" id="pcBack" type="button">Retour</button>
+  </form>
+
+  <!-- RETROUVER -->
+  <form class="pc-card" id="pcFind" hidden novalidate>
+    <h2>Retrouver ma pré-inscription</h2>
+    <p class="pc-hint">Entre le téléphone et le nom utilisés lors de ta pré-inscription.</p>
+    <label for="pcFTel">Téléphone</label><input id="pcFTel" type="tel" inputmode="tel" maxlength="30">
+    <label for="pcFNom">Nom</label><input id="pcFNom" type="text" maxlength="80">
+    <div class="pc-err" id="pcErrF" role="alert"></div>
+    <button class="pc-btn" id="pcFGo" type="submit">Retrouver</button>
+    <button class="pc-btn sec" id="pcFBack" type="button">Retour</button>
+  </form>
+
+  <!-- SUIVI DU PAIEMENT -->
+  <div class="pc-card" id="pcStatus" hidden>
+    <h2>Suivi de mon paiement</h2>
+    <p class="pc-hint" id="pcStWho" style="margin-bottom:6px"></p>
+    <div class="pc-note" id="pcStNote" hidden></div>
+    <div class="pc-sum"><div><small>Pass</small><b id="sTot">—</b></div><div><small>Déjà payé</small><b class="g" id="sPaid">—</b></div><div><small>Reste à payer</small><b class="r" id="sRest">—</b></div></div>
+    <div class="pc-seg" id="sBar"></div>
+    <p class="pc-hint" id="sPend" style="margin:8px 0 0"></p>
+    <div id="sList"></div>
+    <div class="pc-lg"><span style="--c:#8e8aa3">Reçu envoyé</span><span style="--c:#f59e0b">En vérification</span><span style="--c:#1fbf75">Validé</span><span style="--c:#e5484d">Refusé</span></div>
+    <div id="sPay" hidden>
+      <a class="pc-btn wave" id="sWave" href="https://pay.wave.com/m/M_ci_69kNlRz3-1G9/c/ci/" target="_blank" rel="noopener">Payer la suite avec Wave</a>
+      <button class="pc-btn" id="sSend" type="button">J'ai payé — envoyer un reçu</button>
+    </div>
+    <button class="pc-btn sec" id="sNew" type="button">Pré-inscrire une autre personne</button>
+  </div>
+
+  <!-- FIN -->
+  <div class="pc-card pc-ok" id="pcDone" hidden>
+    <div class="pc-check">✓</div>
+    <h2 id="pcDoneT">Merci !</h2>
+    <p class="pc-hint" id="pcDoneP"></p>
+    <button class="pc-btn" id="pcNew" type="button">Pré-inscrire une autre personne</button>
+  </div>
+  <p class="pc-foot">Évangélisation · Séminaire · Activités récréatives</p>
+</div>
+
+<!-- DÉJÀ PRÉ-INSCRIT : compte à rebours puis ticket -->
+<div class="pc-leg" id="pcLeg" hidden>
+  <div id="pcCd" class="pc-fade">
+    <span class="pc-tag">CAMP DE DISTRICT 3 EN 1</span>
+    <p class="pc-hello" id="pcHello">Bonjour</p>
+    <h1>Le camp commence dans</h1>
+    <div class="pc-big"><div><b id="cdD">0</b><span>jours</span></div><div><b id="cdH">0</b><span>heures</span></div><div><b id="cdM">0</b><span>min</span></div><div><b id="cdS">0</b><span>sec</span></div></div>
+    <div class="pc-date">DU 28 OCTOBRE AU 1ER NOVEMBRE 2026</div>
+    <p class="pc-sub">Ton ticket s'affiche dans un instant…</p>
+    <div class="pc-bar"><i></i></div>
+  </div>
+  <div id="pcTkv" hidden class="pc-fade">
+    <span class="pc-tag">TON TICKET · GARANGO 2026</span>
+    <div class="pc-scene"><div class="pc-flip" id="pcFlip">
+      <div class="pc-face">
+        <div class="pc-fh"><span>CAMP DE DISTRICT <em>3 EN 1</em></span><span id="tkPass">PASS</span></div>
+        <div class="pc-fb">
+          <div><div id="tkPh" class="pc-ph">?</div><div class="pc-nm" id="tkNm"></div><div class="pc-in" id="tkTi"></div><div class="pc-in" id="tkDi"></div><div class="pc-in" id="tkTr"></div></div>
+          <div><div class="pc-qr empty" id="tkQr" role="button" tabindex="0" aria-label="Retourner le ticket">QR…</div><div class="pc-num" id="tkNum">—</div><div class="pc-lb">N° DE TICKET</div></div>
+        </div>
+      </div>
+      <div class="pc-face bk" id="tkBack">
+        <div class="pc-fh"><span>PARRAINAGE</span><span><em>Invite tes amis</em></span></div>
+        <div class="pc-fb">
+          <div><div class="pc-lb" style="margin:0">MON CODE D'AMI</div><div class="pc-code" id="rfCode">…</div><div class="pc-in" style="white-space:normal">Donne ce code ou fais scanner le QR.</div></div>
+          <div><div class="pc-qr empty" id="rfQr">QR…</div><div class="pc-lb">SCANNE POUR TE PRÉ-INSCRIRE</div></div>
+        </div>
+      </div>
+    </div></div>
+    <p class="pc-hint2" id="tkHint">Touche le QR pour voir ton code de parrainage</p>
+    <button class="pc-btn sec" id="rfShare" type="button" hidden>Partager mon code</button>
+    <div class="pc-mini" id="tkMini"></div>
+  </div>
+</div>
+</div>
+<script id="pc-js">
+(function(){
+var PC_MODE=true; /* false = l'ancienne application redevient accessible */
+if(!PC_MODE){var o=document.getElementById('pcOverlay'),c=document.getElementById('pc-css');if(o)o.remove();if(c)c.remove();return}
+var SB='https://pzxpjavylrsmptwjeupi.supabase.co',KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6eHBqYXZ5bHJzbXB0d2pldXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5MTU1ODMsImV4cCI6MjEwNjQ5MTU4M30.DeuASRJAaTuMhrSaF5N0SHfo-4E5r_c_wiugheIFiN0';
+var WAVE='https://pay.wave.com/m/M_ci_69kNlRz3-1G9/c/ci/?amount=',PRICE={element:7000,chef:8000},LABEL={element:'Pass Élément',chef:'Pass Chef'};
+var KS='camp_pc_state_v1';
+function $(i){return document.getElementById(i)}
+document.documentElement.classList.add('pc-on');
+/* Ancienne application : inaccessible (clavier, lecteur d'écran, clics) tant que le mode est actif */
+function lock(){if(window.__pcUnlock)return;Array.prototype.forEach.call(document.body.children,function(n){if(n.id==='pcOverlay'||n.id==='pc-css'||n.id==='pc-js'||n.tagName==='SCRIPT'||n.tagName==='STYLE')return;try{n.setAttribute('inert','');n.setAttribute('aria-hidden','true')}catch(e){}})}
+lock();try{new MutationObserver(lock).observe(document.body,{childList:true})}catch(e){}
+/* Compte à rebours */
+(function(){var d=Math.ceil((new Date(2026,9,28,0,0,0)-new Date())/864e5);$('pcDays').textContent=d>0?d:0})();
+var st={pass:'element',tk:0,pre:null,ref:null};
+/* Parrainage : ?ref=ABC-1234 mémorisé pour la pré-inscription */
+(function(){try{var m=/[?&]ref=([A-Za-z]{3}-\d{4})/.exec(location.search);if(m)localStorage.setItem('camp_pc_ref',m[1].toUpperCase());var c=localStorage.getItem('camp_pc_ref');if(c){st.ref=c;var b=$('pcRefB');b.textContent='Parrainé(e) par le code '+c;b.className='pc-refb on'}}catch(e){}})();
+
+function save(){try{localStorage.setItem(KS,JSON.stringify(st.pre||null))}catch(e){}}
+function show(id){$('pcOverlay').classList.toggle('lt',id==='pcStep1');['pcStep1','pcStep2','pcStep3','pcDone','pcStatus','pcFind'].forEach(function(s){$(s).hidden=s!==id});$('pcOverlay').scrollTop=0}
+function uuid(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0;return(c==='x'?r:(r&3|8)).toString(16)})}
+function err(id,m){var e=$(id);e.textContent=m||'';e.className='pc-err'+(m?' on':'')}
+function v(id){return $(id).value.replace(/\s+/g,' ').trim()}
+function post(path,body,extra){return fetch(SB+path,{method:'POST',headers:Object.assign({apikey:KEY,Authorization:'Bearer '+KEY},extra||{}),body:body}).then(function(r){if(!r.ok)return r.text().then(function(t){throw new Error(t||r.status)});return r})}
+function setPass(p){st.pass=p;Array.prototype.forEach.call($('pcPass').children,function(b){b.className=b.getAttribute('data-p')===p?'on':''})}
+setPass('element');
+$('pcPass').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setPass(b.getAttribute('data-p'))});
+$('pcTk').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;st.tk=+b.getAttribute('data-t');Array.prototype.forEach.call($('pcTk').children,function(x){x.className=x===b?'on':''});$('pcTkNumBox').hidden=!st.tk});
+function payScreen(){var p=st.pre;$('pcWho').textContent=p.prenom+' '+p.nom+' — '+p.district+' · '+p.troupe;$('pcAmt').textContent=PRICE[p.pass].toLocaleString('fr-FR').replace(/\u202f/g,' ')+' F';$('pcPassLbl').textContent=LABEL[p.pass];$('pcWave').href=WAVE+PRICE[p.pass];show('pcStep2')}
+var KC='camp_pc_suivi_v1';
+function rpc(fn,args){return fetch(SB+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify(args)}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
+function money(n){return String(Math.round(+n||0)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' F'}
+function cacheS(s){try{localStorage.setItem(KC,JSON.stringify(s))}catch(e){}}
+function cached(){try{var c=JSON.parse(localStorage.getItem(KC)||'null');return c&&st.pre&&c.id===st.pre.id?c:null}catch(e){return null}}
+function mapPre(s){return{id:s.id,nom:s.nom,prenom:s.prenom,district:s.district,troupe:s.troupe,pass:s.pass_type,a_ticket:!!s.a_ticket}}
+function calc(s){var t=+s.total||0,v=0,a=0,e=0;(s.recus||[]).forEach(function(x){var m=+x.montant||0;if(x.statut==='valide')v+=m;else if(x.statut==='en_attente')a+=m;else if(x.statut==='envoye')e+=m});return{t:t,v:v,a:a,e:e,rest:Math.max(0,t-v),open:Math.max(0,t-v-a-e)}}
+var LAB={envoye:['Reçu envoyé','#8e8aa3'],en_attente:['En vérification','#f59e0b'],valide:['Validé','#1fbf75'],refuse:['Refusé — falsification','#e5484d']};
+function renderStatus(s,note){var c=calc(s),p=st.pre||{};
+ $('pcStWho').textContent=(s.prenom||p.prenom||'')+' '+(s.nom||p.nom||'')+' — '+(s.pass_type==='chef'?'Pass Chef':'Pass Élément');
+ var n=$('pcStNote');if(note){n.textContent=note;n.hidden=false}else if(note===null){n.hidden=true}
+ $('sTot').textContent=money(c.t);$('sPaid').textContent=money(c.v);$('sRest').textContent=money(c.rest);
+ var w=function(x){return Math.min(100,c.t?x/c.t*100:0)},used=0,seg=[[c.v,'#1fbf75'],[c.a,'#f59e0b'],[c.e,'#8e8aa3']].map(function(z){var pc=Math.max(0,Math.min(w(z[0]),100-used));used+=pc;return'<i style="width:'+pc+'%;background:'+z[1]+'"></i>'}).join('');
+ $('sBar').innerHTML=seg;
+ var pend=c.a+c.e;$('sPend').textContent=pend>0?money(pend)+' en attente de validation par l\u2019équipe.':'';
+ $('sList').innerHTML=(s.recus||[]).slice().reverse().map(function(x){var l=LAB[x.statut]||LAB.envoye,d='';try{d=new Date(x.at).toLocaleString('fr-FR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}catch(e){}
+  return'<div class="pc-rc" style="border-left-color:'+l[1]+'"><div>'+money(x.montant)+'<small>'+d+'</small></div><em style="background:'+l[1]+'">'+l[0]+'</em></div>'}).join('');
+ var pay=$('sPay');
+ if(c.rest===0){pay.hidden=true;$('sPend').textContent='Ton pass est soldé ✓ Rien de plus à payer.'}
+ else if(c.open>0){pay.hidden=false;$('sPend').textContent=(pend>0?$('sPend').textContent+' ':'')+'Il te reste '+money(c.open)+' à régler.'}
+ else pay.hidden=true}
+function showStatus(s,note){renderStatus(s,note==null?null:note);show('pcStatus')}
+function refresh(){if(!st.pre||!st.pre.id)return;rpc('pre_camp_suivi',{p_id:st.pre.id}).then(function(x){if(x&&x.id){cacheS(x);if(!$('pcStatus').hidden)renderStatus(x)}}).catch(function(){})}
+setInterval(function(){if(!$('pcStatus').hidden)refresh()},20000);
+function adopt(s,note){st.pre=mapPre(s);save();cacheS(s);
+ if(s.a_ticket){done('Déjà pré-inscrit(e) !','Ton ticket n°'+(s.ticket_numero||'')+' est déjà enregistré. Pas de paiement à refaire.');return}
+ if((s.recus||[]).length)showStatus(s,note);else payScreen()}
+$('pcStep1').addEventListener('submit',function(e){e.preventDefault();err('pcErr1');
+ var cur=document.querySelector('#pcStep1 .st>li.on');if(cur&&+cur.getAttribute('data-s')<3){nxt(+cur.getAttribute('data-s'));return}
+ var d={nom:v('pcNom'),prenom:v('pcPrenom'),telephone:v('pcTel'),district:v('pcDistrict'),troupe:v('pcTroupe'),eglise:v('pcEglise'),grade:v('pcGrade'),titre:v('pcTitre')};
+ for(var k in d){if(!d[k])return err('pcErr1','Merci de remplir tous les champs.')}
+ if(d.telephone.replace(/\D/g,'').length<8)return err('pcErr1','Numéro de téléphone invalide.');
+ var tn=v('pcTkNum');if(st.tk&&!tn)return err('pcErr1','Saisis ton numéro de ticket.');
+ var row=Object.assign({id:uuid(),pass_type:st.pass,a_ticket:!!st.tk,ticket_numero:st.tk?tn:null,parrain_code:st.ref||null},d);
+ var b=$('pcGo');b.disabled=true;b.textContent='Envoi…';$('stWait').hidden=false;
+ var reset=function(){b.disabled=false;b.textContent='Passer au paiement';$('stWait').hidden=true};
+ /* Déjà pré-inscrit(e) (même téléphone + même nom) : on reprend le suivi, jamais de doublon ni de nouveau paiement */
+ rpc('pre_camp_retrouver',{p_tel:d.telephone,p_nom:d.nom}).catch(function(){return null}).then(function(f){
+  if(f&&f.id){adopt(f,'Tu es déjà pré-inscrit(e) : voici ton suivi.');reset();return}
+  return post('/rest/v1/pre_camp',JSON.stringify(row),{'Content-Type':'application/json',Prefer:'return=minimal'}).then(function(){
+   st.pre={id:row.id,nom:d.nom,prenom:d.prenom,district:d.district,troupe:d.troupe,pass:st.pass,a_ticket:!!st.tk};save();
+   if(st.tk){done('Pré-inscription enregistrée !','Merci '+d.prenom+', ton ticket n°'+tn+' est bien noté. On se retrouve à Garango du 28 octobre au 1er novembre.')}else payScreen();
+  }).catch(function(x){err('pcErr1',"Impossible d'enregistrer pour le moment. Vérifie ta connexion et réessaie.");console.warn('[pc]',x)}).then(reset)})});
+$('pcFindBtn').addEventListener('click',function(){err('pcErrF');$('pcFTel').value=$('pcTel').value;$('pcFNom').value=$('pcNom').value;show('pcFind')});
+$('pcFBack').addEventListener('click',function(){show('pcStep1')});
+$('pcFind').addEventListener('submit',function(e){e.preventDefault();err('pcErrF');var t=v('pcFTel'),n=v('pcFNom');if(t.replace(/\D/g,'').length<8||!n)return err('pcErrF','Entre ton téléphone et ton nom.');
+ var b=$('pcFGo');b.disabled=true;b.textContent='Recherche…';
+ rpc('pre_camp_retrouver',{p_tel:t,p_nom:n}).then(function(f){if(f&&f.id)adopt(f,'Pré-inscription retrouvée.');else err('pcErrF','Aucune pré-inscription trouvée avec ce téléphone et ce nom.')}).catch(function(){err('pcErrF','Recherche impossible pour le moment. Vérifie ta connexion.')}).then(function(){b.disabled=false;b.textContent='Retrouver'})});
+$('sNew').addEventListener('click',function(){$('pcNew').click()});
+$('pcWave').addEventListener('click',function(){st.mode='full'});
+$('pcWaveT').addEventListener('click',function(){st.mode='tranche'});
+function done(t,p){$('pcDoneT').textContent=t;$('pcDoneP').textContent=p;show('pcDone')}
+function openReceipt(full){var p=st.pre;if(!p)return;var c=cached();$('pcMontant').value=full?PRICE[p.pass]:'';$('pcMontant').placeholder=c&&c.recus&&c.recus.length?String(calc(c).open):'';$('pcDNom').value=p.prenom+' '+p.nom;$('pcDDist').value=p.district;err('pcErr3');show('pcStep3')}
+$('pcToReceipt').addEventListener('click',function(){openReceipt(st.mode!=='tranche')});
+$('sSend').addEventListener('click',function(){openReceipt(false)});
+$('pcBack').addEventListener('click',function(){var c=cached();if(c&&(c.recus||[]).length)showStatus(c);else payScreen()});
+/* Image : compressée avant envoi (économise les données mobiles) */
+var blob=null;
+$('pcFile').addEventListener('change',function(){blob=null;var f=this.files&&this.files[0];$('pcPrev').style.display='none';if(!f)return;
+ if(!/^image\//.test(f.type)){err('pcErr3','Choisis une image (capture du reçu).');this.value='';return}
+ err('pcErr3');var img=new Image(),u=URL.createObjectURL(f);
+ img.onload=function(){var m=1600,s=Math.min(1,m/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+  c.toBlob(function(b){blob=b;$('pcPrev').src=URL.createObjectURL(b);$('pcPrev').style.display='block';URL.revokeObjectURL(u)},'image/jpeg',.82)};
+ img.onerror=function(){err('pcErr3',"Image illisible. Essaie une autre capture.")};img.src=u});
+$('pcStep3').addEventListener('submit',function(e){e.preventDefault();err('pcErr3');var p=st.pre;if(!p)return;
+ var r={trans_nom:v('pcTNom'),trans_prenom:v('pcTPrenom'),heure_transaction:v('pcHeure'),montant:parseInt(v('pcMontant'),10),declarant_nom:v('pcDNom'),declarant_district:v('pcDDist')};
+ if(!blob)return err('pcErr3',"Ajoute l'image de ton reçu.");
+ for(var k in r){if(!r[k]&&r[k]!==0||r[k]!==r[k])return err('pcErr3','Merci de remplir tous les champs.')}
+ var sv=cached(),open=sv?calc(sv).open:PRICE[p.pass];
+ if(sv&&open<=0)return err('pcErr3','Ton pass est déjà couvert par tes reçus précédents.');
+ if(r.montant>open)return err('pcErr3','Le montant dépasse ce qu\u2019il te reste à payer ('+money(open)+').');
+ var b=$('pcSend');b.disabled=true;b.textContent='Envoi du reçu…';
+ var path=p.id+'/'+Date.now()+'.jpg';
+ post('/storage/v1/object/recus-camp/'+path,blob,{'Content-Type':'image/jpeg','x-upsert':'false'}).then(function(){
+  r.pre_id=p.id;r.image_path=path;r.statut='envoye';return post('/rest/v1/recus_camp',JSON.stringify(r),{'Content-Type':'application/json',Prefer:'return=minimal'})
+ }).then(function(){blob=null;$('pcFile').value='';$('pcPrev').style.display='none';['pcTNom','pcTPrenom','pcHeure'].forEach(function(i){$(i).value=''});
+  var s2=sv||{id:p.id,nom:p.nom,prenom:p.prenom,pass_type:p.pass,total:PRICE[p.pass],recus:[]};
+  s2.recus=(s2.recus||[]).concat([{montant:r.montant,statut:'envoye',at:new Date().toISOString()}]);cacheS(s2);
+  showStatus(s2,'Reçu envoyé, merci ! Il sera vérifié par l\u2019équipe.');refresh()
+ }).catch(function(x){err('pcErr3',"Envoi impossible pour le moment. Vérifie ta connexion et réessaie.");console.warn('[pc]',x)}).then(function(){b.disabled=false;b.textContent='Envoyer mon reçu'})});
+$('pcNew').addEventListener('click',function(){goStep(1);st.pre=null;save();try{localStorage.removeItem(KC)}catch(e){}$('pcStep1').reset();setPass('element');st.tk=0;$('pcTkNumBox').hidden=true;Array.prototype.forEach.call($('pcTk').children,function(x,i){x.className=i?'on':''});show('pcStep1')});
+
+/* ===== Déjà pré-inscrit(e) : compte à rebours (3 s) puis ticket recto / verso ===== */
+function legReg(){try{var r=JSON.parse(localStorage.getItem('camp_registration_2026')||'null');return r&&r.Name?r:null}catch(e){return null}}
+function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function photoOf(d){try{var a=localStorage.getItem('camp_avatar');if(a&&a.indexOf('data:')===0)return a}catch(e){}return d.Photo&&/^(data:|https?:)/.test(String(d.Photo))?d.Photo:''}
+var TARGET=new Date(2026,9,28,0,0,0).getTime();
+function tick(){var t=TARGET-Date.now();if(t<0)t=0;var s=Math.floor(t/1000);
+ var D=Math.floor(s/86400),H=Math.floor(s%86400/3600),M=Math.floor(s%3600/60),S=s%60;
+ $('cdD').textContent=D;$('cdH').textContent=H;$('cdM').textContent=M;$('cdS').textContent=S;
+ $('tkMini').textContent=t>0?'J-'+D+' · '+H+' h '+(M<10?'0':'')+M+' min avant le camp':'Le camp a commencé !'}
+function startLegacy(d){
+ $('pcNewWrap').hidden=true;$('pcLeg').hidden=false;
+ $('pcHello').textContent='Bonjour '+String(d.Name).replace(/\s+/g,' ').trim();
+ tick();setInterval(tick,1000);
+ var go=function(){setTimeout(function(){$('pcCd').hidden=true;$('pcTkv').hidden=false;$('pcOverlay').scrollTop=0;buildTicket(d)},3000)};
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()}
+function numOf(d){try{return String((window.campTicketNum?window.campTicketNum(d):d.TicketNumber)||d.TicketNumber||'').trim()}catch(e){return String(d.TicketNumber||'').trim()}}
+function buildTicket(d){
+ var chef=/8\s?000/.test(String(d.Price||'')),pass=chef?'Chef':'Élément',num=numOf(d);
+ $('tkPass').textContent=('PASS '+pass).toUpperCase();
+ var ph=photoOf(d),box=$('tkPh');
+ if(ph){var im=document.createElement('img');im.className='pc-ph';im.alt='Photo';im.src=ph;im.id='tkPh';box.replaceWith(im)}
+ else box.textContent=String(d.Name).trim().charAt(0).toUpperCase();
+ $('tkNm').textContent=String(d.Name).toUpperCase();
+ $('tkTi').innerHTML='<b>'+esc(d.Title||'')+'</b>'+(d.Grade?' · '+esc(d.Grade):'');
+ $('tkDi').textContent=d.Group||'';$('tkTr').textContent=d.Troop?'Troupe '+d.Troop:'';
+ $('tkNum').textContent=num||'EN ATTENTE';
+ var qr=$('tkQr'),lastSig=null;
+ function drawQr(){
+  if(!num){qr.className='pc-qr empty';qr.textContent='Ticket non validé';return}
+  if(!window.campQR){return}
+  var sig='';try{sig=window.campQrSig?window.campQrSig(num):''}catch(e){}
+  if(sig===lastSig&&qr.firstChild&&qr.firstChild.nodeName==='svg')return;lastSig=sig;
+  var svg=sty(window.campQRH('CAMP3EN1|'+num+'|'+d.Name+'|'+(d.Phone||'')+'|'+pass+'|'+sig),d);
+  if(svg){qr.className='pc-qr';qr.innerHTML=svg}}
+ drawQr();var n=0,iv=setInterval(function(){drawQr();if(++n>40)clearInterval(iv)},800);
+ /* Recto <-> verso */
+ var fl=$('pcFlip');
+ function flip(on){fl.classList.toggle('on',on);$('tkHint').textContent=on?'Touche la carte pour revenir au ticket':'Touche le QR pour voir ton code de parrainage'}
+ qr.addEventListener('click',function(){flip(true)});
+ qr.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip(true)}});
+ $('tkBack').addEventListener('click',function(){flip(false)});
+ /* Parrainage */
+ var code=null,tries=0;
+ function setCode(c){if(!c||code===c)return;code=c;$('rfCode').textContent=c;var R=window.CampReferral,link=R&&R.link?R.link(c):location.origin+location.pathname+'?ref='+encodeURIComponent(c);
+  var svg=window.campQR?sty(window.campQRH(link),d):null,rq=$('rfQr');if(svg){rq.className='pc-qr';rq.innerHTML=svg}
+  $('rfShare').hidden=false;$('rfShare').onclick=function(){var txt=R&&R.text?R.text(c):'Rejoins-moi au Camp de District 3 en 1 ! Code d\u2019ami '+c+' : '+link;
+   if(navigator.share){navigator.share({text:txt}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){$('rfShare').textContent='Message copié ✓'})}}}
+ function getCode(){var ck='camp_pc_refcode_v1',k=String(d.Phone||d.Name||'');
+  try{var c=JSON.parse(localStorage.getItem(ck)||'null');if(c&&c.k===k&&c.code)setCode(c.code)}catch(e){}
+  var retry=function(){if(code)return;if(++tries<8)setTimeout(getCode,4000);else $('rfCode').textContent='Indisponible'};
+  fetchCode().then(function(c){if(c){setCode(c);try{localStorage.setItem(ck,JSON.stringify({k:k,code:c}))}catch(e){}}else retry()},retry)}
+ window.addEventListener('online',function(){if(!code){tries=0;getCode()}});
+ getCode()}
+/* Reprise : si la personne a fermé la page avant d'envoyer son reçu */
+function resume(){try{var s=JSON.parse(localStorage.getItem(KS)||'null');if(!(s&&s.id&&!s.a_ticket))return;st.pre=s;
+  var c=cached();if(c&&(c.recus||[]).length)showStatus(c);else payScreen();
+  rpc('pre_camp_suivi',{p_id:s.id}).then(function(x){
+   if(!x||!x.id){return}
+   cacheS(x);var onForm=!$('pcStep3').hidden;
+   if((x.recus||[]).length){if(!onForm)showStatus(x)}})
+   .catch(function(){})}catch(e){}}
+window.campQRH=function(text){
+ const data=Array.from(new TextEncoder().encode(text)),EC=[13,22,18,26,18,24,18,22,20,24],NB=[1,1,2,2,4,4,6,6,8,8];
+ const raw=v=>{let r=(16*v+128)*v+64;if(v>=2){const a=Math.floor(v/7)+2;r-=(25*a-10)*a-55;if(v>=7)r-=36}return r};
+ let ver=1;for(;ver<=10;ver++){const cap=Math.floor(raw(ver)/8)-EC[ver-1]*NB[ver-1];if(4+(ver<10?8:16)+data.length*8<=cap*8)break}
+ if(ver>10)return null;
+ const size=ver*4+17,total=Math.floor(raw(ver)/8),ecc=EC[ver-1],nb=NB[ver-1],dcw=total-ecc*nb;
+ let bits=[];const put=(v,n)=>{for(let i=n-1;i>=0;i--)bits.push((v>>>i)&1)};
+ put(4,4);put(data.length,ver<10?8:16);data.forEach(b=>put(b,8));
+ put(0,Math.min(4,dcw*8-bits.length));while(bits.length%8)bits.push(0);
+ const cw=[];for(let i=0;i<bits.length;i+=8)cw.push(parseInt(bits.slice(i,i+8).join(''),2));
+ for(let p=0xEC;cw.length<dcw;p^=0xEC^0x11)cw.push(p);
+ const mul=(x,y)=>{let z=0;for(let i=7;i>=0;i--){z=(z<<1)^((z>>>7)*0x11D);z^=((y>>>i)&1)*x}return z&255};
+ let div=[];for(let i=0;i<ecc-1;i++)div.push(0);div.push(1);let root=1;
+ for(let i=0;i<ecc;i++){for(let j=0;j<ecc;j++){div[j]=mul(div[j],root);if(j+1<ecc)div[j]^=div[j+1]}root=mul(root,2)}
+ const rs=d=>{const r=new Array(ecc).fill(0);d.forEach(b=>{const f=b^r.shift();r.push(0);div.forEach((c,i)=>r[i]^=mul(c,f))});return r};
+ const ns=nb-total%nb,sl=Math.floor(total/nb),blocks=[];
+ for(let i=0,k=0;i<nb;i++){const len=sl-ecc+(i<ns?0:1)-0;const d=cw.slice(k,k+len);k+=len;blocks.push({d,e:rs(d)})}
+ const all=[];for(let i=0;i<blocks[nb-1].d.length;i++)blocks.forEach((b,j)=>{if(i<b.d.length)all.push(b.d[i])});
+ for(let i=0;i<ecc;i++)blocks.forEach(b=>all.push(b.e[i]));
+ const M=Array.from({length:size},()=>new Array(size).fill(false)),F=Array.from({length:size},()=>new Array(size).fill(false));
+ const set=(x,y,v)=>{M[y][x]=v;F[y][x]=true};
+ for(let i=0;i<size;i++){set(6,i,i%2==0);set(i,6,i%2==0)}
+ [[3,3],[size-4,3],[3,size-4]].forEach(([cx,cy])=>{for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){const x=cx+dx,y=cy+dy,d=Math.max(Math.abs(dx),Math.abs(dy));if(x>=0&&y>=0&&x<size&&y<size)set(x,y,d!=2&&d!=4)}});
+ if(ver>1){const n=Math.floor(ver/7)+2,st=Math.ceil((ver*4+4)/(n*2-2))*2,ap=[6];for(let p=size-7;ap.length<n;p-=st)ap.splice(1,0,p);
+  ap.forEach((cx,i)=>ap.forEach((cy,j)=>{if((i==0&&j==0)||(i==0&&j==n-1)||(i==n-1&&j==0))return;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)set(cx+dx,cy+dy,Math.max(Math.abs(dx),Math.abs(dy))!=1)}))}
+ const fmt=m=>{const d=m|24;let r=d;for(let i=0;i<10;i++)r=(r<<1)^((r>>>9)*0x537);const b=((d<<10)|r)^0x5412,g=i=>((b>>>i)&1)==1;
+  for(let i=0;i<=5;i++)set(8,i,g(i));set(8,7,g(6));set(8,8,g(7));set(7,8,g(8));for(let i=9;i<15;i++)set(14-i,8,g(i));
+  for(let i=0;i<8;i++)set(size-1-i,8,g(i));for(let i=8;i<15;i++)set(8,size-15+i,g(i));set(8,size-8,true)};
+ fmt(0);
+ if(ver>=7){let r=ver;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);const b=(ver<<12)|r;for(let i=0;i<18;i++){const v=((b>>>i)&1)==1,a=size-11+i%3,c=Math.floor(i/3);set(a,c,v);set(c,a,v)}}
+ let k=0;for(let right=size-1;right>=1;right-=2){if(right==6)right=5;for(let vert=0;vert<size;vert++)for(let j=0;j<2;j++){const x=right-j,y=((right+1)&2)==0?size-1-vert:vert;if(!F[y][x]&&k<all.length*8){M[y][x]=((all[k>>>3]>>>(7-(k&7)))&1)==1;k++}}}
+ const C=[(x,y)=>(x+y)%2==0,(x,y)=>y%2==0,(x,y)=>x%3==0,(x,y)=>(x+y)%3==0,(x,y)=>(Math.floor(x/3)+Math.floor(y/2))%2==0,(x,y)=>x*y%2+x*y%3==0,(x,y)=>(x*y%2+x*y%3)%2==0,(x,y)=>((x+y)%2+x*y%3)%2==0];
+ const mask=m=>{for(let y=0;y<size;y++)for(let x=0;x<size;x++)if(!F[y][x]&&C[m](x,y))M[y][x]=!M[y][x]};
+ const pen=()=>{let p=0,dark=0;for(let y=0;y<size;y++){let run=1;for(let x=0;x<size;x++){if(M[y][x])dark++;if(x&&M[y][x]==M[y][x-1]){run++;if(run==5)p+=3;else if(run>5)p++}else run=1;if(x&&y&&M[y][x]==M[y][x-1]&&M[y][x]==M[y-1][x]&&M[y][x]==M[y-1][x-1])p+=3}}
+  for(let x=0;x<size;x++){let run=1;for(let y=1;y<size;y++){if(M[y][x]==M[y-1][x]){run++;if(run==5)p+=3;else if(run>5)p++}else run=1}}
+  return p+Math.floor(Math.abs(dark*20-size*size*10)/(size*size))*10};
+ let best=0,bp=1e9;for(let m=0;m<8;m++){mask(m);fmt(m);const p=pen();if(p<bp){bp=p;best=m}mask(m)}
+ mask(best);fmt(best);
+ let d='';for(let y=0;y<size;y++)for(let x=0;x<size;x++)if(M[y][x])d+='M'+(x+2)+' '+(y+2)+'h1v1h-1z';
+ const s=size+4;return '<svg viewBox="0 0 '+s+' '+s+'" shape-rendering="crispEdges" role="img" aria-label="Code QR du ticket"><rect width="'+s+'" height="'+s+'" fill="#fff"/><path d="'+d+'" fill="#0f1f5c"/></svg>'};
+
+
+
+/* ===== Pré-inscription en étapes ===== */
+try{var lg=document.querySelector('.ref-logo img');if(lg)$('stLogo').src=lg.src;else $('stLogo').style.display='none'}catch(e){}
+function goStep(n){Array.prototype.forEach.call(document.querySelectorAll('#pcStep1 .st>li'),function(li,i){li.className=i+1<n?'done':i+1===n?'on':''});['pcErrS1','pcErrS2','pcErr1'].forEach(function(x){err(x)})}
+function nxt(n){var ids=n===1?['pcNom','pcPrenom','pcTel']:['pcTroupe','pcEglise','pcGrade'];
+ for(var i=0;i<ids.length;i++)if(!v(ids[i]))return err('pcErrS'+n,'Merci de remplir tous les champs.');
+ if(n===1&&v('pcTel').replace(/\D/g,'').length<8)return err('pcErrS1','Numéro de téléphone invalide.');
+ goStep(n+1);$('pcOverlay').scrollTop=0}
+$('pcStep1').addEventListener('click',function(e){var t=e.target.closest('[data-nx],[data-bk],.st>li.done>b');if(!t)return;
+ if(t.hasAttribute('data-nx'))nxt(+t.getAttribute('data-nx')-1);else if(t.hasAttribute('data-bk'))goStep(+t.getAttribute('data-bk'));else goStep(+t.parentNode.getAttribute('data-s'))});
+/* ===== J'ai déjà un compte : rouvre la connexion de l'ancienne appli puis relance le ticket ===== */
+$('pcHave').addEventListener('click',function(){window.__pcUnlock=1;
+ $('pcOverlay').style.display='none';document.documentElement.classList.remove('pc-on');
+ Array.prototype.forEach.call(document.body.children,function(n){try{n.removeAttribute('inert');n.removeAttribute('aria-hidden')}catch(e){}});
+ var b=document.createElement('button');b.id='pcBackLog';b.type='button';b.textContent='← Retour à la pré-inscription';b.onclick=function(){location.reload()};document.body.appendChild(b);
+ try{if(window.openAuth)window.openAuth('login')}catch(e){}
+ var iv=setInterval(function(){if(legReg()){clearInterval(iv);location.reload()}},700)});
+/* ===== Code de parrainage lu directement dans la base (sans dépendre de l'ancienne appli masquée) ===== */
+function tokManual(){try{var k='sb-pzxpjavylrsmptwjeupi-auth-token',x=JSON.parse(localStorage.getItem(k)||'null');if(!x)return Promise.resolve(null);
+ if(x.access_token&&(x.expires_at||0)>Date.now()/1000+30)return Promise.resolve(x.access_token);
+ if(!x.refresh_token)return Promise.resolve(x.access_token||null);
+ return fetch(SB+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:x.refresh_token})}).then(function(r){return r.ok?r.json():null}).then(function(n){
+  if(!n||!n.access_token)return x.access_token||null;n.expires_at=n.expires_at||Math.floor(Date.now()/1000)+(n.expires_in||3600);try{localStorage.setItem(k,JSON.stringify(n))}catch(e){}return n.access_token})}catch(e){return Promise.resolve(null)}}
+function fetchCode(){var cb=window.CampBackend&&window.CampBackend.sb;
+ var tk=cb&&cb.auth?cb.auth.getSession().then(function(r){var z=r&&r.data&&r.data.session;return z?z.access_token:tokManual()},tokManual):tokManual();
+ return tk.then(function(t){if(!t)return null;return fetch(SB+'/rest/v1/rpc/my_referral',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+t,'Content-Type':'application/json'},body:'{}'}).then(function(r){return r.ok?r.json():null})})
+  .then(function(z){z=Array.isArray(z)?z[0]:z;if(z&&z.code){try{localStorage.setItem('camp_ref_cache_2026',JSON.stringify(z))}catch(e){}return z.code}return null}).catch(function(){return null})}
+/* ===== QR stylé : points ronds, coins arrondis, photo de profil au centre, couleurs propres à chaque personne ===== */
+var qid=0;
+function sty(svg,d){if(!svg)return svg;var m=/viewBox="0 0 (\d+) /.exec(svg);if(!m)return svg;var S=+m[1],n=S-4,g=[],re=/M(\d+) (\d+)h1v1/g,t,i,x,y;
+ for(i=0;i<n;i++)g.push([]);while((t=re.exec(svg)))g[t[2]-2][t[1]-2]=1;
+ var sd=0,q=String(d.Name||'')+String(d.Phone||'');for(i=0;i<q.length;i++)sd=(sd*31+q.charCodeAt(i))>>>0;
+ var h1=sd%360,h2=(h1+70+sd%90)%360,c1='hsl('+h1+',72%,30%)',c2='hsl('+h2+',78%,33%)',id='q'+(++qid),c=n/2,r=n*.12,R=r+.8,p='',ph=photoOf(d);
+ var inF=function(x,y){return(x<7&&y<7)||(x>=n-7&&y<7)||(x<7&&y>=n-7)};
+ for(y=0;y<n;y++)for(x=0;x<n;x++){if(!g[y][x]||inF(x,y))continue;var dx=x+.5-c,dy=y+.5-c;if(dx*dx+dy*dy<(R+.5)*(R+.5))continue;p+='M'+(x+.03)+' '+(y+.5)+'a.47 .47 0 1 0 .94 0a.47 .47 0 1 0 -.94 0z'}
+ var f='';[[0,0],[n-7,0],[0,n-7]].forEach(function(o){f+='<rect x="'+(o[0]+.5)+'" y="'+(o[1]+.5)+'" width="6" height="6" rx="1.4" fill="none" stroke="url(#'+id+'g)" stroke-width="1"/><rect x="'+(o[0]+2)+'" y="'+(o[1]+2)+'" width="3" height="3" rx=".85" fill="url(#'+id+'g)"/>'});
+ var mid=ph?'<image href="'+ph+'" x="'+(c-r)+'" y="'+(c-r)+'" width="'+2*r+'" height="'+2*r+'" preserveAspectRatio="xMidYMid slice" clip-path="url(#'+id+'c)"/>':'<circle cx="'+c+'" cy="'+c+'" r="'+r+'" fill="url(#'+id+'g)"/><text x="'+c+'" y="'+(c+r*.36)+'" text-anchor="middle" font-size="'+r*1.1+'" font-weight="800" fill="#fff" font-family="sans-serif">'+esc(String(d.Name||'?').trim().charAt(0).toUpperCase())+'</text>';
+ return '<svg viewBox="0 0 '+S+' '+S+'" role="img" aria-label="Code QR"><defs><linearGradient id="'+id+'g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="'+n+'" y2="'+n+'"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></linearGradient><clipPath id="'+id+'c"><circle cx="'+c+'" cy="'+c+'" r="'+r+'"/></clipPath></defs><rect width="'+S+'" height="'+S+'" fill="#fff"/><g transform="translate(2 2)"><path d="'+p+'" fill="url(#'+id+'g)"/>'+f+'<circle cx="'+c+'" cy="'+c+'" r="'+R+'" fill="#fff"/><circle cx="'+c+'" cy="'+c+'" r="'+(r+.35)+'" fill="none" stroke="url(#'+id+'g)" stroke-width=".5"/>'+mid+'</g></svg>'}
+var L0=legReg();if(L0){startLegacy(L0)}else{resume()}
+})();
+</script>
+
+<div id="bootCover" role="status" aria-label="Chargement"><div class="bc-stars"></div><svg class="bc-scene" viewBox="0 0 240 150" aria-hidden="true"><defs><linearGradient id="bcT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa13d"/><stop offset="1" stop-color="#f05a00"/></linearGradient><radialGradient id="bcG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb347" stop-opacity=".8"/><stop offset="1" stop-color="#ff6500" stop-opacity="0"/></radialGradient><linearGradient id="bcF" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff5a00"/><stop offset=".6" stop-color="#ff9a1f"/><stop offset="1" stop-color="#ffd23f"/></linearGradient></defs><ellipse cx="120" cy="139" rx="106" ry="7" fill="#000" opacity=".3"/><path d="M216 138 L226 100 L236 138Z" fill="#241052"/><path d="M204 138 L211 112 L218 138Z" fill="#2c1463"/><path d="M28 138 L84 40 L140 138Z" fill="url(#bcT)"/><path d="M84 40 L104 138 L140 138Z" fill="#d94e00" opacity=".5"/><path d="M84 76 L62 138 L106 138Z" fill="#2a0f5e"/><path d="M84 76 V138" stroke="#ffb347" stroke-width="1.4" opacity=".55"/><path d="M84 40 V28" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M84 28 L99 32.5 L84 37Z" fill="#ffd23f"/><circle class="bc-glow" cx="178" cy="116" r="48" fill="url(#bcG)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#6b3b1a" transform="rotate(-8 178 133)"/><rect x="152" y="129" width="52" height="9" rx="4.5" fill="#8a4a1f" transform="rotate(8 178 133)"/><path class="bc-fl" d="M178 68 C192 91 202 103 195 123 C191 134 165 134 161 123 C155 105 168 95 178 68Z" fill="url(#bcF)"/><path class="bc-fl b" d="M178 91 C187 105 192 113 188 124 C185 131 171 131 168 124 C165 113 172 105 178 91Z" fill="#ffd23f"/><path class="bc-fl c" d="M178 109 C183 116 185 120 183 126 C181 129 175 129 173 126 C171 120 174 116 178 109Z" fill="#fff6d8"/><circle class="bc-sp" cx="172" cy="84" r="1.9" fill="#ffd23f" style="--dx:-12px;animation-delay:0s"/><circle class="bc-sp" cx="182" cy="82" r="1.5" fill="#ffb347" style="--dx:10px;animation-delay:.5s"/><circle class="bc-sp" cx="177" cy="86" r="1.7" fill="#fff6d8" style="--dx:-3px;animation-delay:1s"/><circle class="bc-sp" cx="186" cy="88" r="1.3" fill="#ffd23f" style="--dx:16px;animation-delay:1.45s"/><circle class="bc-sp" cx="168" cy="90" r="1.4" fill="#ffb347" style="--dx:-18px;animation-delay:1.8s"/></svg><b class="bc-t">Mon <em>CAMP</em></b><small class="bc-s">On allume le feu de camp…</small><div class="bc-bar"><i></i></div></div><script>(function(){var c=document.getElementById("bootCover"),d=0,t0=0,last=Date.now(),iv=0;
 function hide(){if(d)return;d=1;clearInterval(iv);c.className="out";setTimeout(function(){c.remove()},500)}
 function ok(m){var t=m.target;t=t&&t.nodeType===1?t:t&&t.parentElement;return !(t&&t.closest&&t.closest("#v51Cd,#bootCover"))}
 try{new MutationObserver(function(a){for(var i=0;i<a.length;i++)if(ok(a[i])){last=Date.now();break}}).observe(document.documentElement,{childList:true,subtree:true})}catch(e){}
