@@ -11810,7 +11810,9 @@ function submitLegacy(num,phone,sig,manual){touch();
   var ul=el('ul');['Pré-inscrit','Ticket valide','Bracelet reçu','Présence confirmée'].forEach(function(x){ul.appendChild(el('li','✓ '+x))});box.appendChild(ul);
   rec(true,d.name,'N° '+num+' · '+(d.troupe||'—'));verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},
   function(err){queue(num,phone,sig,manual);res('err','Erreur réseau','Scan mis en attente'+(err&&err.message?' ('+err.message+')':'')+', il sera renvoyé automatiquement.')})}
-function handle(raw){var now=Date.now();if(raw===lastRaw&&now-lastT<4000)return;lastRaw=raw;lastT=now;var p=String(raw||'').split('|');
+function handle(raw){var now=Date.now();if(raw===lastRaw&&now-lastT<4000)return;lastRaw=raw;lastT=now;var value=String(raw||'').trim(),p=value.split('|');
+ /* Compatibilité avec les QR du dashboard au format CAMP26:<téléphone>. La validation reste faite par le serveur. */
+ if(/^CAMP26[:|]/i.test(value)){var phone=value.replace(/^CAMP26[:|]/i,'').replace(/\D/g,'');if(phone.length>=8&&mode==='arr'){submit('',phone,'',true)}else{rec(false,'QR dashboard','Ce QR ne contient pas les données signées du ticket Camp.');res('err','QR non compatible','Pour les repas/activités, utilise le QR du ticket CAMP3EN1. Pour l’arrivée, vérification par téléphone en cours.');verdict('err')}return}
  if(p[0]==='CAMP3EN1'&&String(p[1]||'').replace(/\D/g,''))(mode==='arr'?submit(p[1],p[3]||'',p[5]||'',false):pass(p[1],p[3]||'',String(p[2]||'').trim()));
  else if(p[0]==='CAMP3EN1'){var nm=String(p[2]||'').trim()||'Campeur';rec(false,nm,'Pré-inscrit · inscription incomplète (n° de ticket manquant)');res('err','Inscription incomplète',nm+' est pré-inscrit(e) mais n’a pas encore de n° de ticket valide. Il/elle doit ajouter son n° de ticket, puis rouvrir son ticket.');verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200])}
  else{rec(false,'QR inconnu','Ce code ne vient pas du Camp');res('err','QR non reconnu','Ce code ne vient pas du Camp.');verdict('err')}}
