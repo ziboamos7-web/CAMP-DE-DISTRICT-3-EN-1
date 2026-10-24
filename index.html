@@ -18,6 +18,8 @@
 </script>
 
 <meta charset="UTF-8">
+<meta name="camp-build" content="2026-10-24.1">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ff6500">
 <meta name="description" content="Application officielle du Camp de District 3 en 1 — Garango 2026 : Former • Servir • Impacter.">
@@ -11725,7 +11727,7 @@ html.sm-open #cvBar{display:none!important}
 <ellipse cx="110" cy="188" rx="11" ry="8" fill="#ffb15c"/><path d="M104 188h12" stroke="#e85d00" stroke-width="2.5" stroke-linecap="round"/>
 </g></svg></div><h2>Espace agents</h2><p class="sm-sub">Entre ton code pour scanner les tickets à l’entrée du camp.</p><div class="sm-fld" id="smFld"><input id="smCode" type="password" placeholder="Code agent" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" id="smEye" aria-label="Afficher le code"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div><p id="smErr" role="alert"></p><button class="sm-btn" id="smOk" type="button">Entrer</button><ol class="sm-stp"><li>Entre ton code agent</li><li>Scanne le QR du ticket</li><li>Remets le bracelet</li></ol><span class="sm-sec" id="smSec">Connexion sécurisée</span><small class="sm-note">Accès réservé · code vérifié en ligne</small></div></div>
   <div id="smMain" class="sm-b" style="padding:0;display:none">
-   <div class="sm-tabs" id="smTabs" role="tablist" aria-label="Type de scan"><button type="button" data-m="arr" class="on">Arrivée</button><button type="button" data-m="food">Nourriture</button><button type="button" data-m="act">Activités</button><button type="button" data-m="form">Formation</button></div><div class="sm-sub" id="smSub" hidden><label id="smSubL" for="smSel">Repas servi</label><select id="smSel"></select></div>
+   <div class="sm-tabs" id="smTabs" role="tablist" aria-label="Type de scan"><button type="button" data-m="arr" class="on">Arrivée</button><button type="button" data-m="food">Nourriture</button><button type="button" data-m="act">Activités</button></div><div class="sm-sub" id="smSub" hidden><label id="smSubL" for="smSel">Repas servi</label><select id="smSel"></select></div>
    <div class="sm-st"><div><b id="smOkN">0</b><small>Validés</small></div><div class="e"><b id="smKoN">0</b><small>Refusés</small></div></div>
    <div class="sm-vid" id="smVid"><video id="smV" playsinline muted></video></div>
    <div class="sm-row"><button class="sm-btn" id="smCam" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"/></svg><span>Scanner un ticket</span></button><label class="sm-tb" for="smPhoto" aria-label="Photo du QR" title="Photo du QR"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></label><input id="smPhoto" type="file" accept="image/*" capture="environment" hidden><button type="button" id="smTorch" class="sm-tb" style="display:none" aria-label="Lampe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></button></div>
@@ -11742,7 +11744,7 @@ html.sm-open #cvBar{display:none!important}
   </div>
  </div>
 </div>
-<style id="sm-pass-css">.sm-tabs{display:flex;gap:6px;margin-bottom:12px;background:#ece6fb;padding:4px;border-radius:14px}.sm-tabs button{flex:1;border:0;border-radius:11px;padding:12px 4px;font-weight:700;font-size:13px;font-family:inherit;background:transparent;color:#43118a}.sm-tabs button.on{background:#43118a;color:#fff;box-shadow:0 2px 8px rgba(67,17,138,.3)}.sm-sub{margin-bottom:12px}.sm-sub label{display:block;font-weight:700;font-size:13px;color:#43118a;margin-bottom:4px}.sm-sub select{width:100%;padding:13px;border-radius:12px;border:2px solid #d9cff5;font-size:16px;font-family:inherit;background:#fff;color:#1c1440}</style>
+<style id="sm-pass-css">.sm-tabs{display:flex;gap:6px;margin-bottom:12px;background:#ece6fb;padding:4px;border-radius:14px}.sm-tabs button{flex:1;border:0;border-radius:11px;padding:12px 6px;font-weight:700;font-size:14px;font-family:inherit;background:transparent;color:#43118a}.sm-tabs button.on{background:#43118a;color:#fff;box-shadow:0 2px 8px rgba(67,17,138,.3)}.sm-sub{margin-bottom:12px}.sm-sub label{display:block;font-weight:700;font-size:13px;color:#43118a;margin-bottom:4px}.sm-sub select{width:100%;padding:13px;border-radius:12px;border:2px solid #d9cff5;font-size:16px;font-family:inherit;background:#fff;color:#1c1440}</style>
 <script id="sm-script">
 (function(){
 'use strict';
@@ -11810,55 +11812,11 @@ function submitLegacy(num,phone,sig,manual){touch();
   var ul=el('ul');['Pré-inscrit','Ticket valide','Bracelet reçu','Présence confirmée'].forEach(function(x){ul.appendChild(el('li','✓ '+x))});box.appendChild(ul);
   rec(true,d.name,'N° '+num+' · '+(d.troupe||'—'));verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},
   function(err){queue(num,phone,sig,manual);res('err','Erreur réseau','Scan mis en attente'+(err&&err.message?' ('+err.message+')':'')+', il sera renvoyé automatiquement.')})}
-/* ---- Tickets créés depuis le dashboard (CAMP26:<téléphone | code | n°>) : le serveur les traduit en n° de ticket + téléphone, puis le parcours normal d’Scan My continue ---- */
-/* ---- Onglet Formation : l'agent scanne, la participation au séminaire des chefs est enregistrée et l'attestation arrive en direct dans le tableau de bord ---- */
-function formation(num,phone,name){var nm=name||('Ticket N° '+num);
- ensure().then(function(s){return s.rpc('submit_formation',{p_code:code,p_ticket:String(num),p_phone:phone||''})}).then(function(r){if(r.error)throw r.error;var d=r.data||{};
-  if(!d.ok){var M={deja_scanne:['Déjà enregistré(e)','Sa participation à la formation est déjà enregistrée.'],non_preinscrit:['Non pré-inscrit','Ce ticket n’est pas dans les inscriptions.'],code_invalide:['Code agent refusé','Reconnecte-toi.'],profil_incomplet:['Nom manquant','Complète d’abord la fiche du campeur.'],qr_non_valide:['Scan invalide','Ticket manquant.']},m=M[d.alert]||['Scan refusé',''];rec(false,d.name||nm,'Formation · '+m[0]);res('err',m[0],(d.name?d.name+' · ':'')+m[1]);verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
-  var b=res('ok','Participation enregistrée',d.name+(d.troupe?' · '+d.troupe:''));b.appendChild(el('small','Attestation envoyée au tableau de bord'));rec(true,d.name,'Formation · N° '+num);verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},
- function(e){res('err','Connexion requise',(e&&e.message)||'Réessaie quand le réseau est revenu.');verdict('err')})}
-function viaDash(value,label){res('','Lecture du ticket…');
- ensure().then(function(sb){return sb.rpc('camp_resolve_ticket',{p_code:code,p_ref:value}).then(function(r){if(r.error)throw r.error;var d=r.data||{};
-  if(d.ok||d.alert!=='non_preinscrit')return {d:d};
-  /* pas dans les inscrits avec téléphone : on cherche parmi les pré-inscrits SANS téléphone */
-  return sb.rpc('camp_proxy_lookup',{p_code:code,p_ref:value}).then(function(q){if(q.error)throw q.error;var x=q.data||{};return x.ok?{px:x}:{d:d}})})}).then(function(o){
-  if(o.px){pxHandle(o.px,label);return}
-  var d=o.d;
-  if(!d.ok){var m=MSG[d.alert]||(d.alert==='ticket_manquant'?['Ticket sans numéro',(d.name||'Ce campeur')+' est pré-inscrit(e) mais n’a pas encore de n° de ticket.']:d.alert==='ambigu'?['Ticket ambigu','Plusieurs campeurs correspondent : utilise la saisie manuelle (n° + téléphone).']:['Ticket non reconnu','Ce code n’est pas dans les inscriptions.']);rec(false,label,m[0]);res('err',m[0],m[1]);verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
-  var num=String(d.ticket_number),ph=d.phone||'';
-  if(mode==='arr')submit(num,ph,'',true);else pass(num,ph,String(d.name||'').trim())},
- function(err){res('err','Vérification impossible',(err&&err.message)||'Connexion impossible. Réessaie.');verdict('err')})}
-/* ---- Campeurs pré-inscrits sans téléphone : on voit leur fiche (date de pré-inscription…) et on complète les cases vides à la main ---- */
-function pxDate(iso){try{var d=new Date(iso);return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+' à '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}catch(e){return ''}}
-function pxHandle(x,label){var p=x.profile||{},nm=String(p.name||'').trim()||('Pré-inscrit n° '+x.code);
- if(mode!=='arr'){pass(String(x.ticket_number||('px'+x.code)),'',nm);return}
- if(x.already){rec(false,nm,'Déjà enregistré à l’arrivée');res('err','Déjà scanné',nm+' est déjà enregistré(e) à l’arrivée.');verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
- pxOpen(x);stop()}
-var pxModal=null,pxCtx=null;
-function pxOpen(x){pxCtx=x;var p=x.profile||{};
- if(!pxModal){var d=document.createElement('div');d.id='pxModal';d.style.cssText='position:fixed;inset:0;z-index:2147483000;background:rgba(15,10,35,.72);display:none;align-items:center;justify-content:center;padding:16px;overflow:auto';
-  d.innerHTML='<section style="background:#fff;color:#21183a;border-radius:18px;padding:20px;width:min(100%,520px);max-height:92vh;overflow:auto;font:inherit;box-shadow:0 20px 60px #0005"><h2 style="margin:0 0 6px">Pré-inscrit(e) sans téléphone</h2><p id="pxInfo" style="margin:0 0 6px;color:#655b79"></p><p id="pxDt" style="margin:0 0 16px;font-weight:700;color:#43118a"></p><div id="pxFields" style="display:grid;gap:12px"></div><p id="pxError" role="alert" style="color:#b42318"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="pxSave" type="button" style="flex:1;border:0;border-radius:10px;background:#43118a;color:#fff;padding:13px;font-weight:700">Valider l’arrivée</button><button id="pxCancel" type="button" style="border:1px solid #d7d0e4;border-radius:10px;background:#fff;padding:13px">Annuler</button></div><small style="display:block;margin-top:12px;color:#655b79">Les cases déjà remplies sont verrouillées ; les cases vides se complètent ici. Aucun dortoir n’est attribué ici.</small></section>';
-  document.body.appendChild(d);pxModal=d;d.querySelector('#pxCancel').onclick=function(){d.style.display='none';pxCtx=null};d.querySelector('#pxSave').onclick=pxSave}
- var m=pxModal,f=m.querySelector('#pxFields');f.textContent='';
- m.querySelector('#pxInfo').textContent=(x.ticket_number?'Ticket n° '+x.ticket_number:'Pas encore de n° de ticket')+(p.pass?' · '+p.pass:'')+(p.district?' · '+p.district:'');
- m.querySelector('#pxDt').textContent=x.created_at?'Pré-inscrit(e) le '+pxDate(x.created_at):'';
- var nm=String(p.name||'').trim(),bi=String(p.birth||'').slice(0,10);
- campField(f,'pxName','Nom et prénoms',nm,'text',!nm);campField(f,'pxBirth','Date de naissance',bi,'date',!bi);campField(f,'pxPlace','Lieu de naissance',p.birth_place,'text',!String(p.birth_place||'').trim());campField(f,'pxChurch','Église',p.church,'text',!String(p.church||'').trim());campField(f,'pxTroop','Troupe',p.troop,'text',!String(p.troop||'').trim());
- m.querySelector('#pxError').textContent='';var b=m.querySelector('#pxSave');b.disabled=false;b.textContent='Valider l’arrivée';m.style.display='flex'}
-function pxSave(){if(!pxCtx)return;var m=pxModal,b=m.querySelector('#pxSave'),x=pxCtx,fl={};
- [['pxName','Name'],['pxBirth','Birth'],['pxPlace','BirthPlace'],['pxChurch','Church'],['pxTroop','Troop']].forEach(function(a){var i=m.querySelector('#'+a[0]);if(i&&!i.readOnly&&i.value.trim())fl[a[1]]=i.value.trim()});
- b.disabled=true;b.textContent='Enregistrement…';m.querySelector('#pxError').textContent='';touch();
- ensure().then(function(sb){return sb.rpc('camp_proxy_complete',{p_code:code,p_pxcode:x.code,p_fields:fl})}).then(function(r){if(r.error)throw r.error;var d=r.data;
-  if(!d||!d.ok){var map={profil_incomplet:'Le nom est obligatoire : complète-le avant de valider.',deja_scanne:'Déjà enregistré(e) à l’arrivée.',code_invalide:'Code agent invalide : reconnecte-toi.',non_preinscrit:'Pré-inscription introuvable.'};throw new Error(map[d&&d.alert]||'Enregistrement refusé.')}
-  m.style.display='none';pxCtx=null;res('ok','Arrivée enregistrée',(d.name||'Campeur')+' · '+(d.troupe||'—'));rec(true,d.name||'Campeur','Sans téléphone · arrivée enregistrée');verdict('ok');if(navigator.vibrate)navigator.vibrate(120)})
- .catch(function(e){m.querySelector('#pxError').textContent=(e&&e.message)||'Échec de l’enregistrement. Réessaie.'}).finally(function(){b.disabled=false;b.textContent='Valider l’arrivée'})}
 function handle(raw){var now=Date.now();if(raw===lastRaw&&now-lastT<4000)return;lastRaw=raw;lastT=now;var value=String(raw||'').trim(),p=value.split('|');
  /* Compatibilité avec les QR du dashboard au format CAMP26:<téléphone>. La validation reste faite par le serveur. */
- if(/^CAMP26[:|]/i.test(value)){viaDash(value,'Ticket dashboard');return}
- if(/^STAFF\|/i.test(value)){var sn=String(p[1]||'').trim()||'Équipe';rec(false,sn,'Badge équipe (pas un ticket campeur)');res('err','Badge de l’équipe',sn+' : ce badge n’est pas un ticket de campeur, il n’est pas contrôlé ici.');verdict('err');return}
+ if(/^CAMP26[:|]/i.test(value)){var phone=value.replace(/^CAMP26[:|]/i,'').replace(/\D/g,'');if(phone.length>=8&&mode==='arr'){submit('',phone,'',true)}else{rec(false,'QR dashboard','Ce QR ne contient pas les données signées du ticket Camp.');res('err','QR non compatible','Pour les repas/activités, utilise le QR du ticket CAMP3EN1. Pour l’arrivée, vérification par téléphone en cours.');verdict('err')}return}
  if(p[0]==='CAMP3EN1'&&String(p[1]||'').replace(/\D/g,''))(mode==='arr'?submit(p[1],p[3]||'',p[5]||'',false):pass(p[1],p[3]||'',String(p[2]||'').trim()));
  else if(p[0]==='CAMP3EN1'){var nm=String(p[2]||'').trim()||'Campeur';rec(false,nm,'Pré-inscrit · inscription incomplète (n° de ticket manquant)');res('err','Inscription incomplète',nm+' est pré-inscrit(e) mais n’a pas encore de n° de ticket valide. Il/elle doit ajouter son n° de ticket, puis rouvrir son ticket.');verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200])}
- else if(/^[A-Za-z0-9:_-]{3,40}$/.test(value)){viaDash(value,'Code '+value.slice(0,20))}
  else{rec(false,'QR inconnu','Ce code ne vient pas du Camp');res('err','QR non reconnu','Ce code ne vient pas du Camp.');verdict('err')}}
 function cam(){
  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||window.isSecureContext===false){res('err','Caméra bloquée','Ouvre l’application depuis son adresse en ligne (https) pour utiliser la caméra, ou prends le QR en photo avec le bouton photo.');return}
@@ -11919,12 +11877,12 @@ var PMSG={deja_scanne:['Déjà scanné','Ce campeur est déjà enregistré pour 
 function mealNow(){var h=new Date().getHours();return h<10?0:h<15?1:h<18?2:3}
 function loadActs(){if(acts)return Promise.resolve(acts);return ensure().then(function(s){return s.from('camp_items').select('data').eq('kind','programme')}).then(function(r){if(r&&r.error)throw r.error;var seen={};acts=((r&&r.data)||[]).map(function(x){return x.data||{}}).filter(function(d){if(!d.titre||seen[d.titre])return false;seen[d.titre]=1;return true}).map(function(d){return {v:d.titre,t:d.titre+(d.lieu?' · '+d.lieu:'')}});return acts})}
 function setMode(m){mode=m;[].forEach.call($('smTabs').children,function(b){b.classList.toggle('on',b.dataset.m===m)});var sub=$('smSub'),sel=$('smSel');sel.textContent='';
- if(m==='arr'||m==='form'){sub.hidden=true;return}
+ if(m==='arr'){sub.hidden=true;return}
  sub.hidden=false;
  if(m==='food'){$('smSubL').textContent='Repas servi';MEALS.forEach(function(x){var o=el('option',x);o.value=x;sel.appendChild(o)});sel.selectedIndex=mealNow();return}
  $('smSubL').textContent='Activité (à choisir)';var o0=el('option','Choisir l’activité…');o0.value='';sel.appendChild(o0);
  loadActs().then(function(a){if(mode!=='act')return;a.forEach(function(x){var o=el('option',x.t);o.value=x.v;sel.appendChild(o)});if(!a.length)o0.textContent='Aucune activité au programme'},function(){acts=null;if(mode==='act')o0.textContent='Activités indisponibles : change d’onglet puis reviens'})}
-function pass(num,phone,name){touch();if(mode==='form')return formation(num,phone,name);var kind=mode==='food'?'repas':'activite',lab=$('smSel').value;
+function pass(num,phone,name){touch();var kind=mode==='food'?'repas':'activite',lab=$('smSel').value;
  if(!lab){res('err',mode==='food'?'Choisis le repas':'Choisis d’abord l’activité','Sélectionne-la dans la liste au-dessus du scan.');verdict('err');return}
  var title=(mode==='food'?'Repas · ':'Activité · ')+lab,nm=name||('Ticket N° '+num),q={n:num,p:phone,nm:nm,k:kind,l:lab},wait=function(m){pq.push(q);pqUi();res('err','Hors connexion',nm+' : scan mis en attente'+(m?' ('+m+')':'')+', il sera renvoyé automatiquement.')};
  ensure().then(function(s){return s.rpc('submit_pass',{p_code:code,p_ticket:String(num),p_phone:phone||'',p_kind:kind,p_label:lab})}).then(function(r){var d=r&&r.data;
@@ -11932,7 +11890,7 @@ function pass(num,phone,name){touch();if(mode==='form')return formation(num,phon
   if(!d.ok){var m=PMSG[d.alert]||['Scan refusé',''];rec(false,nm,title+' · '+m[0]);res('err',m[0],m[1]);verdict('err');if(navigator.vibrate)navigator.vibrate([200,80,200]);return}
   var box=res('ok',mode==='food'?'Repas validé':'Participation validée',nm);box.appendChild(el('small',lab));
   rec(true,nm,title+' · N° '+num);verdict('ok');if(navigator.vibrate)navigator.vibrate(120)},function(e){wait(e&&e.message)})}
-$('smTabs').onclick=function(e){var m=e.target.dataset&&e.target.dataset.m;if(!m||m===mode)return;setMode(m);res('','Prêt à scanner',m==='arr'?'Vise le QR du ticket pour valider l’arrivée.':m==='form'?'Vise le QR du chef : sa participation au séminaire est enregistrée et son attestation part au tableau de bord.':m==='food'?'Choisis le repas puis vise le QR du ticket.':'Choisis l’activité puis vise le QR de chaque participant.')};
+$('smTabs').onclick=function(e){var m=e.target.dataset&&e.target.dataset.m;if(!m||m===mode)return;setMode(m);res('','Prêt à scanner',m==='arr'?'Vise le QR du ticket pour valider l’arrivée.':m==='food'?'Choisis le repas puis vise le QR du ticket.':'Choisis l’activité puis vise le QR de chaque participant.')};
 /* ---- Scans repas/activités mis en attente hors connexion ---- */
 var pq=[];
 function pqUi(){var b=$('smPend'),n=pq.length+pend.length;if(!n){b.hidden=true;return}b.hidden=false;b.textContent='';b.appendChild(el('span',n+' scan'+(n>1?'s':'')+' en attente de connexion'));var k=el('button','Renvoyer');k.type='button';k.onclick=function(){flush();pqFlush()};b.appendChild(k)}
@@ -12665,6 +12623,28 @@ html body #screenMatchs.cu-sf .cu-tab td,html body #screenMatchs.cu-sf .cu-tab t
 #screenMatchs.cu-sf .sf-f u.fN{background:#a5a2c0}
 #screenMatchs.cu-sf .sf-f u.fD{background:#e5484d}
 </style>
+<script id="camp-update-js">
+/* Mise à jour in-app : compare la version en ligne (version.json) à celle de cette page.
+   Si elle diffère, propose « Mettre à jour ». Les comptes et données du téléphone sont conservés. */
+(function(){'use strict';
+var m=document.querySelector('meta[name="camp-build"]');var BUILD=m?m.content:'';if(!BUILD||!/^https?:$/.test(location.protocol))return;
+var busy=false,shown=false;
+var css=document.createElement('style');
+css.textContent='html.camp-gate body>#cuUpd{visibility:visible!important}#cuUpd{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;justify-content:center;padding:0 12px calc(12px + env(safe-area-inset-bottom));pointer-events:none;font-family:Arial,Helvetica,sans-serif}#cuUpd .b{pointer-events:auto;width:100%;max-width:520px;background:#fff;color:#101329;border-radius:22px;padding:18px 18px 16px;box-shadow:0 18px 50px #07144a66;transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.9,.3,1)}#cuUpd.on .b{transform:none}#cuUpd .t{display:flex;gap:12px;align-items:center}#cuUpd .i{flex:none;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ff6a00,#e85b00);display:grid;place-items:center}#cuUpd h4{margin:0;font-size:16px}#cuUpd p{margin:2px 0 0;font-size:13px;color:#555b73;line-height:1.35}#cuUpd .r{display:flex;gap:10px;margin-top:14px}#cuUpd button{flex:1;min-height:46px;border:0;border-radius:14px;font:inherit;font-weight:800;font-size:14px}#cuUpd .go{background:#ff6a00;color:#fff}#cuUpd .no{background:#f1eff7;color:#43118a}#cuUpd .p{height:5px;border-radius:5px;background:#eee;margin-top:14px;overflow:hidden;display:none}#cuUpd .p i{display:block;height:100%;width:0;background:#ff6a00;transition:width 1.2s ease}';
+document.head.appendChild(css);
+function show(v,notes){if(shown)return;shown=true;var d=document.createElement('div');d.id='cuUpd';d.setAttribute('role','dialog');
+d.innerHTML='<div class="b"><div class="t"><span class="i"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 19h14"/></svg></span><div><h4>Nouvelle version disponible</h4><p>'+(notes||'Nouvelles fonctionnalités et améliorations pour le Camp.')+'</p></div></div><div class="p"><i></i></div><div class="r"><button type="button" class="no">Plus tard</button><button type="button" class="go">Mettre à jour</button></div></div>';
+document.body.appendChild(d);requestAnimationFrame(function(){d.classList.add('on')});
+d.querySelector('.no').onclick=function(){try{sessionStorage.setItem('camp_upd_later',v)}catch(e){}d.classList.remove('on');setTimeout(function(){d.remove();shown=false},400)};
+d.querySelector('.go').onclick=function(){if(busy)return;busy=true;var g=this;g.textContent='Mise à jour…';g.disabled=true;d.querySelector('.no').style.display='none';var p=d.querySelector('.p');p.style.display='block';setTimeout(function(){p.firstChild.style.width='85%'},30);apply(v)}}
+function apply(v){var jobs=[];try{if(window.caches)jobs.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}))}catch(e){}
+try{if(navigator.serviceWorker)jobs.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}catch(e){}
+Promise.all(jobs).catch(function(){}).then(function(){try{localStorage.setItem('camp_build_seen',v)}catch(e){}location.replace(location.pathname+'?v='+encodeURIComponent(v)+location.hash)})}
+function check(){if(busy||shown||!navigator.onLine)return;
+fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.version||j.version===BUILD)return;var l='';try{l=sessionStorage.getItem('camp_upd_later')}catch(e){}if(l===j.version)return;show(j.version,j.notes)}).catch(function(){})}
+setTimeout(check,4000);setInterval(check,600000);document.addEventListener('visibilitychange',function(){if(!document.hidden)check()});window.campCheckUpdate=check;
+})();
+</script>
 </body>
 </html>
 <style id="v87-fohundi-approved">
@@ -19482,7 +19462,7 @@ function paintLive(){
  if(pill){if(LIVE.length){pill.querySelector('span').textContent='CUFLB EN DIRECT · '+LIVE[0].h+' '+LIVE[0].hs+' - '+LIVE[0].as+' '+LIVE[0].a;pill.classList.add('on')}else pill.classList.remove('on')}
  bellRefresh();try{if(window.campLiveBridge)window.campLiveBridge.apply()}catch(e){}}
 function goLive(){try{window.showAppTab('matchs')}catch(e){}setTimeout(function(){var t=document.querySelector('#screenMatchs [data-champ-tab="live"]');if(t)t.click()},120)}
-function goHomeLive(){dismissed=[];try{sessionStorage.removeItem('camp_v302_off')}catch(e){}homeSig='';try{window.showAppTab('home')}catch(e){}setTimeout(function(){paintLive();var e=document.getElementById('v302Live')||document.getElementById('v305Live');if(e&&e.scrollIntoView)e.scrollIntoView({block:'start'})},160)}
+function goHomeLive(){dismissed=[];try{sessionStorage.removeItem('camp_v302_off')}catch(e){}homeSig='';try{window.showAppTab('home')}catch(e){}setTimeout(function(){paintLive();var e=document.getElementById('v302Live');if(e&&e.scrollIntoView)e.scrollIntoView({block:'start'})},160)}
 
 /* ---------- 1b. Passerelle régie : vidéo du direct + animations d'actions ---------- */
 var BR={live:false,stream:null,fx:null,match:null,rx:0},fxSeen=0,fxAct={html:'',until:0,gf:false},bsb=null,bch=null;
@@ -19503,7 +19483,7 @@ function fxPaint(scr,first){var o=scr.querySelector('.v303-fxw');if(Date.now()>=
 /* vidéo en direct de la régie (serveur LiveKit) */
 var LKV={room:null,lib:null,busy:false,vt:null,at:null,err:0};
 function lkLoad(){return window.LivekitClient?Promise.resolve(window.LivekitClient):(LKV.lib||(LKV.lib=new Promise(function(ok,ko){var sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/livekit-client/2.5.7/livekit-client.umd.min.js';sc.onload=function(){window.LivekitClient?ok(window.LivekitClient):ko(new Error('absent'))};sc.onerror=function(){LKV.lib=null;ko(new Error('réseau'))};document.head.appendChild(sc)})))}
-function lkWant(){if(!(brFresh()&&BR.live&&BR.lk)||document.hidden||(BR.sim&&BR.sim.on))return false;return [].some.call(document.querySelectorAll('.v301-scr'),function(x){return x.offsetParent!==null&&airOf(x)})}
+function lkWant(){if(!(brFresh()&&BR.live&&BR.lk)||document.hidden||(BR.sim&&BR.sim.on))return false;return [].some.call(document.querySelectorAll('.v301-scr'),function(x){return x.offsetParent!==null&&brSame(x)})}
 function lkLeave(){var r=LKV.room;LKV.room=null;LKV.vt=null;if(LKV.at){try{LKV.at.detach().forEach(function(e){e.remove()})}catch(e){}LKV.at=null}if(r){try{r.disconnect()}catch(e){}}}
 function lkSync(){if(LKV.busy)return;var w=lkWant();
  if(!w&&LKV.room){lkLeave();return}
@@ -19548,8 +19528,8 @@ function bridgeApply(){var first=fxFirst,f=BR.fx;fxFirst=false;
  if(f&&f.t&&f.t!==fxSeen&&brFresh()){fxSeen=f.t;var b=fxBuild(f);
   if(BR.sim&&BR.sim.on&&f.k==='goal'){fxAct={html:'',gf:false,until:0};setTimeout(function(){fxAct={html:b.html,gf:b.gf,until:Date.now()+(BR.ttl||7000)};fxFirst=true;try{if(navigator.vibrate)navigator.vibrate([120,60,120])}catch(e){}bridgeApply()},2000)}
   else{fxAct={html:b.html,gf:b.gf,until:Date.now()+(BR.ttl||7000)};first=true;try{if(f.k==='goal'&&navigator.vibrate)navigator.vibrate([120,60,120])}catch(e){}}}
- try{showEnsure()}catch(e){}try{lkSync()}catch(e){}
- document.querySelectorAll('.v301-scr').forEach(function(scr){var okm=brFresh()&&BR.live,isAir=airOf(scr),ok=okm&&isAir,sd=(okm&&!scr.hasAttribute('data-show'))?simFor(scr,isAir):null,cov=!!(isAir&&BR.stg&&BR.stg.cover),sm=!!(sd&&sd.on)&&!cov,lkOn=ok&&!sm&&!!LKV.vt,url=ok&&!sm&&!lkOn&&BR.stream&&BR.stream.embed||'',vid=scr.querySelector('.v303-vid'),lv=scr.querySelector('.v303-lk');
+ try{lkSync()}catch(e){}
+ document.querySelectorAll('.v301-scr').forEach(function(scr){var okm=brFresh()&&BR.live,isAir=brSame(scr),ok=okm&&isAir,sd=okm?simFor(scr,isAir):null,cov=!!(isAir&&BR.stg&&BR.stg.cover),sm=!!(sd&&sd.on)&&!cov,lkOn=ok&&!sm&&!!LKV.vt,url=ok&&!sm&&!lkOn&&BR.stream&&BR.stream.embed||'',vid=scr.querySelector('.v303-vid'),lv=scr.querySelector('.v303-lk');
   if(lkOn){if(!lv){lv=document.createElement('video');lv.className='v303-lk';lv.autoplay=true;lv.muted=true;lv.playsInline=true;lv.setAttribute('playsinline','');scr.insertBefore(lv,scr.firstChild)}
    if(lv._t!==LKV.vt){try{if(lv._t)lv._t.detach(lv)}catch(e){}LKV.vt.attach(lv);lv._t=LKV.vt}}
   else if(lv){try{if(lv._t)lv._t.detach(lv)}catch(e){}lv.remove()}
@@ -19561,23 +19541,9 @@ function bridgeApply(){var first=fxFirst,f=BR.fx;fxFirst=false;
    var mm=BR.match||{},ev=sd.ev;CampSim.set(sh,{a:sd.a||mm.a,b:sd.b||mm.b,lu:sd.lu,ev:ev,age:ev&&BR.ts?BR.ts-ev.t:1e9})}
   else if(sh)sh.remove();
   scr.classList.toggle('v303-on',!!(url||lkOn||sm));
-  v304ov(scr,okm&&isAir&&!BR.baked);
+  v304ov(scr,okm&&isAir);
   if(BR.stg&&BR.stg.h){var fw=scr.querySelector('.v303-fxw');if(fw)fw.remove()}else if(fxAct.until>Date.now()&&isAir)fxPaint(scr,first)})}
 window.campLiveBridge={apply:bridgeApply};
-/* ---------- 1c. Directs de toutes les émissions (cérémonie, plateau, séminaire…) : écran « Direct » sur l'accueil ---------- */
-var showEl=null;
-function showOn(){return !!(brFresh()&&BR.live&&BR.show&&BR.show.k==='show')}
-function airOf(scr){return scr.hasAttribute('data-show')?showOn():(!showOn()&&brSame(scr))}
-function showEnsure(){var main=document.getElementById('accueil'),pill=document.getElementById('v300Pill');if(!main)return;
- if(!showOn()){if(showEl){try{showEl.remove()}catch(e){}showEl=null}main.classList.remove('v305-on');if(pill&&pill._sh){pill._sh=0;pill.classList.toggle('v302-hide',false);if(!LIVE.length)pill.classList.remove('on')}return}
- if(!showEl||!showEl.isConnected){var hero=main.querySelector('.ref-hero');showEl=document.createElement('section');showEl.className='v305';showEl.id='v305Live';showEl.setAttribute('aria-label','Direct');
-  showEl.innerHTML='<div class="v305-top"><span class="v302-k"><i></i>EN DIRECT</span><b class="v305-n"></b></div><div class="v301-tv"><div class="v301-scr v305-scr" data-show="1"><div class="v305-wait"><i></i><span>Le direct démarre dans un instant…</span></div><div class="v301-live"><i></i>LIVE</div></div></div>';
-  main.insertBefore(showEl,hero||main.firstChild)}
- main.classList.add('v305-on');
- var n=showEl.querySelector('.v305-n'),t=(BR.show&&BR.show.n)||'Direct';if(n.textContent!==t)n.textContent=t;
- if(pill){var sp=pill.querySelector('span');if(sp&&!(LIVE.length&&!pill._sh)){sp.textContent='EN DIRECT · '+t;pill.classList.add('on');pill._sh=1}pill.classList.toggle('v302-hide',!!(showEl.offsetParent!==null))}}
-(function(){var s=document.createElement('style');s.id='v305-css';s.textContent='main.ref-home.v305-on>.ref-hero{display:none!important}.v305{display:none;position:relative;margin:14px 16px 0;border-radius:20px;padding:12px 12px 16px;color:#fff;background:linear-gradient(160deg,#43118a,#07144a);box-shadow:0 22px 40px -24px #07144a}main.ref-home.v305-on>.v305{display:block}.v305-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}.v305-n{font-size:15px;font-weight:800;line-height:1.2}.v305-scr{background:#0b1220}.v305-wait{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;text-align:center;font-size:13.5px;font-weight:700}.v305-wait i{width:26px;height:26px;border-radius:50%;border:3px solid #ffffff44;border-top-color:#fff;animation:v305sp 1s linear infinite}@keyframes v305sp{to{transform:rotate(360deg)}}.v305-scr.v303-on .v305-wait{display:none}';document.head.appendChild(s)})();
-
 function bridgeStart(){var go=function(){try{bsb=window.supabase.createClient(SB,KEY,{auth:{persistSession:false,autoRefreshToken:false}});
   bch=bsb.channel('camp-live',{config:{broadcast:{self:false}}});
   bch.on('broadcast',{event:'live'},function(x){var p=x&&x.payload;if(!p)return;BR=p;BR.rx=Date.now();try{v304pick(p)}catch(e){}try{paintLive()}catch(e){}bridgeApply()}).on('broadcast',{event:'assets'},function(x){var p=x&&x.payload;if(!p||!p.imgs)return;for(var k in p.imgs)V304.img[k]=p.imgs[k];bridgeApply()})
