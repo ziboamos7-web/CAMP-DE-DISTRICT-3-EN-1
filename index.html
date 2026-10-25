@@ -18,7 +18,7 @@
 </script>
 
 <meta charset="UTF-8">
-<meta name="camp-build" content="2026-10-25.1">
+<meta name="camp-build" content="2026-10-25.2">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ff6500">
@@ -12519,24 +12519,66 @@ html body #screenMatchs.cu-sf .cu-tab td,html body #screenMatchs.cu-sf .cu-tab t
 #screenMatchs.cu-sf .sf-f u.fD{background:#e5484d}
 </style>
 <script id="camp-update-js">
-/* Mise à jour in-app : compare la version en ligne (version.json) à celle de cette page.
-   Si elle diffère, propose « Mettre à jour ». Les comptes et données du téléphone sont conservés. */
+/* Mise à jour in-app (V321)
+   • Compare la version de cette page à celle de la page RÉELLEMENT en ligne (lue sur le réseau, sans cache) :
+     plus de boucle quand version.json et index.html ne concordent pas.
+   • « Mettre à jour » vide le cache, recharge via une adresse unique (jamais l'ancien fichier en cache),
+     puis CONFIRME le résultat à l'écran (réussie ou non chargée).
+   • Les comptes et données du téléphone sont conservés. version.json ne sert plus qu'à afficher les nouveautés. */
 (function(){'use strict';
 var m=document.querySelector('meta[name="camp-build"]');var BUILD=m?m.content:'';if(!BUILD||!/^https?:$/.test(location.protocol))return;
-var busy=false,shown=false;
+var busy=false,shown=false,failed='';
 var css=document.createElement('style');
-css.textContent='html.camp-gate body>#cuUpd{visibility:visible!important}#cuUpd{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;justify-content:center;padding:0 12px calc(12px + env(safe-area-inset-bottom));pointer-events:none;font-family:Arial,Helvetica,sans-serif}#cuUpd .b{pointer-events:auto;width:100%;max-width:520px;background:#fff;color:#101329;border-radius:22px;padding:18px 18px 16px;box-shadow:0 18px 50px #07144a66;transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.9,.3,1)}#cuUpd.on .b{transform:none}#cuUpd .t{display:flex;gap:12px;align-items:center}#cuUpd .i{flex:none;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ff6a00,#e85b00);display:grid;place-items:center}#cuUpd h4{margin:0;font-size:16px}#cuUpd p{margin:2px 0 0;font-size:13px;color:#555b73;line-height:1.35}#cuUpd .r{display:flex;gap:10px;margin-top:14px}#cuUpd button{flex:1;min-height:46px;border:0;border-radius:14px;font:inherit;font-weight:800;font-size:14px}#cuUpd .go{background:#ff6a00;color:#fff}#cuUpd .no{background:#f1eff7;color:#43118a}#cuUpd .p{height:5px;border-radius:5px;background:#eee;margin-top:14px;overflow:hidden;display:none}#cuUpd .p i{display:block;height:100%;width:0;background:#ff6a00;transition:width 1.2s ease}';
+css.textContent='html.camp-gate body>#cuUpd{visibility:visible!important}#cuUpd{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:flex;justify-content:center;padding:0 12px calc(12px + env(safe-area-inset-bottom));pointer-events:none;font-family:Arial,Helvetica,sans-serif}#cuUpd .b{pointer-events:auto;width:100%;max-width:520px;background:#fff;color:#101329;border-radius:22px;padding:18px 18px 16px;box-shadow:0 18px 50px #07144a66;transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.9,.3,1)}#cuUpd.on .b{transform:none}#cuUpd .t{display:flex;gap:12px;align-items:center}#cuUpd .i{flex:none;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#ff6a00,#e85b00);display:grid;place-items:center}#cuUpd h4{margin:0;font-size:16px}#cuUpd p{margin:2px 0 0;font-size:13px;color:#555b73;line-height:1.35}#cuUpd .r{display:flex;gap:10px;margin-top:14px}#cuUpd button{flex:1;min-height:46px;border:0;border-radius:14px;font:inherit;font-weight:800;font-size:14px}#cuUpd .go{background:#ff6a00;color:#fff}#cuUpd .no{background:#f1eff7;color:#43118a}#cuUpd .p{height:5px;border-radius:5px;background:#eee;margin-top:14px;overflow:hidden;display:none}#cuUpd .p i{display:block;height:100%;width:0;background:#ff6a00;transition:width 1.2s ease}#cuUpd .v{font-size:11.5px;color:#7d7a96}#cuUpd .go:disabled{opacity:.7}';
 document.head.appendChild(css);
-function show(v,notes){if(shown)return;shown=true;var d=document.createElement('div');d.id='cuUpd';d.setAttribute('role','dialog');
-d.innerHTML='<div class="b"><div class="t"><span class="i"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 19h14"/></svg></span><div><h4>Nouvelle version disponible</h4><p>'+(notes||'Nouvelles fonctionnalités et améliorations pour le Camp.')+'</p></div></div><div class="p"><i></i></div><div class="r"><button type="button" class="no">Plus tard</button><button type="button" class="go">Mettre à jour</button></div></div>';
-document.body.appendChild(d);requestAnimationFrame(function(){d.classList.add('on')});
-d.querySelector('.no').onclick=function(){try{sessionStorage.setItem('camp_upd_later',v)}catch(e){}d.classList.remove('on');setTimeout(function(){d.remove();shown=false},400)};
-d.querySelector('.go').onclick=function(){if(busy)return;busy=true;var g=this;g.textContent='Mise à jour…';g.disabled=true;d.querySelector('.no').style.display='none';var p=d.querySelector('.p');p.style.display='block';setTimeout(function(){p.firstChild.style.width='85%'},30);apply(v)}}
-function apply(v){var jobs=[];try{if(window.caches)jobs.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}))}catch(e){}
-try{if(navigator.serviceWorker)jobs.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}catch(e){}
-Promise.all(jobs).catch(function(){}).then(function(){try{localStorage.setItem('camp_build_seen',v)}catch(e){}location.replace(location.pathname+'?v='+encodeURIComponent(v)+location.hash)})}
+var IC='<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">',
+ICD=IC+'<path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 19h14"/></svg>',ICK=IC+'<path d="M5 12.5l4.5 4.5L19 7"/></svg>',ICX=IC+'<path d="M12 7v6"/><path d="M12 17h.01"/></svg>';
+function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function LS(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}return null}
+function newer(a,b){var x=String(a).match(/\d+/g),y=String(b).match(/\d+/g);if(!x||!y)return a!==b;for(var i=0,n=Math.max(x.length,y.length);i<n;i++){var p=+(x[i]||0),q=+(y[i]||0);if(p!==q)return p>q}return false}
+function freshUrl(v){try{var u=new URL(location.href);u.searchParams.delete('v');u.searchParams.set('_',Date.now());if(v)u.searchParams.set('v',v);return u.pathname+u.search+u.hash}catch(e){return location.pathname+'?_='+Date.now()+location.hash}}
+function panel(ic,title,txt,sub,btns,bar){if(shown)return null;shown=true;
+ var d=document.createElement('div');d.id='cuUpd';d.setAttribute('role','dialog');
+ d.innerHTML='<div class="b"><div class="t"><span class="i">'+ic+'</span><div><h4>'+title+'</h4><p>'+txt+'</p>'+(sub?'<p class="v">'+sub+'</p>':'')+'</div></div>'+(bar?'<div class="p"><i></i></div>':'')+'<div class="r"></div></div>';
+ var r=d.querySelector('.r');
+ btns.forEach(function(b){var e=document.createElement('button');e.type='button';e.className=b.c;e.textContent=b.t;e.onclick=function(){b.f(d,e)};r.appendChild(e)});
+ document.body.appendChild(d);requestAnimationFrame(function(){d.classList.add('on')});return d}
+function close(d){d.classList.remove('on');setTimeout(function(){d.remove();shown=false},400)}
+/* version de la page réellement en ligne : on lit seulement le début du fichier (le <meta camp-build>), sans cache */
+function pb(h){var t=/<meta\s[^>]*name=["']camp-build["'][^>]*>/i.exec(h);if(!t)return '';var c=/content=["']([^"']*)["']/i.exec(t[0]);return c?c[1]:''}
+function liveBuild(){
+ if(!(window.fetch&&window.ReadableStream&&window.TextDecoder&&window.AbortController))return Promise.resolve('');
+ var ac=new AbortController();
+ return fetch(location.pathname+'?_cb='+Date.now(),{cache:'no-store',signal:ac.signal,headers:{'Range':'bytes=0-32767'}}).then(function(r){
+  if(!r.ok||!r.body)return '';
+  var rd=r.body.getReader(),dec=new TextDecoder(),buf='';
+  function pump(){return rd.read().then(function(x){if(x.value)buf+=dec.decode(x.value,{stream:true});var b=pb(buf);
+   if(b||x.done||buf.length>262144){try{ac.abort()}catch(e){}return b||''}return pump()})}
+  return pump()}).catch(function(){return ''})}
+function offer(v,notes){
+ panel(ICD,'Nouvelle version disponible',esc(notes||'Nouvelles fonctionnalités et améliorations pour le Camp.'),'Installée : '+esc(BUILD)+' · Nouvelle : '+esc(v),[
+  {c:'no',t:'Plus tard',f:function(d){try{sessionStorage.setItem('camp_upd_later',v)}catch(e){}close(d)}},
+  {c:'go',t:'Mettre à jour',f:function(d,b){if(busy)return;busy=true;b.textContent='Mise à jour…';b.disabled=true;d.querySelector('.no').style.display='none';var p=d.querySelector('.p');p.style.display='block';setTimeout(function(){p.firstChild.style.width='85%'},30);apply(v)}}
+ ],true)}
+function apply(v){var jobs=[],go=false;
+ function fin(){if(go)return;go=true;LS('camp_build_seen',v);LS('camp_upd_try',JSON.stringify({v:v,t:Date.now()}));location.replace(freshUrl(v))}
+ try{if(window.caches)jobs.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}))}catch(e){}
+ try{if(navigator.serviceWorker)jobs.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}catch(e){}
+ setTimeout(fin,5000);Promise.all(jobs).catch(function(){}).then(fin)}
+/* après le rechargement : on confirme ce qui s'est réellement passé */
+var T=null;try{T=JSON.parse(LS('camp_upd_try')||'null')}catch(e){}
+if(T&&T.v){LS('camp_upd_try',null);
+ if(Date.now()-(T.t||0)<9e5)setTimeout(function(){
+  if(BUILD===T.v||!newer(T.v,BUILD)){var d=panel(ICK,'Mise à jour terminée','Tu utilises maintenant la dernière version du Camp.','Version : '+esc(BUILD),[{c:'go',t:'OK',f:function(d){close(d)}}]);if(d)setTimeout(function(){if(d.parentNode)close(d)},5000)}
+  else{failed=T.v;panel(ICX,'Mise à jour non chargée','Ton téléphone reçoit encore l’ancienne version. Ferme complètement l’appli puis rouvre-la, ou réessaie dans quelques minutes.','Chargée : '+esc(BUILD)+' · Attendue : '+esc(T.v),[{c:'no',t:'Fermer',f:function(d){close(d)}},{c:'go',t:'Réessayer',f:function(d,b){if(busy)return;busy=true;b.textContent='Mise à jour…';b.disabled=true;apply(T.v)}}])}
+ },1500)}
 function check(){if(busy||shown||!navigator.onLine)return;
-fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.version||j.version===BUILD)return;var l='';try{l=sessionStorage.getItem('camp_upd_later')}catch(e){}if(l===j.version)return;show(j.version,j.notes)}).catch(function(){})}
+ Promise.all([liveBuild(),fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})]).then(function(a){
+  var j=a[1]||{},v=a[0]||j.version||'';
+  if(!v||v===failed||busy||shown||!newer(v,BUILD))return;
+  var l='';try{l=sessionStorage.getItem('camp_upd_later')}catch(e){}
+  if(l===v)return;
+  offer(v,j.notes)})}
 setTimeout(check,4000);setInterval(check,600000);document.addEventListener('visibilitychange',function(){if(!document.hidden)check()});window.campCheckUpdate=check;
 })();
 </script>
@@ -13031,12 +13073,7 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden){ver
 body{padding-bottom:calc(86px + env(safe-area-inset-bottom))!important}
 @keyframes cmPop{0%{transform:scale(.88)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
 
-/* ===== 2. ACCUEIL : cadre doré + lueur de flambeaux ===== */
-main.ref-home .ref-hero{position:relative;margin:10px 8px 0!important;border-radius:22px!important;overflow:hidden;box-shadow:0 18px 40px -16px rgba(0,0,0,.7),0 0 0 3px #ffd76a,0 0 0 6px rgba(255,138,31,.35)}
-.ref-hero::after{content:"";position:absolute;inset:9px;border:2px solid rgba(255,214,90,.85);border-radius:15px;pointer-events:none;z-index:4}
-.ref-hero::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at 10% 82%,rgba(255,160,40,.5),transparent 32%),radial-gradient(circle at 90% 82%,rgba(255,160,40,.5),transparent 32%);mix-blend-mode:screen;animation:cmTorch 2.6s ease-in-out infinite alternate}
-.ref-hero .ref-hero-content{z-index:5}
-@keyframes cmTorch{0%{opacity:.55}50%{opacity:1}100%{opacity:.7}}
+
 
 /* ===== 3. SHORTS / VIDÉOS : état vide désormais designé ===== */
 .vd-em{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;margin:22px 14px;padding:34px 18px;border-radius:22px;background:linear-gradient(160deg,#2a1260,#120a30);border:1px solid rgba(255,214,90,.35);color:#fff;position:relative;overflow:hidden}
@@ -13092,6 +13129,29 @@ button:active{transition:transform .12s}
 })();
 </script>
 
+<style id="v320-fixes">
+/* ===== V320 : barre du bas blanche et épurée, Mon camp sans barre de retour, profil jaune/couleur de district ===== */
+html body #floatingAppNav.floating-app-nav{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;transform:none!important;height:auto!important;min-height:64px!important;padding:6px 10px max(8px,env(safe-area-inset-bottom))!important;border-radius:22px 22px 0 0!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important;align-items:stretch!important;justify-items:stretch!important;background:rgba(255,255,255,.97)!important;-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border:0!important;border-top:1px solid rgba(43,15,77,.08)!important;box-shadow:0 -10px 28px -14px rgba(40,10,90,.35)!important}
+@media(min-width:700px){html body #floatingAppNav.floating-app-nav{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(100vw,520px)!important}}
+html body #floatingAppNav .nav-item{height:auto!important;min-height:52px;width:100%!important;padding:2px 0!important;border-radius:16px!important;background:transparent!important;box-shadow:none!important;color:#6f6b86!important;animation:none!important}
+html body #floatingAppNav .nav-item b{font-size:10px!important;font-weight:800!important;letter-spacing:.4px!important}
+html body #floatingAppNav .nav-icon{display:grid!important;place-items:center;width:46px!important;height:28px!important;border-radius:999px;margin:0!important;transition:background .2s,color .2s}
+html body #floatingAppNav .nav-icon svg{width:21px!important;height:21px!important}
+/* Mon camp : plus de barre « retour / titre » */
+#mc9 .m9-bar{display:none!important}
+#mc9{padding-top:12px}
+/* Profil : jaune avec les motifs du district, sans noir */
+html body #v193Plus .p-ov{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(10,10,50,.3))!important}
+html body #v193Plus .p-ov::before,html body #v193Plus .p-ov::after{display:none!important}
+html[data-dist=pb] body #v193Plus .p-ov{background:rgba(255,255,255,.1)!important}
+html[data-dist=pb] body #v193Plus .p-nm{text-shadow:none!important;color:#2a0a5e!important}
+html[data-dist=pb] body #v193Plus .rh-r{color:#43118a!important;text-shadow:none!important}
+html[data-dist=pb] body #v193Plus .rh-t{background:#2a0a5e!important;color:#ffe066!important;box-shadow:none!important}
+html[data-dist=pb] body #v193Plus .rh-p{background:rgba(255,255,255,.6)!important;color:#2a0a5e!important;border-color:rgba(42,10,94,.18)!important}
+html[data-dist=pb] body #v193Plus .rh-ok{background:#e4f8ea!important;color:#0f6b2f!important;border-color:#9fdcb3!important}
+html[data-dist=pb] body #v193Plus .rh-go{background:linear-gradient(135deg,#ffb300,#ff7410)!important;color:#2b1500!important;border-color:transparent!important}
+html[data-dist=pb] body #v193Plus .p-cam svg{stroke:#2a0a5e!important}
+</style>
 </body>
 </html>
 <style id="v87-fohundi-approved">
@@ -15450,7 +15510,7 @@ var inst=null;
   text:function(c){return 'Rejoins-moi au Camp de District 3 en 1 à Garango (28 oct. → 1er nov. 2026) ! Crée ton compte avec mon code d’ami '+c+' : '+R.link(c)},
   pw:function(a,b){if(a.length<8||!/[a-z]/.test(a)||!/[A-Z]/.test(a)||!/\d/.test(a))return Promise.resolve('weak');if(a!==b)return Promise.resolve('diff');var s=sbc();if(!s||!s.auth)return Promise.resolve('offline');return s.auth.updateUser({password:a}).then(function(r){return r.error?'err':'ok'},function(){return 'err'})},
   ics:function(){var x=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Camp 3 en 1//FR','BEGIN:VEVENT','UID:camp2026@district3en1','DTSTAMP:20261001T000000Z','DTSTART;VALUE=DATE:20261028','DTEND;VALUE=DATE:20261102','SUMMARY:Camp de District 3 en 1','LOCATION:Collège FOHOUNDI\\, Garango\\, Bouaflé','DESCRIPTION:Former • Servir • Impacter','BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:Le Camp commence demain !','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([x],{type:'text/calendar'}));a.download='camp-district-3-en-1.ics';document.body.appendChild(a);a.click();setTimeout(function(){a.remove()},600)},
-  purge:function(){var p=[];try{if(window.caches)p.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}));if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}catch(e){}Promise.all(p).catch(function(){}).then(function(){location.reload()})}};
+  purge:function(){var p=[];try{if(window.caches)p.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}));if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}catch(e){}Promise.all(p).catch(function(){}).then(function(){var u;try{u=new URL(location.href);u.searchParams.set('_',Date.now());u=u.pathname+u.search+u.hash}catch(e){u=location.pathname+'?_='+Date.now()+location.hash}location.replace(u)})}};
  /* Code d'ami en attente : appliqué dès que le compte est connecté */
  var MSG={ok:'Code d’ami enregistré ✓',already:'Tu as déjà utilisé un code d’ami.',self:'Tu ne peux pas utiliser ton propre code.',invalid:'Ce code d’ami n’existe pas.'};
  function pending(){var c=LS(KP),b=sbc();if(!c||!b||!b.auth)return;b.auth.getSession().then(function(s){if(!(s&&s.data&&s.data.session))return;return R.use(c).then(function(r){try{localStorage.removeItem(KP)}catch(e){}if(MSG[r])toast(MSG[r])},function(){})}).catch(function(){})}
@@ -21044,17 +21104,19 @@ html[data-dist=pb] #mc9 .m9-lb{color:#8a6d00}
 
 /* ===== PROFIL ===== */
 html body [data-hid],html body #v193Plus [data-hid]{display:none!important}
-#v193Plus .p-cv{background:linear-gradient(140deg,var(--dc2),var(--dc) 60%,#1c0b45)!important}
+#v193Plus .p-cv:not([style*="url("]){background:linear-gradient(140deg,var(--dc2),var(--dc))!important}
 #v193Plus .p-cv[style*="url("]{background-size:cover!important;background-position:center!important}
 #v193Plus .p-hero:before{content:"";position:absolute;inset:0;z-index:1;background-image:var(--mcPat);background-size:140px 140px;opacity:.9;pointer-events:none}
 html[data-dist=pb] #v193Plus .p-hero:before{opacity:.5}
-#v193Plus .p-av{border:4px solid #fff!important;box-shadow:0 0 0 5px rgba(255,255,255,.25),0 16px 30px -10px rgba(0,0,0,.65)!important;background:linear-gradient(135deg,var(--dc2),var(--dc))!important;color:var(--dci)}
+#v193Plus .p-av{border:4px solid #fff!important;box-shadow:0 0 0 5px rgba(255,255,255,.25),0 16px 30px -10px rgba(0,0,0,.65)!important;color:var(--dci)}
+#v193Plus .p-av:not([style*="url("]){background:linear-gradient(135deg,var(--dc2),var(--dc))!important}
+#v193Plus .p-av[style*="url("]{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
 #v193Plus .p-cam{background:#fff!important;border-color:var(--dc)!important}
 #v193Plus .p-cam svg{stroke:var(--dc)!important}
 #v193Plus .p-nm{font-weight:900;letter-spacing:-.3px}
 html[data-dist=pb] #v193Plus .p-hero{color:#2a0a5e}
 html[data-dist=pb] #v193Plus .p-ov{background:rgba(255,255,255,.12)}
-#v193Plus .rh-info .rh-row,#v193Plus .rh-cv{background:#fff!important;color:var(--dc)!important;border:0!important;border-radius:99px!important;font-weight:800;box-shadow:0 8px 18px -10px rgba(0,0,0,.6)}
+#v193Plus .rh-cv{background:#fff!important;color:#2a0a5e!important;border:0!important;border-radius:99px!important;font-weight:800;box-shadow:0 8px 18px -10px rgba(0,0,0,.6)}
 #v193Plus .rh-cv svg{stroke:currentColor}
 #v193Plus .p-body{padding-top:14px}
 #v193Plus .q8-st{border-radius:20px!important;box-shadow:0 14px 28px -22px rgba(20,10,60,.6)}
@@ -21133,7 +21195,7 @@ function build(){
  if(!m){m=document.createElement('div');m.id='mc9';sc.insertBefore(m,sc.firstChild)}
  var nm=d?String(d.Name).trim().split(/\s+/)[0]:'',key=[d&&d.Name,d&&d.Group,d&&d.TicketNumber,phase()].join('|');
  if(m.getAttribute('data-k')===key)return;m.setAttribute('data-k',key);
- var h='<div class="m9-bar"><button type="button" data-a="back" aria-label="Retour à l’accueil">'+ic('back')+'</button><b>Mon camp</b></div>';
+ var h='';
  h+='<section class="m9-hero"><span class="m9-k">'+esc(phase().toUpperCase())+'</span><h1>'+(d?'Salut '+esc(nm)+' !':'Bienvenue au Camp')+'</h1><p>'+(d?(d.TicketNumber?'Ton ticket n° '+esc(d.TicketNumber)+' est enregistré.':'Ta pré-inscription est enregistrée.'):'Pré-inscris-toi pour retrouver ici ton ticket, ton dortoir et tout le programme.')+'</p><div class="m9-chips"><span>28 OCT → 01 NOV</span><span>Garango</span>'+(d&&d.Group?'<span>'+esc(d.Group)+'</span>':'')+'</div>'
   +(d?'<button type="button" class="m9-cta" data-a="tk">'+ic('tk')+'Afficher mon ticket</button>':'<button type="button" class="m9-cta" data-a="reg">'+ic('pen')+'Me pré-inscrire</button>')+'</section>';
  T.forEach(function(g,gi){h+='<div class="m9-lb">'+g[0]+'</div><div class="m9-g">'+g[1].map(function(t,i){var wide=(g[1].length%2===1&&i===g[1].length-1);return '<button type="button" class="m9-t'+(wide?' wide':'')+'" data-g="'+gi+'" data-i="'+i+'"><i>'+ic(t[0])+'</i><span><b>'+t[1]+'</b><small>'+t[2]+'</small></span></button>'}).join('')+'</div>'});
@@ -21146,7 +21208,7 @@ document.addEventListener('click',function(e){var m=$('mc9');if(!m||!m.contains(
 /* retour depuis le profil */
 /* Profil : ce qui relève du camp passe dans « Mon camp » */
 var HIDE=/^(Paiement|Stats|Mon ticket|Ticket|Agenda|Mon camp|Programme|Galerie|Actualit)/i;
-function tidy(){var r=$('v193Plus');if(!r)return;
+function tidy(){var r=$('v193Plus');if(!r)return;Array.prototype.forEach.call(r.querySelectorAll('[data-hid]'),function(x){x.removeAttribute('data-hid')});return;
  Array.prototype.forEach.call(r.querySelectorAll('.qk-row .qk,.q8-qa>*'),function(b){var t=(b.textContent||'').trim();if(HIDE.test(t))b.setAttribute('data-hid','1');else b.removeAttribute('data-hid')});
  Array.prototype.forEach.call(r.querySelectorAll('.p-card .p-it'),function(it){var k=it.getAttribute('data-k');if(/^(prog|news|gal|frame|lieu|tk|agenda)$/.test(k))it.setAttribute('data-hid','1')});
  Array.prototype.forEach.call(r.querySelectorAll('.p-lb'),function(l){var c=l.nextElementSibling;if(c&&c.classList.contains('p-card')){var any=Array.prototype.some.call(c.querySelectorAll('.p-it'),function(x){return !x.hasAttribute('data-hid')});if(any){l.removeAttribute('data-hid');c.removeAttribute('data-hid')}else{l.setAttribute('data-hid','1');c.setAttribute('data-hid','1')}}});
